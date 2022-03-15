@@ -1,0 +1,216 @@
+:root {
+    --BgcolorBlueDefault: #00005a;
+    --colorTextBlueDefault: #00005a;
+    --colorTred: #e20c32;
+    --colorBgred: #e20c32;
+    --Bdred: #e20c32;
+    --fullScreen: 100vh;
+    --cursorPointer: pointer;
+    --fontMontsrrat: 'Montserrat', sans-serif; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap');
+
+body{
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+width: 6px;
+background:   #fff;
+border-radius: 100px;
+padding: 5px 1px !important;
+transition: 2s;
+}
+
+.msrrt {
+    font-family: var(--fontMontsrrat);
+}
+
+ul{
+    list-style: none;
+   }
+
+   .carousel-indicators [data-bs-target] {
+     background-color: #e20c32 !important;
+     width: 130px !important;
+   }
+
+   .carousel-indicators{
+     bottom: -28px !important;
+   }
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.wrapper .card{
+  background: #fff;
+  width: 75vh;
+  padding: 20px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  justify-content: space-between;
+  position: absolute;
+  /* align-items: center; */
+  animation:animate 15s linear infinite;
+  animation-delay: calc(3s * var(--dalay));
+}
+.card:hover .wrapper {
+  animation-play-state: paused;
+}
+.wrapper .card:last-child{
+  animation-delay: calc(-3s * var(--dalay));
+}
+
+@keyframes animate{
+0%{
+opacity: 0;
+transform: translateY(100%) scale(0.5);
+}
+5%, 20%{
+opacity: 0.4;
+transform: translateY(100%) scale(0.7);
+}
+25%, 40%{
+opacity: 1;
+pointer-events: auto;
+transform: translateY(0%) scale(1);
+}
+45%, 60%{
+opacity: 0.4;
+transform: translateY(-100%) scale(0.7);
+}
+65%, 100%{
+opacity: 0;
+transform: translateY(-100%) scale(0.5);
+}
+/* 100%{
+opacity: 0;
+transform: translateY(-100%) scale(0.5);
+} */
+}
+.card .content{
+display: flex;
+align-items: center;
+}
+.wrapper .card .img{
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  left: -5px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.card .img img{
+height: 100%;
+width: 100%;
+border-radius: 50%;
+object-fit: cover;
+}
+.card .details{
+  margin-left: 80px;
+}
+
+.details span{
+  font-weight: 600;
+font-size: 18px;
+}
+
+.card a{
+  text-decoration: none;
+  background: red;
+  padding: 7px 18px;
+  border-radius: 25px;
+  color: #fff;
+}
+
+
+body::-webkit-scrollbar-thumb {
+padding: 5px 1px;
+width: 0px;
+background:#ccc;
+border-radius: 100px;
+border-right: 1px solid transparent;
+border-left: 1px solid transparent;
+transition: 2s;
+border-top: 5px solid transparent;
+border-bottom: 5px solid transparent;
+}
+
+.BgpadraoBlue {
+    background: var(--BgcolorBlueDefault);
+}
+
+.redTxt {
+    color: var(--colorTred);
+}
+
+.redBg {
+    background-color: var(--colorBgred);
+}
+
+.bored {
+    border-color: var(--Bdred);
+}
+.fullScreen {
+    height: var(--fullScreen);
+}
+
+.cp{
+    cursor: var(--cursorPointer);
+}
+
+.textpadraoblue {
+    color: var(--colorTextBlueDefault);
+}
+
+
+.switch {
+    height: 40px;
+}
+
+.cont .outer {
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.outer #form {
+    width: 200%;
+    position: relative;
+    display: flex;
+    margin: auto;
+    transition: 0.2s ease-in-out;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+#page1 {
+    /* margin:56px 0 0; */
+    width: 100%;
+}
+#page2 {
+    margin: auto;
+    width: 100%;
+}
+
+.element svg {
+    position: absolute;
+    left: 23px;
+    top: 13px;
+    font-size: 17px;
+}
+
+
+#btn:active{
+transform: scale(1.01);
+}
