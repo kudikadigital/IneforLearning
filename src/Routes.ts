@@ -1,43 +1,55 @@
 import {Router, Request, Response} from 'express';
-import CursoController from './controller/cursoController';
+import CursoController from './controller/aluno_curso/cursoController';
 const Route= Router ();
-import ProfessorContrller from './controller/professorController';
-import AlunoController from './controller/alunoController';
-import alunoCursoController from './controller/alunoCursoController';
-import servicoController from './controller/servicoController';
+import ProfessorContrller from './controller/instrutor/professorController';
+import AlunoController from './controller/aluno/alunoController';
+import alunoCursoController from './controller/aluno_curso/alunoCursoController';
+
+//Instancia dos Controller
 const ProfessorC = new ProfessorContrller();
 const CursoC = new CursoController();
 const AlunoC = new AlunoController();
 const aluno_curso= new alunoCursoController();
-const ServicoC= new servicoController();
+
+//Body-parser para adicionar e obter dados apartir das rotas
 import bodyParser from "body-parser";
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-import {alunoAuth} from './middlewre/aluno'
+//Middlewares
+import {alunoAuth} from './middlewre/aluno' //Aluno
 
-Route.post('/criarProfessor', ProfessorC.criarProfessor )
-Route.get('/listarProfessor', ProfessorC.listarProfessor)
 
-Route.post('/criarCurso',CursoC.criarCurso)
-Route.get('/listarCurso', CursoC.listarCurso )
-Route.get('/listarAluno', AlunoC.listarAluno)
-Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno)
-Route.post('/login',urlencodedParser,AlunoC.loginAluno)
+//Rotas Professor
+Route.post('/criarProfessor', ProfessorC.criarProfessor ) //Cadastrar Professor
+Route.get('/listarProfessor', ProfessorC.listarProfessor) //Listar Professor
 
-Route.post('/alunoCurso', aluno_curso.inscrever);
-Route.post('/criarServico', ServicoC.criarServico)
-Route.get('/listarServico', ServicoC.listarServico)
+
+//Rotas Cursos
+Route.post('/criarCurso',CursoC.criarCurso) // Criar Cursos
+Route.get('/listarCurso', CursoC.listarCurso ) //Listar Curos
+
 
 
 //Rotas Aluno
-Route.get('/AlunoPainel',alunoAuth, AlunoC.alunoPainel)
+Route.get('/listarAluno', AlunoC.listarAluno) //Listar Alluno
+Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno) // Cadastrar Aluno
+Route.post('/login',urlencodedParser,AlunoC.loginAluno) // Login Aluno
+Route.get('/AlunoPainel',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
 
-//General Routes
+//Rotas Aluno Cursos
+Route.post('/alunoCurso', aluno_curso.inscrever); // Matricular-se a um curso
+
+
+
+//  Rotas Gerais do Sistema
+//Login principal
 Route.get('/', (req:Request, resp:Response)=>{
-    resp.render('login')
+    resp.render('index')
 })
+// Home page do Sistema
 Route.get('/home', (req:Request, resp:Response)=>{
     resp.render('Home')
 })
+
 
 export default Route;

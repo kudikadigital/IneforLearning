@@ -8,9 +8,9 @@ export async function up(knex: Knex) {
         table.string('email').notNullable();
         table.string('whatsaap').notNullable();
         table.string('desc').notNullable();
-        table.string('nomeuser').notNullable();
         table.string('senha').notNullable();
         table.decimal('adm').notNullable();
+        table.decimal('estado').notNullable();
     })
 }
 

@@ -9,6 +9,7 @@ export async function up(knex: Knex) {
         table.string('whatsaap').notNullable();
         table.string('nomeuser').notNullable();
         table.string('senha').notNullable();
+        table.string('estado').notNullable();
     })
 }
 
