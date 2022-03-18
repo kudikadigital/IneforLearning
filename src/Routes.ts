@@ -32,8 +32,6 @@ Route.get('/listarServico', ServicoC.listarServico)
 //Rotas Aluno
 Route.get('/AlunoPainel',alunoAuth, AlunoC.alunoPainel)
 
-
-
 //General Routes
 Route.get('/', (req:Request, resp:Response)=>{
     resp.render('login')
@@ -41,6 +39,5 @@ Route.get('/', (req:Request, resp:Response)=>{
 Route.get('/home', (req:Request, resp:Response)=>{
     resp.render('Home')
 })
-
 
 export default Route;
