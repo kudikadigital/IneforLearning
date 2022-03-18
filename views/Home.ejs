@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,70 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 </head>
 
 <body>
 
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Cursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="button-form" onclick="window.location='/'">
+                        <div class="button-box d-flex">
+                            <button class="btn-sign signin" type="button">Entrar</button>
+                            <button class="btn-sign signup" type="button">Cadastrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero pt-5">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-md">
+                    <h1 class="display-4 fw-bold">Comece hoje, e desenvolva sua carreira</h1>
+                    <h1 class="lead display-6 py-3 w-75">O seu Futuro é a nossa Missão</h1>
+                    <a href="#" class="btn mt-4 btn-primary">Começar</a>
+                </div>
+                <div class="col-md text-center">
+                    <a href="#" class="play"><i class="fas fa-play"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <div>
-        <div class="mb-5 py-5 container">
+        <div class="mb-5 py-5 mt-5 container">
             <p>Área de interesses</p>
             <div class="mb-5 d-flex justify-content-between align-items-center">
                 <h3 class="fw-bold">Aprenda mais sobre:</h3>
@@ -475,116 +532,224 @@
                 </div>
                 <div class="col-md-7 py-5 BgpadraoBlue">
 
-                    <div class="wrapper">
-                        <div class="card" style="--dalay:-1;">
-                            <p class="fw-bold">Contabilidade Geral</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio nisi dolorem pariatur
-                                numquam doloremque omnis.</p>
-                            <div class="d-flex justify-content-between px-3 pb-3">
-                                <div class="d-flex small">
-                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
-                                        <span>Duração</span>
-                                        <br>
-                                        <span class="fw-bold redTxt">
-                                            40h </span>
+
+                    <div class="flex justify-center w-full md:justify-start lg:inline">
+                        <div style="backdrop-filter:blur(10px);" class="rounded-lg w-64 px-5 mt-3 md:inline-block">
+
+
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="ps-3">
-                                        <div>
-                                            <span>Nível</span> <br>
-                                            <span class="fw-bold redTxt">Iniciante</span>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="card py-5 px-5">
+                                            <p class="fw-bold text-black">Contabilidade Geral</p>
+                                            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                                                elit. Iste odio nisi
+                                                dolorem pariatur numquam doloremque omnis.</p>
+                                            <div class="d-flex justify-content-between px-3 pb-3">
+                                                <div class="d-flex small">
+                                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
+                                                        <span class="text-black fw-bold">Duração</span>
+                                                        <br>
+                                                        <span class="fw-bold redTxt">
+                                                            40h </span>
+                                                    </div>
+                                                    <div class="ps-3">
+                                                        <div>
+                                                            <span class="text-black fw-bold">Nível</span> <br>
+                                                            <span class="fw-bold redTxt">Iniciante</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
+
+
+                                <div class="swiper-pagination position-absolute"></div>
+
+
+
                             </div>
-                        </div>
-                        <div class="card" style="--dalay:0;">
-                            <p class="fw-bold">Contabilidade Geral</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio nisi dolorem pariatur
-                                numquam doloremque omnis.</p>
-                            <div class="d-flex justify-content-between px-3 pb-3">
-                                <div class="d-flex small">
-                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
-                                        <span>Duração</span>
-                                        <br>
-                                        <span class="fw-bold redTxt">
-                                            40h </span>
-                                    </div>
-                                    <div class="ps-3">
-                                        <div>
-                                            <span>Nível</span> <br>
-                                            <span class="fw-bold redTxt">Iniciante</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
-                            </div>
-                        </div>
-                        <div class="card" style="--dalay:1;">
-                            <p class="fw-bold">Contabilidade Geral</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio nisi dolorem pariatur
-                                numquam doloremque omnis.</p>
-                            <div class="d-flex justify-content-between px-3 pb-3">
-                                <div class="d-flex small">
-                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
-                                        <span>Duração</span>
-                                        <br>
-                                        <span class="fw-bold redTxt">
-                                            40h </span>
-                                    </div>
-                                    <div class="ps-3">
-                                        <div>
-                                            <span>Nível</span> <br>
-                                            <span class="fw-bold redTxt">Iniciante</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
-                            </div>
-                        </div>
-                        <div class="card" style="--dalay:2;">
-                            <p class="fw-bold">Contabilidade Geral</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio nisi dolorem pariatur
-                                numquam doloremque omnis.</p>
-                            <div class="d-flex justify-content-between px-3 pb-3">
-                                <div class="d-flex small">
-                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
-                                        <span>Duração</span>
-                                        <br>
-                                        <span class="fw-bold redTxt">
-                                            40h </span>
-                                    </div>
-                                    <div class="ps-3">
-                                        <div>
-                                            <span>Nível</span> <br>
-                                            <span class="fw-bold redTxt">Iniciante</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
-                            </div>
-                        </div>
-                        <div class="card" style="--dalay:2;">
-                            <p class="fw-bold">Contabilidade Geral</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio nisi dolorem pariatur
-                                numquam doloremque omnis.</p>
-                            <div class="d-flex justify-content-between px-3 pb-3">
-                                <div class="d-flex small">
-                                    <div style="border-right: 1px solid #00005a;" class="pe-3">
-                                        <span>Duração</span>
-                                        <br>
-                                        <span class="fw-bold redTxt">
-                                            40h </span>
-                                    </div>
-                                    <div class="ps-3">
-                                        <div>
-                                            <span>Nível</span> <br>
-                                            <span class="fw-bold redTxt">Iniciante</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-heart hvr-bounce-in fs-4 redTxt"></i>
-                            </div>
+
+
                         </div>
                     </div>
 
@@ -740,16 +905,20 @@
                             <div class="row w-100 d-flex justify-content-around">
                                 <div class="col-md-2">
                                     <p class="lead text-white fs-6">Escola Virtual</p>
-                                    <a href="" class="fw-bold text-muted text-decoration-none">Sobre</a>
+                                    <ul class="lst">
+                                        <a href="" class="fw-bold text-muted text-decoration-none">Sobre</a>
+                                    </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <p class="lead text-white fs-6">Cursos</p>
-                                    <ul>
-                                        <li class="fw-bold mb-1 text-muted">Administração</li>
-                                        <li class="fw-bold mb-1 text-muted">Contabilidade e Finança</li>
-                                        <li class="fw-bold mb-1 text-muted">Desenvolvimento Pessoal e Profissional</li>
-                                        <li class="fw-bold mb-1 text-muted">Educação</li>
-                                        <li class="fw-bold mb-1 text-muted">Tecnologia</li>
+                                    <ul class="lst">
+                                        <li class="fw-bold mb-1"><a href="#" class=" text-muted">Administração</a></li>
+                                        <li class="fw-bold mb-1"><a href="#" class=" text-muted">Contabilidade e
+                                                Finança</a></li>
+                                        <li class="fw-bold mb-1"><a href="#" class=" text-muted">Desenvolvimento Pessoal
+                                                e Profissional</a></li>
+                                        <li class="fw-bold mb-1"><a href="#" class=" text-muted">Educação</a></li>
+                                        <li class="fw-bold mb-1"><a href="#" class=" text-muted">Tecnologia</a></li>
                                     </ul>
                                     <p class="lead text-white fs-6">Trilha de conhecimento</p>
                                 </div>
@@ -759,15 +928,21 @@
                                         <p class="lead text-decoration-none text-white  fs-5">Precisa de ajuda?</p>
 
                                         <div class="mt-4 d-flex">
-                                            <li class="d-flex align-items-center"> <span
-                                                    class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
-                                                        class="fab fa-facebook"></i></span></li>
-                                            <li class="d-flex align-items-center"> <span
-                                                    class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
-                                                        class="fab fa-instagram"></i></span></li>
-                                            <li class="d-flex align-items-center"> <span
-                                                    class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
-                                                        class="fab fa-whatsapp"></i></span></li>
+                                            <a href="" class="text-black">
+                                                <li class="d-flex align-items-center"> <span
+                                                        class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
+                                                            class="fab fa-facebook"></i></span></li>
+                                            </a>
+                                            <a href="" class="text-black">
+                                                <li class="d-flex align-items-center"> <span
+                                                        class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
+                                                            class="fab fa-instagram"></i></span></li>
+                                            </a>
+                                            <a href="" class="text-black">
+                                                <li class="d-flex align-items-center"> <span
+                                                        class="bg-white px-3 d-flex me-2 align-items-center py-3 rounded-pill"><i
+                                                            class="fab fa-whatsapp"></i></span></li>
+                                            </a>
                                         </div>
                                     </ul>
 
@@ -785,6 +960,24 @@
         </div>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "fraction"
+            }
+        });
+    </script>
 
     <script src="js/js.js"></script>
     <script src="js/all.js"></script>
