@@ -9,12 +9,15 @@ class ProfessorController{
         const ids=id[0]
         resp.json({name,image, email, whatsaap, desc, senha, ids, nomeuser, adm})
     }
+    
     async listarProfessor(req:Request, resp: Response) {
         const data= await knex('professor').select('*')
         resp.json({data})
     }
+    async painelProfessor(req:Request, resp: Response) {
+      
+    }
 }
-
 
 export default ProfessorController;
 //image, name, email, whatsaap, desc, nomeuser, senha

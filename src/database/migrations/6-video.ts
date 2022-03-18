@@ -4,7 +4,7 @@ export async function up(knex: Knex) {
         table.increments('id').primary();
         table.string('nome').notNullable();
         table.string('src').notNullable();
-        table.string('id').notNullable().references('id').inTable('modulo');
+        table.string('idModulo').notNullable().references('id').inTable('modulo');
     })
 }
 
