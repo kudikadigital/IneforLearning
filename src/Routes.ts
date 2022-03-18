@@ -15,7 +15,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 import {alunoAuth} from './middlewre/aluno'
 
-
 Route.post('/criarProfessor', ProfessorC.criarProfessor )
 Route.get('/listarProfessor', ProfessorC.listarProfessor)
 
