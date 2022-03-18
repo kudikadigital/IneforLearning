@@ -13,17 +13,22 @@
   --firstBlackColorDefault: #333;
   --secondBlackColorDefault: #00005a;
   --cursorPointer: pointer;
-
+--bot: 12px;
 }
 
-
-:root{
-
-}
 body{
   font-family: 'Josefin Sans', sans-serif;
+  overflow: hidden;
 }
 
+.fsbutt{
+  font-size: 1.1em;
+}
+
+.butt{
+  padding-top:var(--bot) !important;
+  padding-bottom:var(--bot) !important;
+}
 
 /*NAVEGAÇÃO*/
 .nav-item a:hover{
