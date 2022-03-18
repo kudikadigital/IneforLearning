@@ -65,64 +65,98 @@
 
 
             </div>
-            <div class="col-lg-8 bg-white fullScreen pt-5 px-5">
+            <div style="overflow-y:scroll;" class=" scrolledited col-lg-8 bg-white fullScreen pt-5 px-4">
 
+                <div class="w-100 mt-5">
 
-                <h1>É um prazer tê-lo de volta!</h1>
-                <p>Vê ate onde estamos</p>
-
-                <div class="row mb-3">
-                    <div class=" col-md-4 text-center">
-                        <div class="card py-3 px-5 shadow-sm" style="border-radius: 15px;">
-                            <small class="fw-bold fs-3">15</small>
-                            <p>Instrutores</p>
-                        </div>
-                    </div>
-                    <div class=" col-md-4 text-center">
-                        <div class="card py-3 px-5 shadow-sm" style="border-radius: 15px;">
-                            <small class="fw-bold fs-3">200</small>
-                            <p>Alunos</p>
-                        </div>
-                    </div>
-                    <div class=" col-md-4 text-center">
-                        <div class="card py-3 px-5 shadow-sm" style="border-radius: 15px;">
-                            <small class="fw-bold fs-3">5</small>
-                            <p>Guardados</p>
-                        </div>
-                    </div>
-
+                    <h1>Cradastre seu instrutor</h1>
 
                 </div>
+                <!-- <p>Vê ate onde estamos</p> -->
 
-                <div class="shadow" style="border-radius: 15px;">
-                    <div class="row">
-                        <div class="px-5 pt-5 pb-4 col-md-6">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi minus quasi voluptas magni
-                            unde eum nemo doloremque. Minima ipsam veniam fugiat sed. Sed vitae aperiam accusantium
-                            tempore sit! Quia, quaerat?
+                <div class="mt-4">
+
+
+                    <form action="" method="POST">
+
+                        <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="nome do instrutor" name="nomecurso">
                         </div>
-                        <div class="px-5 pt-5 pb-4 col-md-6">
-                            <p class="fw-bold fs-5">Razões para continuar connosco...</p>
-                            <div>
-                                <p class="d-flex small"><span
-                                        class="bg-secondary p-2 rounded-pill d-flex align-items-center justify-content-center me-2 text-white small"
-                                        style="height: 33px; width: 45px;">1</span> Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit. Repellendus ad facere.</p>
-                                <p class="d-flex small"><span
-                                        class="bg-secondary p-2 rounded-pill d-flex align-items-center justify-content-center me-2 text-white small"
-                                        style="height: 33px; width: 45px;">1</span> Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit. Repellendus ad facere.</p>
-                                <p class="d-flex small"><span
-                                        class="bg-secondary p-2 rounded-pill d-flex align-items-center justify-content-center me-2 text-white small"
-                                        style="height: 33px; width: 45px;">1</span> Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit. Repellendus ad facere.</p>
-                                <p class="d-flex small"><span
-                                        class="bg-secondary p-2 rounded-pill d-flex align-items-center justify-content-center me-2 text-white small"
-                                        style="height: 33px; width: 45px;">1</span> Lorem ipsum dolor, sit amet
-                                    consectetur adipisicing elit. Repellendus ad facere.</p>
-                            </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                            class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                            placeholder="nº de bilhete" name="nbi">
+                   
                         </div>
+
                     </div>
+
+                    <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="número de telefone" name="telefone">
+                        </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="endereço do instrutor" name="endereco">
+                        </div>
+
+                    </div>
+
+
+                    <div class="">
+                   
+                        <div class="element   position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="email do instrutor" name="email">
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                   
+                        <div class="element position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="crie uma senha" name="senha">
+                        </div>
+                        <div class="element position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="confirme essa senha" name="confsenha">
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4 form-check">
+                        <input checked type="checkbox" class="form-check-input" id="CheckTU">
+                        <label class="form-check-label" for="CheckTU">
+                            Enviar todos os requisitos em <a href=""
+                                class="text-decoration-none fw-bold text-dark">termos de uso</a>
+                        </label>
+                    </div>   
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button id="btn" class="border-0 text-white w-50 px-5 py-2 rounded-pill redBg">
+                                cadastrar instrutor
+                            </button>
+                        </div>
+                 
+
+                    </form>
+
+
+
                 </div>
 
             </div>
