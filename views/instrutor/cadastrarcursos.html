@@ -35,6 +35,8 @@
                 </div>
 
 
+
+
                 <div class="mb-5">
                     <button
                         class="mb-3 fsbutt butt border-0 redBg text-wrap text-white align-items-center justify-content-center text-center w-100 px-4 d-flex rounded-pill">
@@ -45,12 +47,12 @@
                     </button>
                     <button
                         class="mb-3 fsbutt butt border-0 redBg text-wrap text-white align-items-center justify-content-center text-center w-100 px-4 d-flex rounded-pill">
-                        <small>Instrutores</small>
+                        <small>Notificações</small>
                     </button>
-                    <button
+                    <!-- <button
                         class="mb-3 fsbutt butt border-0 redBg text-wrap text-white align-items-center justify-content-center text-center w-100 px-4 d-flex rounded-pill">
                         <small>Alunos</small>
-                    </button>
+                    </button> -->
                 </div>
 
                 <a href=""
@@ -63,61 +65,75 @@
 
 
             </div>
-            <div style="overflow-y:scroll;" class=" scrolledited col-lg-9 bg-white fullScreen pt-5 px-4">
+            <div style="overflow-y:scroll;" class=" scrolledited col-lg-8 bg-white fullScreen pt-5 px-4">
 
-                <div class="w-100 d-flex justify-content-between">
+                <div class="w-100 mt-5">
 
-                    <h1>Painel de alunos</h1>
+                    <h1>Crie cursos a sua maneira</h1>
 
-                    <button
-                    class="mb-3 fsbutt border-0 redBg text-wrap text-white align-items-center justify-content-center text-center px-3 py-2 d-flex rounded-pill">
-                    <small> cadastrar novo aluno</small>
-                </button>
                 </div>
                 <!-- <p>Vê ate onde estamos</p> -->
 
-                <div class="shadow border mt-4">
+                <div class="mt-4">
 
 
+                    <form action="" method="POST">
 
-                    <table class="w-100 redBg" style=" text-indent: 15px;">
-                        <p class="redBg mb-0 py-2 w-100 text-center text-white rounded-top">Alunos cadastrados</p>
-                        <thead>
-                            <tr  style="height: 35px;" class="border-bottom bg-secondary text-white">
-                                <th>Nome do aluno</th>
-                                <th>Curso (s)</th>
-                                <th>Acão</th>
-                            </tr>
-                        </thead>
+                        <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="nome do curso" name="nomecurso">
+                        </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                        <select name="" id=""  class="w-100 fw-normal py-2 rounded-pill form-control px-5">
+                            <option value="">-- selecionar categoria--</option>
+                            <option value="">outros</option>
+                        </select>
+                        </div>
 
-                        <tbody class="lead bg-white fs-6">
-                            <tr  style="height: 35px;" class="border-bottom">
-                                <td>
-                                    Aldair António
-                                </td>
-                                <td>
-                                    Contabilidade
-                                </td>
-                                <td>
-                                    <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a>
-                                </td>
+                    </div>
 
-                            </tr>
-                            <tr  style="height: 35px;" class="border-bottom">
-                                <td>
-                                    Gelson Mesquita
-                                </td>
-                                <td>
-                                    Programação web
-                                </td>
-                                <td>
-                                    <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a>
-                                </td>
+                    <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="capa do curso" name="nomecurso">
+                        </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="instrutor do curso" name="instrutor">
+                        </div>
 
-                            </tr>
+                    </div>
 
-                        </tbody>
-                    </table>
+                    <div class="element position-relative mb-4">
+                        <textarea type="text" class="w-100 fw-normal py-2 h-75 rounded-3 form-control"
+                            placeholder="descrição do curso" name="descrição do curso"></textarea>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input checked type="checkbox" class="form-check-input" id="CheckTU">
+                        <label class="form-check-label" for="CheckTU">
+                            Enviar todos os requisitos em <a href=""
+                                class="text-decoration-none fw-bold text-dark">termos de uso</a>
+                        </label>
+                    </div>   
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button id="btn" class="border-0 text-white w-50 px-5 py-2 rounded-pill redBg">
+                                guardar
+                            </button>
+                        </div>
+                 
+
+                    </form>
+
+
 
                 </div>
 

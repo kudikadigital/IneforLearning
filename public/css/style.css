@@ -146,6 +146,9 @@ padding: 5px 1px !important;
 transition: 2s;
 }
 
+.rad15{
+  border-radius: 15px !important;
+}
 
 .scrolledited{
   overflow-x: hidden;
@@ -205,6 +208,13 @@ border-bottom: 5px solid transparent;
   background: var(--BgcolorBlueDefault);
 }
 
+
+.outnone{
+  outline: none !important;
+  border: ;
+  color: #000 !important;
+  background: #fff !important;
+}
 .redTxt {
   color: var(--colorTred);
 }
