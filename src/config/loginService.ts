@@ -12,13 +12,10 @@ async function authenticate(email:string, senha:string) {
             const professor= await knex('professor').where('email', email).where('senha',senha )
             if(professor.length!==0){
                 const prof= professor[0];
-                console.log(prof)
                 if(prof.adm===1){
-                    console.log("adm")
                     const PROFESSORAdm= {prof, p:'adm'}
                     return PROFESSORAdm
                 }else if(prof.adm===0){
-                    console.log("professor")
                     const PROFESSOR= {prof, p:'professor'}
                     return PROFESSOR
                 }

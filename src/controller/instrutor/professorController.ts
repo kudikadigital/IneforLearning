@@ -1,5 +1,5 @@
 import knex from '../../database/conection';
-import { Response, Request } from 'express';
+import { Response, Request } from 'express'; 
 
 class ProfessorController{
     async criarProfessor(req:Request, resp: Response){
@@ -11,12 +11,23 @@ class ProfessorController{
     }
     
     async listarProfessor(req:Request, resp: Response) {
-        const data= await knex('professor').select('*')
-        resp.json({data})
+        const professores= await knex('professor').whereNot('adm', 1)
+        const categoria= await knex('categoria').select('*')
+        resp.render("admin/instrutores", {adm:req.session?.adm, categoria, professores})
     }
     async painelProfessor(req:Request, resp: Response) {
-      
+        if(req.session){
+            if(req.session.professor){
+              resp.render('', {aluno:req.session.professor})
+            }else{
+              resp.redirect('/')
+            }
+          }
     }
+    async instrutorNew(req:Request, resp: Response) {
+      resp.render('admin/cadastrarinstrutor',{adm:req.session?.adm})
+  }
+
 }
 
 export default ProfessorController;

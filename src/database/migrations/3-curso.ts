@@ -4,7 +4,7 @@ export async function up(knex: Knex) {
         table.increments('id').primary();
         table.string('nome').notNullable();
         table.integer('idProfessor').notNullable().references('id').inTable('professor');
-        table.string('data_inicio').notNullable();
+        table.timestamp('data_inicio').defaultTo( knex.fn.now());
         table.string('image').notNullable();
         table.string('desc').notNullable();
         table.string('estado').notNullable();

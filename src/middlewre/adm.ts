@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from "express";
-const alunoAuth= (req:Request, resp:Response, next:NextFunction)=>{
+const admAuth= (req:Request, resp:Response, next:NextFunction)=>{
 
     if(req.session){
         if(req.session.adm!==undefined){
@@ -13,4 +13,4 @@ const alunoAuth= (req:Request, resp:Response, next:NextFunction)=>{
 }
 
 
-export {alunoAuth};
+export {admAuth};
