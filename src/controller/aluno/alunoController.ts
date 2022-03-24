@@ -23,17 +23,12 @@ class AlunoController{
     
     async cursosAlunos(req:Request, resp:Response){
       const cursos = await knex('aluno-curso').where('') 
-      resp.json(cursos)
+      resp.json(cursos) 
     }
 
     async alunoPainel(req:Request, resp:Response){
-      if(req.session){
-        if(req.session.aluno){
-          resp.render('./aluno/alunoPainel.ejs', {aluno:req.session.aluno})
-        }else{
-          resp.redirect('/')
-        }
-      }
+      const cursos= await knex('curso').select('*')
+      resp.render('aluno/index', {aluno:req.session?.aluno, cursos})
     }
   
 }

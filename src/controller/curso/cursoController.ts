@@ -22,11 +22,16 @@ class CursoController{
     const alunos= await knex('aluno').select('*')
     resp.render("admin/cursos",{adm:req.session?.adm, cursos, alunos})
    }
+
    async criarCursoView(req:Request, resp:Response) {
     const professores= await knex('professor').whereNot('adm', 1)
     const categoria= await knex('categoria').select('*')
     console.log(categoria)
     resp.render("admin/cadastrarcursos",{adm:req.session?.adm, categoria, professores})
+   }
+
+   async ocurso(req:Request, resp:Response){
+       resp.render("admin/ocurso", {adm:req.session?.adm})
    }
 }
 

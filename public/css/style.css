@@ -79,6 +79,11 @@ button.btn-sign.signup:hover{
   transition: ease-in-out .5s;
 }
 
+.hhh {
+    padding-top:15rem !important;
+    height: 96vh !important;
+
+}
 
 /*HERO*/
 .hero{

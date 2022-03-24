@@ -31,7 +31,7 @@ Route.post('/criarProfessor', ProfessorC.criarProfessor ) //Cadastrar Professor
 Route.get('/listarProfessor', ProfessorC.listarProfessor) //Listar Professor
 
 
-//Rotas Cursos
+//Rotas Cursos 
 Route.post('/criarCurso',CursoC.criarCurso) // Criar Cursos
 Route.get('/listarCurso', CursoC.listarCurso ) //Listar Curos
 
@@ -46,11 +46,14 @@ Route.post('/admin/cursos/create', admAuth,upload.single('imageCurso'),urlencode
 Route.get('/admin/instrutores', admAuth, ProfessorC.listarProfessor)
 Route.get('/admin/instrutores/new', admAuth, ProfessorC.instrutorNew)
 
+//o curso
+Route.get('/admin/ocurso', admAuth, CursoC.ocurso)
+
 
 //Rotas Aluno
 Route.get('/listarAluno', alunoAuth, AlunoC.listarAluno) //Listar Alluno
 Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno) // Cadastrar Aluno
-Route.get('/AlunoPainel',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
+Route.get('/aluno',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
 
 //Rotas Aluno Cursos
 Route.post('/alunoCurso', aluno_curso.inscrever); // Matricular-se a um curso
@@ -96,7 +99,7 @@ Route.post('/loginGeral',urlencodedParser, (req:Request, resp: Response)=>{
                         const aluno= dados
                         if(req.session){
                           req.session.aluno=aluno;
-                          resp.redirect('AlunoPainel')
+                          resp.redirect('/aluno')
                         } 
                     }
                 }

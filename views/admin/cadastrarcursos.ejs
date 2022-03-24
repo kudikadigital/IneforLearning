@@ -1,6 +1,6 @@
 <%- include('../partes/admin/left') %> 
 
-            <div style="overflow-y:scroll;" class=" scrolledited col-lg-8 bg-white fullScreen pt-5 px-4">
+            <div style="overflow-y:scroll;" class=" scrolledited col-lg-9 bg-white fullScreen pt-5 px-4">
 
                 <div class="w-100 mt-5">
 
@@ -17,9 +17,7 @@
                         <div class="row">
                    
                         <div class="element col-md-6  position-relative mb-3">
-                            <input type="text"
-                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                placeholder="nome do curso" name="nomeCurso">
+                            <input type="text" class="w-100 fw-normal py-2 rounded-pill form-control  px-5" placeholder="Nome do curso" name="nomeCurso">
                         </div>
                                           
                         <div class="element col-md-6  position-relative mb-3">
@@ -36,9 +34,11 @@
                    
                         <div class="element col-md-6  position-relative mb-3">
                             <div class="input-group mb-3">
-                                <input name="imageCurso" type="file" class="form-control  rounded-pill" id="inputGroupFile02">
-                                
+                                <input name="imageCurso" type="file" onchange="previewInmage();" class="fotos form-control visually-hidden rounded-pill" id="inputGroupFile02">
+                                <label for="inputGroupFile02" class=" py-2 px-5 text-muted rounded-pill border w-100">Capa do curso</label>
                               </div>
+
+                              <img style="height:30vh; width: 100%; object-fit: cover;" src="" id="preview" alt="">
                         </div>
                         <div class="element col-md-6  position-relative mb-3">
                             <select name="idProfessor" id=""  class="w-100 fw-normal py-2 rounded-pill form-control px-5">
@@ -78,6 +78,25 @@
             </div>
         </div>
     </div>
+
+
+
+ <script>
+	function previewInmage() {
+		var file = document.querySelector(".fotos").files;
+		if (file.length > 0) {
+			var fileReader = new FileReader();
+			fileReader.onload = function (event) {
+			document.getElementById("preview").setAttribute("src", event.target.result);
+      document.getElementById("preview").style.display="block";
+    };
+			fileReader.readAsDataURL(file[0]);
+		}
+	}
+</script>
+
+
+
     <script>
         const handleSubmit = (e) => {
             e.preventDefault()
