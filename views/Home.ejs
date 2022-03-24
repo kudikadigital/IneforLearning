@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,37 +19,58 @@
 
 </head>
 
-<body>
+<body class="scrolledited">
 
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <nav id="asdfg" style="backdrop-filter: blur(20px);" class="navbar shadow navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="assets/logo.png" alt=""></a>
+                <a class="navbar-brand" href="#"><img src="/assets/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse  overflow-hidden" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" href="#"  href="#"aria-current="page" >Home</a>
+                        </li>
+                        <li class="nav-item  dropdown has-megamenu" >
+                            <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Cursos</a>
+        
+
+
+                            <div class="dropdown-menu megamenu" role="menu" data-bs-popper="none">
+                                <div class="row g-3">
+                                    <div>
+                                        <div class="col-megamenu  animated-fast fadeIn py-5 container">
+                                              <h4 class=" fw-bold">Cursos</h4>
+                                            <ul class="list-unstyled d-flex flex-column">
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3 border-bottom">Custom Menu</li></a>
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3 border-bottom">Custom Menu</li></a>
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3 border-bottom">Custom Menu</li></a>
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3 border-bottom">Custom Menu</li></a>
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3 border-bottom">Custom Menu</li></a>
+                                                <a class="text-decoration-none text-muted  hvr-forward" href="#"><li class="py-3">Custom Menu</li></a>
+                                            </ul>
+                                        </div>  <!-- col-megamenu.// -->
+                                    </div><!-- end col-3 -->
+                       
+                                </div><!-- end row --> 
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cursos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <a href="/sobre" class="nav-link">Sobre</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <a class="nav-link" href="/suporte">Suporte</a>
                         </li>
                     </ul>
-                    <form class="button-form" onclick="window.location='/'">
+                    <form class="button-form" onclick="window.location='/login'">
                         <div class="button-box d-flex">
                             <button class="btn-sign signin" type="button">Entrar</button>
                             <button class="btn-sign signup" type="button">Cadastrar</button>
@@ -59,13 +81,13 @@
         </nav>
     </header>
 
-    <section class="hero pt-5">
+    <section class="hero yyy pt-5">
         <div class="container">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-md">
                     <h1 class="display-4 fw-bold">Comece hoje, e desenvolva sua carreira</h1>
                     <h1 class="lead display-6 py-3 w-75">O seu Futuro é a nossa Missão</h1>
-                    <a href="#" class="btn mt-4 btn-primary">Começar</a>
+                    <a href="/login" class="btn mt-4 btn-primary">Começar</a>
                 </div>
                 <div class="col-md text-center">
                     <a href="#" class="play"><i class="fas fa-play"></i></a>
@@ -536,7 +558,7 @@
                         <div style="backdrop-filter:blur(10px);" class="rounded-lg w-64 px-5 mt-3 md:inline-block">
 
 
-                            <div class="swiper mySwiper">
+                            <div class="swiper mySwiper h-100">
                                 <div class="swiper-wrapper">
 
                                     <div class="swiper-slide">
@@ -977,6 +999,22 @@
             }
         });
     </script>
+
+<!-- SCROLL ANIMATION CODE -->
+<script>
+    function bgChanger() {
+        if (this.scrollY > this.innerHeight / 8) {
+            document.getElementById('asdfg').style.background = '#00005a';
+        } else {
+
+            document.getElementById('asdfg').style.background = 'transparent';
+
+        }
+
+    }
+
+    window.addEventListener("scroll", bgChanger);
+</script>
 
     <script src="js/js.js"></script>
     <script src="js/all.js"></script>

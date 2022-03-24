@@ -1,0 +1,127 @@
+<%- include('../partes/admin/left') %> 
+
+
+            <div style="overflow-y:scroll;" class=" scrolledited col-lg-8 bg-white fullScreen pt-5 px-4">
+
+                <div class="w-100 mt-5">
+
+                    <h1>Cradastre seu instrutor</h1>
+
+                </div>
+                <!-- <p>Vê ate onde estamos</p> -->
+
+                <div class="mt-4">
+
+
+                    <form action="" method="POST">
+
+                        <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="nome do instrutor" name="nomecurso">
+                        </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                            class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                            placeholder="nº de bilhete" name="nbi">
+                   
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                   
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="número de telefone" name="telefone">
+                        </div>
+                                          
+                        <div class="element col-md-6  position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="endereço do instrutor" name="endereco">
+                        </div>
+
+                    </div>
+
+
+                    <div class="">
+                   
+                        <div class="element   position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="email do instrutor" name="email">
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                   
+                        <div class="element position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="crie uma senha" name="senha">
+                        </div>
+                        <div class="element position-relative mb-3">
+                            <input type="text"
+                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                placeholder="confirme essa senha" name="confsenha">
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4 form-check">
+                        <input checked type="checkbox" class="form-check-input" id="CheckTU">
+                        <label class="form-check-label" for="CheckTU">
+                            Enviar todos os requisitos em <a href=""
+                                class="text-decoration-none fw-bold text-dark">termos de uso</a>
+                        </label>
+                    </div>   
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button id="btn" class="border-0 text-white w-50 px-5 py-2 rounded-pill redBg">
+                                cadastrar instrutor
+                            </button>
+                        </div>
+                 
+
+                    </form>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            Toastify({
+                text: "Cadastro efectuado com sucesso!",
+                duration: 3000,
+                destination: "/",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function () { } // Callback after click
+            }).showToast();
+        }
+    </script>
+
+    <script src="../js/js.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../bootstrap-5.1.3/bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>
