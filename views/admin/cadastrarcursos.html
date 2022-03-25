@@ -96,33 +96,44 @@
 
                     </div>
 
+
+                 
+                    <!--  -->
+                     
                     <div class="row">
                    
-                        <div class="element col-md-6  position-relative mb-3">
-                            <input type="text"
-                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                placeholder="capa do curso" name="nomecurso">
-                        </div>
-                                          
-                        <div class="element col-md-6  position-relative mb-3">
-                            <input type="text"
-                                class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                placeholder="instrutor do curso" name="instrutor">
-                        </div>
+                  <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input name="imageCurso" type="file" onchange="previewInmage();" class="fotos form-control visually-hidden rounded-pill" id="inputGroupFile02">
+                        <label for="inputGroupFile02" class=" py-2 px-5 text-muted rounded-pill border w-100">Capa do curso</label>
+                      </div>
 
+                                      
+                    <div class="element position-relative mb-3">
+                        <input type="text"
+                            class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                            placeholder="instrutor do curso" name="instrutor">
+                    </div>
+<div class="element position-relative mb-4">
+                    <textarea type="text" class="w-100 fw-normal py-2 h-75 rounded-3 form-control"
+                        placeholder="descrição do curso" name="descrição do curso"></textarea>
+                </div>
+                  </div>
+
+                  <div class="col-md-6 pb-4">
+                    <img style="height:35vh; width: 100%; object-fit: cover; border-radius: 15px;" src="" id="preview" alt="Imagem de capa">
+                  </div>
                     </div>
 
-                    <div class="element position-relative mb-4">
-                        <textarea type="text" class="w-100 fw-normal py-2 h-75 rounded-3 form-control"
-                            placeholder="descrição do curso" name="descrição do curso"></textarea>
-                    </div>
+                
                     <div class="mb-4 form-check">
-                        <input checked type="checkbox" class="form-check-input" id="CheckTU">
-                        <label class="form-check-label" for="CheckTU">
+                        <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required="">
+                        <label class="form-check-label" for="invalidCheck3">
                             Enviar todos os requisitos em <a href=""
-                                class="text-decoration-none fw-bold text-dark">termos de uso</a>
+                                class="text-decoration-none text-muted">termos de uso</a>
                         </label>
-                    </div>   
+                
+                      </div>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <button id="btn" class="border-0 text-white w-50 px-5 py-2 rounded-pill redBg">
@@ -140,6 +151,21 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        function previewInmage() {
+            var file = document.querySelector(".fotos").files;
+            if (file.length > 0) {
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                document.getElementById("preview").setAttribute("src", event.target.result);
+          document.getElementById("preview").style.display="block";
+        };
+                fileReader.readAsDataURL(file[0]);
+            }
+        }
+    </script>
     <script>
         const handleSubmit = (e) => {
             e.preventDefault()

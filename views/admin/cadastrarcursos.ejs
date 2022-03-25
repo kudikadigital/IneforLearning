@@ -30,6 +30,9 @@
 
                     </div>
 
+
+          
+                      
                     <div class="row">
                    
                         <div class="element col-md-6  position-relative mb-3">
@@ -38,29 +41,39 @@
                                 <label for="inputGroupFile02" class=" py-2 px-5 text-muted rounded-pill border w-100">Capa do curso</label>
                               </div>
 
-                              <img style="height:30vh; width: 100%; object-fit: cover;" src="" id="preview" alt="">
-                        </div>
-                        <div class="element col-md-6  position-relative mb-3">
+                       
+                        <div class="element position-relative mb-3">
                             <select name="idProfessor" id=""  class="w-100 fw-normal py-2 rounded-pill form-control px-5">
                                 <% professores.forEach(prof => { %>
                                     <option value="<%= prof.id %>"> <%= prof.name %> </option>
                                 <%}) %> 
                             </select>
                         </div>
-
-                    </div>
-
-                    <div class="element position-relative mb-4">
+   <div class="element position-relative mb-4">
                         <textarea type="text" class="w-100 fw-normal py-2 h-75 rounded-3 form-control"
                             placeholder="Descrição do Curso" name="descCurso"></textarea>
                     </div>
+               
+                    
+
+ </div>
+<div class="col-md-6 pb-3">
+    <img style="height:30vh; width: 100%; object-fit: cover; border-radius: 15px;" src="" id="preview"  alt="Imagem de capa">
+</div>
+
+
+                    </div>
+
+                 
                     <div class="mb-4 form-check">
-                        <input checked type="checkbox" class="form-check-input" id="CheckTU">
-                        <label class="form-check-label" for="CheckTU">
+                        <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required="">
+                        <label class="form-check-label" for="invalidCheck3">
                             Enviar todos os requisitos em <a href=""
-                                class="text-decoration-none fw-bold text-dark">termos de uso</a>
+                                class="text-decoration-none text-muted">termos de uso</a>
                         </label>
-                    </div>   
+                
+                      </div>
+
 
                         <div class="d-flex justify-content-between align-items-center">
                             <button type="submit" id="btn" class="border-0 text-white w-50 px-5 py-2 rounded-pill redBg">

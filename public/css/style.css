@@ -263,6 +263,13 @@ border-bottom: 5px solid transparent;
   transition: 0.2s ease-in-out;
 }
 
+.formcateg.active{
+  display: block !important;
+}
+.saveCat.active{
+  display: block !important;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
 
