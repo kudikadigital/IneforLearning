@@ -155,6 +155,10 @@ transition: 2s;
   border-radius: 15px !important;
 }
 
+.radtl{
+  border-top-left-radius:15px !important;
+}
+
 .scrolledited{
   overflow-x: hidden;
   overflow-y: scroll;
@@ -243,6 +247,11 @@ border-bottom: 5px solid transparent;
   color: var(--colorTextBlueDefault);
 }
 
+.swiper-container {
+  width: 100%;
+  height: 80vh;
+
+}
 
 .switch {
   height: 40px;

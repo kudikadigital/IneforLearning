@@ -78,9 +78,14 @@ Route.get('/suporte', (req:Request, resp: Response)=>{
     resp.render("suporte");
     })
 
+Route.get('/blog', (req:Request, resp: Response)=>{
+        resp.render("blog");
+    })
+
 Route.get('/area_cursos', (req:Request, resp: Response)=>{
         resp.render("area_cursos");
-        })
+    })
+
 
 
 //LOGIN GERAL DO SISTEMA
