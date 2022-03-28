@@ -38,13 +38,17 @@ Route.get('/listarCurso', CursoC.listarCurso ) //Listar Curos
 //Rotas adm
 Route.get('/admin',admAuth, admC.painelAdm)
 Route.get('/admin/alunos', admAuth, AlunoC.listarAluno) //Listar Alluno´
+Route.get('/admin/alunos/new', admAuth, AlunoC.criarAlunoView) //Listar Alluno
+Route.post('/admin/alunos/create', admAuth,upload.single('image'),urlencodedParser, AlunoC.criarAluno)
 
 //Route.get('/admin/aluno/new', adm, admC.aluno)
 Route.get('/admin/cursos', admAuth, CursoC.listarCurso)
 Route.get('/admin/cursos/new', admAuth, CursoC.criarCursoView)
 Route.post('/admin/cursos/create', admAuth,upload.single('imageCurso'),urlencodedParser, CursoC.criarCurso)
 Route.get('/admin/instrutores', admAuth, ProfessorC.listarProfessor)
-Route.get('/admin/instrutores/new', admAuth, ProfessorC.instrutorNew)
+Route.get('/admin/instrutores/new', admAuth, ProfessorC.criarProfView)
+Route.post('/admin/instrutores/create', admAuth,upload.single('image'),urlencodedParser, ProfessorC.criarProfessor)
+//Route.post('/admin/instrutores/new', admAuth, ProfessorC.instrutorNew)
 
 //o curso
 Route.get('/admin/ocurso', admAuth, CursoC.ocurso)
@@ -54,6 +58,8 @@ Route.get('/admin/ocurso', admAuth, CursoC.ocurso)
 Route.get('/listarAluno', alunoAuth, AlunoC.listarAluno) //Listar Alluno
 Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno) // Cadastrar Aluno
 Route.get('/aluno',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
+//new add
+Route.get('/aluno/cursosemandamento',alunoAuth) // Painel do Aluno
 
 //Rotas Aluno Cursos
 Route.post('/alunoCurso', aluno_curso.inscrever); // Matricular-se a um curso
@@ -82,7 +88,7 @@ Route.post('/loginGeral',urlencodedParser, (req:Request, resp: Response)=>{
             }else{
                 const dados=r;
                 if(dados){
-                     if(dados.p==='professor'){
+                     if(dados.p==='professor'){ 
                         const professor= dados
                         if(req.session){
                           req.session.professor=professor;

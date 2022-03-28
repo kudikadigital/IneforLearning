@@ -7,7 +7,7 @@
 
                     <h1>Painel de alunos</h1>
 
-                    <button onclick="window.location.href='/admin/aluno/new'"
+                    <button onclick="window.location.href='/admin/Alunos/new'"
                     class="mb-3 fsbutt border-0 redBg text-wrap text-white align-items-center justify-content-center text-center px-3 py-2 d-flex rounded-pill">
                     <small> cadastrar novo aluno</small>
                 </button>
@@ -22,9 +22,9 @@
                         <p class="redBg mb-0 py-2 w-100 fw-bolder text-center text-white rounded-top">Alunos cadastrados</p>
                         <thead>
                             <tr  style="height: 35px;" class="border-bottom bg-dark text-white">
-                                <th>Nome do aluno</th>
+                                <th>Aluno</th>
                                 <th>User</th>
-                                <th>Contacto (s)</th>
+                                <th>Contacto</th>
                                 <th>Acão</th>
                             </tr>
                         </thead>
@@ -32,10 +32,10 @@
                         <tbody class="lead bg-white fs-6">
                             <% alunos.forEach(aluno => { %>
                                 <tr  style="height: 35px;" class="border-bottom">
-                                    <th><%= aluno.name %> </th>
-                                    <th><%= aluno.nomeuser %> </th>
-                                    <th><%= aluno.whatsaap %> </th>
-                                    <th><a href=""><img ondblclick="window.location.href='/admin/aluno'" src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-eye-6.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""></a><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a></th>
+                                    <td><%= aluno.name %> </td>
+                                    <td><%= aluno.nomeuser %> </td>
+                                    <td><%= aluno.whatsaap %> </td>
+                                    <td><a href=""><img ondblclick="window.location.href='/admin/aluno'" src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-eye-6.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""></a><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a></td>
                                 </tr>
                             <%}) %> 
                         </tbody>

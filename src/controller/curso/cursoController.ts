@@ -12,7 +12,7 @@ class CursoController{
             console.log({ idProfessor, categoria ,descCurso,nomeCurso,data_inicio,imageCurso});
             const id=await knex('curso').insert({idProfessor, categoria ,descCurso,nomeCurso,estadoCurso, data_inicio,imageCurso});
             const ids=id[0]
-            resp.redirect("/admin/cursos")
+            resp.redirect("/admin/cursos") 
         } catch (error) {
             resp.send(error)
         }       

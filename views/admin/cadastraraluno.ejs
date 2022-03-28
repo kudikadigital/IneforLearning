@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inefor Learning</title>
-    <link rel="stylesheet" href="../../public/css/all.css">
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="../../public/css/hover.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/hover.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -29,8 +29,8 @@
         <div class="row">
             <div class="col-lg-3 px-5 fullScreen bg-dark d-none text-center d-lg-block py-5">
                 <div class="mb-5 w-100 d-flex flex-column justify-content-center align-items-center usuario px-3">
-                    <img class="mb-2" src="../../public/assets/user.png" width="70" alt="">
-                    <small class="text-white d-block fw-bold fs-6">Domingos Henriques</small>
+                    <img class="mb-2" src="/assets/user.png" width="70" alt="">
+                    <small class="text-white d-block fw-bold fs-6"><%= adm.prof.name %></small>
                     <a href="" class="text-decoration-none text-muted">Editar perfil</a>
                 </div>
 
@@ -61,7 +61,7 @@
                 <a href=""
                     class="text-center small fw-bold d-flex w-100 justify-content-center text-decoration-none text-muted">sair</a>
 
-                <img class="mt-4" src="../../public/assets/logo.png" width="100" alt="">
+                <img class="mt-4" src="/assets/logo.png" width="100" alt="">
 
 
             </div>
@@ -77,20 +77,20 @@
                 <div class="mt-4">
 
 
-                    <form action="" method="POST">
+                    <form action="/criarAluno" method="POST">
 
                         <div class="row">
                    
                         <div class="element col-md-6  position-relative mb-3">
                             <input type="text"
                                 class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                placeholder="nome do aluno" name="nomealuno">
+                                placeholder="nome do aluno" name="name">
                         </div>
                                           
                         <div class="element col-md-6  position-relative mb-3">
                             <input type="text"
                             class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                            placeholder="nº de bilhete" name="nbi">
+                            placeholder="user" name="nomeuser">
                    
                         </div>
 
@@ -101,14 +101,14 @@
                         <div class="element col-md-6  position-relative mb-3">
                             <input type="text"
                                 class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                placeholder="número de telefone" name="telefone">
+                                placeholder="número de telefone" name="whatsaap">
                         </div>
                                           
-                        <div class="element col-md-6  position-relative mb-3">
+                        <!--div class="element col-md-6  position-relative mb-3">
                             <input type="text"
                                 class="w-100 fw-normal py-2 rounded-pill form-control px-5"
                                 placeholder="endereço do aluno" name="endereco">
-                        </div>
+                        </div-->
 
                     </div>
 
@@ -130,11 +130,11 @@
                                 class="w-100 fw-normal py-2 rounded-pill form-control px-5"
                                 placeholder="crie uma senha" name="senha">
                         </div>
-                        <div class="element position-relative mb-3">
+                        <!--div class="element position-relative mb-3">
                             <input type="text"
                                 class="w-100 fw-normal py-2 rounded-pill form-control px-5"
                                 placeholder="confirme essa senha" name="confsenha">
-                        </div>
+                        </div-->
 
                     </div>
 

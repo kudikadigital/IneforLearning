@@ -22,8 +22,8 @@
                         <p class="redBg mb-0 py-2 w-100 text-center text-white rounded-top">Cursos cadastrados</p>
                         <thead>
                             <tr style="height: 35px;" class="border-bottom bg-dark text-white">
-                                <th>Nome do curso</th>
-                                <th>Nome do instrutor</th>
+                                <th>Curso</th>
+                                <th>Instrutor</th>
                                 <th>Acão</th>
                             </tr>
                         </thead>
@@ -31,7 +31,7 @@
                         <tbody class="lead bg-white fs-6">
                             <% cursos.forEach(curso => { %>
                                 <tr  style="height: 35px;" class="border-bottom">
-                                    <td><%= curso.nomeCurso %> </td>
+                                    <td><%= curso.nomeCurso %></td>
                                     <td><%= curso.name %> </td>
                                     <td><a href="/admin/ocurso"><img src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-eye-6.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""></a><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a></td>
                                 </tr>

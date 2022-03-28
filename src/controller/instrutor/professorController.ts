@@ -3,11 +3,17 @@ import { Response, Request } from 'express';
 
 class ProfessorController{
     async criarProfessor(req:Request, resp: Response){
-        const {name, email, whatsaap, desc, senha, nomeuser, adm}= req.body;
+      try {
+        const {name, email, whatsaap, senha, desc, adm}= req.body;
         const image= (req.file) ? req.file.filename : 'user.png';
-        const id=await knex('professor').insert({name,image, email, whatsaap, desc, nomeuser, senha, adm:1});
+        const estado = 0
+        const id=await knex('professor').insert({name,image, email, whatsaap, senha, desc, estado, adm:0});
         const ids=id[0]
-        resp.json({name,image, email, whatsaap, desc, senha, ids, nomeuser, adm})
+        //resp.json({name,image, email, whatsaap, senha, desc, estado, ids, adm}) 
+        resp.redirect("/admin/instrutores")
+      } catch (error) {
+        resp.send(error)
+      }
     }
     
     async listarProfessor(req:Request, resp: Response) {
@@ -15,14 +21,12 @@ class ProfessorController{
         const categoria= await knex('categoria').select('*')
         resp.render("admin/instrutores", {adm:req.session?.adm, categoria, professores})
     }
+
+    async criarProfView(req:Request, resp:Response){
+      resp.render("admin/cadastrarinstrutor", {adm:req.session?.adm})
+    }
     async painelProfessor(req:Request, resp: Response) {
-        if(req.session){
-            if(req.session.professor){
-              resp.render('', {aluno:req.session.professor})
-            }else{
-              resp.redirect('/')
-            }
-          }
+      resp.render('admin/instrutores', {adm:req.session?.prof}) 
     }
     async instrutorNew(req:Request, resp: Response) {
       resp.render('admin/cadastrarinstrutor',{adm:req.session?.adm})
