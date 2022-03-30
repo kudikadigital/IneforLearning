@@ -247,6 +247,10 @@ border-bottom: 5px solid transparent;
   color: var(--colorTextBlueDefault);
 }
 
+a{
+  text-decoration: none !important;
+}
+
 .swiper-container {
   width: 100%;
   height: 80vh;
