@@ -1,0 +1,61 @@
+<%- include('../partes/professor/left') %> 
+
+            <div style="overflow-y:scroll;" class=" scrolledited col-lg-9 bg-white fullScreen pt-5 px-4">
+               
+       <div class="mb-4">
+        <h1 class="mb-0">Notificações</h1>
+  <hr>
+       </div>
+
+
+       <div class="">
+        <a href="#" class="text-dark text-decoration-none"> <div class="border bg-light rad15 rounded-3 text mb-1 py-3 px-3">
+            Tens um comentário no curso de Contabilidade, feito por <span class="fw-bold">Aldair Morais</span>.
+          </div></a>
+          <a href="#" class="text-dark text-decoration-none"> <div class="border bg-light rad15 rounded-3 text mb-1 py-3 px-3">
+            Tens um comentário no curso de Contabilidade, feito por <span class="fw-bold">Aldair Morais</span>.
+          </div></a>
+          <a href="#" class="text-dark text-decoration-none"> <div class="border bg-light rad15 rounded-3 text mb-1 py-3 px-3">
+            Tens um comentário no curso de Contabilidade, feito por <span class="fw-bold">Aldair Morais</span>.
+          </div></a>
+          <a href="#" class="text-dark text-decoration-none"> <div class="border bg-light rad15 rounded-3 text mb-1 py-3 px-3">
+            Tens um comentário no curso de Contabilidade, feito por <span class="fw-bold">Aldair Morais</span>.
+          </div></a>
+          
+    
+       </div>
+
+                
+
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            Toastify({
+                text: "Cadastro efectuado com sucesso!",
+                duration: 3000,
+                destination: "/",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function () { } // Callback after click
+            }).showToast();
+        }
+    </script>
+
+    <script src="../js/js.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../bootstrap-5.1.3/bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

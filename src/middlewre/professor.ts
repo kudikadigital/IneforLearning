@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from "express";
-const professor= (req:Request, resp:Response, next:NextFunction)=>{
+const profAuth= (req:Request, resp:Response, next:NextFunction)=>{
 
     if(req.session){
         if(req.session.professor!==undefined){
@@ -13,4 +13,4 @@ const professor= (req:Request, resp:Response, next:NextFunction)=>{
 }
 
 
-export {professor};
+export {profAuth};

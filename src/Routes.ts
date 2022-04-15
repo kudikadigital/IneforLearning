@@ -8,7 +8,9 @@ import { authenticate } from './config/loginService';
 import AdmController from './controller/adm/admController';
 import multerConfig from './config/multer';
 import multer from 'multer';
+
 const upload = multer(multerConfig);
+
 //Instancia dos Controller
 const ProfessorC = new ProfessorContrller();
 const CursoC = new CursoController();
@@ -24,18 +26,21 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 //Middlewares
 import {alunoAuth} from './middlewre/aluno' //Aluno
 import {admAuth} from './middlewre/adm'
-import {professor} from './middlewre/professor'
+import {profAuth} from './middlewre/professor'
 
 //Rotas Professor
 Route.post('/criarProfessor', ProfessorC.criarProfessor ) //Cadastrar Professor
 Route.get('/listarProfessor', ProfessorC.listarProfessor) //Listar Professor
+Route.get('/professor', ProfessorC.profView) //Listar Professor
+Route.get('/professor/cursos', ProfessorC.profCursos) //Listar Professor
+Route.get('/professor/notificacao', ProfessorC.profCursosNotificacao) //Listar Professor
 
 
 //Rotas Cursos 
 Route.post('/criarCurso',CursoC.criarCurso) // Criar Cursos
 Route.get('/listarCurso', CursoC.listarCurso ) //Listar Curos
 
-//Rotas adm
+//Rotas adm 
 Route.get('/admin',admAuth, admC.painelAdm)
 Route.get('/admin/alunos', admAuth, AlunoC.listarAluno) //Listar Alluno´
 Route.get('/admin/alunos/new', admAuth, AlunoC.criarAlunoView) //Listar Alluno
@@ -50,7 +55,7 @@ Route.get('/admin/instrutores/new', admAuth, ProfessorC.criarProfView)
 Route.post('/admin/instrutores/create', admAuth,upload.single('image'),urlencodedParser, ProfessorC.criarProfessor)
 //Route.post('/admin/instrutores/new', admAuth, ProfessorC.instrutorNew)
 
-//o curso
+//o curso 
 Route.get('/admin/ocurso', admAuth, CursoC.ocurso)
 
 
@@ -59,7 +64,10 @@ Route.get('/listarAluno', alunoAuth, AlunoC.listarAluno) //Listar Alluno
 Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno) // Cadastrar Aluno
 Route.get('/aluno',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
 //new add
-Route.get('/aluno/cursosemandamento',alunoAuth) // Painel do Aluno
+//Route.get('/aluno/cursos/emandamento',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
+//Route.get('/aluno/cursos/terminados',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
+Route.get('/aluno/cursosemandamento',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
+Route.get('/aluno/cursosterminados',alunoAuth, AlunoC.alunoCursosTerminados) // Painel do Aluno
 
 //Rotas Aluno Cursos
 Route.post('/alunoCurso', aluno_curso.inscrever); // Matricular-se a um curso
@@ -92,13 +100,13 @@ Route.post('/loginGeral',urlencodedParser, (req:Request, resp: Response)=>{
                         const professor= dados
                         if(req.session){
                           req.session.professor=professor;
-                          resp.redirect('')
+                          resp.redirect('/instrutor')
                         }      
                      }else if(dados.p==='adm'){
                         const adm= dados
                         if(req.session){
                           req.session.adm=adm;
-                          console.log(adm)
+                          //console.log(adm)
                           resp.redirect('/admin')
                         } 
                      }else if(dados.p==='aluno'){

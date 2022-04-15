@@ -30,8 +30,19 @@ class ProfessorController{
     }
     async instrutorNew(req:Request, resp: Response) {
       resp.render('admin/cadastrarinstrutor',{adm:req.session?.adm})
-  }
+    }
+    
+    async profView(req:Request, resp: Response) {
+      resp.render('professor/index', {prof:req.session?.prof}) 
+    }
 
+    async profCursos(req:Request, resp: Response) {
+      resp.render('professor/cursos', {prof:req.session?.prof}) 
+    }
+
+    async profCursosNotificacao(req:Request, resp: Response) {
+      resp.render('professor/notificacao', {prof:req.session?.prof}) 
+    }
 }
 
 export default ProfessorController;

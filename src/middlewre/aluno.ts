@@ -5,10 +5,10 @@ const alunoAuth= (req:Request, resp:Response, next:NextFunction)=>{
         if(req.session.aluno!==undefined){
             next();
         }else{
-            resp.redirect('/')
+            resp.redirect('/aluno')
         }
     }else{
-        resp.redirect('/')
+        resp.redirect('/aluno')
     }
 }
 

@@ -155,6 +155,10 @@ transition: 2s;
   border-radius: 15px !important;
 }
 
+.radtl{
+  border-top-left-radius:15px !important;
+}
+
 .scrolledited{
   overflow-x: hidden;
   overflow-y: scroll;
@@ -243,6 +247,15 @@ border-bottom: 5px solid transparent;
   color: var(--colorTextBlueDefault);
 }
 
+a{
+  text-decoration: none !important;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 80vh;
+
+}
 
 .switch {
   height: 40px;
@@ -261,6 +274,13 @@ border-bottom: 5px solid transparent;
   display: flex;
   margin: auto;
   transition: 0.2s ease-in-out;
+}
+
+.formcateg.active{
+  display: block !important;
+}
+.saveCat.active{
+  display: block !important;
 }
 
 body {
@@ -296,3 +316,39 @@ color:#ccc !important;
 }
 
 
+      .navbar .megamenu{ padding: 1rem; }
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+  .navbar .has-megamenu{position:static!important;}
+  .navbar .megamenu{left:0; right:0; width:100%; margin-top:0;  }
+
+}	
+/* ============ desktop view .end// ============ */
+
+/* ============ mobile view ============ */
+@media(max-width: 991px){
+  .navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+    overflow-y: auto;
+      max-height: 90vh;
+      margin-top:10px;
+  }
+}
+
+/* ============ mobile view ============ */
+@media(max-width: 991px){
+  .yyy{
+    padding-top: 35% !important;
+  }
+}
+
+
+
+
+a{
+    border: 0 !important;
+}
+
+
+/* ============ mobile view .end// ============ */

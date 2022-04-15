@@ -4,18 +4,18 @@ import knex from '../database/conection';
 
 async function authenticate(email:string, senha:string) {
     try {
-        const aluno=await knex('aluno').where('email', email).where('senha', senha)
+        const aluno=await knex('aluno').where('emailAluno', email).where('senhaAluno', senha)
         if(aluno.length!==0){
             const al= aluno[0]
             return {al, p:'aluno'}
         }else if(aluno.length===0){
-            const professor= await knex('professor').where('email', email).where('senha',senha )
+            const professor= await knex('professor').where('emailProf', email).where('senhaProf',senha )
             if(professor.length!==0){
                 const prof= professor[0];
-                if(prof.adm===1){
+                if(prof.admProf===1){
                     const PROFESSORAdm= {prof, p:'adm'}
                     return PROFESSORAdm
-                }else if(prof.adm===0){
+                }else if(prof.admProf===0){
                     const PROFESSOR= {prof, p:'professor'}
                     return PROFESSOR
                 }

@@ -7,7 +7,7 @@ class AdmController{
       const professor= await knex('professor').select('*')
       const cursos= await knex('curso').select('*')
       const alunos= await knex('aluno').select('*')
-        resp.render('admin/index', {adm:req.session?.adm, professor, cursos, alunos})
+      resp.render('admin/index', {adm:req.session?.adm, professor, cursos, alunos})
     }
 
 }

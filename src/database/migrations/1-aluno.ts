@@ -2,14 +2,14 @@ import { Knex } from "knex";
 
 export async function up(knex: Knex) {
     return knex.schema.createTable('aluno', (table)=>{
-        table.increments('id').primary();
-        table.string('image').notNullable();
-        table.string('name').notNullable();
-        table.string('email').notNullable();
-        table.string('whatsaap').notNullable();
-        table.string('nomeuser').notNullable();
-        table.string('senha').notNullable();
-        table.string('estado').notNullable();
+        table.increments('idAluno').primary();
+        table.string('imgAluno').notNullable();
+        table.string('nomeAluno').notNullable();
+        table.string('emailAluno').notNullable();
+        table.string('telAluno').notNullable();
+        table.string('enderecoAluno').notNullable(); 
+        table.string('senhaAluno').notNullable();
+        table.string('estadoAluno').notNullable();
     })
 }
 

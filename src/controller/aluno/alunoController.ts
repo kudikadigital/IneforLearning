@@ -5,22 +5,22 @@ import { Response, Request } from "express";
 class AlunoController{
   async criarAluno(req:Request, resp: Response){
     try {
-      const {name, whatsaap, nomeuser, senha, email}= req.body;
+      const {name, tell, user, pass, email}= req.body; 
       const estado = "0"
       const image= (req.file) ? req.file.filename : 'user.png';
-      const verify= await knex('aluno').where('nomeuser', nomeuser).orWhere('email', email)
+      const verify= await knex('aluno').where('nomeAluno', name).orWhere('emailAluno', email)
       if(verify.length===0){
-        const ids = await knex('aluno').insert({image, name, email, whatsaap, nomeuser, senha, estado })
-        const aluno = await knex('aluno').where('id', ids[0])
+        const ids = await knex('aluno').insert({image, name, email, tell, user, pass, estado})
+        const aluno = await knex('aluno').where('idAluno', ids[0])
         //resp.send(aluno)
-        resp.send("Cadastrado")
+        resp.send("Cadastrado") 
         
         //cod«ndições para quando o Adm cadastra e quando o Aluno se cadastra
       }else{
         resp.send('Nome de usuário já existe, troca por um outro') 
       }
     } catch (error) {
-      resp.send(error)
+      resp.send(error + " - falha ao registar")
     }
   }    
   async listarAluno(req:Request, resp:Response) {
@@ -30,7 +30,7 @@ class AlunoController{
   
   async cursosAlunos(req:Request, resp:Response){
     const cursos = await knex('aluno-curso').where('') 
-    resp.json(cursos) 
+    resp.json(cursos)  
   }
 
   async alunoPainel(req:Request, resp:Response){
@@ -43,7 +43,11 @@ class AlunoController{
   }
 
   async alunocursos(req:Request, resp:Response){
-    resp.render("aluno/cursos")
+    resp.render("aluno/cursosemandamento", {aluno:req.session?.aluno})
+  }
+
+  async alunoCursosTerminados(req:Request, resp:Response){
+    resp.render("aluno/cursosterminados", {aluno:req.session?.aluno})
   }
 
 
