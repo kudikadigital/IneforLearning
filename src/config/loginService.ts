@@ -19,7 +19,7 @@ async function authenticate(email:string, senha:string) {
                     const PROFESSOR= {prof, p:'professor'}
                     return PROFESSOR
                 }
-            }else{
+            }else{ 
                 return '-1'  
             }
         }else{

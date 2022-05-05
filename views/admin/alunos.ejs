@@ -23,7 +23,7 @@
                         <thead>
                             <tr  style="height: 35px;" class="border-bottom bg-dark text-white">
                                 <th>Aluno</th>
-                                <th>User</th>
+                                <th>Email</th>
                                 <th>Contacto</th>
                                 <th>Acão</th>
                             </tr>
@@ -32,9 +32,9 @@
                         <tbody class="lead bg-white fs-6">
                             <% alunos.forEach(aluno => { %>
                                 <tr  style="height: 35px;" class="border-bottom">
-                                    <td><%= aluno.name %> </td>
-                                    <td><%= aluno.nomeuser %> </td>
-                                    <td><%= aluno.whatsaap %> </td>
+                                    <td><%= aluno.nomeAluno %> </td>
+                                    <td><%= aluno.emailAluno %> </td>
+                                    <td><%= aluno.telAluno %> </td>
                                     <td><a href=""><img ondblclick="window.location.href='/admin/aluno'" src="https://cdns.iconmonstr.com/wp-content/assets/preview/2012/240/iconmonstr-eye-6.png" style="height: 20px;" alt=""></a>, <a href=""><img src="https://cdn-icons-png.flaticon.com/128/1827/1827933.png" style="height: 20px;" alt=""></a>, <a href=""></a><img src="https://cdn-icons-png.flaticon.com/128/1214/1214428.png" style="height: 20px;" alt=""></a></td>
                                 </tr>
                             <%}) %> 

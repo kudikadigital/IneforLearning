@@ -10,11 +10,9 @@ class AlunoController{
       const image= (req.file) ? req.file.filename : 'user.png';
       const verify= await knex('aluno').where('nomeAluno', name).orWhere('emailAluno', email)
       if(verify.length===0){
-        const ids = await knex('aluno').insert({image, name, email, tell, user, pass, estado})
+        const ids = await knex('aluno').insert({emailAluno:email, imgAluno:image, nomeAluno:name, telAluno:tell, enderecoAluno:user, senhaAluno:pass, estadoAluno:estado})
         const aluno = await knex('aluno').where('idAluno', ids[0])
-        //resp.send(aluno)
-        resp.send("Cadastrado") 
-        
+        resp.render("aluno", {aluno:req.session?.aluno})
         //cod«ndições para quando o Adm cadastra e quando o Aluno se cadastra
       }else{
         resp.send('Nome de usuário já existe, troca por um outro') 

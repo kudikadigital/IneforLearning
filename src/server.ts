@@ -19,11 +19,10 @@ app.set('view engine', 'ejs')
 app.use(cors());
 
 app.use(route);
-// app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded( { extended: false}))
 
 
-app.listen(1000, () => {
+app.listen(1001, () => {
     console.log('Created');
 })

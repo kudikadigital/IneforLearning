@@ -1,6 +1,6 @@
 import {Router, Request, Response} from 'express';
-import CursoController from './controller/curso/cursoController';
 const Route= Router ();
+import CursoController from './controller/curso/cursoController';
 import ProfessorContrller from './controller/instrutor/professorController';
 import AlunoController from './controller/aluno/alunoController';
 import alunoCursoController from './controller/aluno_curso/alunoCursoController';
@@ -19,7 +19,7 @@ const aluno_curso= new alunoCursoController();
 const admC= new AdmController(); 
 
 
-//Body-parser para adicionar e obter dados apartir das rotas
+//Body-parser para adicionar e obter dados a partir das rotas
 import bodyParser from "body-parser";
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -83,7 +83,6 @@ Route.get('/login', (req:Request, resp: Response)=>{
 Route.get('/', (req:Request, resp: Response)=>{
     resp.render('home')
 })
-
 
 
 //LOGIN GERAL DO SISTEMA
