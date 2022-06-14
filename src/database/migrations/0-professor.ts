@@ -10,10 +10,10 @@ export async function up(knex: Knex) {
         table.string('descricaoProf').notNullable();
         table.string('NIFProf').notNullable();
         table.string('senhaProf').notNullable();
-        table.decimal('admProf').notNullable();
-        table.decimal('dataProf').notNullable();
-        table.decimal('estadoProf').notNullable();
-        table.decimal('enderecoProf').notNullable();
+        table.integer('admProf').notNullable();
+        table.string('dataProf').notNullable();
+        table.integer('estadoProf').notNullable();
+        table.string('enderecoProf').notNullable();
     })
 }
 

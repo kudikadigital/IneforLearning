@@ -2,15 +2,15 @@ import { Response, Request, NextFunction } from "express";
 const admAuth= (req:Request, resp:Response, next:NextFunction)=>{
 
     if(req.session){
-        if(req.session.adm!==undefined){
+        if(req.session.role!==1){
             next();
         }else{
-            resp.redirect('/')
+            resp.redirect('/login')
         }
     }else{
-        resp.redirect('/')
+        resp.redirect('/login')
     }
 }
 
 
-export {admAuth};
+export default admAuth;
