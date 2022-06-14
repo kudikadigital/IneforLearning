@@ -18,7 +18,7 @@ const upload = multer(multerConfig);
 //  Rotas Gerais do Sistema
 //Login principal
 Route.get('/login', (req:Request, resp: Response)=>{
-    resp.render('site/login')
+    resp.render('site/login', {certo:req.flash('certo'), errado:req.flash('errado')});
 })
 // Home page do Sistema
 Route.get('/', (req:Request, resp: Response)=>{
@@ -32,7 +32,8 @@ Route.post('/loginGeral', (req:Request, resp: Response)=>{
         const {email, senha}= req.body;
         authenticate(email, senha).then(r=>{
             if(r==='-1'){
-                resp.send('Não existe uma conta')
+                req.flash('errado', "Não exite uma conta vinculada");
+                resp.redirect('/login')
             }else{
                 const dados=r;
                 if(dados){

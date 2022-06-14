@@ -35,7 +35,7 @@ app.use(admController);
 
 app.use(async(req,res, next)=>{ 
     
-    res.render("Site/404")
+    res.render("site/404")
 }) 
 
 
