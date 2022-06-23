@@ -45,5 +45,5 @@ app.listen(1200, () => {
    // cron.schedule('* * * * * *', async () => {
     //    const marcacao = await knex('marcacao').where('dataMarcacao', '<=',dataAtual).andWhere('hora','>',horatual).update({estadoMarcacao:'2'});
     //  });
-    console.log('Created');
+    console.log('localhost:1200');
 })
