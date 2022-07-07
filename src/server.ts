@@ -25,25 +25,27 @@ app.use(express.static(path.resolve(__dirname, '..','public')))
 app.set('view engine', 'ejs')
 app.use(cors());
 
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(route);
 app.use(alunoController);
 app.use(professorController);
 app.use(admController);
+app.use(route);
 
-app.use(async(req,res, next)=>{ 
-    
-    res.render("site/404")
+
+app.use(async(req,res, next)=>{   
+    res.render("error/404")
 }) 
 
 
-
 app.listen(1200, () => {
-    
-   // cron.schedule('* * * * * *', async () => {
-    //    const marcacao = await knex('marcacao').where('dataMarcacao', '<=',dataAtual).andWhere('hora','>',horatual).update({estadoMarcacao:'2'});
-    //  });
-    console.log('localhost:1200');
+    console.log('IneforLearning rodando Endereço: localhost:1200');
 })
+
+
+
+
+
+// cron.schedule('* * * * * *', async () => {
+//   const marcacao = await knex('marcacao').where('dataMarcacao', '<=',dataAtual).andWhere('hora','>',horatual).update({estadoMarcacao:'2'});
+// });

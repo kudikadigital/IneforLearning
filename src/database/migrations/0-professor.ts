@@ -7,11 +7,12 @@ export async function up(knex: Knex) {
         table.string('nomeProf').notNullable();
         table.string('emailProf').notNullable();
         table.string('telProf').notNullable();
+        table.string('userProf').notNullable();
         table.string('descricaoProf').notNullable();
         table.string('NIFProf').notNullable();
         table.string('senhaProf').notNullable();
         table.integer('admProf').notNullable();
-        table.string('dataProf').notNullable();
+        table.timestamp('dataProf').defaultTo( knex.fn.now());
         table.integer('estadoProf').notNullable();
         table.string('enderecoProf').notNullable();
     })

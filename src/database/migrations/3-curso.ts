@@ -7,6 +7,7 @@ export async function up(knex: Knex) {
         table.timestamp('dataCurso').defaultTo( knex.fn.now());
         table.string('imgCurso').notNullable();
         table.string('descricaoCurso').notNullable();
+        table.string('precoCurso').notNullable();
         table.string('estadoCurso').notNullable();
         table.integer('curtidaCurso').notNullable();
         table.string('idCategoria').notNullable().references('idCategoria').inTable('categoria');
