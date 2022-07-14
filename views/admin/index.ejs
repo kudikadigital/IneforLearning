@@ -1,4 +1,5 @@
-<<<<<<< Updated upstream
+<!DOCTYPE html>
+<html lang="en">
 
 <!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:34:36 GMT -->
 <%-include('Partes/head.ejs')%>
@@ -16,6 +17,7 @@
 
   <!-- ========== MAIN CONTENT ========== -->
   <!-- Navbar Vertical -->
+
   <%-include('Partes/sideBar.ejs')%>
 
   <!-- End Navbar Vertical -->
@@ -27,13 +29,13 @@
       <div class="page-header">
         <div class="row align-items-center">
           <div class="col">
-            <h1 class="page-header-title">Estatísticas Gerais da Plataforma</h1>
+            <h1 class="page-header-title">Bem-vindo, Plataforma de Ensino a distáncia</h1>
           </div>
           <!-- End Col -->
 
           <div class="col-auto">
             <a class="btn btn-primary" href="javascript:;" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
-              <i class="bi-person-plus-fill me-1"></i> Add Coordenador
+              <i class="bi-person-plus-fill me-1"></i> Adiocionar Coordenador
             </a>
           </div>
           <!-- End Col -->
@@ -304,7 +306,242 @@
       </div>
       <!-- End Stats -->
 
-  
+      <div class="row">
+        <div class="col-lg-5 mb-3 mb-lg-5">
+          <!-- Card -->
+          <div class="card h-100">
+            <!-- Header -->
+            <div class="card-header card-header-content-between">
+              <h4 class="card-header-title">Cursos em Destaque</h4>
+
+            </div>
+            <!-- End Header -->
+
+            <!-- Body -->
+            <div class="card-body">
+              <p> <p>Cursos com mais mais acessos nas ultimas semanas na plataforma de ensino a distancia do Inefor</p></p>
+
+              <ul class="list-group list-group-flush list-group-no-gutters">
+                <li class="list-group-item">
+                  <h5 class="card-title"></h5>
+                </li>
+
+                <!-- List Group Item -->
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/capsule-icon.svg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="mb-0">Capsule</h5>
+                          <span class="d-block fs-6 text-body">Users</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-auto">
+                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
+                            Ver Cursos
+                          </a>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                </li>
+                <!-- End List Group Item -->
+
+                <!-- List Group Item -->
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="mb-0">Mailchimp</h5>
+                          <span class="d-block fs-6 text-body">Users</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-auto">
+                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
+                            Ver Cursos
+                            
+                          </a>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                </li>
+                <!-- End List Group Item -->
+
+                <!-- List Group Item -->
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <h5 class="mb-0">Webdev</h5>
+                          <span class="d-block fs-6 text-body">Users</span>
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-auto">
+                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
+                            Ver Cursos
+                            
+                          </a>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                </li>
+                <!-- End List Group Item -->
+
+               
+              </ul>
+            </div>
+            <!-- End Body -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-lg-7 mb-3 mb-lg-5">
+          <!-- Card -->
+          <div class="card h-100">
+            <!-- Header -->
+            <div class="card-header card-header-content-sm-between">
+              <h4 class="card-header-title mb-2 mb-sm-0">Cursos mais Rentaveis</h4>
+
+              <!-- Nav -->
+              <ul class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
+                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
+                  <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">This week</a>
+                </li>
+                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click" data-action="toggle">
+                  <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Last week</a>
+                </li>
+              </ul>
+              <!-- End Nav -->
+            </div>
+            <!-- End Header -->
+
+            <!-- Body -->
+            <div class="card-body">
+              <div class="row mb-4">
+                <div class="col-sm mb-2 mb-sm-0">
+                  <div class="d-flex align-items-center">
+                    <span class="h1 mb-0">35%</span>
+                    <span class="text-success ms-2">
+                      <i class="bi-graph-up"></i> 25.3%
+                    </span>
+                  </div>
+                </div>
+                <!-- End Col -->
+
+                <div class="col-sm-auto align-self-sm-end">
+                  <div class="row fs-6 text-body">
+                    <div class="col-auto">
+                      <span class="legend-indicator bg-primary"></span> New
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-auto">
+                      <span class="legend-indicator"></span> Overdue
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
+
+              <!-- Bar Chart -->
+              <div class="chartjs-custom">
+                <canvas id="updatingBarChart" style="height: 20rem;" data-hs-chartjs-options='{
+                          "type": "bar",
+                          "data": {
+                            "labels": ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"],
+                            "datasets": [{
+                              "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220],
+                              "backgroundColor": "#377dff",
+                              "hoverBackgroundColor": "#377dff",
+                              "borderColor": "#377dff"
+                            },
+                            {
+                              "data": [150, 230, 382, 204, 169, 290, 300, 100, 300, 225, 120],
+                              "backgroundColor": "#e7eaf3",
+                              "borderColor": "#e7eaf3"
+                            }]
+                          },
+                          "options": {
+                            "scales": {
+                              "yAxes": [{
+                                "gridLines": {
+                                  "color": "#e7eaf3",
+                                  "drawBorder": false,
+                                  "zeroLineColor": "#e7eaf3"
+                                },
+                                "ticks": {
+                                  "beginAtZero": true,
+                                  "stepSize": 100,
+                                  "fontSize": 12,
+                                  "fontColor":  "#97a4af",
+                                  "fontFamily": "Open Sans, sans-serif",
+                                  "padding": 10,
+                                  "postfix": "$"
+                                }
+                              }],
+                              "xAxes": [{
+                                "gridLines": {
+                                  "display": false,
+                                  "drawBorder": false
+                                },
+                                "ticks": {
+                                  "fontSize": 12,
+                                  "fontColor":  "#97a4af",
+                                  "fontFamily": "Open Sans, sans-serif",
+                                  "padding": 5
+                                },
+                                "categoryPercentage": 0.5,
+                                "maxBarThickness": "10"
+                              }]
+                            },
+                            "cornerRadius": 2,
+                            "tooltips": {
+                              "prefix": "$",
+                              "hasIndicator": true,
+                              "mode": "index",
+                              "intersect": false
+                            },
+                            "hover": {
+                              "mode": "nearest",
+                              "intersect": true
+                            }
+                          }
+                        }'></canvas>
+              </div>
+              <!-- End Bar Chart -->
+            </div>
+            <!-- End Body -->
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+      </div>
       <!-- End Row -->
 
       <!-- Card -->
@@ -1236,13 +1473,43 @@
 
   <!-- Builder -->
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
-
+    <div class="offcanvas-header align-items-start">
+      <div>
+        <h3 id="offcanvasBuilderLabel">Front Builder</h3>
+        <p class="mb-0">Customize the overview page layout.</p>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
 
     <div class="offcanvas-body">
       <h4 class="mb-1">Theme Appearance Mode</h4>
       <p>Check out all <a href="documentation/layout.html">Layout Options here</a></p>
 
- 
+      <div class="row gx-3">
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layoutSkinsRadio" id="layoutSkinsRadio1" checked value="default">
+            <label class="form-check-label mb-2" for="layoutSkinsRadio1">
+              <img class="form-check-img" src="/dashboard/assets/img/415x310/img1.jpg" alt="Image Description">
+            </label>
+            <span class="form-check-text">Default</span>
+          </div>
+        </div>
+        <!-- End Check -->
+
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layoutSkinsRadio" id="layoutSkinsRadio2" value="dark">
+            <label class="form-check-label mb-2" for="layoutSkinsRadio2">
+              <img class="form-check-img" src="/dashboard/assets/img/415x310/img2.jpg" alt="Image Description">
+            </label>
+            <span class="form-check-text">Dark Mode</span>
+          </div>
+        </div>
+        <!-- End Check -->
+      </div>
       <!-- End Row -->
 
       <hr>
@@ -1383,7 +1650,10 @@
   <!-- End Builder -->
 
   <!-- Builder Toggle -->
- 
+  <div id="builderOffcanvas" class="position-fixed bottom-0 end-0 me-5 mb-5" style="z-index: 3;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBuilder" aria-controls="offcanvasBuilder">
+    <a class="btn btn-dark btn-lg" href="javascript:;">
+      <i class="bi-sliders fs-6 me-2"></i> Customize
+    </a>
   </div>
   <!-- End Builder Toggle -->
 
@@ -3867,12 +4137,6 @@
                       </div>
                       <!-- End Media -->
                     </div>
-<<<<<<< Updated upstream
-                    <div class=" col-md-4 text-center">
-                        <div class="card py-3 px-5 shadow-sm" style="border-radius: 15px;">
-                            <small class="fw-bold fs-3"><%= professor.length %> </small>
-                            <p>Instrutores</p>
-=======
                     <!-- End Col -->
 
                     <div class="col-6">
@@ -3884,7 +4148,6 @@
                         <div class="flex-grow-1 text-truncate ms-2">
                           <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
                           <span class="d-block small text-muted">4kb</span>
->>>>>>> Stashed changes
                         </div>
                       </div>
                       <!-- End Media -->
