@@ -67,7 +67,7 @@ AdmController.get('/perfilFormador_/:id',adminAuth,async (req:Request, resp: Res
   }
 }    
 )
-AdmController.get('/editarFormador/:id',adminAuth,async (req:Request, resp: Response)=>{
+AdmController.get('/editarFormador_/:id',adminAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
     const {id}=req.params
@@ -87,7 +87,7 @@ AdmController.get('/editarFormador/:id',adminAuth,async (req:Request, resp: Resp
   }
 }    
 )
-AdmController.get('/formadorCurso/:id',adminAuth,async (req:Request, resp: Response)=>{
+AdmController.get('/formadorCurso_/:id',adminAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
     const {id}=req.params
