@@ -67,6 +67,26 @@ AdmController.get('/perfilFormador_/:id',adminAuth,async (req:Request, resp: Res
   }
 }    
 )
+AdmController.get('/actividadeFormador/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/actividadeFormador', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
 AdmController.get('/editarFormador_/:id',adminAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
@@ -266,6 +286,107 @@ AdmController.get('/addCurso',adminAuth,async (req:Request, resp: Response)=>{
   }
 }    
 )
+AdmController.get('/perfilCurso_/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/perfilCurso_', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
+AdmController.get('/alunoCurso/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/alunoCurso', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
+AdmController.get('/arquivoCurso/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/arquivoCurso', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
+AdmController.get('/editarCurso/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/editarCurso', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
+AdmController.get('/actividadeCurso/:id',adminAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const admin= await knex('professor').where('idProf', idUser).first();    
+    const aluno=await knex('aluno').where('idAluno',id)    
+    if(admin && aluno){
+      const cursos= await knex('curso').select('*');
+      const alunos= await knex('aluno').select('*');
+      const professores= await knex('professor').select('*');
+      resp.render('admin/actividadeCurso', {alunos,aluno, cursos, professores, admin});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
+
 //Parte Curso-1
 
 //Parte Categoria
