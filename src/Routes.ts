@@ -30,7 +30,7 @@ Route.get('/logout', (req:Request, resp: Response)=>{
 })
 // Home page do Sistema
 Route.get('/', (req:Request, resp: Response)=>{
-    resp.render('site/home')
+  resp.render('site/home')
 })
 
 

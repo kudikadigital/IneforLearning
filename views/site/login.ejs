@@ -123,9 +123,9 @@
 
 
                             <div class="" id="page2">
-                                <form action="/cadastro" method="POST"><br/><br/>
+                                <form action="/criarAluno" method="POST"><br/><br/>
                                     <div class="element position-relative mb-3 w-100">
-                                        <input name="nome" type="text" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                        <input name="name" type="text" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
                                             placeholder="Seu nome completo">
                                         <i class="fas fa-user"></i>
                                     </div>
@@ -136,8 +136,8 @@
                                             <i class="fas fa-envelope"></i>
                                         </div>
                                         <div class="element position-relative mb-3 w-100 m-1">
-                                            <input name="username" type="text" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                                placeholder="username">
+                                            <input name="user" type="text" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                                placeholder="Username">
                                             <i class="fas fa-user"></i>
                                         </div>
                                     </div>
@@ -146,30 +146,15 @@
                                             placeholder="Número de telefone">
                                         <i class="fas fa-mobile"></i>
                                     </div>
-                                    <div class="element mb-1 w-100">
-                                        <label for="">Cadastrar-se como:</label>
-                                            <select class="w-100 fw-normal  rounded-pill form-control " name="tipo" id="">
-                                                <option value="aluno">Aluno</option>
-                                                <option value="formador">Formador</option>
-                                            </select>
-                                        
-                                    </div>
-                                   
-                                    <div class="d-flex mb-3 mt-3">
-                                        <div class="element position-relative mb-3 w-100 m-1">
-                                            <input name="senha" type="password" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                                placeholder="Senha">
-                                                <i class="fas fa-lock"></i>
-                                        </div>
-                                        <div class="element position-relative mb-3 w-100 m-1">
-                                            <input name="senha1" type="password" class="w-100 fw-normal py-2 rounded-pill form-control px-5"
-                                                placeholder="Confirmar Senha">
-                                                <i class="fas fa-lock"></i><i class="fas fa-lock"></i>
-                                        </div>
+                                    <div class="element position-relative mb-3 w-100">
+                                        <input name="pass" type="password"
+                                            class="w-100 fw-normal py-2 rounded-pill form-control px-5"
+                                            placeholder="Senha">
+                                        <i class="fas fa-lock"></i>
                                     </div>
                                     <div class="d-flex flex-column  justify-content-between align-items-center">
                                         <div class="mb-4 form-check">
-                                            <input name="aceito" checked type="checkbox" class="form-check-input" id="CheckTU">
+                                            <input checked type="checkbox" class="form-check-input" id="CheckTU">
                                             <label class="form-check-label" for="CheckTU">
                                                 Eu concordo com todo o requisito em <a href=""
                                                     class="text-decoration-none fw-bold text-dark">termos de uso</a>
@@ -199,59 +184,25 @@
             </div>
         </div>
     </div>
-    <script src="sweetalert/sweetalert2.all.min.js"></script>
-    <% if(errado.length>0) {%>
-      <script>
-        var Toast = Swal.mixin({
-          toast: true,
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-        })
-        Toast.fire({
-          icon: 'error',
-          title: '<%=errado %>'
-        })
-      </script>
-    
-      <% }else if(certo.length>0) {%>
-        <script>
-    
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-            icon: 'success',
-            title: '<%=certo %>'
-          })
-    
-        </script>
-        <% }%>
-          <!-- Global site tag (gtag.js) - Google Analytics -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-    
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'UA-56159088-1');
-          </script>
+    <script>
+        const handleSubmit=(e)=>{
+            e.preventDefault()
+            Toastify({
+                text: "Cadastro efectuado com sucesso!",
+                duration: 3000,
+                destination: "/",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
+        }
+    </script>
 
     <script src="../js/js.js"></script>
     <script src="../js/all.js"></script>
