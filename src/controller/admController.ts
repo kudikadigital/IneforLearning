@@ -25,7 +25,19 @@ AdmController.get('/admin',adminAuth,async (req:Request, resp: Response)=>{
         resp.render('error/404')
       }
     }    
-  )
+)
+
+AdmController.get('/admin/coodernador',async (req:Request, resp:Response) => {
+  try {
+    
+
+
+    
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+})
 
 export default AdmController;
 
