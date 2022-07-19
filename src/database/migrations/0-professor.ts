@@ -15,6 +15,8 @@ export async function up(knex: Knex) {
         table.timestamp('dataProf').defaultTo( knex.fn.now());
         table.integer('estadoProf').notNullable();
         table.string('enderecoProf').notNullable();
+        table.integer('nivelProf').notNullable();
+        table.string('residenciaProf').notNullable();
     })
 }
 

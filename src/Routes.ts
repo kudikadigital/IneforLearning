@@ -130,7 +130,7 @@ Route.post('/cadastro',async(req:Request, resp: Response)=>{
                                 if(verify.length===0){
                                 const enderecoAluno= 'Luanda, Luanda'
                                   const ids = await knex('aluno')
-                                  .insert({imgAluno:imgCliente, nomeAluno:nome,telAluno:tell, userAluno:username, emailAluno:email,estadoAluno:1, senhaAluno:senha, enderecoAluno})
+                                  .insert({imgAluno:imgCliente,nivelAluno:20, nomeAluno:nome,telAluno:tell, userAluno:username, emailAluno:email,estadoAluno:1, senhaAluno:senha, enderecoAluno})
                                   req.flash("certo","Aluno cadastrado com sucesso!")
                                   resp.redirect("/login")
                                  // resp.redirect("/loginGeral")
@@ -146,11 +146,9 @@ Route.post('/cadastro',async(req:Request, resp: Response)=>{
                                 const enderecoProf= 'Luanda, Luanda';
                                 const descricaoProf='Instrutor da Plataforma'
                                 const d=new Date();
-                                const dataProf=d.getDate(); 
                                 const NIFProf='Sem NIF'
                                   const ids = await knex('professor')
-                                  .insert({imgProf:imgCliente, nomeProf:nome,telProf:tell, userProf:username, emailProf:email,estadoProf:1, senhaProf:senha, enderecoProf, admProf:0, descricaoProf, NIFProf, dataProf})
-                            
+                                  .insert({imgProf:imgCliente,nivelProf:20, nomeProf:nome,telProf:tell,residenciaProf:'', userProf:username, emailProf:email,estadoProf:1, senhaProf:senha, enderecoProf, admProf:0, descricaoProf, NIFProf })
                                   req.flash("certo","Formador cadastrado com sucesso!")
                                   resp.redirect("/login")
                                  // resp.redirect("/loginGeral")

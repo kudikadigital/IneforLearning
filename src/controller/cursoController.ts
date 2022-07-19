@@ -8,7 +8,7 @@ const upload = multer(multerConfig);
 
 const CursoController=Router();
 //Papel do Admin
-  CursoController.post('/cadastarMedico',upload.single('image'),async (req:Request, resp: Response)=>{
+CursoController.post('/cadastarMedico',upload.single('image'),async (req:Request, resp: Response)=>{
       try {
         const imagemMedico= (req.file) ? req.file.filename : 'user.png';       
         const {nomeMedico, userMedico, emailMedico, tellMedico, passMedico, idEspecialidade,generoMedico, descMedico, passMedico2}= req.body;         
@@ -66,7 +66,29 @@ const CursoController=Router();
         resp.send(error + " - falha ao registar")
       }
     }    
-  )
+)
+
+CursoController.post('/novoCurso',upload.single('image'), async (req:Request, resp: Response)=> {
+  const {nomeCurso, idProf,aprendizadoCurso, descricaoCurso, precoCurso, cargaHoraria, idCategoria}=req.body;
+  const imgCurso=(req.file)?req.file.filename : 'user.png';
+  const estadoCurso=0;
+  const curtidaCurso=0;
+  if(!nomeCurso.match(/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi)){
+    resp.json({error:'Erro ao escrever o nome!'})
+  }else{
+    const verfication= await knex('curso').where('idProf', idProf).andWhere('nomeCurso', nomeCurso);
+    if(verfication.length > 0){
+      resp.json({error:'Já existe um curso desse Genero'})
+    }else{
+      const curso = await knex('curso').insert({nomeCurso,arquivoCurso:'',aprendizadoCurso, idProf, imgCurso, descricaoCurso, precoCurso, estadoCurso, curtidaCurso, cargaHoraria, idCategoria})
+      resp.json('Curso Cadastrado com sucesso!')
+    }
+  }
+})
+CursoController.get('/listarCursos',upload.single('image'), async (req:Request, resp: Response)=> {
+  const cursos= await knex('curso').select('*');
+  resp.json(cursos)
+})
 
 export default CursoController;
 

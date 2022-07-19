@@ -4,6 +4,7 @@ export async function up(knex: Knex) {
         table.increments('idCategoria').primary();
         table.string('nomeCategoria').notNullable();
         table.string('descCategoria').notNullable();
+        table.timestamp('dataCategoria').defaultTo( knex.fn.now());
     })
 }
 
