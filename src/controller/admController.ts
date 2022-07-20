@@ -58,7 +58,7 @@ AdmController.get('/listaFormador',adminAuth,async (req:Request, resp: Response)
         const cursos= await knex('curso').select('*');
         const alunos= await knex('aluno').select('*');
         const professores= await knex('professor').select('*');
-        resp.render('admin/listaFormador', {alunos, cursos, professores, admin});
+        resp.render('admin/Formador/listaFormador', {alunos, cursos, professores, admin});
       }else{
         resp.render('error/404')
       }       
@@ -78,7 +78,7 @@ AdmController.get('/perfilFormador_/:id',adminAuth,async (req:Request, resp: Res
       const cursos= await knex('curso').where('idProf',id).select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/perfilFormador_', {alunos,prof, cursos, professores, admin});
+      resp.render('admin/Formador/perfilFormador_', {alunos,prof, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -93,12 +93,12 @@ AdmController.get('/actividadeFormador/:id',adminAuth,async (req:Request, resp: 
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
-    if(admin && aluno){
-      const cursos= await knex('curso').select('*');
+    const prof=await knex('professor').where('idProf',id).first()    
+    if(admin && prof){
+      const cursos= await knex('curso').where('idProf',id)
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/actividadeFormador', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Formador/actividadeFormador', {alunos,prof, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -113,12 +113,12 @@ AdmController.get('/editarFormador_/:id',adminAuth,async (req:Request, resp: Res
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
-    if(admin && aluno){
-      const cursos= await knex('curso').select('*');
+    const prof=await knex('professor').where('idProf',id).first();    
+    if(admin && prof){
+      const cursos= await knex('curso').where('idProf', id)
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/editarFormador', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Formador/editarFormador', {alunos,prof, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -133,12 +133,12 @@ AdmController.get('/formadorCurso_/:id',adminAuth,async (req:Request, resp: Resp
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
-    if(admin && aluno){
-      const cursos= await knex('curso').select('*');
+    const prof=await knex('professor').where('idProf',id).first()    
+    if(admin && prof){
+      const cursos= await knex('curso').where('idProf', id);
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/formadorCurso_', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Formador/formadorCurso_', {alunos,prof, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -156,7 +156,7 @@ AdmController.get('/addFormador',adminAuth,async (req:Request, resp: Response)=>
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/addFormador', {alunos, cursos, professores, admin});
+      resp.render('admin/Formador/addFormador', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -407,7 +407,6 @@ AdmController.get('/actividadeCurso/:id',adminAuth,async (req:Request, resp: Res
   }
 }    
 )
-
 //Parte Curso-1
 
 //Parte Categoria

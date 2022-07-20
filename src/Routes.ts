@@ -148,7 +148,7 @@ Route.post('/cadastro',async(req:Request, resp: Response)=>{
                                 const d=new Date();
                                 const NIFProf='Sem NIF'
                                   const ids = await knex('professor')
-                                  .insert({imgProf:imgCliente,nivelProf:20, nomeProf:nome,telProf:tell,residenciaProf:'', userProf:username, emailProf:email,estadoProf:1, senhaProf:senha, enderecoProf, admProf:0, descricaoProf, NIFProf })
+                                  .insert({imgProf:imgCliente,nivelProf:20, nomeProf:nome,telProf:tell,residenciaProf:'Sem Residencia', userProf:username, emailProf:email,estadoProf:1, senhaProf:senha, enderecoProf, admProf:0, descricaoProf, NIFProf })
                                   req.flash("certo","Formador cadastrado com sucesso!")
                                   resp.redirect("/login")
                                  // resp.redirect("/loginGeral")
