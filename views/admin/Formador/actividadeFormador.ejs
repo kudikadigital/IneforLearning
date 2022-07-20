@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/user-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:06 GMT -->
-<%-include('Partes/head.ejs')%>
+<%-include('../Partes/head.ejs')%>
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
   <script src="/dashboard/assets/js/hs.theme-appearance.js"></script>
@@ -11,7 +11,7 @@
 
   <!-- ========== HEADER ========== -->
 
-  <%-include('Partes/header.ejs')%>
+  <%-include('../Partes/header.ejs')%>
 
   <!-- ========== END HEADER ========== -->
 
@@ -19,7 +19,7 @@
   <!-- Navbar Vertical -->
 
 
-  <%-include('Partes/sideBar.ejs')%>
+  <%-include('../Partes/sideBar.ejs')%>
 
   <main id="content" role="main" class="main">
     <!-- Content -->
@@ -83,13 +83,13 @@
 
             <ul class="nav nav-tabs align-items-center">
               <li class="nav-item">
-                <a class="nav-link active" href="/perfilformador_/<%=prof.idProf %> ">Perfil</a>
+                <a class="nav-link " href="/perfilformador_/<%=prof.idProf %> ">Perfil</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="/formadorCurso_/<%=prof.idProf %> ">Cursos <span class="badge bg-soft-dark text-dark rounded-circle ms-1"><%=cursos.length %> </span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/actividadeFormador/<%=prof.idProf %> ">Actividades e Conexões</a>
+                <a class="nav-link active" href="/actividadeFormador/<%=prof.idProf %> ">Actividades e Conexões</a>
               </li>
 
               <li class="nav-item ms-auto">
@@ -108,7 +108,7 @@
                         </button>
                       <%} %> 
                   </div>
-                  <a class="btn btn-white btn-sm" href="/editarFormador_/2">
+                  <a class="btn btn-white btn-sm" href="/editarFormador_/<%=prof.idProf %>">
                     <i class="bi-person-plus-fill"></i> Editar Perfil
                   </a>
                   <!-- End Form Check -->
@@ -211,91 +211,6 @@
                 <div class="card">
                   <!-- Header -->
                   <div class="card-header card-header-content-between">
-                    <h4 class="card-header-title">Seus Cursos</h4>
-
-                    <!-- Dropdown -->
-                    <div class="dropdowm">
-                      <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="projectReportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-three-dots-vertical"></i>
-                      </button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="projectReportDropdown">
-                        <span class="dropdown-header">Denifições</span>
-                        <!-- <a class="dropdown-item" href="#">
-                          <i class="bi-share-fill dropdown-item-icon"></i> Share connections
-                        </a>
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-info-circle dropdown-item-icon"></i> Suggest edits
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <span class="dropdown-header">Feedback</span>
-
-                        <a class="dropdown-item" href="#">
-                          <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                        </a> -->
-                      </div>
-                    </div>
-                    <!-- End Dropdown -->
-                  </div>
-                  <!-- End Header -->
-
-                  <!-- Table -->
-                  <div class="table-responsive">
-                    <table class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
-                      <thead class="thead-light">
-                        <tr>
-                          <th>Cursos</th>
-                          <th style="width: 40%;">Progresso</th>
-                          <th class="table-text-end">Horas Assistida</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <% cursos.map(e=>{
-                        <tr>
-
-                          <td>
-                            <div class="d-flex">
-                              <span class="avatar avatar-xs avatar-soft-dark avatar-circle">
-                                <span class="avatar-initials">U</span>
-                              </span>
-                              <div class="ms-3">
-                                <h5 class="mb-0"> </h5>
-                                <small>Updated 2 hours ago</small>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="d-flex align-items-center">
-                              <span class="me-3">0%</span>
-                              <div class="progress table-progress">
-                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="table-text-end">4:25</td>
-                        </tr>
-                        }) %> 
-
-
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- End Table -->
-
-                  <!-- Footer -->
-                  <a class="card-footer text-center" href="/formadorCurso_/<%=prof.idProf %>">
-                    Ver todos seus Cursos <i class="bi-chevron-right"></i>
-                  </a>
-                  <!-- End Footer -->
-                </div>
-                <!-- End Card -->
-                <!-- Card -->
-                <div class="card">
-                  <!-- Header -->
-                  <div class="card-header card-header-content-between">
                     <h4 class="card-header-title">Lista de Actividades</h4>
 
                     <!-- Dropdown -->
@@ -378,40 +293,8 @@
 
     <!-- Footer -->
 
-    <div class="footer">
-      <div class="row justify-content-between align-items-center">
-        <div class="col">
-          <p class="fs-6 mb-0">&copy; Front. <span class="d-none d-sm-inline-block">2022 Htmlstream.</span></p>
-        </div>
-        <!-- End Col -->
 
-        <div class="col-auto">
-          <div class="d-flex justify-content-end">
-            <!-- List Separator -->
-            <ul class="list-inline list-separator">
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">FAQ</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">License</a>
-              </li>
-
-              <li class="list-inline-item">
-                <!-- Keyboard Shortcuts Toggle -->
-                <button class="btn btn-ghost-secondary btn btn-icon btn-ghost-secondary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasKeyboardShortcuts" aria-controls="offcanvasKeyboardShortcuts">
-                  <i class="bi-command"></i>
-                </button>
-                <!-- End Keyboard Shortcuts Toggle -->
-              </li>
-            </ul>
-            <!-- End List Separator -->
-          </div>
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-    </div>
+    <%- include('../Partes/footer.ejs') %> 
 
     <!-- End Footer -->
   </main>
