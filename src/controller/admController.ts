@@ -13,6 +13,7 @@ AdmController.get('/admin',adminAuth,async (req:Request, resp: Response)=>{
         const idUser=req.session?.user.id;
         const admin= await knex('professor').where('idProf', idUser).first();        
         if(admin){
+          
           const cursos= await knex('curso').select('*');
           const alunos= await knex('aluno').select('*');
           const professores= await knex('professor').select('*');
