@@ -179,7 +179,7 @@ AdmController.get('/listaAluno',adminAuth,async (req:Request, resp: Response)=>{
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/listaAluno', {alunos, cursos, professores, admin});
+      resp.render('admin/Aluno/listaAluno', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -194,12 +194,12 @@ AdmController.get('/perfilAluno_/:id',adminAuth,async (req:Request, resp: Respon
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
+    const aluno=await knex('aluno').where('idAluno',id).first()    
     if(admin && aluno){
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/perfilAluno_', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Aluno/perfilAluno_', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -214,12 +214,12 @@ AdmController.get('/aprendizadoAluno/:id',adminAuth,async (req:Request, resp: Re
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
+    const aluno=await knex('aluno').where('idAluno',id).first()    
     if(admin && aluno){
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/aprendizadoAluno', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Aluno/aprendizadoAluno', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -234,12 +234,12 @@ AdmController.get('/editarAluno/:id',adminAuth,async (req:Request, resp: Respons
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
+    const aluno=await knex('aluno').where('idAluno',id).first()    
     if(admin && aluno){
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/editarAluno', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Aluno/editarAluno', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -249,17 +249,17 @@ AdmController.get('/editarAluno/:id',adminAuth,async (req:Request, resp: Respons
   }
 }    
 )
-AdmController.get('/actividadeAluno/:id',adminAuth,async (req:Request, resp: Response)=>{
+AdmController.get('/actividadesAluno/:id',adminAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
     const {id}=req.params
     const admin= await knex('professor').where('idProf', idUser).first();    
-    const aluno=await knex('aluno').where('idAluno',id)    
+    const aluno=await knex('aluno').where('idAluno',id).first()    
     if(admin && aluno){
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/actividadeAluno', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Aluno/actividadeAluno', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -277,10 +277,10 @@ AdmController.get('/listaCurso',adminAuth,async (req:Request, resp: Response)=>{
     const idUser=req.session?.user.id;
     const admin= await knex('professor').where('idProf', idUser).first();        
     if(admin){
-      const cursos= await knex('curso').select('*');
+      const cursos= await knex('curso').leftJoin('categoria', 'curso.idCategoria', 'categoria.idCategoria').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/listaCurso', {alunos, cursos, professores, admin});
+      resp.render('admin/Curso/listaCurso', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -298,7 +298,7 @@ AdmController.get('/addCurso',adminAuth,async (req:Request, resp: Response)=>{
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/addCurso', {alunos, cursos, professores, admin});
+      resp.render('admin/Curso/addCurso', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -318,7 +318,7 @@ AdmController.get('/perfilCurso_/:id',adminAuth,async (req:Request, resp: Respon
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/perfilCurso_', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Curso/perfilCurso_', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -338,7 +338,7 @@ AdmController.get('/alunoCurso/:id',adminAuth,async (req:Request, resp: Response
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/alunoCurso', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Curso/alunoCurso', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -358,7 +358,7 @@ AdmController.get('/arquivoCurso/:id',adminAuth,async (req:Request, resp: Respon
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/arquivoCurso', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Curso/arquivoCurso', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -378,7 +378,7 @@ AdmController.get('/editarCurso/:id',adminAuth,async (req:Request, resp: Respons
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/editarCurso', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Curso/editarCurso', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -398,7 +398,7 @@ AdmController.get('/actividadeCurso/:id',adminAuth,async (req:Request, resp: Res
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/actividadeCurso', {alunos,aluno, cursos, professores, admin});
+      resp.render('admin/Curso/actividadeCurso', {alunos,aluno, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       

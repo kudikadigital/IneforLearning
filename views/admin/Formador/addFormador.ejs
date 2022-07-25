@@ -185,7 +185,7 @@
                     <label for="organizationLabel" class="col-sm-3 col-form-label form-label">Descrição</label>
 
                     <div class="col-sm-9">
-                      <input onchange="formData()" name="descProf" type="text" class="form-control" id="descProf" placeholder="Htmlstream" aria-label="Htmlstream">
+                      <input onchange="formData()" name="descProf" type="text" class="form-control" id="descProf" placeholder="Diz um pouco sobre o Formador" aria-label="Htmlstream">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -257,7 +257,7 @@
 
                 <!-- Avatar -->
                 <div class="avatar avatar-xxl avatar-circle avatar-border-lg profile-cover-avatar">
-                  <img id="imgProff" class="avatar-img" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
+                  <img id="imgProff" class="avatar-img" src="http://localhost:1200/upload/user.png" alt="Image Description">
                 </div>
                 <!-- End Avatar -->
 
@@ -286,9 +286,10 @@
 
                   </dl>
                   <!-- End Row -->
+                  <div style="align-center: center" class="" id="result"></div>
                 </div>
                 <!-- End Body -->
-
+               
                 <!-- Footer -->
                 <div class="card-footer d-sm-flex align-items-sm-center">
                   <button type="button" class="btn btn-ghost-secondary mb-2 mb-sm-0" data-hs-step-form-prev-options='{
@@ -298,7 +299,7 @@
                   </button>
 
                   <div class="ms-auto">
-                    <button id="addUserFinishBtn" type="button" class="btn btn-primary">Cadastrar Professor</button>
+                    <button  onclick="EnviarDados()" type="button" class="btn btn-primary">Cadastrar Professor</button>
                   </div>
                 </div>
                 <!-- End Footer -->
@@ -344,33 +345,44 @@
 
 
     function EnviarDados() {
-      const update = {
-        title: 'A blog post by Kingsley',
-        body: 'Brilliant post on fetch API',
-        userId: 1,
-        };
+      const nomeProf=document.getElementById('nomeProf').value;
+      const emailProf=document.getElementById('emailProf').value;
+      const userProf=document.getElementById('userProf').value;
+      const telProf=document.getElementById('telProf').value;
+      const enderecoProf=document.getElementById('enderecoProf').value;
+      const residenciaProf=document.getElementById('residenciaProf').value;
+      const descProf=document.getElementById('descProf').value;
+      const imgProf=document.getElementById('avatarUploader').files[0];
 
-        const options = {
+      //nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf
+
+      const dados={nomeProf,emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf}
+      const options = {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify(update),
+        body: JSON.stringify(dados),
       };
-
-      fetch('https://jsonplaceholder.typicode.com/posts', options)
-      .then(data => {
-          if (!data.ok) {
-            throw Error(data.status);
-          }
-          return data.json();
-          }).then(update => {
-          console.log(update);
-          
-          }).catch(e => {
-          console.log(e);
-          });
+      
+      fetch('http://localhost:1200/adicionarProf', options).then(data => {
+        return data.json();
+      }).then(data => {
+        if(data.error){
+          document.getElementById('result').innerHTML =data.error; 
+          document.getElementById('result').setAttribute('class', 'text-danger')
+        }else{
+          document.getElementById('result').innerHTML =data.certo;
+          document.getElementById('result').setAttribute('class', 'text-success')
+          window.location="/listaFormador"
         }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+      
+    }
 
   </script>
 
