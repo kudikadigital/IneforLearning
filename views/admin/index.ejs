@@ -29,12 +29,12 @@
       <div class="page-header">
         <div class="row align-items-center">
           <div class="col">
-            <h1 class="page-header-title">Bem-vindo, Plataforma de Ensino a distáncia</h1>
+            <h1 class="page-header-title">Bem-vindo, Plataforma de Ensino a distância</h1>
           </div>
           <!-- End Col -->
 
           <div class="col-auto">
-            <a class="btn btn-primary" href="javascript:;" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
+            <a class="btn btn-primary" href="/addCoordenador"  >
               <i class="bi-person-plus-fill me-1"></i> Adiocionar Coordenador
             </a>
           </div>
@@ -50,11 +50,11 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Total Users</h6>
+              <h6 class="card-subtitle">Total de Usuários</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">72,540</h2>
+                  <h2 class="card-title text-inherit"><%= (professores.length+alunos.length+coordenador.length) %> </h2>
                 </div>
                 <!-- End Col -->
 
@@ -103,9 +103,9 @@
               <!-- End Row -->
 
               <span class="badge bg-soft-success text-success">
-                <i class="bi-graph-up"></i> 12.5%
+                <i class="bi-graph-up"></i> <%= (professores.length+alunos.length+coordenador.length)/100 %>%
               </span>
-              <span class="text-body fs-6 ms-1">from 70,104</span>
+              <span class="text-body fs-6 ms-1">de <%= (professores.length+alunos.length+coordenador.length) %> </span>
             </div>
           </a>
           <!-- End Card -->
@@ -115,11 +115,11 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Sessions</h6>
+              <h6 class="card-subtitle">Cursos Administrados</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">29.4%</h2>
+                  <h2 class="card-title text-inherit"><%= (cursos.length) %> </h2>
                 </div>
                 <!-- End Col -->
 
@@ -168,9 +168,9 @@
               <!-- End Row -->
 
               <span class="badge bg-soft-success text-success">
-                <i class="bi-graph-up"></i> 1.7%
+                <i class="bi-graph-up"></i><%= (cursos.length)/100 %>%
               </span>
-              <span class="text-body fs-6 ms-1">from 29.1%</span>
+              <span class="text-body fs-6 ms-1">de <%= (cursos.length) %></span>
             </div>
           </a>
           <!-- End Card -->
@@ -180,11 +180,11 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Avg. Click Rate</h6>
+              <h6 class="card-subtitle">Coordenadores</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">56.8%</h2>
+                  <h2 class="card-title text-inherit"><%= (coordenador.length) %></h2>
                 </div>
                 <!-- End Col -->
 
@@ -233,9 +233,9 @@
               <!-- End Row -->
 
               <span class="badge bg-soft-danger text-danger">
-                <i class="bi-graph-down"></i> 4.4%
+                <i class="bi-graph-down"></i> <%= (coordenador.length)/100 %>%
               </span>
-              <span class="text-body fs-6 ms-1">from 61.2%</span>
+              <span class="text-body fs-6 ms-1">de <%= (coordenador.length) %></span>
             </div>
           </a>
           <!-- End Card -->
@@ -245,11 +245,11 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Pageviews</h6>
+              <h6 class="card-subtitle">Alunos Inscritos</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">92,913</h2>
+                  <h2 class="card-title text-inherit"><%= (alunos.length) %></h2>
                 </div>
                 <!-- End Col -->
 
@@ -297,8 +297,8 @@
               </div>
               <!-- End Row -->
 
-              <span class="badge bg-soft-secondary text-body">0.0%</span>
-              <span class="text-body fs-6 ms-1">from 2,913</span>
+              <span class="badge bg-soft-secondary text-body"><%= (alunos.length)/100 %>%</span>
+              <span class="text-body fs-6 ms-1">de <%= (alunos.length) %></span>
             </div>
           </a>
           <!-- End Card -->
@@ -325,24 +325,24 @@
                 <li class="list-group-item">
                   <h5 class="card-title"></h5>
                 </li>
-
+                <% cursos.reverse().map(e=> {%> 
                 <!-- List Group Item -->
                 <li class="list-group-item">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/capsule-icon.svg" alt="Image Description">
+                      <img class="avatar avatar-xs avatar-4x3" src="http://localhost:1200/upload/<%=e.imgCurso %>" alt="Image Description">
                     </div>
                     <div class="flex-grow-1 ms-3">
                       <div class="row align-items-center">
                         <div class="col">
-                          <h5 class="mb-0">Capsule</h5>
-                          <span class="d-block fs-6 text-body">Users</span>
+                          <h5 class="mb-0"><%= e.nomeCurso %> </h5>
+                          <span class="d-block fs-6 text-body"><%= e.nomeProf %>- <%= e.nomeCategoria %>  </span>
                         </div>
                         <!-- End Col -->
 
                         <div class="col-auto">
-                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                            Ver Cursos
+                          <a class="btn btn-primary btn-sm" href="/perfilCurso_/<%=e.idCurso %>" title="Launch importer" >
+                            Ver Curso
                           </a>
                         </div>
                         <!-- End Col -->
@@ -352,62 +352,9 @@
                   </div>
                 </li>
                 <!-- End List Group Item -->
+                <%})%> 
 
-                <!-- List Group Item -->
-                <li class="list-group-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <div class="row align-items-center">
-                        <div class="col">
-                          <h5 class="mb-0">Mailchimp</h5>
-                          <span class="d-block fs-6 text-body">Users</span>
-                        </div>
-                        <!-- End Col -->
 
-                        <div class="col-auto">
-                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                            Ver Cursos
-                            
-                          </a>
-                        </div>
-                        <!-- End Col -->
-                      </div>
-                      <!-- End Row -->
-                    </div>
-                  </div>
-                </li>
-                <!-- End List Group Item -->
-
-                <!-- List Group Item -->
-                <li class="list-group-item">
-                  <div class="d-flex">
-                    <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <div class="row align-items-center">
-                        <div class="col">
-                          <h5 class="mb-0">Webdev</h5>
-                          <span class="d-block fs-6 text-body">Users</span>
-                        </div>
-                        <!-- End Col -->
-
-                        <div class="col-auto">
-                          <a class="btn btn-primary btn-sm" href="#" title="Launch importer" target="_blank">
-                            Ver Cursos
-                            
-                          </a>
-                        </div>
-                        <!-- End Col -->
-                      </div>
-                      <!-- End Row -->
-                    </div>
-                  </div>
-                </li>
-                <!-- End List Group Item -->
 
                
               </ul>
@@ -428,10 +375,10 @@
               <!-- Nav -->
               <ul class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
                 <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
-                  <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">This week</a>
+                  <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">Essa Semana</a>
                 </li>
                 <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click" data-action="toggle">
-                  <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Last week</a>
+                  <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Semana Passada</a>
                 </li>
               </ul>
               <!-- End Nav -->
@@ -454,12 +401,12 @@
                 <div class="col-sm-auto align-self-sm-end">
                   <div class="row fs-6 text-body">
                     <div class="col-auto">
-                      <span class="legend-indicator bg-primary"></span> New
+                      <span class="legend-indicator bg-primary"></span> Pagas
                     </div>
                     <!-- End Col -->
 
                     <div class="col-auto">
-                      <span class="legend-indicator"></span> Overdue
+                      <span class="legend-indicator"></span> Pendente
                     </div>
                     <!-- End Col -->
                   </div>
@@ -474,7 +421,7 @@
                 <canvas id="updatingBarChart" style="height: 20rem;" data-hs-chartjs-options='{
                           "type": "bar",
                           "data": {
-                            "labels": ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"],
+                            "labels": ["Node js","May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"],
                             "datasets": [{
                               "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220],
                               "backgroundColor": "#377dff",
@@ -551,17 +498,17 @@
           <div class="row justify-content-between align-items-center flex-grow-1">
             <div class="col-md">
               <div class="d-flex justify-content-between align-items-center">
-                <h4 class="card-header-title">Users</h4>
+                <h4 class="card-header-title">Ultimas Inscrições Realizadas</h4>
 
                 <!-- Datatable Info -->
                 <div id="datatableCounterInfo" style="display: none;">
                   <div class="d-flex align-items-center">
                     <span class="fs-6 me-3">
                       <span id="datatableCounter">0</span>
-                      Selected
+                      Selecionado
                     </span>
                     <a class="btn btn-outline-danger btn-sm" href="javascript:;">
-                      <i class="tio-delete-outlined"></i> Delete
+                      <i class="tio-delete-outlined"></i> Deletar
                     </a>
                   </div>
                 </div>
@@ -576,7 +523,7 @@
                 <div class="col-sm-auto">
                   <div class="row align-items-center gx-0">
                     <div class="col">
-                      <span class="text-secondary me-2">Status:</span>
+                      <span class="text-secondary me-2">Estado:</span>
                     </div>
                     <!-- End Col -->
 
@@ -588,10 +535,10 @@
                                   "hideSearch": true,
                                   "dropdownWidth": "10rem"
                                 }'>
-                          <option value="null" selected>All</option>
-                          <option value="successful">Successful</option>
-                          <option value="overdue">Overdue</option>
-                          <option value="pending">Pending</option>
+                          <option value="null" selected>Todos</option>
+                          <option value="successful">Pago</option>
+                          <option value="overdue">Rejeitada</option>
+                          <option value="pending">Pendente</option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -605,7 +552,7 @@
                 <div class="col-sm-auto">
                   <div class="row align-items-center gx-0">
                     <div class="col">
-                      <span class="text-secondary me-2">Signed up:</span>
+                      <span class="text-secondary me-2">Acesso:</span>
                     </div>
                     <!-- End Col -->
 
@@ -617,9 +564,9 @@
                                   "hideSearch": true,
                                   "dropdownWidth": "10rem"
                                 }'>
-                          <option value="null" selected>All</option>
-                          <option value="1 year ago">1 year ago</option>
-                          <option value="6 months ago">6 months ago</option>
+                          <option value="null" selected>Todos</option>
+                          <option value="1 year ago"></option>
+                          <option value="6 months ago"></option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -637,7 +584,7 @@
                       <div class="input-group-prepend input-group-text">
                         <i class="bi-search"></i>
                       </div>
-                      <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
+                      <input id="datatableSearch" type="search" class="form-control" placeholder="Pesquisar Inscrições" aria-label="Search users">
                     </div>
                     <!-- End Search -->
                   </form>
@@ -678,491 +625,58 @@
                     <label class="form-check-label" for="datatableCheckAll"></label>
                   </div>
                 </th>
-                <th class="table-column-ps-0">Full name</th>
-                <th>Status</th>
-                <th>Type</th>
-                <th>Email</th>
-                <th>Signed up</th>
-                <th>User ID</th>
+                <th class="table-column-ps-0">Nome Completo</th>
+                <th>Estado</th>
+                <th>Curso</th>
+                <th>Data</th>
+                <th>Preço</th>
+                <th>ID inscrição</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck2">
-                    <label class="form-check-label" for="usersDataCheck2"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img10.jpg" alt="Image Description">
+              <% matricula.reverse().map(e=>{%>
+                <tr>
+                  <td class="table-column-pe-0">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="usersDataCheck2">
+                      <label class="form-check-label" for="usersDataCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="/perfilAluno_/<%=e.idAluno %> ">
+                      <div class="avatar avatar-circle">
+                        <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
                       </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Unassigned</td>
-                <td>amanda@site.com</td>
-                <td>1 year ago</td>
-                <td>67989</td>
-              </tr>
+                      <div class="ms-3">
+                        <span class="d-block h5 text-inherit mb-0"><%=e.nomeAluno %>  <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
+                        <span class="d-block fs-5 text-body"><%=e.emailAluno %> </span>
+                      </div>
+                    </a>
+                  </td>
+                  </td>
+                  <% if(e.estadoMatricula==0){%> 
+                    <td>
+                      <span class="legend-indicator bg"></span>Pendente
+                    </td>
+                  <%}else if(e.estadoMatricula==1){%> 
+                    <td>
+                      <span class="legend-indicator bg-success"></span>Pago
+                    </td>
+                  <%}else{ %> 
+                    <td>
+                      <span class="legend-indicator bg-danger"></span>Rejeitado
+                    </td>
+                  <%} %> 
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck3">
-                    <label class="form-check-label" for="usersDataCheck3"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
-                        <span class="avatar-initials">A</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Anne Richard</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Subscription</td>
-                <td>anne@site.com</td>
-                <td>6 months ago</td>
-                <td>67326</td>
-              </tr>
+                  <td><%= e.nomeCurso%> </td>
+                  <td><%= e.dataMatricula%> </td>
+                  <td><%= e.precoCurso%>Kz</td>
+                  <td><%= e.idMatricula%></td>
+                </tr>
+              <% }) %> 
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck4">
-                    <label class="form-check-label" for="usersDataCheck4"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">David Harrison</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Overdue
-                </td>
-                <td>Non-subscription</td>
-                <td>david@site.com</td>
-                <td>6 months ago</td>
-                <td>55821</td>
-              </tr>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck5">
-                    <label class="form-check-label" for="usersDataCheck5"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Finch Hoot</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>finch@site.com</td>
-                <td>1 year ago</td>
-                <td>85214</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck6">
-                    <label class="form-check-label" for="usersDataCheck6"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                        <span class="avatar-initials">B</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Bob Dean</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Subscription</td>
-                <td>bob@site.com</td>
-                <td>6 months ago</td>
-                <td>75470</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck7">
-                    <label class="form-check-label" for="usersDataCheck7"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>Ella@site.com</td>
-                <td>1 year ago</td>
-                <td>37534</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck8">
-                    <label class="form-check-label" for="usersDataCheck8"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img4.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Sam Kart</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Non-subscription</td>
-                <td>sam@site.com</td>
-                <td>1 year ago</td>
-                <td>57300</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck9">
-                    <label class="form-check-label" for="usersDataCheck9"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Costa Quinn</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Overdue
-                </td>
-                <td>Unassigned</td>
-                <td>costa@site.com</td>
-                <td>1 year ago</td>
-                <td>71288</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck10">
-                    <label class="form-check-label" for="usersDataCheck10"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
-                        <span class="avatar-initials">R</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Rachel Doe</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Unassigned</td>
-                <td>rachel@site.com</td>
-                <td>6 months ago</td>
-                <td>95211</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck11">
-                    <label class="form-check-label" for="usersDataCheck11"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                        <span class="avatar-initials">B</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Brian Halligan</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>brian@site.com</td>
-                <td>1 year ago</td>
-                <td>58643</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck12">
-                    <label class="form-check-label" for="usersDataCheck12"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img8.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Linda Bates</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>linda@site.com</td>
-                <td>1 year ago</td>
-                <td>44414</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck13">
-                    <label class="form-check-label" for="usersDataCheck13"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-info avatar-circle">
-                        <span class="avatar-initials">C</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Chris Mathew <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Non-subscription</td>
-                <td>chris@site.com</td>
-                <td>1 year ago</td>
-                <td>12569</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck14">
-                    <label class="form-check-label" for="usersDataCheck14"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                        <span class="avatar-initials">L</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Lewis Clarke</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Overdue
-                </td>
-                <td>Non-subscription</td>
-                <td>lewis@site.com</td>
-                <td>1 year ago</td>
-                <td>54621</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck15">
-                    <label class="form-check-label" for="usersDataCheck15"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img7.jpg" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Clarice Boone <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Non-subscription</td>
-                <td>clarice@site.com</td>
-                <td>6 months ago</td>
-                <td>23485</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck16">
-                    <label class="form-check-label" for="usersDataCheck16"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-danger avatar-circle">
-                        <span class="avatar-initials">M</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Mark Colbert</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Successful
-                </td>
-                <td>Subscription</td>
-                <td>mark@site.com</td>
-                <td>6 months ago</td>
-                <td>78463</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck17">
-                    <label class="form-check-label" for="usersDataCheck17"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-info avatar-circle">
-                        <span class="avatar-initials">J</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Johnny Appleseed</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>johnny@site.com</td>
-                <td>1 year ago</td>
-                <td>23564</td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck18">
-                    <label class="form-check-label" for="usersDataCheck18"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="user-profile.html">
-                    <div class="flex-shrink-0">
-                      <div class="avatar avatar-sm avatar-soft-primary avatar-circle">
-                        <span class="avatar-initials">P</span>
-                      </div>
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Phileas Fogg</h5>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>Subscription</td>
-                <td>phileas@site.com</td>
-                <td>6 months ago</td>
-                <td>39199</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -1174,7 +688,7 @@
           <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
             <div class="col-sm mb-2 mb-sm-0">
               <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                <span class="me-2">Showing:</span>
+                <span class="me-2">Mostrando:</span>
 
                 <!-- Select -->
                 <div class="tom-select-custom">
@@ -1190,7 +704,7 @@
                 </div>
                 <!-- End Select -->
 
-                <span class="text-secondary me-2">of</span>
+                <span class="text-secondary me-2">de</span>
 
                 <!-- Pagination Quantity -->
                 <span id="datatableWithPaginationInfoTotalQty"></span>
@@ -1218,7 +732,7 @@
           <div class="card h-100">
             <!-- Header -->
             <div class="card-header card-header-content-sm-between">
-              <h4 class="card-header-title mb-2 mb-sm-0">Transactions</h4>
+              <h4 class="card-header-title mb-2 mb-sm-0">Transações Gerias da Plataforma</h4>
 
               <!-- Daterangepicker -->
               <button id="js-daterangepicker-predefined" class="btn btn-ghost-secondary btn-sm dropdown-toggle">
@@ -1240,7 +754,7 @@
                                   {
                                     "label": "Label 1",
                                     "data": [
-                                      {"x": 55, "y": 65, "r": 99}
+                                      {"x": 55, "y": 65, "r": <%= matricula.filter(e=>e.estadoMatricula==1).length %> }
                                     ],
                                     "color": "#fff",
                                     "backgroundColor": "rgba(55, 125, 255, 0.9)",
@@ -1249,7 +763,7 @@
                                   {
                                     "label": "Label 2",
                                     "data": [
-                                      {"x": 33, "y": 42, "r": 65}
+                                      {"x": 33, "y": 42, "r": <%= cursos.filter(e=>e.estadoCurso==1).length %>}
                                     ],
                                     "color": "#fff",
                                     "backgroundColor": "rgba(100, 0, 214, 0.8)",
@@ -1258,7 +772,7 @@
                                   {
                                     "label": "Label 3",
                                     "data": [
-                                      {"x": 46, "y": 26, "r": 38}
+                                      {"x": 46, "y": 26, "r": <%= professores.filter(e=>e.estadoProf==1).length %>}
                                     ],
                                     "color": "#fff",
                                     "backgroundColor": "#00c9db",
@@ -1297,17 +811,17 @@
 
               <div class="row justify-content-center">
                 <div class="col-auto">
-                  <span class="legend-indicator bg-primary"></span> New
+                  <span class="legend-indicator bg-primary"></span> Matriculas
                 </div>
                 <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="legend-indicator" style="background-color: #7000f2;"></span> Pending
+                  <span class="legend-indicator" style="background-color: #7000f2;"></span> Cursos
                 </div>
                 <!-- End Col -->
 
                 <div class="col-auto">
-                  <span class="legend-indicator bg-info"></span> Failed
+                  <span class="legend-indicator bg-info"></span> Formadores
                 </div>
                 <!-- End Col -->
               </div>
@@ -1323,7 +837,7 @@
           <div class="card h-100">
             <!-- Header -->
             <div class="card-header card-header-content-between">
-              <h4 class="card-header-title">Reports overview</h4>
+              <h4 class="card-header-title">Cursos com mais Inscritos </h4>
 
               <!-- Dropdown -->
               <div class="dropdown">
@@ -1332,25 +846,19 @@
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="reportsOverviewDropdown1">
-                  <span class="dropdown-header">Settings</span>
+                  <span class="dropdown-header">Definições</span>
 
                   <a class="dropdown-item" href="#">
-                    <i class="bi-share-fill dropdown-item-icon"></i> Share reports
+                    <i class="bi-share-fill dropdown-item-icon"></i> Partilhar
                   </a>
                   <a class="dropdown-item" href="#">
                     <i class="bi-download dropdown-item-icon"></i> Download
                   </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-alt dropdown-item-icon"></i> Connect other apps
-                  </a>
+
 
                   <div class="dropdown-divider"></div>
 
-                  <span class="dropdown-header">Feedback</span>
 
-                  <a class="dropdown-item" href="#">
-                    <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
-                  </a>
                 </div>
               </div>
               <!-- End Dropdown -->
@@ -1359,7 +867,7 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="h1 d-block mb-4">$7,431.14 USD</span>
+              <span class="h1 d-block mb-4"><%= matricula.length %>  Matriculado(s)</span>
 
               <!-- Progress -->
               <div class="progress rounded-pill mb-2">
@@ -1430,40 +938,7 @@
 
     <!-- Footer -->
 
-    <div class="footer">
-      <div class="row justify-content-between align-items-center">
-        <div class="col">
-          <p class="fs-6 mb-0">&copy; Front. <span class="d-none d-sm-inline-block">2022 Htmlstream.</span></p>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-auto">
-          <div class="d-flex justify-content-end">
-            <!-- List Separator -->
-            <ul class="list-inline list-separator">
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">FAQ</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">License</a>
-              </li>
-
-              <li class="list-inline-item">
-                <!-- Keyboard Shortcuts Toggle -->
-                <button class="btn btn-ghost-secondary btn btn-icon btn-ghost-secondary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasKeyboardShortcuts" aria-controls="offcanvasKeyboardShortcuts">
-                  <i class="bi-command"></i>
-                </button>
-                <!-- End Keyboard Shortcuts Toggle -->
-              </li>
-            </ul>
-            <!-- End List Separator -->
-          </div>
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-    </div>
+    <%- include('./Partes/footer') %> 
 
     <!-- End Footer -->
   </main>
@@ -1649,13 +1124,7 @@
 
   <!-- End Builder -->
 
-  <!-- Builder Toggle -->
-  <div id="builderOffcanvas" class="position-fixed bottom-0 end-0 me-5 mb-5" style="z-index: 3;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBuilder" aria-controls="offcanvasBuilder">
-    <a class="btn btn-dark btn-lg" href="javascript:;">
-      <i class="bi-sliders fs-6 me-2"></i> Customize
-    </a>
-  </div>
-  <!-- End Builder Toggle -->
+
 
   <div class="d-none js-build-layouts">
     <div class="js-build-layout-header-default">
@@ -4354,250 +3823,6 @@
 
   <!-- End Welcome Message Modal -->
 
-  <!-- Create a new user Modal -->
-  <div class="modal fade" id="inviteUserModal" tabindex="-1" aria-labelledby="inviteUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="inviteUserModalLabel">Invite users</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <!-- Body -->
-        <div class="modal-body">
-          <!-- Form -->
-          <div class="mb-4">
-            <div class="input-group mb-2 mb-sm-0">
-              <input type="text" class="form-control" name="fullName" placeholder="Search name or emails" aria-label="Search name or emails">
-
-              <div class="input-group-append input-group-append-last-sm-down-none">
-                <!-- Select -->
-                <div class="tom-select-custom tom-select-custom-end">
-                  <select class="js-select form-select" autocomplete="off" data-hs-tom-select-options='{
-                            "searchInDropdown": false,
-                            "hideSearch": true,
-                            "dropdownWidth": "11rem"
-                          }'>
-                    <option value="guest" selected>Guest</option>
-                    <option value="can edit">Can edit</option>
-                    <option value="can comment">Can comment</option>
-                    <option value="full access">Full access</option>
-                  </select>
-                </div>
-                <!-- End Select -->
-
-                <a class="btn btn-primary d-none d-sm-inline-block" href="javascript:;">Invite</a>
-              </div>
-            </div>
-
-            <a class="btn btn-primary w-100 d-sm-none" href="javascript:;">Invite</a>
-          </div>
-          <!-- End Form -->
-
-          <div class="row">
-            <h5 class="col modal-title">Invite users</h5>
-
-            <div class="col-auto">
-              <a class="d-flex align-items-center small text-body" href="#">
-                <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/gmail-icon.svg" alt="Image Description">
-                Import contacts
-              </a>
-            </div>
-          </div>
-
-          <hr class="mt-2">
-
-          <ul class="list-unstyled list-py-2 mb-0">
-            <!-- List Group Item -->
-            <li>
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="/dashboard/assets/img/160x160/img10.jpg" alt="Image Description">
-                  </div>
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                  <div class="row align-items-center">
-                    <div class="col-sm">
-                      <h5 class="mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h5>
-                      <span class="d-block small">amanda@site.com</span>
-                    </div>
-
-                    <div class="col-sm-auto">
-                      <!-- Select -->
-                      <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "11rem"
-                                }'>
-                          <option value="guest" selected>Guest</option>
-                          <option value="can edit">Can edit</option>
-                          <option value="can comment">Can comment</option>
-                          <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
-                        </select>
-                      </div>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </li>
-            <!-- End List Group Item -->
-
-            <!-- List Group Item -->
-            <li>
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
-                  </div>
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                  <div class="row align-items-center">
-                    <div class="col-sm">
-                      <h5 class="mb-0">David Harrison</h5>
-                      <span class="d-block small">david@site.com</span>
-                    </div>
-
-                    <div class="col-sm-auto">
-                      <!-- Select -->
-                      <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "11rem"
-                                }'>
-                          <option value="guest" selected>Guest</option>
-                          <option value="can edit">Can edit</option>
-                          <option value="can comment">Can comment</option>
-                          <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
-                        </select>
-                      </div>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </li>
-            <!-- End List Group Item -->
-
-            <!-- List Group Item -->
-            <li>
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
-                  </div>
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                  <div class="row align-items-center">
-                    <div class="col-sm">
-                      <h5 class="mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h5>
-                      <span class="d-block small">Markvt@site.com</span>
-                    </div>
-
-                    <div class="col-sm-auto">
-                      <!-- Select -->
-                      <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "11rem"
-                                }'>
-                          <option value="guest" selected>Guest</option>
-                          <option value="can edit">Can edit</option>
-                          <option value="can comment">Can comment</option>
-                          <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
-                        </select>
-                      </div>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </li>
-            <!-- End List Group Item -->
-
-            <!-- List Group Item -->
-            <li>
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
-                    <span class="avatar-initials">B</span>
-                  </div>
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                  <div class="row align-items-center">
-                    <div class="col-sm">
-                      <h5 class="mb-0">Bob Dean</h5>
-                      <span class="d-block small">bob@site.com</span>
-                    </div>
-
-                    <div class="col-sm-auto">
-                      <!-- Select -->
-                      <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
-                                  "searchInDropdown": false,
-                                  "hideSearch": true,
-                                  "dropdownWidth": "11rem"
-                                }'>
-                          <option value="guest" selected>Guest</option>
-                          <option value="can edit">Can edit</option>
-                          <option value="can comment">Can comment</option>
-                          <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
-                        </select>
-                      </div>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-              </div>
-            </li>
-            <!-- End List Group Item -->
-          </ul>
-        </div>
-        <!-- End Body -->
-
-        <!-- Footer -->
-        <div class="modal-footer">
-          <div class="row align-items-center flex-grow-1 mx-n2">
-            <div class="col-sm-9 mb-2 mb-sm-0">
-              <input type="hidden" id="inviteUserPublicClipboard" value="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/">
-
-              <p class="modal-footer-text">The public share <a href="#">link settings</a>
-                <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="The public share link allows people to view the project without giving access to full collaboration features."></i>
-              </p>
-            </div>
-
-            <div class="col-sm-3 text-sm-end">
-              <a class="js-clipboard btn btn-white btn-sm text-nowrap" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard!" data-hs-clipboard-options='{
-                  "type": "tooltip",
-                  "successText": "Copied!",
-                  "contentTarget": "#inviteUserPublicClipboard",
-                  "container": "#inviteUserModal"
-                 }'>
-                <i class="bi-link-45deg me-1"></i> Copy link</a>
-            </div>
-          </div>
-        </div>
-        <!-- End Footer -->
-      </div>
-    </div>
-  </div>
-  <!-- End Create a new user Modal -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->

@@ -14,10 +14,20 @@ AdmController.get('/admin',adminAuth,async (req:Request, resp: Response)=>{
         const admin= await knex('professor').where('idProf', idUser).first();        
         if(admin){
           
-          const cursos= await knex('curso').select('*');
+          const cursos= await knex('curso').join('professor', 'curso.idProf', 'professor.idProf')
+          .join('categoria', 'curso.idCategoria', 'categoria.idCategoria');
           const alunos= await knex('aluno').select('*');
           const professores= await knex('professor').select('*');
-          resp.render('admin/index', {alunos, cursos, professores, admin});
+          const coordenador= await knex('coordenador').select('*');
+          const matricula= await knex('matricula').join('aluno', 'matricula.idAluno', 'aluno.idAluno')
+          .join('curso', 'matricula.idCurso', 'curso.idCurso')
+          const rentavel= await knex('matricula').join('curso', 'matricula.idCurso', 'curso.idCurso').groupBy('matricula.idCurso').sum('precoCurso', {as:'quantidade'}).orderBy('precoCurso','desc').select('curso.nomeCurso').limit(10);
+          const rentavelQ= await knex('matricula').join('curso', 'matricula.idCurso', 'curso.idCurso').groupBy('matricula.idCurso').sum('precoCurso', {as:'quantidade'}).orderBy('precoCurso','desc').limit(10)
+          const nomeRentavel=rentavel.map((c:any)=>c.nomeCurso)
+          const quantidadeRentavel=rentavel.map((c:any)=>c.quantidade)
+          console.log(`[${nomeRentavel}]`);
+          
+          resp.render('admin/index', {alunos, cursos, professores, admin, coordenador, matricula, nomeRentavel, quantidadeRentavel});
         }else{
           resp.render('error/404')
         }       
