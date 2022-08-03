@@ -26,7 +26,42 @@ ProfessorController.get('/instrutor',instrutorAuth,async (req:Request, resp: Res
     }
   }    
 )
-
+ProfessorController.get('/perfilFormador_',instrutorAuth,async (req:Request, resp: Response)=>{
+  try{
+      const idUser=req.session?.user.id;
+      const prof= await knex('professor').where('idProf', idUser).first();        
+      if(prof){
+        const cursos= await knex('curso').where('idProf', idUser)
+        const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
+        resp.render('professor/perfilFormador', {matriculas, cursos, prof,professor:prof, cursosTotal});
+      }else{
+        resp.render('error/404')
+      }       
+    } catch (error) {
+      console.log(error);
+      resp.render('error/404')
+    }
+  }    
+)
+ProfessorController.get('/definicoesFormador_',instrutorAuth,async (req:Request, resp: Response)=>{
+  try{
+      const idUser=req.session?.user.id;
+      const prof= await knex('professor').where('idProf', idUser).first();        
+      if(prof){
+        const cursos= await knex('curso').where('idProf', idUser)
+        const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
+        resp.render('professor/definicoesFormador', {matriculas, cursos, prof,professor:prof, cursosTotal});
+      }else{
+        resp.render('error/404')
+      }       
+    } catch (error) {
+      console.log(error);
+      resp.render('error/404')
+    }
+  }    
+)
 ProfessorController.get('/solicitacaoInscricao',instrutorAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
