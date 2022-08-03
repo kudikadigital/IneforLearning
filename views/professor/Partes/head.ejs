@@ -21,6 +21,11 @@
     <link rel="preload" href="/dashboard/assets/css/theme.min.css" data-hs-appearance="default" as="style">
     
     <link rel="preload" href="/dashboard/assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+ 
+
 
 
 
@@ -29,22 +34,17 @@
       *
       {
         transition: unset !important;
+        font-family: 'Josefin Sans', sans-serif;
       }
   
       body
       {
         opacity: 0;
+        font-family: 'Josefin Sans', sans-serif;
       }
     </style>
   
     <!-- ONLY DEV -->
-  
-    <style>
-      body
-      {
-        opacity: 0;
-      }
-    </style>
   
     <!-- END ONLY DEV -->
   
@@ -130,5 +130,13 @@
     }
     return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
   }
-              </script>
+    </script>
+      
+      <style>
+        body
+        {
+         
+          font-family: 'Josefin Sans', sans-serif;
+        }
+      </style>
   </head>

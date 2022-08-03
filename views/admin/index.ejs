@@ -115,7 +115,7 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Cursos Administrados</h6>
+              <h6 class="card-subtitle">Cursos Adicionados</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
@@ -370,14 +370,14 @@
           <div class="card h-100">
             <!-- Header -->
             <div class="card-header card-header-content-sm-between">
-              <h4 class="card-header-title mb-2 mb-sm-0">Cursos mais Rentaveis</h4>
+              <h4 class="card-header-title mb-2 mb-sm-0">Cursos mais Rentaveis </h4>
 
               <!-- Nav -->
               <ul class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
-                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
+                <li class="nav-item" data-bs-toggle="" data-datasets="" data-trigger="click" data-action="toggle">
                   <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">Essa Semana</a>
                 </li>
-                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click" data-action="toggle">
+                <li class="nav-item" data-bs-toggle="" data-datasets="" data-trigger="click" data-action="toggle">
                   <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Semana Passada</a>
                 </li>
               </ul>
@@ -390,9 +390,9 @@
               <div class="row mb-4">
                 <div class="col-sm mb-2 mb-sm-0">
                   <div class="d-flex align-items-center">
-                    <span class="h1 mb-0">35%</span>
+                    <span class="h1 mb-0"><%=quantidadeRentavel.reduce((partialSum, a) => partialSum + a, 0).toFixed(3) %> Kz</span>
                     <span class="text-success ms-2">
-                      <i class="bi-graph-up"></i> 25.3%
+                      <i class="bi-graph-up"></i> <%=quantidadeRentavel.reduce((partialSum, a) => partialSum + a, 0)/100 %>%
                     </span>
                   </div>
                 </div>
@@ -421,15 +421,22 @@
                 <canvas id="updatingBarChart" style="height: 20rem;" data-hs-chartjs-options='{
                           "type": "bar",
                           "data": {
-                            "labels": ["Node js","May 2", "May 3", "May 4", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10"],
+                            "labels": [<% for (let index = 0; index < nomeRentavel.length; index++) {%>
+                              <%const element = nomeRentavel[index];%>
+                              <%if(index==(nomeRentavel.length-1)){%>
+                               " <%= nomeRentavel[index] %>" 
+                              <%}else{%>
+                                "<%= nomeRentavel[index] %>",
+                              <%}%>
+                            <% } %> ],
                             "datasets": [{
-                              "data": [200, 300, 290, 350, 150, 350, 300, 100, 125, 220],
+                              "data": [<%- quantidadeRentavel %>] ,
                               "backgroundColor": "#377dff",
                               "hoverBackgroundColor": "#377dff",
                               "borderColor": "#377dff"
                             },
                             {
-                              "data": [150, 230, 382, 204, 169, 290, 300, 100, 300, 225, 120],
+                              "data": [ <%- quantidadeRentavelP %>  ],
                               "backgroundColor": "#e7eaf3",
                               "borderColor": "#e7eaf3"
                             }]
@@ -469,7 +476,7 @@
                             },
                             "cornerRadius": 2,
                             "tooltips": {
-                              "prefix": "$",
+                              "prefix": "Kz ",
                               "hasIndicator": true,
                               "mode": "index",
                               "intersect": false
@@ -732,7 +739,7 @@
           <div class="card h-100">
             <!-- Header -->
             <div class="card-header card-header-content-sm-between">
-              <h4 class="card-header-title mb-2 mb-sm-0">Transações Gerias da Plataforma</h4>
+              <h4 class="card-header-title mb-2 mb-sm-0">Transações e Dados Aceites</h4>
 
               <!-- Daterangepicker -->
               <button id="js-daterangepicker-predefined" class="btn btn-ghost-secondary btn-sm dropdown-toggle">
@@ -867,13 +874,23 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="h1 d-block mb-4"><%= matricula.length %>  Matriculado(s)</span>
+              <span class="h1 d-block mb-4"><%= matricula.length %>  Inscritos(s)</span>
 
               <!-- Progress -->
               <div class="progress rounded-pill mb-2">
-                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="Gross value"></div>
-                <div class="progress-bar opacity-50" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="Net volume from sales"></div>
-                <div class="progress-bar opacity-25" role="progressbar" style="width: 9%" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="New volume from sales"></div>
+                <% for (let index = 0; index < maiorInscritos.length; index++) {%> 
+                  <% const element = maiorInscritos[index];%> 
+                  <% if(index==0){%> 
+                    <div class="progress-bar" role="progressbar" style="width: <%= element.inscritos %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= element.nomeCurso %>"></div>
+                  <% }else if(index==1){%>
+                    <div class="progress-bar opacity-50" role="progressbar" style="width: <%= element.inscritos %>%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= element.nomeCurso %>"></div>
+                  <%}else{%>  
+                    <div class="progress-bar opacity-25" role="progressbar" style="width: <%= element.inscritos %>%" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= element.nomeCurso %>"></div>
+                  <%} %>   
+                <% } %> 
+                
+               
+               
               </div>
 
               <div class="d-flex justify-content-between mb-4">
@@ -885,45 +902,19 @@
               <!-- Table -->
               <div class="table-responsive">
                 <table class="table table-lg table-nowrap card-table mb-0">
-                  <tr>
-                    <th scope="row">
-                      <span class="legend-indicator bg-primary"></span>Gross value
-                    </th>
-                    <td>$3,500.71</td>
-                    <td>
-                      <span class="badge bg-soft-success text-success">+12.1%</span>
-                    </td>
-                  </tr>
 
-                  <tr>
-                    <th scope="row">
-                      <span class="legend-indicator bg-primary opacity-50"></span>Net volume from sales
-                    </th>
-                    <td>$2,980.45</td>
-                    <td>
-                      <span class="badge bg-soft-warning text-warning">+6.9%</span>
-                    </td>
-                  </tr>
+                  <% maiorInscritos.map(e=>{ %> 
+                    <tr>
+                      <th scope="row">
+                        <span class="legend-indicator bg-primary"></span><%=e.nomeCurso %> 
+                      </th>
+                      <td><%= e.inscritos %>  </td>
+                      <td>
+                        <span class="badge bg-soft-success text-success"><%= e.inscritos/100 %>% </span>
+                      </td>
+                    </tr>
+                  <%}) %> 
 
-                  <tr>
-                    <th scope="row">
-                      <span class="legend-indicator bg-primary opacity-25"></span>New volume from sales
-                    </th>
-                    <td>$950.00</td>
-                    <td>
-                      <span class="badge bg-soft-danger text-danger">-1.5%</span>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">
-                      <span class="legend-indicator"></span>Other
-                    </th>
-                    <td>32</td>
-                    <td>
-                      <span class="badge bg-soft-success text-success">1.9%</span>
-                    </td>
-                  </tr>
                 </table>
               </div>
               <!-- End Table -->
