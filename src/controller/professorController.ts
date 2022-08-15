@@ -14,9 +14,10 @@ ProfessorController.get('/instrutor',instrutorAuth,async (req:Request, resp: Res
       const professor= await knex('professor').where('idProf', idUser).first();        
       if(professor){
         const cursos= await knex('curso').where('idProf', idUser)
-        const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const matriculas= await knex('matricula').leftJoin('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
         const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
-        resp.render('professor/index', {matriculas, cursos, professor, cursosTotal});
+        const matricula= await knex('matricula').select('*')
+        resp.render('professor/index', {matriculas, cursos, professor, cursosTotal, matricula});
       }else{
         resp.render('error/404')
       }       
@@ -26,6 +27,7 @@ ProfessorController.get('/instrutor',instrutorAuth,async (req:Request, resp: Res
     }
   }    
 )
+//Perfil Formador
 ProfessorController.get('/perfilFormador_',instrutorAuth,async (req:Request, resp: Response)=>{
   try{
       const idUser=req.session?.user.id;
@@ -44,6 +46,7 @@ ProfessorController.get('/perfilFormador_',instrutorAuth,async (req:Request, res
     }
   }    
 )
+//Definição do formador
 ProfessorController.get('/definicoesFormador_',instrutorAuth,async (req:Request, resp: Response)=>{
   try{
       const idUser=req.session?.user.id;
@@ -62,25 +65,27 @@ ProfessorController.get('/definicoesFormador_',instrutorAuth,async (req:Request,
     }
   }    
 )
-ProfessorController.get('/solicitacaoInscricao',instrutorAuth,async (req:Request, resp: Response)=>{
-  try {
-    const idUser=req.session?.user.id;
-    const admin= await knex('professor').where('idProf', idUser).first();        
-    if(admin){
-      const cursos= await knex('curso').select('*');
-      const alunos= await knex('aluno').select('*');
-      const professores= await knex('professor').select('*');
-      resp.render('admin/listaCoordenador', {alunos, cursos, professores, admin});
-    }else{
+//Alunos Formador
+ProfessorController.get('/alunosFormador',instrutorAuth,async (req:Request, resp: Response)=>{
+  try{
+      const idUser=req.session?.user.id;
+      const professor= await knex('professor').where('idProf', idUser).first();        
+      if(professor){
+        const cursos= await knex('curso').where('idProf', idUser)
+        const matriculas= await knex('matricula').leftJoin('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
+        const matricula= await knex('matricula').join('aluno', 'matricula.idAluno', 'aluno.idAluno').groupBy('matricula.idAluno').count('matricula.idAluno', {as:'quantidadeAluno'}).select('*')
+        resp.render('professor/Aluno/alunosFormador', {matriculas, cursos, professor, cursosTotal, matricula});
+      }else{
+        resp.render('error/404')
+      }       
+    } catch (error) {
+      console.log(error);
       resp.render('error/404')
-    }       
-  } catch (error) {
-    console.log(error);
-    resp.render('error/404')
-  }
-}    
+    }
+  }    
 )
-
+//Adicionar Professor
 ProfessorController.post('/adicionarProf',upload.single('imgProf'), async (req:Request, resp: Response)=>{
   try{
     const {nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf}=req.body;
@@ -152,7 +157,49 @@ ProfessorController.post('/adicionarProf',upload.single('imgProf'), async (req:R
     }
   }    
 )
+//Perfil do Curso
+ProfessorController.get('/cursoFormador/:id',instrutorAuth,async (req:Request, resp: Response)=>{
+  try{
+      const idUser=req.session?.user.id;
+      const {id} = req.params
+      const professor= await knex('professor').where('idProf', idUser).first();   
+      const cursos= await knex('curso').where('idCurso', id);     
+      if(professor && cursos){       
+        const matriculas= await knex('matricula').leftJoin('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
+        const matricula= await knex('matricula').select('*')
+        resp.render('professor/cursoFormador', {matriculas, cursos, professor, cursosTotal, matricula});
+      }else{
+        resp.render('error/404')
+      }       
+    } catch (error) {
+      console.log(error);
+      resp.render('error/404')
+    }
+  }    
+)
 
+//Perfil do Curso
+ProfessorController.get('/cursoFormador',instrutorAuth,async (req:Request, resp: Response)=>{
+  try{
+      const idUser=req.session?.user.id;
+      const professor= await knex('professor').where('idProf', idUser).first();   
+      const cursos= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)  
+      if(professor && cursos){       
+        const matriculas= await knex('matricula').leftJoin('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
+        const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
+        const matricula= await knex('matricula').select('*');
+        const dadosConta= await knex('dadosBanco').where('idProf', idUser).first()
+        resp.render('professor/Curso/cursoFormador', {matriculas, cursos, professor, cursosTotal, matricula, dadosConta});
+      }else{
+        resp.render('error/404')
+      }       
+    } catch (error) {
+      console.log(error);
+      resp.render('error/404')
+    }
+  }    
+)
 export default ProfessorController;
 
 //image, name, email, whatsaap, nomeuser senha
