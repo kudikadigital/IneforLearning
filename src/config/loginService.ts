@@ -18,6 +18,9 @@ async function authenticate(email:string, senha:string) {
                 }else if(dados.admProf===0){
                     const PROFESSOR= {dados, p:'professor'}
                     return PROFESSOR;
+                }else if(dados.admProf==2){
+                    const COORDENADOR= {dados, p:'coordenador'}
+                    return COORDENADOR;
                 }
             }else{ 
                 return '-1'  
@@ -28,7 +31,6 @@ async function authenticate(email:string, senha:string) {
     } catch (error) {
         console.log(error)
     }
-
 }
 
 export {authenticate};

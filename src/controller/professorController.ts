@@ -3,6 +3,7 @@ import multerConfig from '../config/multer';
 import multer from 'multer'
 import { Response, Request, Router } from  "express";
 import instrutorAuth from '../middlewre/professor'
+import adminAuth from '../middlewre/adm'
 
 const upload = multer(multerConfig);
 
@@ -86,7 +87,7 @@ ProfessorController.get('/alunosFormador',instrutorAuth,async (req:Request, resp
   }    
 )
 //Adicionar Professor
-ProfessorController.post('/adicionarProf',upload.single('imgProf'), async (req:Request, resp: Response)=>{
+ProfessorController.post('/adicionarProf',upload.single('image'),adminAuth, async (req:Request, resp: Response)=>{
   try{
     const {nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf}=req.body;
     const senhaProf='12345678';

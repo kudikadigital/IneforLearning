@@ -66,6 +66,12 @@ Route.post('/loginGeral', (req:Request, resp: Response)=>{
                             req.session.user={id:aluno.dados.idAluno, role:2};
                             resp.redirect('/aluno')
                         } 
+                    }else if(dados.p==='coordenador'){
+                      const coordenador= dados
+                      if(req.session){
+                          req.session.user={id:coordenador.dados.idProf, role:3};
+                          resp.redirect('/coordenador')
+                      } 
                     }
                 }
             }

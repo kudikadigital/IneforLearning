@@ -9,6 +9,7 @@ import admController from './controller/admController';
 import alunoController from './controller/alunoController';
 import professorController from './controller/professorController';
 import cursoController from './controller/cursoController';
+import CoordenadorController from "./controller/coordenadorController";
 import knex from './database/conection';
 import cron  from 'node-cron'
 
@@ -31,7 +32,8 @@ app.use(bodyParser.json());
 app.use(alunoController);
 app.use(professorController);
 app.use(admController);
-app.use(cursoController)
+app.use(cursoController);
+app.use(CoordenadorController)
 app.use(route);
 
 

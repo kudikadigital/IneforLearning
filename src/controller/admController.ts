@@ -432,7 +432,7 @@ AdmController.get('/listaCategoria',adminAuth,async (req:Request, resp: Response
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/listaCategoria', {alunos, cursos, professores, admin});
+      resp.render('admin/Categoria/listaCategoria', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -450,7 +450,7 @@ AdmController.get('/addCategoria',adminAuth,async (req:Request, resp: Response)=
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/addCategoria', {alunos, cursos, professores, admin});
+      resp.render('admin/Categoria/addCategoria', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -472,7 +472,7 @@ AdmController.get('/listaCoordenador',adminAuth,async (req:Request, resp: Respon
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/listaCoordenador', {alunos, cursos, professores, admin});
+      resp.render('admin/Coordenador/listaCoordenador', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -490,7 +490,7 @@ AdmController.get('/addCoordenador',adminAuth,async (req:Request, resp: Response
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/addCoordenador', {alunos, cursos, professores, admin});
+      resp.render('admin/Coordenador/addCoordenador', {alunos, cursos, professores, admin});
     }else{
       resp.render('error/404')
     }       
@@ -501,6 +501,9 @@ AdmController.get('/addCoordenador',adminAuth,async (req:Request, resp: Response
 }    
 )
 //Parte Coodernador-1
+
+
+
 export default AdmController;
 
 //image, name, email, whatsaap, nomeuser senha
