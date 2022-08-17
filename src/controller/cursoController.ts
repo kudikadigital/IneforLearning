@@ -102,7 +102,29 @@ CursoController.get('/listarCursos',upload.single('image'), async (req:Request, 
   const cursos= await knex('curso').select('*');
   resp.json(cursos)
 })
+CursoController.get('/aceitarCurso/:id/:idCoord', async (req:Request, resp: Response)=> {
+  const {id, idCoord}= req.params
+  const curso= await knex('curso').update({estadoCurso:1}).where('idCurso', id);
+  const cursoEsp=await knex('curso').join('professor', 'curso.idProf', 'professor.idProf').where('idCurso', id).first();
+  const coordenador= await knex('coordenador').where('idCoordenador', idCoord).first();
+  const tipoActividade=`Aceitar Curso`;
+  const descActividadeCoordenador=`Coordenador ${coordenador.nomeCoordenador} Validou o Curso ${cursoEsp.nomeCurso} de ${cursoEsp.nomeProf}`
+  const actividadeCoordenador= await knex('actividadeCoordenador').insert({tipoActividade,descActividadeCoordenador, idCoordenador:coordenador.idCoordenador })
+  req.flash('certo', 'Curso validado com sucesso!')
+  resp.redirect('/estadoCurso/'+id)
+})
 
+CursoController.get('/desativarCurso/:id/:idCoord', async (req:Request, resp: Response)=> {
+  const {id, idCoord}= req.params
+  const curso= await knex('curso').update({estadoCurso:0}).where('idCurso', id);
+  const cursoEsp=await knex('curso').join('professor', 'curso.idProf', 'professor.idProf').where('idCurso', id).first();
+  const coordenador= await knex('coordenador').where('idCoordenador', idCoord).first();
+  const tipoActividade=`Desactivar Curso`;
+  const descActividadeCoordenador=`Coordenador ${coordenador.nomeCoordenador} Desactivou o Curso ${cursoEsp.nomeCurso} de ${cursoEsp.nomeProf}`
+  const actividadeCoordenador= await knex('actividadeCoordenador').insert({tipoActividade,descActividadeCoordenador, idCoordenador:coordenador.idCoordenador })
+  req.flash('certo', 'Curso desactivado!')
+  resp.redirect('/estadoCurso/'+id)
+})
 export default CursoController;
 
 //image, name, email, whatsaap, nomeuser senha

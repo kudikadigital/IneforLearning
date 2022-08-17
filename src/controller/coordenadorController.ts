@@ -302,7 +302,7 @@ CoordenadorController.get('/estadoCurso/:id',coordenadorAuth,async (req:Request,
     const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').join('aluno', 'aluno.idAluno', 'matricula.idAluno').where('curso.idCurso', id)
     const curso= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').join('professor', 'curso.idProf', 'professor.idProf').join('dadosBanco', 'curso.idProf', 'dadosBanco.idProf').where('idCurso', id).first();
     if(coordenador && curso){
-      resp.render('coordenador/Curso/estadoCurso', { curso, matriculas, coordenador});
+      resp.render('coordenador/Curso/estadoCurso', { curso, matriculas, coordenador, errado:req.flash('errado'), certo:req.flash('certo')});
     }else{
       resp.render('error/404')
     }       
