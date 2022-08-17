@@ -18,12 +18,22 @@ async function authenticate(email:string, senha:string) {
                 }else if(dados.admProf===0){
                     const PROFESSOR= {dados, p:'professor'}
                     return PROFESSOR;
-                }else if(dados.admProf==2){
-                    const COORDENADOR= {dados, p:'coordenador'}
-                    return COORDENADOR;
                 }
             }else{ 
-                return '-1'  
+                const coordenador= await knex('coordenador').where('emailCoordenador', email).where('senhaCoordenador',senha );
+                if(coordenador.length!=0){
+                    const dados= coordenador[0];
+                    if(dados.admCoordenador===1){
+                        const SUPERVISOR= {dados, p:'supervisor'}
+                        return SUPERVISOR;
+                    }else if(dados.admCoordenador===0){
+                        const COORDENADOR= {dados, p:'coordenador'}
+                        return COORDENADOR;
+                    }
+                }else{
+                    return '-1'  
+                }
+                
             }
         }else{
             return '-1'

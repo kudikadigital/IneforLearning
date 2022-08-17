@@ -467,12 +467,13 @@ AdmController.get('/addCategoria',adminAuth,async (req:Request, resp: Response)=
 AdmController.get('/listaCoordenador',adminAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
-    const admin= await knex('professor').where('idProf', idUser).first();        
+    const admin= await knex('professor').where('idProf', idUser).first();  
+    const coordenador= await knex('coordenador').select('*')    
     if(admin){
       const cursos= await knex('curso').select('*');
       const alunos= await knex('aluno').select('*');
       const professores= await knex('professor').select('*');
-      resp.render('admin/Coordenador/listaCoordenador', {alunos, cursos, professores, admin});
+      resp.render('admin/Coordenador/listaCoordenador', {alunos, cursos, professores, admin, coordenador});
     }else{
       resp.render('error/404')
     }       
