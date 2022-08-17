@@ -294,6 +294,24 @@ CoordenadorController.get('/actividadeCurso/:id',adminAuth,async (req:Request, r
   }
 }    
 )
+CoordenadorController.get('/estadoCurso/:id',coordenadorAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id}=req.params
+    const coordenador= await knex('coordenador').where('idCoordenador', idUser).first();    
+    const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').join('aluno', 'aluno.idAluno', 'matricula.idAluno').where('curso.idCurso', id)
+    const curso= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').join('professor', 'curso.idProf', 'professor.idProf').join('dadosBanco', 'curso.idProf', 'dadosBanco.idProf').where('idCurso', id).first();
+    if(coordenador && curso){
+      resp.render('coordenador/Curso/estadoCurso', { curso, matriculas, coordenador});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }
+}    
+)
 //Parte Curso-1
 export default CoordenadorController;
 
