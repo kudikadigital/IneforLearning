@@ -436,7 +436,7 @@
               <!-- Form -->
               <div class="mb-4">
                 <label for="emailLabel" class="form-label">Descrição Modulo</label>
-                <input type="email" class="form-control" name="DescricaoModulo" id="DescricaoModulo" placeholder="Descrição Modulo" aria-label="clarice@site.com">
+                <input type="email" class="form-control" name="descricaoModulo" id="descricaoModulo" placeholder="Descrição Modulo" aria-label="clarice@site.com">
               </div>
               <!-- End Form -->
 
@@ -456,7 +456,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Adicionar Moduloo</button>
+              <button type="button" onclick="adicionarModulo()" class="btn btn-primary">Adicionar Moduloo</button>
             </div>
           </div>
         </div>
@@ -642,50 +642,72 @@
       <!-- End Row -->
     </div>
     <!-- End Footer -->
-  </div>
+  </div> 
 
   <!-- End Builder -->
-<script>
-    function adicionarCurso() {
-      const nomeCurso=document.getElementById('nomeCurso').value;
-      const descricaoCurso1=document.getElementById('descricaoCurso1').value;
-      const idCategoria=document.getElementById('idCategoria').value;
-      const descricaoCurso=document.getElementById('descricaoCurso').value;
-      const precoCurso=document.getElementById('precoCurso').value;
-      const cargaHoraria=document.getElementById('cargaHoraria').value;
-      const aprendizadoCurso=document.getElementById('aprendizadoCurso').value;
-      const idProf="<%= professor.idProf%>"
-      const imgCurso=document.getElementById('avatarNewProjectUploader').files[0]
+  <script src="/sweetalert/sweetalert2.all.min.js"></script>
+
+    
+
+<script> 
+    function adicionarModulo() {
+      const idCurso='<%= curso.idCurso%>';
+      const descricaoModulo=document.getElementById('descricaoModulo').value;
+      const tituloModulo=document.getElementById('tituloModulo').value;
+      const tituloModulo_=document.getElementById('tituloModulo_').value;
+      const imgModulo=document.getElementById('avatarUploader').files[0]
       const Dados= new FormData();
-      Dados.append('nomeCurso',nomeCurso)
-      Dados.append('descricaoCurso1',descricaoCurso1)
-      Dados.append('idCategoria',idCategoria)
-      Dados.append('descricaoCurso',descricaoCurso)
-      Dados.append('precoCurso',precoCurso)
+      Dados.append('descricaoModulo',descricaoModulo)
+      Dados.append('tituloModulo',tituloModulo)
+      Dados.append('tituloModulo_',tituloModulo_)
+      Dados.append('idCurso',idCurso)
       Dados.append('idProf',idProf)
-      Dados.append('cargaHoraria',cargaHoraria)
-      Dados.append('aprendizadoCurso',aprendizadoCurso)
-      Dados.append('image',imgCurso)
+      Dados.append('image',imgModulo)
 
       const options = {
         method: 'POST',
         body: Dados,
       };
 
-      fetch('http://localhost:1200/novoCurso', options).then(data => {
+      fetch('http://localhost:1200/adicionarModulo', options).then(data => {
         return data.json();
       }).then(data => {
-        if(data.error){
-          document.getElementById('resultadoTitulo').innerHTML ='Ocorreu um erro!';
-          document.getElementById('resultadoCorpo').innerHTML =data.error; 
-          document.getElementById('resultadoCorpo').setAttribute('class', 'text-danger')
-          document.getElementById('img').setAttribute('src', '/dashboard/assets/svg/illustrations/oc-error.svg')
+        if(data.errado){
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 6000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+    
+          Toast.fire({
+          icon: 'error',
+          title: data.errado
+        })
+
         }else{
-          document.getElementById('resultadoTitulo').innerHTML ='Sucesso!';
-          document.getElementById('resultadoCorpo').innerHTML =data.certo;
-          document.getElementById('resultadoCorpo').setAttribute('class', 'text-success')
-          document.getElementById('img').setAttribute('src', '/dashboard/assets/svg/illustrations/oc-hi-five.svg')
-          window.location="/cursoFormador";
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 6000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+    
+          Toast.fire({
+            icon: 'success',
+            title: data.certo
+          })
+          window.location=`${data.rota}`
         }
       })
       .catch(e => {

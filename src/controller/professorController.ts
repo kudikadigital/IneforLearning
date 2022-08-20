@@ -168,6 +168,24 @@ ProfessorController.get('/moduloCurso/:id',instrutorAuth,async (req:Request, res
   }   
 })
 
+//Adicionar Modulo
+ProfessorController.post('/adicionarModulo',upload.single('image'), instrutorAuth,async (req:Request, resp: Response)=>{
+  try {
+
+    const {idCurso,descricaoModulo, tituloModulo, tituloModulo_}= req.body;
+    const imgModulo=(req.file)?req.file.filename : 'user.png';
+    if(idCurso=="" || descricaoModulo=="" || tituloModulo=="" || tituloModulo_==""  ){
+      resp.json({rota:'moduloCurso/'+idCurso, errado:'Modulo não adicionado'})
+    }else{
+      const modulo= await knex('moduloCurso').insert({idCurso,descricaoModulo, tituloModulo, tituloModulo_, imgModulo})
+      resp.json({rota:'moduloCurso/'+idCurso, certo:'Modulo adicionado'})
+    }
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }   
+})
+
 export default ProfessorController;
 
 //image, name, email, whatsaap, nomeuser senha
