@@ -244,35 +244,41 @@
                     <div class="flex-grow-1 ms-3">
                         <div class="row">
                             <div class="col-md-6 mb-3 mb-md-0">
-                                <a class="h5 d-block" href="/moduloPerfil/<%= curso.idCurso %>/<%= e.idModulo %>">Topman shoe in green</a>
+                                <a class="h5 d-block" href="/moduloPerfil/<%= curso.idCurso %>/<%= e.idModulo %>"><%= e.tituloModulo %></a>
         
                                 <div class="fs-6 text-body">
-                                <span>Gender:</span>
-                                <span class="fw-semi-bold">Women</span>
+                                <span>Numero Modulo:</span>
+                                <span class="fw-semi-bold"><%= e.idModulo %> </span>
                                 </div>
                                 <div class="fs-6 text-body">
-                                <span>Color:</span>
-                                <span class="fw-semi-bold">Green</span>
+                                <span>Nome Modulo:</span>
+                                <span class="fw-semi-bold"><%= e.tituloModulo_ %></span>
                                 </div>
                                 <div class="fs-6 text-body">
-                                <span>Size:</span>
-                                <span class="fw-semi-bold">UK 7</span>
+                                <span>Descrição:</span>
+                                <span class="fw-semi-bold"><%= e.descricaoModulo %></span>
                                 </div>
                             </div>
                                                 <!-- End Col -->
 
                             <div class="col col-md-2 align-self-center">
-                                <h5>$21.00</h5>
+                                <span>Videos</span>
+                                <h5>0</h5>
                             </div>
                             <!-- End Col -->
         
-                            <div class="col col-md-2 align-self-center">
-                                <h5>2</h5>
-                            </div>
+                           
                             <!-- End Col -->
         
                             <div class="col col-md-2 align-self-center text-end">
-                                <h5>$42.00</h5>
+                              <span>Reações</span>
+                                <h5>0</h5>
+                            </div>
+
+
+                            <div class="col col-md-2 align-self-center">
+                              <span>Hora</span>
+                                <h5>0h</h5>
                             </div>
                             
                     </div>
@@ -425,7 +431,7 @@
                   <!-- Form -->
                   <div class="mb-4">
                     <label for="lastNameLabel" class="form-label">Titulo Modulo</label>
-                    <input type="text" class="form-control" name="tituloModulo_" id="tituloModulo" placeholder="Titulo Modulo" aria-label="Boone">
+                    <input type="text" class="form-control" name="tituloModulo_" id="tituloModulo_" placeholder="Titulo Modulo" aria-label="Boone">
                   </div>
                   <!-- End Form -->
                 </div>
@@ -652,11 +658,13 @@
 <script> 
     function adicionarModulo() {
       const idCurso='<%= curso.idCurso%>';
+      const idProf='<%= curso.idProf%>';
       const descricaoModulo=document.getElementById('descricaoModulo').value;
       const tituloModulo=document.getElementById('tituloModulo').value;
       const tituloModulo_=document.getElementById('tituloModulo_').value;
       const imgModulo=document.getElementById('avatarUploader').files[0]
       const Dados= new FormData();
+      console.log({idCurso,idProf, descricaoModulo, tituloModulo, tituloModulo_,imgModulo  });
       Dados.append('descricaoModulo',descricaoModulo)
       Dados.append('tituloModulo',tituloModulo)
       Dados.append('tituloModulo_',tituloModulo_)
@@ -667,7 +675,7 @@
       const options = {
         method: 'POST',
         body: Dados,
-      };
+      };      
 
       fetch('http://localhost:1200/adicionarModulo', options).then(data => {
         return data.json();
@@ -707,12 +715,13 @@
             icon: 'success',
             title: data.certo
           })
-          window.location=`${data.rota}`
+          window.location=`/${data.rota}`
         }
       })
       .catch(e => {
         console.log(e);
       });
+
     }
 </script>
 

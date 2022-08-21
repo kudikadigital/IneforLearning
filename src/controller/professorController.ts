@@ -86,7 +86,6 @@ ProfessorController.get('/alunosFormador',instrutorAuth,async (req:Request, resp
     }
   }    
 )
-
 //Perfil do Curso
 ProfessorController.get('/cursoFormador/:id',instrutorAuth,async (req:Request, resp: Response)=>{
   try {
@@ -105,7 +104,6 @@ ProfessorController.get('/cursoFormador/:id',instrutorAuth,async (req:Request, r
     resp.render('error/404')
   }   
 })
-
 //Lista do Curso
 ProfessorController.get('/cursoFormador',instrutorAuth,async (req:Request, resp: Response)=>{
   try{
@@ -127,18 +125,18 @@ ProfessorController.get('/cursoFormador',instrutorAuth,async (req:Request, resp:
     }
   }    
 )
-
-//Lista Modulo Curso 
+//Perfil Modulo Curso 
 ProfessorController.get('/moduloPerfil/:id/:idModulo',instrutorAuth,async (req:Request, resp: Response)=>{
   try {
     const idUser=req.session?.user.id;
     const {id, idModulo}=req.params;
-    const modulo= await knex('moduloCurso').where('idModulo', idModulo)
-    const professor= await knex('professor').where('idProf', idUser).first();    
+    const modulo= await knex('moduloCurso').where('idModulo', idModulo).first()
+    const professor= await knex('professor').where('idProf', idUser).first(); 
+    const videos= await knex('videoCurso').join('curso', 'curso.idCurso', 'videoCurso.idCurso').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('videoCurso.idModulo', idModulo) 
     const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').join('aluno', 'aluno.idAluno', 'matricula.idAluno').where('curso.idCurso', id)
     const curso= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').join('professor', 'curso.idProf', 'professor.idProf').where('idCurso', id).first();
-    if(professor && curso){
-      resp.render('professor/Curso/modeuloPerfil', { curso, matriculas, professor, modulo});
+    if(professor && curso  && modulo){
+      resp.render('professor/Curso/moduloPerfil', { curso, matriculas, professor, modulo, videos});
     }else{
       resp.render('error/404')
     }       
@@ -147,7 +145,46 @@ ProfessorController.get('/moduloPerfil/:id/:idModulo',instrutorAuth,async (req:R
     resp.render('error/404')
   }   
 })
-
+//Perfil Adicionar Video
+ProfessorController.get('/moduloAddVideo/:id/:idModulo',instrutorAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id, idModulo}=req.params;
+    const modulo= await knex('moduloCurso').where('idModulo', idModulo).first()
+    const professor= await knex('professor').where('idProf', idUser).first(); 
+    const videos= await knex('videoCurso').join('curso', 'curso.idCurso', 'videoCurso.idCurso').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('videoCurso.idModulo', idModulo) 
+    const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').join('aluno', 'aluno.idAluno', 'matricula.idAluno').where('curso.idCurso', id)
+    const curso= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').join('professor', 'curso.idProf', 'professor.idProf').where('idCurso', id).first();
+    if(professor && curso  && modulo){
+      resp.render('professor/Curso/moduloAddVideo', { curso, matriculas, professor, modulo, videos});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }   
+})
+//Editar Modulo
+ProfessorController.get('/editarModulo/:id/:idModulo',instrutorAuth,async (req:Request, resp: Response)=>{
+  try {
+    const idUser=req.session?.user.id;
+    const {id, idModulo}=req.params;
+    const modulo= await knex('moduloCurso').where('idModulo', idModulo).first()
+    const professor= await knex('professor').where('idProf', idUser).first(); 
+    const videos= await knex('videoCurso').join('curso', 'curso.idCurso', 'videoCurso.idCurso').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('videoCurso.idModulo', idModulo) 
+    const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').join('aluno', 'aluno.idAluno', 'matricula.idAluno').where('curso.idCurso', id)
+    const curso= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').join('professor', 'curso.idProf', 'professor.idProf').where('idCurso', id).first();
+    if(professor && curso  && modulo){
+      resp.render('professor/Curso/editarModulo', { curso, matriculas, professor, modulo, videos});
+    }else{
+      resp.render('error/404')
+    }       
+  } catch (error) {
+    console.log(error);
+    resp.render('error/404')
+  }   
+})
 //Perfil Modulo Curso 
 ProfessorController.get('/moduloCurso/:id',instrutorAuth,async (req:Request, resp: Response)=>{
   try {

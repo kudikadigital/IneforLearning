@@ -24,28 +24,28 @@
       <div class="page-header">
         <div class="row align-items-center mb-3">
           <div class="col-sm">
-            <h1 class="page-header-title">Orders <span class="badge bg-soft-dark text-dark ms-2">106,905</span></h1>
+            <h1 class="page-header-title"><%= modulo.tituloModulo   %>  <span class="badge bg-soft-dark text-dark ms-2"><%= modulo.tituloModulo_   %> </span></h1>
 
             <div class="d-flex mt-2">
               <a class="text-body me-3" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exportOrdersModal">
-                <i class="bi-download me-1"></i> Export
+                <i class="bi-download me-1"></i> Exportar
               </a>
 
               <!-- Dropdown -->
               <div class="dropdowm">
                 <a class="text-body" href="javascript:;" id="moreOptionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  More options <i class="bi-chevron-down"></i>
+                  Mais Opções <i class="bi-chevron-down"></i>
                 </a>
 
                 <div class="dropdown-menu mt-1" aria-labelledby="moreOptionsDropdown">
                   <a class="dropdown-item" href="#">
-                    <i class="bi-folder-plus dropdown-item-icon"></i> New order
+                    <i class="bi-folder-plus dropdown-item-icon"></i> Adicionar Video
                   </a>
                   <a class="dropdown-item" href="#">
-                    <i class="bi-folder dropdown-item-icon"></i> New order - Development
+                    <i class="bi-folder dropdown-item-icon"></i> Editar Modulo
                   </a>
                   <a class="dropdown-item" href="#">
-                    <i class="bi-folder dropdown-item-icon"></i> New order - Staging
+                    <i class="bi-folder dropdown-item-icon"></i> Eliminar Modulo
                   </a>
                 </div>
               </div>
@@ -73,16 +73,13 @@
           <!-- Nav -->
           <ul class="nav nav-tabs page-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#">All products</a>
+              <a class="nav-link active" href="/moduloPerfil/<%= curso.idCurso %>/<%= modulo.idModulo %> ">Area Modulo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Open</a>
+              <a class="nav-link " href="/moduloAddVideo/<%= curso.idCurso %>/<%= modulo.idModulo %> " tabindex="-1">Adicionar Video</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Unfulfilled</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Unpaid</a>
+              <a class="nav-link " href="/editarModulo/<%= curso.idCurso %>/<%= modulo.idModulo %> " tabindex="-1">Definições</a>
             </li>
           </ul>
           <!-- End Nav -->
@@ -98,19 +95,16 @@
             <div class="d-sm-flex justify-content-lg-end align-items-sm-center">
               <span class="d-block d-sm-inline-block fs-5 me-3 mb-2 mb-sm-0">
                 <span id="datatableCounter">0</span>
-                Selected
+                Selecionado
               </span>
               <a class="btn btn-outline-danger btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-trash"></i> Delete
+                <i class="bi-trash"></i> Eliminar
               </a>
               <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-archive"></i> Archive
+                <i class="bi-archive"></i> Arquivar
               </a>
               <a class="btn btn-white btn-sm mb-2 mb-sm-0 me-2" href="javascript:;">
-                <i class="bi-upload"></i> Publish
-              </a>
-              <a class="btn btn-white btn-sm mb-2 mb-sm-0" href="javascript:;">
-                <i class="bi-x-lg"></i> Unpublish
+                <i class="bi-upload"></i> Publicar
               </a>
             </div>
           </div>
@@ -131,7 +125,7 @@
                 <div class="input-group-prepend input-group-text">
                   <i class="bi-search"></i>
                 </div>
-                <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
+                <input id="datatableSearch" type="search" class="form-control" placeholder="Pesquisar Videos" aria-label="Pesquisar Videos">
               </div>
               <!-- End Search -->
             </form>
@@ -141,21 +135,21 @@
             <!-- Dropdown -->
             <div class="dropdown">
               <button type="button" class="btn btn-white btn-sm dropdown-toggle w-100" id="usersExportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi-download me-2"></i> Export
+                <i class="bi-download me-2"></i> Exportar
               </button>
 
               <div class="dropdown-menu dropdown-menu-sm-end" aria-labelledby="usersExportDropdown">
                 <span class="dropdown-header">Options</span>
                 <a id="export-copy" class="dropdown-item" href="javascript:;">
                   <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                  Copy
+                  Copiar
                 </a>
                 <a id="export-print" class="dropdown-item" href="javascript:;">
                   <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                  Print
+                  Printar
                 </a>
                 <div class="dropdown-divider"></div>
-                <span class="dropdown-header">Download options</span>
+                <span class="dropdown-header">Opções de Download</span>
                 <a id="export-excel" class="dropdown-item" href="javascript:;">
                   <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
                   Excel
@@ -175,7 +169,7 @@
             <!-- Dropdown -->
             <div class="dropdown">
               <button type="button" class="btn btn-white btn-sm w-100" id="showHideDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                <i class="bi-table me-1"></i> Columns <span class="badge bg-soft-dark text-dark rounded-circle ms-1">7</span>
+                <i class="bi-table me-1"></i> Coluna <span class="badge bg-soft-dark text-dark rounded-circle ms-1">7</span>
               </button>
 
               <div class="dropdown-menu dropdown-menu-end dropdown-card" aria-labelledby="showHideDropdown" style="width: 15rem;">
@@ -185,7 +179,7 @@
                       <!-- Form Switch -->
                       <label class="row form-check form-switch" for="toggleColumn_order">
                         <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Order</span>
+                          <span class="me-2">Todos</span>
                         </span>
                         <span class="col-4 col-sm-3 text-end">
                           <input type="checkbox" class="form-check-input" id="toggleColumn_order" checked>
@@ -193,82 +187,6 @@
                       </label>
                       <!-- End Form Switch -->
 
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_date">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Date</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_date" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_customer">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Customer</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_customer" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_payment_status">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Payment status</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_payment_status" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_fulfillment_status">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Fulfillment status</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_fulfillment_status" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_payment_method">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Payment method</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_payment_method" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_total">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Total</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_total">
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
-
-                      <!-- Form Switch -->
-                      <label class="row form-check form-switch" for="toggleColumn_actions">
-                        <span class="col-8 col-sm-9 ms-0">
-                          <span class="me-2">Actions</span>
-                        </span>
-                        <span class="col-4 col-sm-3 text-end">
-                          <input type="checkbox" class="form-check-input" id="toggleColumn_actions" checked>
-                        </span>
-                      </label>
-                      <!-- End Form Switch -->
                     </div>
                   </div>
                 </div>
@@ -305,1532 +223,97 @@
                     <label class="form-check-label" for="datatableCheckAll"></label>
                   </div>
                 </th>
-                <th class="table-column-ps-0">Order</th>
-                <th>Date</th>
-                <th>Customer</th>
-                <th>Payment status</th>
-                <th>Fulfillment status</th>
-                <th>Payment method</th>
-                <th>Total</th>
-                <th>Actions</th>
+                <th class="table-column-ps-0">Numero Video</th>
+                <th>Nome</th>
+                <th>data</th>
+                <th>Curtida</th>
+                <th>Curso</th>
+                <th>Modulo</th>
+                <th>Visualizações</th>
+                <th>Acção</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck1">
-                    <label class="form-check-label" for="ordersCheck1"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#35463</a>
-                </td>
-                <td>Aug 17, 2020, 5:48 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Jase Marley</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 4242</span>
-                  </div>
-                </td>
-                <td>$256.39</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown1" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown1">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
+              <% videos.map(e=>{ %>
+                <tr>
+                  <td class="table-column-pe-0">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="ordersCheck1">
+                      <label class="form-check-label" for="ordersCheck1"></label>
                     </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck2">
-                    <label class="form-check-label" for="ordersCheck2"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#23513</a>
-                </td>
-                <td>Aug 17, 2020, 2:01 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Mathew Gustaffson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 2390</span>
-                  </div>
-                </td>
-                <td>$2,125.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown2" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown2">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
+                  </td>
+                  <td class="table-column-ps-0">
+                    <a href="ecommerce-order-details.html">#35463</a>
+                  </td>
+                  <td>Aug 17, 2020, 5:48 (ET)</td>
+                  <td>
+                    <a class="text-body" href="ecommerce-customer-details.html">Jase Marley</a>
+                  </td>
+                  <td>
+                    <span class="badge bg-soft-success text-success">
+                      <span class="legend-indicator bg-success"></span>Paid
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge bg-soft-info text-info">
+                      <span class="legend-indicator bg-info"></span>Fulfilled
+                    </span>
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
+                      <span class="text-dark">&bull;&bull;&bull;&bull; 4242</span>
                     </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck3">
-                    <label class="form-check-label" for="ordersCheck3"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#62311</a>
-                </td>
-                <td>Aug 17, 2020, 1:55 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Mathew Gustaffson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$532.99</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown3" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown3">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
+                  </td>
+                  <td>$256.39</td>
+                  <td>
+                    <div class="btn-group" role="group">
+                      <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
+                        <i class="bi-eye"></i> View
+                      </a>
+  
+                      <!-- Button Group -->
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown1" data-bs-toggle="dropdown" aria-expanded="false"></button>
+  
+                        <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown1">
+                          <span class="dropdown-header">Options</span>
+                          <a class="js-export-copy dropdown-item" href="javascript:;">
+                            <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
+                            Copy
+                          </a>
+                          <a class="js-export-print dropdown-item" href="javascript:;">
+                            <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
+                            Print
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <span class="dropdown-header">Download options</span>
+                          <a class="js-export-excel dropdown-item" href="javascript:;">
+                            <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
+                            Excel
+                          </a>
+                          <a class="js-export-csv dropdown-item" href="javascript:;">
+                            <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
+                            .CSV
+                          </a>
+                          <a class="js-export-pdf dropdown-item" href="javascript:;">
+                            <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
+                            PDF
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="javascript:;">
+                            <i class="bi-trash dropdown-item-icon"></i> Delete
+                          </a>
+                        </div>
                       </div>
+                      <!-- End Unfold -->
                     </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              <%}) %> 
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck4">
-                    <label class="form-check-label" for="ordersCheck4"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#12453</a>
-                </td>
-                <td>Aug 17, 2020, 1:54 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Nicky Olvsson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 3535</span>
-                  </div>
-                </td>
-                <td>$1,035.02</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
 
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown4" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown4">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck5">
-                    <label class="form-check-label" for="ordersCheck5"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#84223</a>
-                </td>
-                <td>Aug 17, 2020, 1:04 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">David Nunez</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$68.53</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown5" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown5">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck6">
-                    <label class="form-check-label" for="ordersCheck6"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#46542</a>
-                </td>
-                <td>Aug 17, 2020, 1:01 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Brian Jackson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$100.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown6" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown6">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck7">
-                    <label class="form-check-label" for="ordersCheck7"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="text-danger" href="ecommerce-order-details.html">#35378</a>
-                  <i class="bi-exclamation-diamond-fill text-warning"></i>
-                </td>
-                <td>Aug 17, 2020, 12:56 (ET)</td>
-                <td class="text-danger">No customer</td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 9901</span>
-                  </div>
-                </td>
-                <td class="text-danger">$89.46</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown7" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown7">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck8">
-                    <label class="form-check-label" for="ordersCheck8"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="text-danger" href="ecommerce-order-details.html">#24562</a>
-                  <i class="bi-exclamation-diamond-fill text-warning"></i>
-                </td>
-                <td>Aug 17, 2020, 12:54 (ET)</td>
-                <td class="text-danger">No customer</td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 2278</span>
-                  </div>
-                </td>
-                <td class="text-danger">$3,535.46</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown8" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown8">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck9">
-                    <label class="form-check-label" for="ordersCheck9"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#78531</a>
-                </td>
-                <td>Aug 17, 2020, 12:48 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Mathew Gustaffson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$23.89</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown9" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown9">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck10">
-                    <label class="form-check-label" for="ordersCheck10"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#34634</a>
-                </td>
-                <td>Aug 17, 2020, 12:41 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Jase Marley</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$77.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown10" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown10">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck11">
-                    <label class="form-check-label" for="ordersCheck11"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="text-danger" href="ecommerce-order-details.html">#93817</a>
-                  <i class="bi-exclamation-diamond-fill text-warning"></i>
-                </td>
-                <td>Aug 17, 2020, 12:36 (ET)</td>
-                <td><a class="text-danger" href="ecommerce-customer-details.html">Jase Marley</a></td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td class="text-danger">$77.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown11" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown11">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck12">
-                    <label class="form-check-label" for="ordersCheck12"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#43113</a>
-                </td>
-                <td>Aug 17, 2020, 12:25 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Jacky Ferguson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 5533</span>
-                  </div>
-                </td>
-                <td>$1,421.47</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown12" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown12">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck13">
-                    <label class="form-check-label" for="ordersCheck13"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#12412</a>
-                </td>
-                <td>Aug 16, 2020, 4:31 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Brian Jackson</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 4440</span>
-                  </div>
-                </td>
-                <td>$45.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown13" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown13">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck14">
-                    <label class="form-check-label" for="ordersCheck14"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="text-danger" href="ecommerce-order-details.html">#92271</a>
-                  <i class="bi-exclamation-diamond-fill text-warning"></i>
-                </td>
-                <td>Aug 16, 2020, 3:26 (ET)</td>
-                <td><a class="text-danger" href="ecommerce-customer-details.html">Kamilia Williams</a></td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 6182</span>
-                  </div>
-                </td>
-                <td class="text-danger">$2,577.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown14" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown14">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck15">
-                    <label class="form-check-label" for="ordersCheck15"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="text-danger" href="ecommerce-order-details.html">#62555</a>
-                  <i class="bi-exclamation-diamond-fill text-warning"></i>
-                </td>
-                <td>Aug 16, 2020, 2:54 (ET)</td>
-                <td class="text-danger">No customer</td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td class="text-danger">$63.46</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown15" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown15">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck16">
-                    <label class="form-check-label" for="ordersCheck16"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#35331</a>
-                </td>
-                <td>Aug 16, 2020, 2:48 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Victoria Vicky</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$4,639.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown16" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown16">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck17">
-                    <label class="form-check-label" for="ordersCheck17"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#45321</a>
-                </td>
-                <td>Aug 16, 2020, 2:40 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Anna Alexsandrova</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/paypal-icon.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull;@gmail.com</span>
-                  </div>
-                </td>
-                <td>$5,253.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown17" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown17">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck18">
-                    <label class="form-check-label" for="ordersCheck18"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#23541</a>
-                </td>
-                <td>Aug 16, 2020, 1:59 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Max Norway</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 3091</span>
-                  </div>
-                </td>
-                <td>$499.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown18" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown18">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck19">
-                    <label class="form-check-label" for="ordersCheck19"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#68681</a>
-                </td>
-                <td>Aug 16, 2020, 1:55 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Williams Tonston</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-success text-success">
-                    <span class="legend-indicator bg-success"></span>Paid
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-info text-info">
-                    <span class="legend-indicator bg-info"></span>Fulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 8837</span>
-                  </div>
-                </td>
-                <td>$171.00</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown19" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown19">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="ordersCheck20">
-                    <label class="form-check-label" for="ordersCheck20"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a href="ecommerce-order-details.html">#78323</a>
-                </td>
-                <td>Aug 16, 2020, 1:15 (ET)</td>
-                <td>
-                  <a class="text-body" href="ecommerce-customer-details.html">Victor Martinov</a>
-                </td>
-                <td>
-                  <span class="badge bg-soft-warning text-warning">
-                    <span class="legend-indicator bg-warning"></span>Pending
-                  </span>
-                </td>
-                <td>
-                  <span class="badge bg-soft-dark text-dark">
-                    <span class="legend-indicator bg-dark"></span>Unfulfilled
-                  </span>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                    <span class="text-dark">&bull;&bull;&bull;&bull; 3566</span>
-                  </div>
-                </td>
-                <td>$348.55</td>
-                <td>
-                  <div class="btn-group" role="group">
-                    <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                      <i class="bi-eye"></i> View
-                    </a>
-
-                    <!-- Button Group -->
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown20" data-bs-toggle="dropdown" aria-expanded="false"></button>
-
-                      <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown20">
-                        <span class="dropdown-header">Options</span>
-                        <a class="js-export-copy dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                          Copy
-                        </a>
-                        <a class="js-export-print dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">
-                          Print
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <span class="dropdown-header">Download options</span>
-                        <a class="js-export-excel dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                          Excel
-                        </a>
-                        <a class="js-export-csv dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/components/placeholder-csv-format.svg" alt="Image Description">
-                          .CSV
-                        </a>
-                        <a class="js-export-pdf dropdown-item" href="javascript:;">
-                          <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/pdf-icon.svg" alt="Image Description">
-                          PDF
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">
-                          <i class="bi-trash dropdown-item-icon"></i> Delete
-                        </a>
-                      </div>
-                    </div>
-                    <!-- End Unfold -->
-                  </div>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -1841,7 +324,7 @@
           <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
             <div class="col-sm mb-2 mb-sm-0">
               <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
-                <span class="me-2">Showing:</span>
+                <span class="me-2">Mostrando:</span>
 
                 <!-- Select -->
                 <div class="tom-select-custom">
@@ -1857,7 +340,7 @@
                 </div>
                 <!-- End Select -->
 
-                <span class="text-secondary me-2">of</span>
+                <span class="text-secondary me-2">de</span>
 
                 <!-- Pagination Quantity -->
                 <span id="datatableWithPaginationInfoTotalQty"></span>
@@ -1883,41 +366,7 @@
 
     <!-- Footer -->
 
-    <div class="footer">
-      <div class="row justify-content-between align-items-center">
-        <div class="col">
-          <p class="fs-6 mb-0">&copy; Front. <span class="d-none d-sm-inline-block">2022 Htmlstream.</span></p>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-auto">
-          <div class="d-flex justify-content-end">
-            <!-- List Separator -->
-            <ul class="list-inline list-separator">
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">FAQ</a>
-              </li>
-
-              <li class="list-inline-item">
-                <a class="list-separator-link" href="#">License</a>
-              </li>
-
-              <li class="list-inline-item">
-                <!-- Keyboard Shortcuts Toggle -->
-                <button class="btn btn-ghost-secondary btn btn-icon btn-ghost-secondary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasKeyboardShortcuts" aria-controls="offcanvasKeyboardShortcuts">
-                  <i class="bi-command"></i>
-                </button>
-                <!-- End Keyboard Shortcuts Toggle -->
-              </li>
-            </ul>
-            <!-- End List Separator -->
-          </div>
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-    </div>
-
+    <%- include('../Partes/footer') %> 
     <!-- End Footer -->
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
@@ -2102,13 +551,6 @@
 
   <!-- End Builder -->
 
-  <!-- Builder Toggle -->
-  <div id="builderOffcanvas" class="position-fixed bottom-0 end-0 me-5 mb-5" style="z-index: 3;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBuilder" aria-controls="offcanvasBuilder">
-    <a class="btn btn-dark btn-lg" href="javascript:;">
-      <i class="bi-sliders fs-6 me-2"></i> Customize
-    </a>
-  </div>
-  <!-- End Builder Toggle -->
 
   <div class="d-none js-build-layouts">
     <div class="js-build-layout-header-default">
@@ -4914,9 +3356,9 @@
         },
         language: {
           zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src=".//dashboard/assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src=".//dashboard/assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
-            <p class="mb-0">No data to show</p>
+              <img class="mb-3" src="/dashboard/assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="/dashboard/assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+            <p class="mb-0">Modulo sem Videos</p>
             </div>`
         }
       });
