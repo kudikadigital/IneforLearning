@@ -38,9 +38,9 @@ VideoController.post('/adicionarVideo', upload.single('image'), instrutorAuth, a
 }
 )
 
-VideoController.get('/verVideo/:idVideo/idModulo', async (req: Request, resp: Response) => {
+VideoController.get('/verVideo', async (req: Request, resp: Response) => {
   try {
-    const  {idVideo, idModulo} = req.params;
+    const  {idVideo, idModulo} = req.body;
     console.log(idVideo,idModulo);
     if (!(idVideo || idModulo )) {
       

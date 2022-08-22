@@ -663,9 +663,19 @@
 
     }
     
-    function adicionarVideo(idVideo, idModulo) {
-   
-      fetch(`http://localhost:1200/verVideo/${idVideo}/${idModulo}`, {method: 'GET'}).then(data => {
+    function adicionarVideo() {
+        const idVideo=1;
+        const idModulo=1
+        const options={
+            Method: 'POST',
+            Headers: {
+                Accept: 'application.json',
+                'Content-Type': 'application/json'
+            },
+            Body: {idVideo:parseFloat(idVideo), idModulo:parseInt(idModulo)},
+            Cache: 'default'
+        }
+      fetch(`http://localhost:1200/verVideo`,options ).then(data => {
         return data.json();
       }).then(data => {
         if(data.errado){
