@@ -38,30 +38,29 @@ VideoController.post('/adicionarVideo', upload.single('image'), instrutorAuth, a
 }
 )
 
-VideoController.get('/verVideo', async (req: Request, resp: Response) => {
+VideoController.post('/verVideo', upload.single('image'), instrutorAuth, async (req: Request, resp: Response) => {
   try {
-    const  {idVideo, idModulo} = req.body;
-    console.log(idVideo,idModulo);
-    if (!(idVideo || idModulo )) {
-      
-      const srcVideo= await knex('cursoVideo').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('idModulo', idModulo).where('idVideo', idVideo).first();
-      console.log(srcVideo);
-      
-      resp.json({srcVideo})
+    const { idModulo, idVideo} = req.body;
+    
+    if (idModulo && idVideo) {
+      const srcVideo= await knex('videoCurso').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('videoCurso.idModulo', parseInt(idModulo)).where('videoCurso.idVideo', parseInt(idVideo)).first(); 
+      resp.json(srcVideo)
     } else {
       resp.json({ error: "Ocorreu um problema!" })
     }
   } catch (error) {
     console.log(error);
-    resp.json({ error: "Ocorreu um problema!" })
+    resp.json({ error: "Ocorreu um problema1!" })
   }
 }
 )
 
 
 
+
 export default VideoController;
 
-//image, name, email, whatsaap, nomeuser senha
+//image, name, email, whatsaap, nomeuser senha        const srcVideo= await knex('cursoVideo').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('idModulo', idModulo).where('idVideo', idVideo).first();
+     
 
 
