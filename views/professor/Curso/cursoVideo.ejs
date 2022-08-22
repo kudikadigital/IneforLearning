@@ -286,7 +286,7 @@
                              
                                 <div class="list-group">
                                     <% videos.filter(v=>v.idModulo==e.idModulo).map((v1, index)=>{ %> 
-                                        <a class="list-group-item list-group-item-action" id="video<%= v1.idVideo %>" onclick="adicionarVideo('<%= v1.idVideo %>','<%= v1.idModulo %>')">
+                                        <a  class="list-group-item list-group-item-action" id="video<%= v1.idVideo %>" onclick="adicionarVideo('<%= v1.idVideo %>','<%= v1.idModulo %>')">
                                             <span ><%= index+1 %>.</span> <%= v1.nomeVideo %>
                                           </a>
                                     <%  }) %>
@@ -710,18 +710,11 @@
           document.getElementById('verVideo').setAttribute('src', data.srcVideo)
           document.getElementById('tituloVideo').innerText=data.nomeVideo;
           document.getElementById('editarVideo').setAttribute('href', '/editarVideo/'+data.idVideo)
-          const input='list-group-item list-group-item-action active';
-            let x = document.getElementsByClassName('accordion-item');
-        for (i = 0; i < x.length; i++) { 
-          if (!x[i].innerHTML.includes(input)) {
-           
-          }
-          else {
-            console.log(input);
-            document.getElementById('adicionar'+idProf).setAttribute('class', 'btn botao btn-primary');    
-            document.getElementById('adicionar'+idProf).innerHTML='Adicionado';    
-          }
-        }
+            //   document.getElementsByTagName('a').setAttribute('class', 'list-group-item list-group-item-action active')
+            if(JSON.parse(localStorage.getItem('video'))){
+                document.getElementById('video'+JSON.parse(localStorage.getItem('video'))).setAttribute('class', 'list-group-item list-group-item-action')
+            }
+            localStorage.setItem('video', JSON.stringify(data.idVideo))
             document.getElementById('video'+data.idVideo).setAttribute('class', 'list-group-item list-group-item-action active')
         }
       })
