@@ -710,7 +710,18 @@
           document.getElementById('verVideo').setAttribute('src', data.srcVideo)
           document.getElementById('tituloVideo').innerText=data.nomeVideo;
           document.getElementById('editarVideo').setAttribute('href', '/editarVideo/'+data.idVideo)
-            document.getElementsByClassName('list-group-item list-group-item-action active').setAttribute('class', 'ist-group-item list-group-item-action')
+          const input='list-group-item list-group-item-action active';
+            let x = document.getElementsByClassName('accordion-item');
+        for (i = 0; i < x.length; i++) { 
+          if (!x[i].innerHTML.includes(input)) {
+           
+          }
+          else {
+            console.log(input);
+            document.getElementById('adicionar'+idProf).setAttribute('class', 'btn botao btn-primary');    
+            document.getElementById('adicionar'+idProf).innerHTML='Adicionado';    
+          }
+        }
             document.getElementById('video'+data.idVideo).setAttribute('class', 'list-group-item list-group-item-action active')
         }
       })
