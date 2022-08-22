@@ -231,10 +231,9 @@
             <!-- Body -->
             <div class="card-body">
               <!-- Media -->
-              <video width="100%" height="100%" controls>
-                <source id="verVideo" src="" type="video/mp4">
-                
-              </video>
+              
+              
+              <video  width="100%" height="100%" id="verVideo" src="" controls> </video>
 
 
               <div class="row justify-content-md-start mb-3 mt-2">
@@ -710,8 +709,7 @@
          
           document.getElementById('verVideo').setAttribute('src', data.srcVideo)
           document.getElementById('tituloVideo').innerText=data.nomeVideo;
-          document.getElementById('editarVideo').setAttribute('href', 'editarVideo/'+data.idVideo)
-            console.log(document.getElementById('verVideo'));
+          document.getElementById('editarVideo').setAttribute('href', '/editarVideo/'+data.idVideo)
             document.getElementsByClassName('list-group-item list-group-item-action active').setAttribute('class', 'ist-group-item list-group-item-action')
             document.getElementById('video'+data.idVideo).setAttribute('class', 'list-group-item list-group-item-action active')
         }
