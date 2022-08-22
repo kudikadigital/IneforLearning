@@ -38,11 +38,15 @@ VideoController.post('/adicionarVideo', upload.single('image'), instrutorAuth, a
 }
 )
 
-VideoController.post('/verVideo', async (req: Request, resp: Response) => {
+VideoController.get('/verVideo/:idVideo/idModulo', async (req: Request, resp: Response) => {
   try {
-    const { idVideo, idModulo} = req.body;
+    const  {idVideo, idModulo} = req.params;
+    console.log(idVideo,idModulo);
     if (!(idVideo || idModulo )) {
+      
       const srcVideo= await knex('cursoVideo').join('moduloCurso', 'moduloCurso.idModulo', 'videoCurso.idModulo').where('idModulo', idModulo).where('idVideo', idVideo).first();
+      console.log(srcVideo);
+      
       resp.json({srcVideo})
     } else {
       resp.json({ error: "Ocorreu um problema!" })

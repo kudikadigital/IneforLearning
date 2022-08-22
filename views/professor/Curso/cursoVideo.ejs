@@ -595,7 +595,7 @@
     
 
 <script> 
-    function adicionarVideo(idVideo, idModulo) {
+    function adicionarModulo() {
       const idCurso='<%= curso.idCurso%>';
       const idProf='<%= curso.idProf%>';
       const descricaoModulo=document.getElementById('descricaoModulo').value;
@@ -634,7 +634,7 @@
     
           Toast.fire({
           icon: 'error',
-          title: data.error
+          title: data.errado
         })
 
         }else{
@@ -662,6 +662,41 @@
       });
 
     }
+    
+    function adicionarVideo(idVideo, idModulo) {
+   
+      fetch(`http://localhost:1200/verVideo/${idVideo}/${idModulo}`, {method: 'GET'}).then(data => {
+        return data.json();
+      }).then(data => {
+        if(data.errado){
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 6000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+          icon: 'error',
+          title: data.errado
+        })
+
+        }else{
+            console.log(data.srcVideo);
+         
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+
+    }
+
 </script>
 
 
