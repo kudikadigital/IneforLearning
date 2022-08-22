@@ -236,9 +236,11 @@
                     <% modulo.map(e=>{ %> 
                         <div class="d-flex">
                             <div class="flex-shrink-0">
-                              <div class="avatar avatar-xl">
-                                <img class="img-fluid" src="/dashboard/assets/img/400x400/img26.jpg" alt="Image Description">
-                              </div>
+                             
+                                <span class="avatar avatar-sm avatar-primary avatar-circle">
+                                  <span class="avatar-initials"><%= e.tituloModulo.split(' ')[1] %></span>
+                                </span>
+                              
                             </div>
                             
                     <div class="flex-grow-1 ms-3">
@@ -395,7 +397,7 @@
                   </label>
               
                   <div class="d-flex gap-3 ms-4">
-                    <div class="form-attachment-btn btn btn-sm btn-primary">Upload Foto
+                    <div class="form-attachment-btn btn btn-sm btn-primary">Adicionar Foto
                       <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
                              data-hs-file-attach-options='{
                                 "textTarget": "#avatarImg",
@@ -695,7 +697,7 @@
     
           Toast.fire({
           icon: 'error',
-          title: data.errado
+          title: data.error
         })
 
         }else{

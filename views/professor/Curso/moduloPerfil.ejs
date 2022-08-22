@@ -20,6 +20,139 @@
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
+
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="d-flex mb-3">
+                <!-- Avatar -->
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-lg avatar-4x3">
+                    <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgCurso%>" alt="Image Description">
+                  </div>
+                </div>
+                <!-- End Avatar -->
+      
+                <div class="flex-grow-1 ms-4">
+                  <div class="row">
+                    <div class="col-lg mb-3 mb-lg-0">
+                      <h1 class="page-header-title"><%= curso.nomeCurso %> </h1>
+      
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <span>Estado:</span>
+                          <% if(curso.estadoCurso==0){%> 
+                            <a class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Pendente</a>
+                          <%  } else if(curso.estadoCurso==1){%> 
+                            <a  class="text-success" href="/estadoCurso/<%=curso.idCurso  %>">Em Progresso</a>
+                          <%}else{%> 
+                            <a  class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Desactivado</a>
+                          <% }%> 
+                        </div>
+                        <!-- End Col -->
+      
+                        <div class="col-auto">
+                          <div class="row align-items-center g-0">
+                            <div class="col-auto">Data de lancamento: <%= curso.dataCurso %></div>
+                          </div>
+                        </div>
+                        <!-- End Col -->
+      
+                        <div class="col-auto">
+                          <!-- Select -->
+                          <div class="tom-select-custom">
+                            <select class="js-select form-select form-select-sm form-select-borderless tom-select-form-select-ps-0" id="ownerLabel" autocomplete="off" data-hs-tom-select-options='{
+                                      "searchInDropdown": false,
+                                      "hideSearch": true,
+                                      "dropdownWidth": "12rem"
+                                    }'>
+                              <option value="owner1" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Avatar" /><span class="flex-grow-1 ms-2"><%= curso.nomeProf %></span></span>'><%= curso.nomeProf %></option>
+      
+                            </select>
+                          </div>
+                          <!-- End Select -->
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                    <!-- End Col -->
+      
+                    <div class="col-lg-auto">
+                      <span class="text-cap small">Alunos Inscritos:</span>
+      
+                      <div class="d-flex">
+                        <!-- Avatar Group -->
+                        <div class="avatar-group avatar-circle me-3">
+                          <% matriculas.reverse().slice(0, 5).map(e=>{ %>  
+                            <a class="avatar" href="/perfilAluno_/<%=e.idAluno %>" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= e.nomeAluno%>">
+                              <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
+                            </a>
+                          <%}) %> 
+                          <a class="avatar avatar-light avatar-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                            <span class="avatar-initials">+<%= matriculas.length %></span>
+                          </a>
+                        </div>
+                        <!-- End Avatar Group -->
+      
+                        <a class="btn btn-primary btn-icon rounded-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                          <i class="bi-share-fill"></i>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+              <!-- End Media -->
+      
+              <!-- Nav -->
+              <!-- Nav -->
+              <div class="js-nav-scroller hs-nav-scroller-horizontal">
+                <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-left"></i>
+                  </a>
+                </span>
+      
+                <span class="hs-nav-scroller-arrow-next" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-right"></i>
+                  </a>
+                </span>
+      
+                <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/perfilCurso_/1">Visão Geral</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/arquivoCurso/1">Arquivos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/actividadeCurso/1">Actividades</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/alunoCurso/1">Matriculas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/alunoCurso/1">Solicitações</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/editarCurso/1">Videos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/editarCurso/1">Definições</a>
+                  </li>
+      
+      
+                </ul>
+              </div>
+              <!-- End Nav -->
+            </div>
+            <!-- End Page Header -->
       <!-- Page Header -->
       <div class="page-header">
         <div class="row align-items-center mb-3">
@@ -227,7 +360,7 @@
                 <th>Nome</th>
                 <th>data</th>
                 <th>Curtida</th>
-                <th>Curso</th>
+                <th>Hora Assistida</th>
                 <th>Modulo</th>
                 <th>Visualizações</th>
                 <th>Acção</th>
@@ -244,33 +377,32 @@
                     </div>
                   </td>
                   <td class="table-column-ps-0">
-                    <a href="ecommerce-order-details.html">#35463</a>
+                    <a href="/verVideoProf/<%= e.idModulo%>/<%=e.idVideo %> ">#<%= e.idVideo %> </a>
                   </td>
-                  <td>Aug 17, 2020, 5:48 (ET)</td>
+                  <td><%= e.nomeVideo %></td>
                   <td>
-                    <a class="text-body" href="ecommerce-customer-details.html">Jase Marley</a>
+                    <a class="text-body" href="#"><%= e.dataVideo %></a>
                   </td>
                   <td>
                     <span class="badge bg-soft-success text-success">
-                      <span class="legend-indicator bg-success"></span>Paid
+                      <span class="legend-indicator bg-success"></span><%= e.curtidaVideo %>
                     </span>
                   </td>
                   <td>
                     <span class="badge bg-soft-info text-info">
-                      <span class="legend-indicator bg-info"></span>Fulfilled
+                      <span class="legend-indicator bg-info"></span>0H
                     </span>
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
-                      <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/brands/mastercard.svg" alt="Image Description">
-                      <span class="text-dark">&bull;&bull;&bull;&bull; 4242</span>
+                      <span class="text-dark"><%= e.tituloModulo %></span>
                     </div>
                   </td>
                   <td>$256.39</td>
                   <td>
                     <div class="btn-group" role="group">
-                      <a class="btn btn-white btn-sm" href="ecommerce-order-details.html">
-                        <i class="bi-eye"></i> View
+                      <a class="btn btn-white btn-sm" href="/verVideoProf/<%= e.idModulo%>/<%=e.idVideo %> ">
+                        <i class="bi-eye"></i> Ver
                       </a>
   
                       <!-- Button Group -->
@@ -278,10 +410,10 @@
                         <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="ordersExportDropdown1" data-bs-toggle="dropdown" aria-expanded="false"></button>
   
                         <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="ordersExportDropdown1">
-                          <span class="dropdown-header">Options</span>
+                          <span class="dropdown-header">Opções</span>
                           <a class="js-export-copy dropdown-item" href="javascript:;">
                             <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/copy-icon.svg" alt="Image Description">
-                            Copy
+                            Copiar
                           </a>
                           <a class="js-export-print dropdown-item" href="javascript:;">
                             <img class="avatar avatar-xss avatar-4x3 me-2" src="/dashboard/assets/svg/illustrations/print-icon.svg" alt="Image Description">

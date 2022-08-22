@@ -10,6 +10,7 @@ import alunoController from './controller/alunoController';
 import professorController from './controller/professorController';
 import cursoController from './controller/cursoController';
 import CoordenadorController from "./controller/coordenadorController";
+import VideoController from "./controller/videoController";
 import knex from './database/conection';
 import cron  from 'node-cron'
 
@@ -34,6 +35,7 @@ app.use(professorController);
 app.use(admController);
 app.use(cursoController);
 app.use(CoordenadorController)
+app.use(VideoController)
 app.use(route);
 
 

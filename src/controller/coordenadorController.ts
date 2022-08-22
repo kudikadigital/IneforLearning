@@ -158,7 +158,6 @@ CoordenadorController.post('/adicionarCoordenador', upload.single('image'), admi
   }
 }
 )
-
 //Parte Curso
 CoordenadorController.get('/listaCurso',adminAuth,async (req:Request, resp: Response)=>{
   try {

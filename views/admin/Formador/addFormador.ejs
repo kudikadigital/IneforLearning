@@ -119,6 +119,18 @@
                     </div>
                   </div>
                   <!-- End Form -->
+                        <!-- Form -->
+                        <div class="row mb-4">
+                          <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">NIF <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
+      
+                          <div class="col-sm-9">
+                            <div class="input-group input-group-sm-vertical">
+                              <input onchange="formData()" id="NIFProf" type="text" class="form-control" name="nomeProf" placeholder="Numero de Identificação Fiscal">
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End Form -->
                   
                   <!-- Form -->
                   <div class="row mb-4">
@@ -266,6 +278,9 @@
                   <dl class="row">
                     <dt class="col-sm-6 text-sm-end">Nome Completo:</dt>
                     <dd class="col-sm-6" id="nomeProf_"></dd>
+                    
+                    <dt class="col-sm-6 text-sm-end">NIF:</dt>
+                    <dd class="col-sm-6" id="NIFProf_" ></dd>
 
                     <dt class="col-sm-6 text-sm-end">Username:</dt>
                     <dd class="col-sm-6" id="userProf_" ></dd>
@@ -323,6 +338,7 @@
     const formData=(e)=> {
       const nomeProf=document.getElementById('nomeProf').value;
       const emailProf=document.getElementById('emailProf').value;
+      const NIFProf=document.getElementById('NIFProf').value;
       const userProf=document.getElementById('userProf').value;
       const telProf=document.getElementById('telProf').value;
       const enderecoProf=document.getElementById('enderecoProf').value;
@@ -333,6 +349,7 @@
 
       document.getElementById('nomeProf_').innerHTML=nomeProf; 
       document.getElementById('emailProf_').innerHTML=emailProf;
+      document.getElementById('NIFProf_').innerHTML=NIFProf;
       document.getElementById('userProf_').innerHTML=userProf;
       document.getElementById('telProf_').innerHTML=telProf;
       document.getElementById('enderecoProf_').innerHTML=enderecoProf;
@@ -355,16 +372,21 @@
       const imgProf=document.getElementById('avatarUploader').files[0];
 
       //nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf
+      const Dados= new FormData();
+      Dados.append('nomeProf',nomeProf)
+      Dados.append('emailProf',emailProf)
+      Dados.append('userProf',userProf)
+      Dados.append('telProf',telProf)
+      Dados.append('enderecoProf',enderecoProf)
+      Dados.append('residenciaProf',residenciaProf)
+      Dados.append('descProf',descProf)
+      Dados.append('image',imgProf)
 
-      const dados={nomeProf,emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf}
       const options = {
         method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dados),
+        body: Dados,
       };
-      
+
       fetch('http://localhost:1200/adicionarProf', options).then(data => {
         return data.json();
       }).then(data => {
