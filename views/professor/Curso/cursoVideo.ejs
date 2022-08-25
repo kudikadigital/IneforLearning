@@ -125,7 +125,7 @@
               <a class="nav-link " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/arquivoCurso/<%=curso.idCurso %>">Arquivos</a>
+              <a class="nav-link " href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
@@ -233,17 +233,21 @@
               <!-- Media -->
               
               
-              <video  width="100%" height="100%" id="verVideo" src="" controls> </video>
+              <video  width="100%" height="100%" id="verVideo" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" controls> </video>
 
 
               <div class="row justify-content-md-start mb-3 mt-2">
                 <div class="col-md-8 col-lg-7">
                   <dl class="row text-sm-start">
-                    <dt class="col-sm-6">Total:</dt>
+                    <dt class="col-sm-6">Modulo:</dt>
                     <dd class="col-sm-6"><%= modulo.length %> </dd>
-                    <dt class="col-sm-6">Videos:</dt>
+                    <dt class="col-sm-6">Titulo Modulo:</dt>
                     <dd class="col-sm-6">0</dd>
-                    <dt class="col-sm-6">Horas Assistida:</dt>
+                    <dt class="col-sm-6">Descrição Video:</dt>
+                    <dd class="col-sm-6">0h</dd>
+                    <dt class="col-sm-6">Curtida Video:</dt>
+                    <dd class="col-sm-6">0h</dd>
+                    <dt class="col-sm-6">Data:</dt>
                     <dd class="col-sm-6">0h</dd>
                     
                   </dl>
@@ -286,7 +290,7 @@
                              
                                 <div class="list-group">
                                     <% videos.filter(v=>v.idModulo==e.idModulo).map((v1, index)=>{ %> 
-                                        <a  class="list-group-item list-group-item-action" id="video<%= v1.idVideo %>" onclick="adicionarVideo('<%= v1.idVideo %>','<%= v1.idModulo %>')">
+                                        <a style="cursor: pointer;" class="list-group-item list-group-item-action" id="video<%= v1.idVideo %>" onclick="adicionarVideo('<%= v1.idVideo %>','<%= v1.idModulo %>')">
                                             <span ><%= index+1 %>.</span> <%= v1.nomeVideo %>
                                           </a>
                                     <%  }) %>
@@ -709,7 +713,7 @@
          
           document.getElementById('verVideo').setAttribute('src', data.srcVideo)
           document.getElementById('tituloVideo').innerText=data.nomeVideo;
-          document.getElementById('editarVideo').setAttribute('href', '/editarVideo/'+data.idVideo)
+          document.getElementById('editarVideo').setAttribute('href', '/editarVideo/'+idCurso+'/'+data.idVideo)
             //   document.getElementsByTagName('a').setAttribute('class', 'list-group-item list-group-item-action active')
             if(JSON.parse(localStorage.getItem('video'))){
                 document.getElementById('video'+JSON.parse(localStorage.getItem('video'))).setAttribute('class', 'list-group-item list-group-item-action')

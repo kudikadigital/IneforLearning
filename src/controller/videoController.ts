@@ -55,6 +55,36 @@ VideoController.post('/verVideo', upload.single('image'), instrutorAuth, async (
 }
 )
 
+VideoController.post('/editarVideo', upload.single('image'), instrutorAuth, async (req: Request, resp: Response) => {
+  try {
+    const { nomeVideo, descricaoVideo, idModulo, idCurso, srcVideo, idVideo} = req.body;
+   
+    const bannerVideo = (req.file) ? req.file.filename : 'Sem Banner';
+    
+    if (!(nomeVideo === '' || descricaoVideo === '' || srcVideo === '')) {
+              const verify = await knex('videoCurso').where('nomeVideo', nomeVideo)
+              const verify1 = await knex('videoCurso').where('srcVideo', srcVideo)
+              if (verify.length === 0 || verify1.length === 0) {
+                
+                const ids = await knex('videoCUrso').update( { nomeVideo, descricaoVideo, srcVideo}).where('idVideo', idVideo)
+                resp.json({ certo: 'Dados do Vídeo editado!' })
+
+              } else {
+                resp.json({ error: 'Já existe um video vinculado a esses dados!' })
+                //resp.redirect("/cadastrarCliente")
+              }
+        
+    } else {
+      resp.json({ error: "Ocorreu um problema!" })
+    }
+  } catch (error) {
+    console.log(error);
+    resp.json({ error: "Ocorreu um problema!" })
+  }
+}
+)
+
+
 
 
 

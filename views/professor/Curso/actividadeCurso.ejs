@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/project.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:41 GMT -->
 <%-include('../Partes/head.ejs')%>
+
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
   <script src="/dashboard/assets/js/hs.theme-appearance.js"></script>
@@ -11,16 +12,20 @@
 
   <!-- ========== HEADER ========== -->
   <%-include('../Partes/header.ejs')%>
+
   <!-- ========== END HEADER ========== -->
 
   <!-- ========== MAIN CONTENT ========== -->
   <!-- Navbar Vertical -->
+
   <%-include('../Partes/sideBar.ejs')%>
+
+  <!-- End Navbar Vertical -->
 
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
-              <!-- Page Header -->
+      <!-- Page Header -->
       <div class="page-header">
         <div class="d-flex mb-3">
           <!-- Avatar -->
@@ -122,13 +127,13 @@
 
           <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
+              <a class="nav-link  " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
+              <a class="nav-link active" href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/matriculasCurso/<%=curso.idCurso %>">Matriculas</a>
@@ -137,7 +142,7 @@
               <a class="nav-link " href="/solicitacoesCurso/<%=curso.idCurso %>">Solicitações</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
+              <a class="nav-link " href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/cursoVideo/<%=curso.idCurso %>">Videos</a>
@@ -145,330 +150,159 @@
             <li class="nav-item">
               <a class="nav-link " href="/definicoesCurso/<%=curso.idCurso %>">Definições</a>
             </li>
-
-
           </ul>
         </div>
         <!-- End Nav -->
       </div>
       <!-- End Page Header -->
-      <!-- Page Header -->
-      <div class="page-header d-print-none">
-        <div class="row align-items-center">
-          <div class="col-sm mb-2 mb-sm-0">
-            
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-9">
+          <!-- Alert -->
+          <div class="alert alert-soft-dark mb-5 mb-lg-7" role="alert">
+            <div class="d-flex align-items-center">
+              <div class="flex-shrink-0">
+                <img class="avatar avatar-xl" src="/dashboard/assets/svg/illustrations/oc-megaphone.svg" alt="Image Description" data-hs-theme-appearance="default">
+                <img class="avatar avatar-xl" src="/dashboard/assets/svg/illustrations-light/oc-megaphone.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              </div>
 
-            <div class="d-sm-flex align-items-sm-center">
-              <h1 class="page-header-title">Modulos do Curso #<%= modulo.length %></h1>  
-              <span class="badge bg-soft-success text-success ms-sm-3">
-                <span class="legend-indicator bg-success"></span><%= modulo.length %>
-              </span>
-              <span class="badge bg-soft-info text-info ms-2 ms-sm-3">
-                <span class="legend-indicator bg-info"></span>Completo
-              </span>
-              <span class="ms-2 ms-sm-3">
-                <i class="bi-calendar-week"></i> Utima Actualização: <%= curso.ultimaAct %> 
-              </span>
-            </div>
-
-            <div class="mt-2">
-              <div class="d-flex gap-2">
-                <a class="text-body me-3" href="javascript:;" onclick="window.print(); return false;">
-                  <i class="bi-printer me-1"></i> Print Modulo
-                </a>
-
-                <!-- Dropdown -->
-                <div class="dropdown">
-                  <a class="text-body" href="javascript:;" id="moreOptionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Outras Opções <i class="bi-chevron-down"></i>
-                  </a>
-
-                  <div class="dropdown-menu mt-1" aria-labelledby="moreOptionsDropdown">
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-clipboard dropdown-item-icon"></i> Duplicar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-x dropdown-item-icon"></i> Cancelar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-archive dropdown-item-icon"></i> Arquivar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-pencil dropdown-item-icon"></i> Editar 
-                    </a>
-                  </div>
-                </div>
-                <!-- End Dropdown -->
+              <div class="flex-grow-1 ms-3">
+                <h3 class="alert-heading mb-1">Actividades de operações do Curso</h3>
+                <p class="mb-0">Todas actividades de operações do curso <%= curso.nomeCurso %> </p>
               </div>
             </div>
           </div>
-          <!-- End Col -->
+          <!-- End Alert -->
 
-          <div class="col-sm-auto">
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable" >
-                <i class="bi-add"></i>Adicionar Modulo
-              </button>
-            </div>
-          </div>
-          <!-- End Col -->
-        </div>
-        <!-- End Row -->
-      </div>
-      <!-- End Page Header -->
+          <!-- Step -->
+          <ul class="step">
+            <!-- Step Item -->
 
-      <div class="row">
-        <div class="col-lg-8 mb-3 mb-lg-0">
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header card-header-content-between">
-              <h4 class="card-header-title">Modulos do Curso <span class="badge bg-soft-dark text-dark rounded-circle ms-1"><%= modulo.length %></span></h4>
-              <a class="link" href="javascript:;">Editar</a>
-            </div>
-            <!-- End Header -->
+            <!-- <li class="step-item">
+              <div class="step-content-wrapper">
+                <small class="step-divider">Today</small>
+              </div>
+            </li> -->
 
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Media -->
+            <!-- End Step Item -->
 
+            <!-- Step Item -->
 
-                    <% modulo.map(e=>{ %> 
-                        <div class="d-flex">
+            <!-- <li class="step-item">
+              <div class="step-content-wrapper">
+                <div class="step-avatar">
+                  <img class="step-avatar" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
+                </div>
+
+                <div class="step-content">
+                  <h5 class="mb-1">Iana Robinson</h5>
+
+                  <p class="fs-5 mb-1">Uploaded weekly reports to the task <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fd-7</a></p>
+
+                  <ul class="list-group list-group-sm">
+                   
+                    <li class="list-group-item list-group-item-light">
+                      <div class="row gx-1">
+                        <div class="col-sm-4">
+                          
+                          <div class="d-flex">
                             <div class="flex-shrink-0">
-                             
-                                <span class="avatar avatar-sm avatar-primary avatar-circle">
-                                  <span class="avatar-initials"><%= e.tituloModulo.split(' ')[1] %></span>
-                                </span>
-                              
+                              <img class="avatar avatar-xs" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
                             </div>
-                            
-                    <div class="flex-grow-1 ms-3">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <a class="h5 d-block" href="/moduloPerfil/<%= curso.idCurso %>/<%= e.idModulo %>"><%= e.tituloModulo %></a>
-        
-                                <div class="fs-6 text-body">
-                                <span>Numero Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.idModulo %> </span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Nome Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.tituloModulo_ %></span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Descrição:</span>
-                                <span class="fw-semi-bold"><%= e.descricaoModulo %></span>
-                                </div>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
+                              <span class="d-block small text-muted">12kb</span>
                             </div>
-                                                <!-- End Col -->
+                          </div>
+                         
+                        </div>
+                        
 
-                            <div class="col col-md-2 align-self-center">
-                                <span>Videos</span>
-                                <h5>0</h5>
+                        <div class="col-sm-4">
+                         
+                          <div class="d-flex">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs" src="/dashboard/assets/svg/brands/word-icon.svg" alt="Image Description">
                             </div>
-                            <!-- End Col -->
-        
-                           
-                            <!-- End Col -->
-        
-                            <div class="col col-md-2 align-self-center text-end">
-                              <span>Reações</span>
-                                <h5>0</h5>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
+                              <span class="d-block small text-muted">4kb</span>
                             </div>
+                          </div>
+                      
+                        </div>
+                      
 
-
-                            <div class="col col-md-2 align-self-center">
-                              <span>Hora</span>
-                                <h5>0h</h5>
+                        <div class="col-sm-4">
+                          
+                          <div class="d-flex">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs" src="/dashboard/assets/svg/brands/word-icon.svg" alt="Image Description">
                             </div>
-                            
-                    </div>
-            
-                    </div>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span class="d-block fs-6 text-dark text-truncate" title="monthly-reports.xls">monthly-reports.xls</span>
+                              <span class="d-block small text-muted">8kb</span>
+                            </div>
+                          </div>
+                         
+                        </div>
+                       
+                      </div>
                     
-              </div>
-              <!-- End Media -->
-
-              <hr>
-                  
-                    <%}) %> 
-
-
-
-              <div class="row justify-content-md-end mb-3">
-                <div class="col-md-8 col-lg-7">
-                  <dl class="row text-sm-end">
-                    <dt class="col-sm-6">Total:</dt>
-                    <dd class="col-sm-6"><%= modulo.length %> </dd>
-                    <dt class="col-sm-6">Videos:</dt>
-                    <dd class="col-sm-6">0</dd>
-                    <dt class="col-sm-6">Horas Assistida:</dt>
-                    <dd class="col-sm-6">0h</dd>
+                    </li>
                     
-                  </dl>
-                  <!-- End Row -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
-            </div>
-            <!-- End Body -->
-          </div>
-          <!-- End Card -->
-
-    
-        </div>
-
-        <div class="col-lg-4">
-          <!-- Card -->
-          <div class="card">
-            <!-- Header -->
-            <div class="card-header">
-              <h4 class="card-header-title">Formador</h4>
-            </div>
-            <!-- End Header -->
-
-            <!-- Body -->
-            <div class="card-body">
-              <!-- List Group -->
-              <ul class="list-group list-group-flush list-group-no-gutters">
-                <li class="list-group-item">
-                  <a class="d-flex align-items-center" href="ecommerce-customer-details.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <span class="text-body text-inherit"><%= curso.nomeProf %> </span>
-                    </div>
-                    <div class="flex-grow-1 text-end">
-                      <i class="bi-chevron-right text-body"></i>
-                    </div>
-                  </a>
-                </li>
-
-
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h5>Contacto</h5>
-                    <a class="link" href="javascript:;">Ver Perfil</a>
-                  </div>
-
-                  <ul class="list-unstyled list-py-2 text-body">
-                    <li><i class="bi-at me-2"></i><%= curso.emailProf %></li>
-                    <li><i class="bi-phone me-2"></i><%= curso.telProf %></li>
                   </ul>
-                </li>
+                </div>
+              </div>
+            </li> -->
+            
+            <!-- End Step Item -->
+
+            <!-- Step Item -->
+            
+            <!-- <li class="step-item">
+              <div class="step-content-wrapper">
+                <span class="step-icon step-icon-soft-dark">B</span>
+
+                <div class="step-content">
+                  <h5 class="mb-1">Bob Dean</h5>
+
+                  <p class="fs-5 mb-1">Marked project status as <span class="badge bg-soft-primary text-primary rounded-pill"><span class="legend-indicator bg-primary"></span>"In progress"</span></p>
+                </div>
+              </div>
+            </li> -->
+            
+            <!-- End Step Item -->
+
+            <!-- Step Item -->
+
+            <!-- <li class="step-item">
+              <div class="step-content-wrapper">
+                <small class="step-divider">Yesterday</small>
+              </div>
+            </li> -->
+
+            <!-- End Step Item -->
 
 
+          </ul>
+          <!-- End Step -->
 
-              </ul>
-              <!-- End List Group -->
-            </div>
-            <!-- End Body -->
+          <!-- Footer -->
+          <div class="d-grid">
+            <a class="btn btn-white" href="javascript:;">
+              <i class="bi-arrow-clockwise me-1"></i> Carregar Mais Actividades
+            </a>
           </div>
-          <!-- End Card -->
+          <!-- End Footer -->
         </div>
       </div>
-      <!-- End Row -->
+
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
 
     <%- include('../Partes/footer') %> 
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">Adiocionar Modulo <%= modulo.length+1 %> </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-             
-      <div class="row">
-        <div class="col-lg-12">
-           
-                <!-- Media -->
-                <div class="d-flex align-items-center">
-                  <!-- Avatar -->
-                  <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
-                    <img id="avatarImg" class="avatar-img" src="/dashboard/assets/img/160x160/img1.jpg" alt="Image Description">
-                  </label>
-              
-                  <div class="d-flex gap-3 ms-4">
-                    <div class="form-attachment-btn btn btn-sm btn-primary">Adicionar Foto
-                      <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
-                             data-hs-file-attach-options='{
-                                "textTarget": "#avatarImg",
-                                "mode": "image",
-                                "targetAttr": "src",
-                                "resetTarget": ".js-file-attach-reset-img",
-                                "resetImg": "../assets/img/160x160/img1.jpg",
-                                "allowTypes": [".png", ".jpeg", ".jpg"]
-                             }'>
-                    </div>
-                    <!-- End Avatar -->
-              
-                    <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Deletar</button>
-                  </div>
-                </div><br>
-     
-          <!-- Card -->
-          <div class="card">
-            <!-- Body -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="firstNameLabel" class="form-label">Numero Modulo</label>
-                    <input type="text" readonly value="Modulo <%= modulo.length+1 %>" class="form-control" name="tituloModulo" id="tituloModulo" placeholder="Clarice" aria-label="Clarice">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="lastNameLabel" class="form-label">Titulo Modulo</label>
-                    <input type="text" class="form-control" name="tituloModulo_" id="tituloModulo_" placeholder="Titulo Modulo" aria-label="Boone">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
-
-              <!-- Form -->
-              <div class="mb-4">
-                <label for="emailLabel" class="form-label">Descrição Modulo</label>
-                <input type="email" class="form-control" name="descricaoModulo" id="descricaoModulo" placeholder="Descrição Modulo" aria-label="clarice@site.com">
-              </div>
-              <!-- End Form -->
-
-              <!-- Form Check -->
-              <div class="form-check mb-4">
-                <input class="form-check-input"  checked type="checkbox" value="" id="marketingEmailsCheckbox">
-                <label class="form-check-label" for="marketingEmailsCheckbox">Modulo do Curso podem ser validados e alterados pelo coodernador.</label>
-              </div>
-              <!-- End Form Check -->
-
-            </div>
-            <!-- Body -->
-          </div>
-          <!-- End Card -->
-        </div>
-      </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" onclick="adicionarModulo()" class="btn btn-primary">Adicionar Moduloo</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
     <!-- End Footer -->
   </main>
@@ -650,82 +484,10 @@
       <!-- End Row -->
     </div>
     <!-- End Footer -->
-  </div> 
+  </div>
 
   <!-- End Builder -->
-  <script src="/sweetalert/sweetalert2.all.min.js"></script>
 
-    
-
-<script> 
-    function adicionarModulo() {
-      const idCurso='<%= curso.idCurso%>';
-      const idProf='<%= curso.idProf%>';
-      const descricaoModulo=document.getElementById('descricaoModulo').value;
-      const tituloModulo=document.getElementById('tituloModulo').value;
-      const tituloModulo_=document.getElementById('tituloModulo_').value;
-      const imgModulo=document.getElementById('avatarUploader').files[0]
-      const Dados= new FormData();
-      console.log({idCurso,idProf, descricaoModulo, tituloModulo, tituloModulo_,imgModulo  });
-      Dados.append('descricaoModulo',descricaoModulo)
-      Dados.append('tituloModulo',tituloModulo)
-      Dados.append('tituloModulo_',tituloModulo_)
-      Dados.append('idCurso',idCurso)
-      Dados.append('idProf',idProf)
-      Dados.append('image',imgModulo)
-
-      const options = {
-        method: 'POST',
-        body: Dados,
-      };      
-
-      fetch('http://localhost:1200/adicionarModulo', options).then(data => {
-        return data.json();
-      }).then(data => {
-        if(data.errado){
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-          icon: 'error',
-          title: data.errado
-        })
-
-        }else{
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-            icon: 'success',
-            title: data.certo
-          })
-          window.location=`/${data.rota}`
-        }
-      })
-      .catch(e => {
-        console.log(e);
-      });
-
-    }
-</script>
 
 
   <div class="d-none js-build-layouts">
@@ -3424,89 +3186,262 @@
 
   <!-- End Welcome Message Modal -->
 
-  <!-- Export Orders Modal -->
-  <div class="modal fade" id="exportOrdersModal" tabindex="-1" aria-labelledby="exportOrdersModalLabel" aria-hidden="true">
+  <!-- Share with people Modal -->
+  <div class="modal fade" id="shareWithPeopleModal" tabindex="-1" aria-labelledby="shareWithPeopleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- Header -->
         <div class="modal-header">
-          <h4 class="modal-title" id="exportOrdersModalLabel">Export orders</h4>
+          <h5 class="modal-title" id="shareWithPeopleModalLabel">Invite users</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- End Header -->
 
         <!-- Body -->
         <div class="modal-body">
-          <div class="d-grid gap-2 mb-4">
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio1" checked>
-              <label class="form-check-label" for="exportProductsRadio1">
-                Current page
-              </label>
-            </div>
-            <!-- End Form Check -->
+          <!-- Form -->
+          <div class="mb-4">
+            <div class="input-group mb-2 mb-sm-0">
+              <input type="text" class="form-control" name="fullName" placeholder="Search name or emails" aria-label="Search name or emails">
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio2">
-              <label class="form-check-label" for="exportProductsRadio2">
-                All products
-              </label>
-            </div>
-            <!-- End Form Check -->
+              <div class="input-group-append input-group-append-last-sm-down-none">
+                <!-- Select -->
+                <div class="tom-select-custom tom-select-custom-end">
+                  <select class="js-select form-select tom-select-custom-form-select-invite-user" autocomplete="off" data-hs-tom-select-options='{
+                            "searchInDropdown": false,
+                            "hideSearch": true,
+                            "dropdownWidth": "11rem"
+                          }'>
+                    <option value="guest" selected>Guest</option>
+                    <option value="can edit">Can edit</option>
+                    <option value="can comment">Can comment</option>
+                    <option value="full access">Full access</option>
+                  </select>
+                </div>
+                <!-- End Select -->
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio3">
-              <label class="form-check-label" for="exportProductsRadio3">
-                Selected: 20 products
-              </label>
+                <a class="btn btn-primary d-none d-sm-inline-block" href="javascript:;">Invite</a>
+              </div>
             </div>
-            <!-- End Form Check -->
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio4">
-              <label class="form-check-label" for="exportProductsRadio4">
-                Order by date
-              </label>
-            </div>
-            <!-- End Form Check -->
+            <a class="btn btn-primary w-100 d-sm-none" href="javascript:;">Invite</a>
           </div>
+          <!-- End Form -->
 
-          <label class="form-label">Export as</label>
+          <!-- List Group -->
+          <ul class="list-unstyled list-py-2">
+            <!-- Item -->
+            <li>
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <span class="icon icon-soft-dark icon-sm icon-circle">
+                    <i class="bi-people-fill"></i>
+                  </span>
+                </div>
 
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio1" checked>
-            <label class="form-check-label" for="exportOrdersAsRadio1">
-              CSV for Excel, Numbers, or other spreadsheet programs
-            </label>
-          </div>
-          <!-- End Form Check -->
+                <div class="flex-grow-1 ms-3">
+                  <div class="row align-items-center">
+                    <div class="col-sm">
+                      <h5 class="text-body mb-0">#digitalmarketing</h5>
+                      <span class="d-block fs-6">8 members</span>
+                    </div>
+                    <!-- End Col -->
 
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio2">
-            <label class="form-check-label" for="exportOrdersAsRadio2">
-              Plain CSV file
-            </label>
-          </div>
-          <!-- End Form Check -->
+                    <div class="col-sm-auto">
+                      <!-- Select -->
+                      <div class="tom-select-custom tom-select-custom-sm-end">
+                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                                  "searchInDropdown": false,
+                                  "hideSearch": true,
+                                  "dropdownWidth": "11rem"
+                                }'>
+                          <option value="guest">Guest</option>
+                          <option value="can edit" selected>Can edit</option>
+                          <option value="can comment">Can comment</option>
+                          <option value="full access">Full access</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                        </select>
+                      </div>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+            </li>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <li>
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm avatar-circle">
+                    <img class="avatar-img" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
+                  </div>
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <div class="row align-items-center">
+                    <div class="col-sm">
+                      <h5 class="text-body mb-0">David Harrison</h5>
+                      <span class="d-block fs-6">david@site.com</span>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-auto">
+                      <!-- Select -->
+                      <div class="tom-select-custom tom-select-custom-sm-end">
+                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                                  "searchInDropdown": false,
+                                  "hideSearch": true,
+                                  "dropdownWidth": "11rem"
+                                }'>
+                          <option value="guest">Guest</option>
+                          <option value="can edit" selected>Can edit</option>
+                          <option value="can comment">Can comment</option>
+                          <option value="full access">Full access</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                        </select>
+                      </div>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+            </li>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <li>
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm avatar-circle">
+                    <img class="avatar-img" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
+                  </div>
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <div class="row align-items-center">
+                    <div class="col-sm">
+                      <h5 class="text-body mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                      <span class="d-block fs-6">Markvt@site.com</span>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-auto">
+                      <!-- Select -->
+                      <div class="tom-select-custom tom-select-custom-sm-end">
+                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                                  "searchInDropdown": false,
+                                  "hideSearch": true,
+                                  "dropdownWidth": "11rem"
+                                }'>
+                          <option value="guest">Guest</option>
+                          <option value="can edit" selected>Can edit</option>
+                          <option value="can comment">Can comment</option>
+                          <option value="full access">Full access</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                        </select>
+                      </div>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+            </li>
+            <!-- End Item -->
+
+            <!-- Item -->
+            <li>
+              <div class="d-flex">
+                <div class="flex-shrink-0">
+                  <span class="icon icon-soft-dark icon-sm icon-circle">
+                    <i class="bi-people-fill"></i>
+                  </span>
+                </div>
+
+                <div class="flex-grow-1 ms-3">
+                  <div class="row align-items-center">
+                    <div class="col-sm">
+                      <h5 class="text-body mb-0">#conference</h5>
+                      <span class="d-block fs-6">3 members</span>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-auto">
+                      <!-- Select -->
+                      <div class="tom-select-custom tom-select-custom-sm-end">
+                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                                  "searchInDropdown": false,
+                                  "hideSearch": true,
+                                  "dropdownWidth": "11rem"
+                                }'>
+                          <option value="guest">Guest</option>
+                          <option value="can edit" selected>Can edit</option>
+                          <option value="can comment">Can comment</option>
+                          <option value="full access">Full access</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                        </select>
+                      </div>
+                      <!-- End Select -->
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+            </li>
+            <!-- End Item -->
+          </ul>
+          <!-- End List Group -->
+
+          <!-- Form Switch -->
+          <label class="row form-check form-switch" for="addTeamPreferencesNewProjectSwitch1">
+            <span class="col-8 col-sm-9 ms-0">
+              <i class="bi-bell text-primary me-2"></i>
+              <span class="text-dark">Inform all project members</span>
+            </span>
+            <span class="col-4 col-sm-3 text-end">
+              <input type="checkbox" class="form-check-input" id="addTeamPreferencesNewProjectSwitch1" checked>
+            </span>
+          </label>
+          <!-- End Form Switch -->
         </div>
         <!-- End Body -->
 
         <!-- Footer -->
-        <div class="modal-footer gap-3">
-          <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" class="btn btn-primary">Export orders</button>
+        <div class="modal-footer">
+          <div class="row align-items-center flex-grow-1 mx-n2">
+            <div class="col-sm-9 mb-2 mb-sm-0">
+              <input type="hidden" id="publicShareLinkClipboard" value="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/">
+
+              <p class="modal-footer-text">The public share <a class="link" href="#">link settings</a>
+                <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="The public share link allows people to view the project without giving access to full collaboration features."></i>
+              </p>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-3 text-sm-end">
+              <a class="js-clipboard btn btn-white btn-sm text-nowrap" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard!" data-hs-clipboard-options='{
+                  "type": "tooltip",
+                  "successText": "Copied!",
+                  "contentTarget": "#publicShareLinkClipboard",
+                  "container": "#shareWithPeopleModal"
+                 }'>
+                <i class="bi-link me-1"></i> Copy link</a>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
         </div>
         <!-- End Footer -->
       </div>
     </div>
   </div>
-  <!-- End Export Orders Modal -->
+  <!-- End Share with people Modal -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->
@@ -3514,6 +3449,47 @@
 
   <!-- JS Front -->
   <script src="/dashboard/assets/js/theme.min.js"></script>
+  <script src="/dashboard/assets/js/hs.theme-appearance-charts.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // INITIALIZATION OF DATERANGEPICKER
+      // =======================================================
+      $('.js-daterangepicker').daterangepicker();
+
+      $('.js-daterangepicker-times').daterangepicker({
+        timePicker: true,
+        startDate: moment().startOf('hour'),
+        endDate: moment().startOf('hour').add(32, 'hour'),
+        locale: {
+          format: 'M/DD hh:mm A'
+        }
+      });
+
+      var start = moment();
+      var end = moment();
+
+      function cb(start, end) {
+        $('#js-daterangepicker-predefined .js-daterangepicker-predefined-preview').html(start.format('MMM D') + ' - ' + end.format('MMM D, YYYY'));
+      }
+
+      $('#js-daterangepicker-predefined').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+
+      cb(start, end);
+    });
+  </script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -3534,6 +3510,191 @@
         // INITIALIZATION OF BOOTSTRAP DROPDOWN
         // =======================================================
         HSBsDropdown.init()
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
+
+
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
+
+
+        // INITIALIZATION OF CIRCLES
+        // =======================================================
+        const colors = () => {
+          return [HSThemeAppearance.getAppearance() === 'dark' ? '#34383b' : '#e7eaf3', '#377dff']
+        }
+
+        setTimeout(() => {
+          document.querySelectorAll('.js-circle').forEach(item => {
+            HSCore.components.HSCircles.init(item, {
+              colors: colors()
+            })
+          })
+
+          window.addEventListener('on-hs-appearance-change', () => {
+            HSCore.components.HSCircles.getItems().forEach(circle => {
+              circle.updateColors(colors())
+            })
+          })
+        })
+
+
+        // INITIALIZATION OF CLIPBOARD
+        // =======================================================
+        HSCore.components.HSClipboard.init('.js-clipboard')
+
+
+        // INITIALIZATION OF CHARTJS
+        // =======================================================
+        HSCore.components.HSChartJS.init('.js-chart')
+
+
+        // INITIALIZATION OF MATRIX CHARTJS WITH CHARTJS MATRIX PLUGIN
+        // =======================================================
+        function generateHoursData() {
+          var data = [];
+          var dt = moment().subtract(365, 'days').startOf('day');
+          var end = moment().startOf('day');
+          while (dt <= end) {
+            data.push({
+              x: dt.format('YYYY-MM-DD'),
+              y: dt.format('e'),
+              d: dt.format('YYYY-MM-DD'),
+              v: Math.random() * 24
+            });
+            dt = dt.add(1, 'day');
+          }
+          return data;
+        }
+
+        HSCore.components.HSChartMatrixJS.init('.js-chart-matrix', {
+          data: {
+            datasets: [{
+              label: 'Commits',
+              data: generateHoursData(),
+              width: function (ctx) {
+                var a = ctx.chart.chartArea;
+                return (a.right - a.left) / 70;
+              },
+              height: function (ctx) {
+                var a = ctx.chart.chartArea;
+                return (a.bottom - a.top) / 10;
+              }
+            }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                title: function () {
+                  return '';
+                },
+                label: function (item, data) {
+                  var v = data.datasets[item.datasetIndex].data[item.index];
+
+                  if (v.v.toFixed() > 0) {
+                    return '<span class="font-weight-bold">' + v.v.toFixed() + 'hours</span> on ' + v.d;
+                  } else {
+                    return '<span class="font-weight-bold">No time</span> on ' + v.d;
+                  }
+                }
+              }
+            },
+            scales: {
+              xAxes: [{
+                position: 'bottom',
+                type: 'time',
+                offset: true,
+                time: {
+                  unit: 'week',
+                  round: 'week',
+                  displayFormats: {
+                    week: 'MMM'
+                  }
+                },
+                ticks: {
+                  "labelOffset": 20,
+                  "maxRotation": 0,
+                  "minRotation": 0,
+                  "fontSize": 12,
+                  "fontColor": "rgba(22, 52, 90, 0.5)",
+                  "maxTicksLimit": 12,
+                },
+                gridLines: {
+                  display: false
+                }
+              }],
+              yAxes: [{
+                type: 'time',
+                offset: true,
+                time: {
+                  unit: 'day',
+                  parser: 'e',
+                  displayFormats: {
+                    day: 'ddd'
+                  }
+                },
+                ticks: {
+                  "fontSize": 12,
+                  "fontColor": "rgba(22, 52, 90, 0.5)",
+                  "maxTicksLimit": 2,
+                },
+                gridLines: {
+                  display: false
+                }
+              }]
+            }
+          }
+        });
+
+        HSCore.components.HSChartJS.init('#updatingDoughnutChart')
+        const updatingDoughnutChart = HSCore.components.HSChartJS.getItem('updatingDoughnutChart')
+
+        // Datasets for chart, can be loaded from AJAX request
+        const updatingDoughnutChartDatasets = [
+          [
+            [45, 25, 30]
+          ],
+          [
+            [35, 50, 15]
+          ]
+        ]
+
+        // Set datasets for chart when page is loaded
+        const setDataChart = function () {
+          updatingDoughnutChart.data.datasets.forEach(function (dataset, key) {
+            dataset.data = updatingDoughnutChartDatasets[0][key];
+          })
+
+          updatingDoughnutChart.update()
+        }
+
+        setDataChart()
+
+        window.addEventListener('on-hs-appearance-change', e => {
+          setDataChart()
+        })
+
+        // Call when tab is clicked
+        document.querySelectorAll('[data-bs-toggle="chart-doughnut"]').forEach(item => {
+          item.addEventListener('click', e => {
+            let keyDataset = e.currentTarget.getAttribute('data-datasets')
+
+            // Update datasets for chart
+            updatingDoughnutChart.data.datasets.forEach(function (dataset, key) {
+              dataset.data = updatingDoughnutChartDatasets[keyDataset][key]
+            })
+            updatingDoughnutChart.update()
+          })
+        })
+
+
+        // INITIALIZATION OF FLATPICKR
+        // =======================================================
+        HSCore.components.HSFlatpickr.init('.js-flatpickr')
       }
     })()
   </script>
@@ -3579,5 +3740,5 @@
   <!-- End Style Switcher JS -->
 </body>
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/project.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:41 GMT -->
 </html>

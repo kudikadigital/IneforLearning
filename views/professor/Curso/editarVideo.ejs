@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:27 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-add-customers.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:36 GMT -->
 <%-include('../Partes/head.ejs')%>
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
@@ -20,456 +21,342 @@
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
-              <!-- Page Header -->
-      <div class="page-header">
-        <div class="d-flex mb-3">
-          <!-- Avatar -->
-          <div class="flex-shrink-0">
-            <div class="avatar avatar-lg avatar-4x3">
-              <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgCurso%>" alt="Image Description">
-            </div>
-          </div>
-          <!-- End Avatar -->
-
-          <div class="flex-grow-1 ms-4">
-            <div class="row">
-              <div class="col-lg mb-3 mb-lg-0">
-                <h1 class="page-header-title"><%= curso.nomeCurso %> </h1>
-
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <span>Estado:</span>
-                    <% if(curso.estadoCurso==0){%> 
-                      <a class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Pendente</a>
-                    <%  } else if(curso.estadoCurso==1){%> 
-                      <a  class="text-success" href="/estadoCurso/<%=curso.idCurso  %>">Em Progresso</a>
-                    <%}else{%> 
-                      <a  class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Desactivado</a>
-                    <% }%> 
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-auto">
-                    <div class="row align-items-center g-0">
-                      <div class="col-auto">Data de lancamento: <%= curso.dataCurso %></div>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-auto">
-                    <!-- Select -->
-                    <div class="tom-select-custom">
-                      <select class="js-select form-select form-select-sm form-select-borderless tom-select-form-select-ps-0" id="ownerLabel" autocomplete="off" data-hs-tom-select-options='{
-                                "searchInDropdown": false,
-                                "hideSearch": true,
-                                "dropdownWidth": "12rem"
-                              }'>
-                        <option value="owner1" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Avatar" /><span class="flex-grow-1 ms-2"><%= curso.nomeProf %></span></span>'><%= curso.nomeProf %></option>
-
-                      </select>
-                    </div>
-                    <!-- End Select -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-              </div>
-              <!-- End Col -->
-
-              <div class="col-lg-auto">
-                <span class="text-cap small">Alunos Inscritos:</span>
-
-                <div class="d-flex">
-                  <!-- Avatar Group -->
-                  <div class="avatar-group avatar-circle me-3">
-                    <% matriculas.reverse().slice(0, 5).map(e=>{ %>  
-                      <a class="avatar" href="/perfilAluno_/<%=e.idAluno %>" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= e.nomeAluno%>">
-                        <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
-                      </a>
-                    <%}) %> 
-                    <a class="avatar avatar-light avatar-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
-                      <span class="avatar-initials">+<%= matriculas.length %></span>
-                    </a>
-                  </div>
-                  <!-- End Avatar Group -->
-
-                  <a class="btn btn-primary btn-icon rounded-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
-                    <i class="bi-share-fill"></i>
-                  </a>
-                </div>
-              </div>
-              <!-- End Col -->
-            </div>
-            <!-- End Row -->
-          </div>
-        </div>
-        <!-- End Media -->
-
-        <!-- Nav -->
-        <!-- Nav -->
-        <div class="js-nav-scroller hs-nav-scroller-horizontal">
-          <span class="hs-nav-scroller-arrow-prev" style="display: none;">
-            <a class="hs-nav-scroller-arrow-link" href="javascript:;">
-              <i class="bi-chevron-left"></i>
-            </a>
-          </span>
-
-          <span class="hs-nav-scroller-arrow-next" style="display: none;">
-            <a class="hs-nav-scroller-arrow-link" href="javascript:;">
-              <i class="bi-chevron-right"></i>
-            </a>
-          </span>
-
-          <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/matriculasCurso/<%=curso.idCurso %>">Matriculas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/solicitacoesCurso/<%=curso.idCurso %>">Solicitações</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/cursoVideo/<%=curso.idCurso %>">Videos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="/definicoesCurso/<%=curso.idCurso %>">Definições</a>
-            </li>
-
-
-          </ul>
-        </div>
-        <!-- End Nav -->
-      </div>
-      <!-- End Page Header -->
-      <!-- Page Header -->
-      <div class="page-header d-print-none">
-        <div class="row align-items-center">
-          <div class="col-sm mb-2 mb-sm-0">
-            
-
-            <div class="d-sm-flex align-items-sm-center">
-              <h1 class="page-header-title">Modulos do Curso #<%= modulo.length %></h1>  
-              <span class="badge bg-soft-success text-success ms-sm-3">
-                <span class="legend-indicator bg-success"></span><%= modulo.length %>
-              </span>
-              <span class="badge bg-soft-info text-info ms-2 ms-sm-3">
-                <span class="legend-indicator bg-info"></span>Completo
-              </span>
-              <span class="ms-2 ms-sm-3">
-                <i class="bi-calendar-week"></i> Utima Actualização: <%= curso.ultimaAct %> 
-              </span>
-            </div>
-
-            <div class="mt-2">
-              <div class="d-flex gap-2">
-                <a class="text-body me-3" href="javascript:;" onclick="window.print(); return false;">
-                  <i class="bi-printer me-1"></i> Print Modulo
-                </a>
-
-                <!-- Dropdown -->
-                <div class="dropdown">
-                  <a class="text-body" href="javascript:;" id="moreOptionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Outras Opções <i class="bi-chevron-down"></i>
-                  </a>
-
-                  <div class="dropdown-menu mt-1" aria-labelledby="moreOptionsDropdown">
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-clipboard dropdown-item-icon"></i> Duplicar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-x dropdown-item-icon"></i> Cancelar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-archive dropdown-item-icon"></i> Arquivar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-pencil dropdown-item-icon"></i> Editar 
-                    </a>
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="d-flex mb-3">
+                <!-- Avatar -->
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-lg avatar-4x3">
+                    <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgCurso%>" alt="Image Description">
                   </div>
                 </div>
-                <!-- End Dropdown -->
-              </div>
-            </div>
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-auto">
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable" >
-                <i class="bi-add"></i>Adicionar Modulo
-              </button>
-            </div>
-          </div>
-          <!-- End Col -->
-        </div>
-        <!-- End Row -->
-      </div>
-      <!-- End Page Header -->
-
-      <div class="row">
-        <div class="col-lg-8 mb-3 mb-lg-0">
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header card-header-content-between">
-              <h4 class="card-header-title">Modulos do Curso <span class="badge bg-soft-dark text-dark rounded-circle ms-1"><%= modulo.length %></span></h4>
-              <a class="link" href="javascript:;">Editar</a>
-            </div>
-            <!-- End Header -->
-
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Media -->
-
-
-                    <% modulo.map(e=>{ %> 
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                             
-                                <span class="avatar avatar-sm avatar-primary avatar-circle">
-                                  <span class="avatar-initials"><%= e.tituloModulo.split(' ')[1] %></span>
-                                </span>
-                              
-                            </div>
-                            
-                    <div class="flex-grow-1 ms-3">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <a class="h5 d-block" href="/moduloPerfil/<%= curso.idCurso %>/<%= e.idModulo %>"><%= e.tituloModulo %></a>
-        
-                                <div class="fs-6 text-body">
-                                <span>Numero Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.idModulo %> </span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Nome Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.tituloModulo_ %></span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Descrição:</span>
-                                <span class="fw-semi-bold"><%= e.descricaoModulo %></span>
-                                </div>
-                            </div>
-                                                <!-- End Col -->
-
-                            <div class="col col-md-2 align-self-center">
-                                <span>Videos</span>
-                                <h5>0</h5>
-                            </div>
-                            <!-- End Col -->
-        
-                           
-                            <!-- End Col -->
-        
-                            <div class="col col-md-2 align-self-center text-end">
-                              <span>Reações</span>
-                                <h5>0</h5>
-                            </div>
-
-
-                            <div class="col col-md-2 align-self-center">
-                              <span>Hora</span>
-                                <h5>0h</h5>
-                            </div>
-                            
+                <!-- End Avatar -->
+      
+                <div class="flex-grow-1 ms-4">
+                  <div class="row">
+                    <div class="col-lg mb-3 mb-lg-0">
+                      <h1 class="page-header-title"><%= curso.nomeCurso %> </h1>
+      
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <span>Estado:</span>
+                          <% if(curso.estadoCurso==0){%> 
+                            <a class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Pendente</a>
+                          <%  } else if(curso.estadoCurso==1){%> 
+                            <a  class="text-success" href="/estadoCurso/<%=curso.idCurso  %>">Em Progresso</a>
+                          <%}else{%> 
+                            <a  class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Desactivado</a>
+                          <% }%> 
+                        </div>
+                        <!-- End Col -->
+      
+                        <div class="col-auto">
+                          <div class="row align-items-center g-0">
+                            <div class="col-auto">Data de lancamento: <%= curso.dataCurso %></div>
+                          </div>
+                        </div>
+                        <!-- End Col -->
+      
+                        <div class="col-auto">
+                          <!-- Select -->
+                          <div class="tom-select-custom">
+                            <select class="js-select form-select form-select-sm form-select-borderless tom-select-form-select-ps-0" id="ownerLabel" autocomplete="off" data-hs-tom-select-options='{
+                                      "searchInDropdown": false,
+                                      "hideSearch": true,
+                                      "dropdownWidth": "12rem"
+                                    }'>
+                              <option value="owner1" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Avatar" /><span class="flex-grow-1 ms-2"><%= curso.nomeProf %></span></span>'><%= curso.nomeProf %></option>
+      
+                            </select>
+                          </div>
+                          <!-- End Select -->
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
                     </div>
-            
+                    <!-- End Col -->
+      
+                    <div class="col-lg-auto">
+                      <span class="text-cap small">Alunos Inscritos:</span>
+      
+                      <div class="d-flex">
+                        <!-- Avatar Group -->
+                        <div class="avatar-group avatar-circle me-3">
+                          <% matriculas.reverse().slice(0, 5).map(e=>{ %>  
+                            <a class="avatar" href="/perfilAluno_/<%=e.idAluno %>" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= e.nomeAluno%>">
+                              <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
+                            </a>
+                          <%}) %> 
+                          <a class="avatar avatar-light avatar-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                            <span class="avatar-initials">+<%= matriculas.length %></span>
+                          </a>
+                        </div>
+                        <!-- End Avatar Group -->
+      
+                        <a class="btn btn-primary btn-icon rounded-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                          <i class="bi-share-fill"></i>
+                        </a>
+                      </div>
                     </div>
-                    
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
               </div>
               <!-- End Media -->
-
-              <hr>
-                  
-                    <%}) %> 
-
-
-
-              <div class="row justify-content-md-end mb-3">
-                <div class="col-md-8 col-lg-7">
-                  <dl class="row text-sm-end">
-                    <dt class="col-sm-6">Total:</dt>
-                    <dd class="col-sm-6"><%= modulo.length %> </dd>
-                    <dt class="col-sm-6">Videos:</dt>
-                    <dd class="col-sm-6">0</dd>
-                    <dt class="col-sm-6">Horas Assistida:</dt>
-                    <dd class="col-sm-6">0h</dd>
-                    
-                  </dl>
-                  <!-- End Row -->
+      
+              <!-- Nav -->
+              <!-- Nav -->
+              <div class="js-nav-scroller hs-nav-scroller-horizontal">
+                <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-left"></i>
+                  </a>
+                </span>
+      
+                <span class="hs-nav-scroller-arrow-next" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-right"></i>
+                  </a>
+                </span>
+      
+                <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/matriculasCurso/<%=curso.idCurso %>">Matriculas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/solicitacoesCurso/<%=curso.idCurso %>">Solicitações</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/cursoVideo/<%=curso.idCurso %>">Videos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/definicoesCurso/<%=curso.idCurso %>">Definições</a>
+                  </li>
+      
+      
+                </ul>
+              </div>
+              <!-- End Nav -->
+            </div>
+            <!-- End Page Header -->
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="row align-items-center mb-3">
+                <div class="col-sm">
+                  <h1 class="page-header-title"><%= modulo.tituloModulo   %>  <span class="badge bg-soft-dark text-dark ms-2"><%= modulo.tituloModulo_   %> </span></h1>
+      
+                  <div class="d-flex mt-2">
+                    <a class="text-body me-3" href="javascript:;" data-bs-toggle="modal" data-bs-target="#exportOrdersModal">
+                      <i class="bi-download me-1"></i> Exportar
+                    </a>
+      
+                    <!-- Dropdown -->
+                    <div class="dropdowm">
+                      <a class="text-body" href="javascript:;" id="moreOptionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mais Opções <i class="bi-chevron-down"></i>
+                      </a>
+      
+                      <div class="dropdown-menu mt-1" aria-labelledby="moreOptionsDropdown">
+                        <a class="dropdown-item" href="#">
+                          <i class="bi-folder-plus dropdown-item-icon"></i> Adicionar Video
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i class="bi-folder dropdown-item-icon"></i> Editar Modulo
+                        </a>
+                        <a class="dropdown-item" href="#">
+                          <i class="bi-folder dropdown-item-icon"></i> Eliminar Modulo
+                        </a>
+                      </div>
+                    </div>
+                    <!-- End Dropdown -->
+                  </div>
                 </div>
                 <!-- End Col -->
               </div>
               <!-- End Row -->
+      
+              <!-- Nav Scroller -->
+              <div class="js-nav-scroller hs-nav-scroller-horizontal">
+                <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-left"></i>
+                  </a>
+                </span>
+      
+                <span class="hs-nav-scroller-arrow-next" style="display: none;">
+                  <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                    <i class="bi-chevron-right"></i>
+                  </a>
+                </span>
+      
+                <!-- Nav -->
+                <ul class="nav nav-tabs page-header-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/moduloPerfil/<%= curso.idCurso %>/<%= modulo.idModulo %> ">Area Modulo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/editarVideo/<%= curso.idCurso %>/<%= modulo.idModulo %> " tabindex="-1">Editar Video</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/editarModulo/<%= curso.idCurso %>/<%= modulo.idModulo %> " tabindex="-1">Definições</a>
+                  </li>
+                </ul>
+                <!-- End Nav -->
+              </div>
+              <!-- End Nav Scroller -->
             </div>
-            <!-- End Body -->
-          </div>
-          <!-- End Card -->
+            <!-- End Page Header -->
+     
 
-    
-        </div>
-
-        <div class="col-lg-4">
+      <div class="row">
+        <div class="col-lg-8">
           <!-- Card -->
-          <div class="card">
+          <div class="card mb-3 mb-lg-5">
             <!-- Header -->
             <div class="card-header">
-              <h4 class="card-header-title">Formador</h4>
+              <h4 class="card-header-title">Dados do Video</h4>
             </div>
             <!-- End Header -->
 
             <!-- Body -->
             <div class="card-body">
-              <!-- List Group -->
-              <ul class="list-group list-group-flush list-group-no-gutters">
-                <li class="list-group-item">
-                  <a class="d-flex align-items-center" href="ecommerce-customer-details.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <span class="text-body text-inherit"><%= curso.nomeProf %> </span>
-                    </div>
-                    <div class="flex-grow-1 text-end">
-                      <i class="bi-chevron-right text-body"></i>
-                    </div>
-                  </a>
-                </li>
+              <!-- Form -->
+              <div class="mb-4">
+                <label for="productNameLabel" class="form-label">Nome <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Products are the goods or services you sell."></i></label>
 
+                <input type="text" value="<%= videos.nomeVideo %>" class="form-control" name="productName" id="nomeVideo" placeholder="Nome do video">
+              </div>
+              <!-- End Form -->
 
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h5>Contacto</h5>
-                    <a class="link" href="javascript:;">Ver Perfil</a>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label for="SKULabel" class="form-label">Curso</label>
+
+                    <input type="text" readonly class="form-control" name="SKU" id="cursoNome" placeholder="eg. 348121032" aria-label="eg. 348121032" value="<%=curso.nomeCurso %> ">
                   </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
 
-                  <ul class="list-unstyled list-py-2 text-body">
-                    <li><i class="bi-at me-2"></i><%= curso.emailProf %></li>
-                    <li><i class="bi-phone me-2"></i><%= curso.telProf %></li>
-                  </ul>
-                </li>
+                <div class="col-sm-6">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label for="weightLabel" class="form-label">Modulo</label>
 
+                    <div class="input-group">
+                      <input type="text" class="form-control" readonly name="weightName" id="weightLabel" placeholder="0.0" aria-label="0.0" value="<%= modulo.tituloModulo %> ">
+                      <div class="input-group-append">
+                   
+                      </div>
+                    </div>
 
+                  
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+              </div>
+              <!-- End Row -->
 
-              </ul>
-              <!-- End List Group -->
+              <label class="form-label">Descrição do video <span class="form-label-secondary"></span></label>
+
+              <!-- Quill -->
+              <div class="quill-custom">
+                <div class="js-quill" id="descricaoVideo" style="height: 15rem;" data-hs-quill-options='{
+                     "placeholder": "Descrição do video...",
+                      "modules": {
+                        "toolbar": [
+                          ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                        ]
+                      }
+                     }'>
+                  <%- videos.descricaoVideo %> 
+                </div>
+              </div>
+              <!-- End Quill -->
             </div>
-            <!-- End Body -->
+            <!-- Body -->
           </div>
           <!-- End Card -->
+
+          <!-- Card -->
+          <div class="card mb-3 mb-lg-5">
+            <!-- Header -->
+            <div class="card-header card-header-content-between">
+              <h4 class="card-header-title">Media</h4>
+
+              <!-- Dropdown -->
+              <div class="dropdown">
+                <button type="button" class="btn btn-ghost-secondary btn-sm" id="mediaDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  Adicionar URL do Video <i class="bi-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-end mt-1">
+                  <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#addImageFromURLModal">
+                    <i class="bi-link dropdown-item-icon"></i> Adicionar URL do Video
+                  </a>
+                </div>
+              </div>
+              <!-- End Dropdown -->
+            </div>
+            <!-- End Header -->
+
+            <!-- Body -->
+            <div class="card-body">
+              
+
+              <!-- Dropzone -->
+              <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div class="dz-message">
+                  <img class="avatar avatar-xl avatar-4x3 mb-3" src="/dashboard/assets/svg/illustrations/oc-browse.svg" alt="Image Description" data-hs-theme-appearance="default">
+                  <img class="avatar avatar-xl avatar-4x3 mb-3" src="/dashboard/assets/svg/illustrations-light/oc-browse.svg" alt="Image Description" data-hs-theme-appearance="dark">
+
+                  <h5>Arraste os video aqui</h5>
+
+                  <p class="mb-2">or</p>
+
+                  <span class="btn btn-white btn-sm">Pesquisar Videos</span>
+                </div>
+              </div>
+              <!-- End Dropzone -->
+            </div>
+            <!-- Body -->
+          </div>
+          <!-- End Card -->
+          <div class="col-auto">
+            <span class="btn btn-primary" onclick="adicionarVideo()"  >
+              <i class="bi-person-plus-fill me-1"></i> Editar video
+            </span>
+          </div>
+      
         </div>
+      
       </div>
       <!-- End Row -->
+
+
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
 
     <%- include('../Partes/footer') %> 
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">Adiocionar Modulo <%= modulo.length+1 %> </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-             
-      <div class="row">
-        <div class="col-lg-12">
-           
-                <!-- Media -->
-                <div class="d-flex align-items-center">
-                  <!-- Avatar -->
-                  <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
-                    <img id="avatarImg" class="avatar-img" src="/dashboard/assets/img/160x160/img1.jpg" alt="Image Description">
-                  </label>
-              
-                  <div class="d-flex gap-3 ms-4">
-                    <div class="form-attachment-btn btn btn-sm btn-primary">Adicionar Foto
-                      <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
-                             data-hs-file-attach-options='{
-                                "textTarget": "#avatarImg",
-                                "mode": "image",
-                                "targetAttr": "src",
-                                "resetTarget": ".js-file-attach-reset-img",
-                                "resetImg": "../assets/img/160x160/img1.jpg",
-                                "allowTypes": [".png", ".jpeg", ".jpg"]
-                             }'>
-                    </div>
-                    <!-- End Avatar -->
-              
-                    <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Deletar</button>
-                  </div>
-                </div><br>
-     
-          <!-- Card -->
-          <div class="card">
-            <!-- Body -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="firstNameLabel" class="form-label">Numero Modulo</label>
-                    <input type="text" readonly value="Modulo <%= modulo.length+1 %>" class="form-control" name="tituloModulo" id="tituloModulo" placeholder="Clarice" aria-label="Clarice">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="lastNameLabel" class="form-label">Titulo Modulo</label>
-                    <input type="text" class="form-control" name="tituloModulo_" id="tituloModulo_" placeholder="Titulo Modulo" aria-label="Boone">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
-
-              <!-- Form -->
-              <div class="mb-4">
-                <label for="emailLabel" class="form-label">Descrição Modulo</label>
-                <input type="email" class="form-control" name="descricaoModulo" id="descricaoModulo" placeholder="Descrição Modulo" aria-label="clarice@site.com">
-              </div>
-              <!-- End Form -->
-
-              <!-- Form Check -->
-              <div class="form-check mb-4">
-                <input class="form-check-input"  checked type="checkbox" value="" id="marketingEmailsCheckbox">
-                <label class="form-check-label" for="marketingEmailsCheckbox">Modulo do Curso podem ser validados e alterados pelo coodernador.</label>
-              </div>
-              <!-- End Form Check -->
-
-            </div>
-            <!-- Body -->
-          </div>
-          <!-- End Card -->
-        </div>
-      </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" onclick="adicionarModulo()" class="btn btn-primary">Adicionar Moduloo</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     <!-- End Footer -->
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
@@ -650,82 +537,10 @@
       <!-- End Row -->
     </div>
     <!-- End Footer -->
-  </div> 
+  </div>
 
   <!-- End Builder -->
-  <script src="/sweetalert/sweetalert2.all.min.js"></script>
 
-    
-
-<script> 
-    function adicionarModulo() {
-      const idCurso='<%= curso.idCurso%>';
-      const idProf='<%= curso.idProf%>';
-      const descricaoModulo=document.getElementById('descricaoModulo').value;
-      const tituloModulo=document.getElementById('tituloModulo').value;
-      const tituloModulo_=document.getElementById('tituloModulo_').value;
-      const imgModulo=document.getElementById('avatarUploader').files[0]
-      const Dados= new FormData();
-      console.log({idCurso,idProf, descricaoModulo, tituloModulo, tituloModulo_,imgModulo  });
-      Dados.append('descricaoModulo',descricaoModulo)
-      Dados.append('tituloModulo',tituloModulo)
-      Dados.append('tituloModulo_',tituloModulo_)
-      Dados.append('idCurso',idCurso)
-      Dados.append('idProf',idProf)
-      Dados.append('image',imgModulo)
-
-      const options = {
-        method: 'POST',
-        body: Dados,
-      };      
-
-      fetch('http://localhost:1200/adicionarModulo', options).then(data => {
-        return data.json();
-      }).then(data => {
-        if(data.errado){
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-          icon: 'error',
-          title: data.errado
-        })
-
-        }else{
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-            icon: 'success',
-            title: data.certo
-          })
-          window.location=`/${data.rota}`
-        }
-      })
-      .catch(e => {
-        console.log(e);
-      });
-
-    }
-</script>
 
 
   <div class="d-none js-build-layouts">
@@ -3424,89 +3239,146 @@
 
   <!-- End Welcome Message Modal -->
 
-  <!-- Export Orders Modal -->
-  <div class="modal fade" id="exportOrdersModal" tabindex="-1" aria-labelledby="exportOrdersModalLabel" aria-hidden="true">
+  <!-- Add Image from URL Modal -->
+  <div class="modal fade" id="addImageFromURLModal" tabindex="-1" aria-labelledby="addImageFromURLModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <!-- Header -->
         <div class="modal-header">
-          <h4 class="modal-title" id="exportOrdersModalLabel">Export orders</h4>
+          <h4 class="modal-title" id="addImageFromURLModalLabel">Adicionar o link do Video</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <!-- End Header -->
 
         <!-- Body -->
         <div class="modal-body">
-          <div class="d-grid gap-2 mb-4">
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio1" checked>
-              <label class="form-check-label" for="exportProductsRadio1">
-                Current page
-              </label>
-            </div>
-            <!-- End Form Check -->
+          <label for="pasteImageURLNameLabel" class="form-label">Copiar o Link do URL</label>
+          <input type="text" class="form-control" value="<%= videos.srcVideo %>" name="projectName" id="srcVideo" placeholder="https://" aria-label="https:///">
+        </div>
+        <!-- End Body -->
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio2">
-              <label class="form-check-label" for="exportProductsRadio2">
-                All products
-              </label>
-            </div>
-            <!-- End Form Check -->
+        <!-- Footer -->
+        <div class="modal-footer gap-3">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+          <button type="button" onclick="adicionarURL()" class="btn btn-primary">Adicionar</button>
+        </div>
+        <!-- End Footer -->
+      </div>
+    </div>
+  </div>
+  <!-- End Add Image from URL Modal -->
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio3">
-              <label class="form-check-label" for="exportProductsRadio3">
-                Selected: 20 products
-              </label>
-            </div>
-            <!-- End Form Check -->
+  <!-- Embed Video Modal -->
+  <div class="modal fade" id="embedVideoModal" tabindex="-1" aria-labelledby="embedVideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="embedVideoModalLabel">Embed video</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- End Header -->
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio4">
-              <label class="form-check-label" for="exportProductsRadio4">
-                Order by date
-              </label>
-            </div>
-            <!-- End Form Check -->
-          </div>
-
-          <label class="form-label">Export as</label>
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio1" checked>
-            <label class="form-check-label" for="exportOrdersAsRadio1">
-              CSV for Excel, Numbers, or other spreadsheet programs
-            </label>
-          </div>
-          <!-- End Form Check -->
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio2">
-            <label class="form-check-label" for="exportOrdersAsRadio2">
-              Plain CSV file
-            </label>
-          </div>
-          <!-- End Form Check -->
+        <!-- Body -->
+        <div class="modal-body">
+          <label for="pasteVideoURLNameLabel" class="form-label">Paste image URL</label>
+          <input type="text" class="form-control" name="projectName" id="pasteVideoURLNameLabel" placeholder="https://" aria-label="https:///">
         </div>
         <!-- End Body -->
 
         <!-- Footer -->
         <div class="modal-footer gap-3">
           <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" class="btn btn-primary">Export orders</button>
+          <button type="button" class="btn btn-primary">Add media</button>
         </div>
         <!-- End Footer -->
       </div>
     </div>
   </div>
-  <!-- End Export Orders Modal -->
+  <!-- End Embed Video Modal -->
+
+  <!-- Products Advanced Features Modal -->
+  <div class="modal fade" id="productsAdvancedFeaturesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-close">
+          <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi-x-lg"></i>
+          </button>
+        </div>
+        <!-- End Header -->
+
+        <!-- Body -->
+        <div class="modal-body">
+          <div class="text-center mb-7">
+            <h4 class="h1">Advanced features</h4>
+            <p>"Compare to" Price, Bulk Discount Pricing, Inventory Tracking</p>
+
+            <a class="btn btn-primary" href="#">
+              <i class="bi-star-fill me-1"></i> Upgrade to get these features
+            </a>
+          </div>
+
+          <!-- Media -->
+          <div class="d-flex">
+            <div class="flex-shrink-0 mb-3 mb-sm-0">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations/oc-money-profits.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations-light/oc-money-profits.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </div>
+
+            <div class="flex-grow-1 ms-4">
+              <h4>"Compare to" price</h4>
+              <p>Use this feature when you want to put a product on sale or show savings off suggested retail pricing.</p>
+            </div>
+          </div>
+          <!-- End Media -->
+
+          <hr class="my-4">
+
+          <!-- Media -->
+          <div class="d-flex">
+            <div class="flex-shrink-0 mb-3 mb-sm-0">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations/oc-discount.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations-light/oc-discount.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </div>
+
+            <div class="flex-grow-1 ms-4">
+              <h4>Bulk discount pricing</h4>
+              <p>Encourage higher purchase quantities with volume discounts.</p>
+            </div>
+          </div>
+          <!-- End Media -->
+
+          <hr class="my-4">
+
+          <!-- Media -->
+          <div class="d-flex">
+            <div class="flex-shrink-0 mb-3 mb-sm-0">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations/oc-collection.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="avatar avatar-lg avatar-4x3" src="/dashboard/assets/svg/illustrations-light/oc-collection.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </div>
+
+            <div class="flex-grow-1 ms-4">
+              <h4>Inventory tracking</h4>
+              <p>Automatically keep track of product availability and receive notifications when inventory levels get low.</p>
+            </div>
+          </div>
+          <!-- End Media -->
+        </div>
+        <!-- End Body -->
+
+        <!-- Footer -->
+        <div class="modal-footer gap-3">
+          <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+          <button type="button" class="btn btn-primary">Upgrade now</button>
+        </div>
+        <!-- End Footer -->
+      </div>
+    </div>
+  </div>
+
+  <!-- End Products Advanced Features Modal -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->
@@ -3514,6 +3386,25 @@
 
   <!-- JS Front -->
   <script src="/dashboard/assets/js/theme.min.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // INITIALIZATION OF DATATABLES
+      // =======================================================
+      HSCore.components.HSDatatables.init($('#datatable'), {
+        select: {
+          style: 'multi',
+          selector: 'td:first-child input[type="checkbox"]',
+          classMap: {
+            checkAll: '#datatableCheckAll',
+            counter: '#datatableCounter',
+            counterInfo: '#datatableCounterInfo'
+          }
+        }
+      });
+    });
+  </script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -3534,6 +3425,35 @@
         // INITIALIZATION OF BOOTSTRAP DROPDOWN
         // =======================================================
         HSBsDropdown.init()
+
+
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
+
+
+        // INITIALIZATION OF ADD FIELD
+        // =======================================================
+        new HSAddField('.js-add-field', {
+          addedField: field => {
+            new HSQuantityCounter(field.querySelector('.js-quantity-counter-dynamic'))
+          }
+        })
+
+
+        // INITIALIZATION OF  QUANTITY COUNTER
+        // =======================================================
+        new HSQuantityCounter('.js-quantity-counter-input')
+
+
+        // INITIALIZATION OF DROPZONE
+        // =======================================================
+        HSCore.components.HSDropzone.init('.js-dropzone')
+
+
+        // INITIALIZATION OF QUILLJS EDITOR
+        // =======================================================
+        HSCore.components.HSQuill.init('.js-quill')
       }
     })()
   </script>
@@ -3575,9 +3495,119 @@
         })
       })()
     </script>
+    <script src="/sweetalert/sweetalert2.all.min.js"></script>
+    <script>
+      const idCurso='<%= curso.idCurso%>';
+      const idModulo='<%= modulo.idModulo%>';
+      const idVideo='<%= videos.idVideo%>';
+      function adicionarURL() {
+        const url= document.getElementById('srcVideo').value;
+        // console.log(JSON.parse(localStorage.getItem('url')));
+        if(JSON.parse(localStorage.getItem('url'))==url){
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+          icon: 'error',
+          title: 'Link do video já foi adicionado'})
+
+        }else{
+          localStorage.setItem('url', JSON.stringify(url))
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+    
+          Toast.fire({
+            icon: 'success',
+            title: 'Link do Video Adicionado'
+          })
+        }
+      }
+      function adicionarVideo() {
+      const nomeVideo=document.getElementById('nomeVideo').value;
+      const descricaoVideo=document.getElementById('descricaoVideo').innerHTML;
+      const srcVideo=document.getElementById('srcVideo').value;
+      // const bannerVideo=document.getElementById('avatarUploader').files[0]
+      const Dados= new FormData();
+      console.log({nomeVideo, descricaoVideo, srcVideo });
+      Dados.append('nomeVideo',nomeVideo)
+      Dados.append('descricaoVideo',descricaoVideo)
+      Dados.append('srcVideo',srcVideo)
+      Dados.append('idCurso',idCurso)
+      Dados.append('idModulo',idModulo)
+      Dados.append('idVideo',idVideo)
+      // Dados.append('image',bannerVideo)
+
+      const options = {
+        method: 'POST',
+        body: Dados,
+      };    
+      fetch('http://localhost:1200/editarVideo', options).then(data => {
+        return data.json();
+      }).then(data => {
+        if(data.error){
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+    
+          Toast.fire({
+          icon: 'error',
+          title: data.error
+        })
+
+        }else{
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+    
+          Toast.fire({
+            icon: 'success',
+            title: data.certo
+          })
+          window.location=`/moduloPerfil/<%= curso.idCurso%>/<%= modulo.idModulo%>`
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+      }
+    </script>
 
   <!-- End Style Switcher JS -->
 </body>
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:32 GMT -->
 </html>

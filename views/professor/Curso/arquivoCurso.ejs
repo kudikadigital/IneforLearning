@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/project-files.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:41 GMT -->
 <%-include('../Partes/head.ejs')%>
+
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
   <script src="/dashboard/assets/js/hs.theme-appearance.js"></script>
@@ -10,101 +11,148 @@
   <script src="/dashboard/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
 
   <!-- ========== HEADER ========== -->
+
   <%-include('../Partes/header.ejs')%>
   <!-- ========== END HEADER ========== -->
 
   <!-- ========== MAIN CONTENT ========== -->
   <!-- Navbar Vertical -->
+
   <%-include('../Partes/sideBar.ejs')%>
 
   <main id="content" role="main" class="main">
     <!-- Content -->
     <div class="content container-fluid">
-              <!-- Page Header -->
-      <div class="page-header">
-        <div class="d-flex mb-3">
-          <!-- Avatar -->
-          <div class="flex-shrink-0">
-            <div class="avatar avatar-lg avatar-4x3">
-              <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgCurso%>" alt="Image Description">
-            </div>
-          </div>
-          <!-- End Avatar -->
-
-          <div class="flex-grow-1 ms-4">
-            <div class="row">
-              <div class="col-lg mb-3 mb-lg-0">
-                <h1 class="page-header-title"><%= curso.nomeCurso %> </h1>
-
-                <div class="row align-items-center">
-                  <div class="col-auto">
-                    <span>Estado:</span>
-                    <% if(curso.estadoCurso==0){%> 
-                      <a class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Pendente</a>
-                    <%  } else if(curso.estadoCurso==1){%> 
-                      <a  class="text-success" href="/estadoCurso/<%=curso.idCurso  %>">Em Progresso</a>
-                    <%}else{%> 
-                      <a  class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Desactivado</a>
-                    <% }%> 
+      <!-- Page Header -->
+           <!-- Page Header -->
+           <div class="page-header">
+            <div class="d-flex mb-3">
+              <!-- Avatar -->
+              <div class="flex-shrink-0">
+                <div class="avatar avatar-lg avatar-4x3">
+                  <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgCurso%>" alt="Image Description">
+                </div>
+              </div>
+              <!-- End Avatar -->
+    
+              <div class="flex-grow-1 ms-4">
+                <div class="row">
+                  <div class="col-lg mb-3 mb-lg-0">
+                    <h1 class="page-header-title"><%= curso.nomeCurso %> </h1>
+    
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <span>Estado:</span>
+                        <% if(curso.estadoCurso==0){%> 
+                          <a class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Pendente</a>
+                        <%  } else if(curso.estadoCurso==1){%> 
+                          <a  class="text-success" href="/estadoCurso/<%=curso.idCurso  %>">Em Progresso</a>
+                        <%}else{%> 
+                          <a  class="text-danger" href="/estadoCurso/<%=curso.idCurso  %>">Desactivado</a>
+                        <% }%> 
+                      </div>
+                      <!-- End Col -->
+    
+                      <div class="col-auto">
+                        <div class="row align-items-center g-0">
+                          <div class="col-auto">Data de lancamento: <%= curso.dataCurso %></div>
+                        </div>
+                      </div>
+                      <!-- End Col -->
+    
+                      <div class="col-auto">
+                        <!-- Select -->
+                        <div class="tom-select-custom">
+                          <select class="js-select form-select form-select-sm form-select-borderless tom-select-form-select-ps-0" id="ownerLabel" autocomplete="off" data-hs-tom-select-options='{
+                                    "searchInDropdown": false,
+                                    "hideSearch": true,
+                                    "dropdownWidth": "12rem"
+                                  }'>
+                            <option value="owner1" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Avatar" /><span class="flex-grow-1 ms-2"><%= curso.nomeProf %></span></span>'><%= curso.nomeProf %></option>
+    
+                          </select>
+                        </div>
+                        <!-- End Select -->
+                      </div>
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
                   </div>
                   <!-- End Col -->
-
-                  <div class="col-auto">
-                    <div class="row align-items-center g-0">
-                      <div class="col-auto">Data de lancamento: <%= curso.dataCurso %></div>
+    
+                  <div class="col-lg-auto">
+                    <span class="text-cap small">Alunos Inscritos:</span>
+    
+                    <div class="d-flex">
+                      <!-- Avatar Group -->
+                      <div class="avatar-group avatar-circle me-3">
+                        <% matriculas.reverse().slice(0, 5).map(e=>{ %>  
+                          <a class="avatar" href="/perfilAluno_/<%=e.idAluno %>" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= e.nomeAluno%>">
+                            <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
+                          </a>
+                        <%}) %> 
+                        <a class="avatar avatar-light avatar-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                          <span class="avatar-initials">+<%= matriculas.length %></span>
+                        </a>
+                      </div>
+                      <!-- End Avatar Group -->
+    
+                      <a class="btn btn-primary btn-icon rounded-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
+                        <i class="bi-share-fill"></i>
+                      </a>
                     </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-auto">
-                    <!-- Select -->
-                    <div class="tom-select-custom">
-                      <select class="js-select form-select form-select-sm form-select-borderless tom-select-form-select-ps-0" id="ownerLabel" autocomplete="off" data-hs-tom-select-options='{
-                                "searchInDropdown": false,
-                                "hideSearch": true,
-                                "dropdownWidth": "12rem"
-                              }'>
-                        <option value="owner1" selected data-option-template='<span class="d-flex align-items-center"><img class="avatar avatar-xss avatar-circle" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Avatar" /><span class="flex-grow-1 ms-2"><%= curso.nomeProf %></span></span>'><%= curso.nomeProf %></option>
-
-                      </select>
-                    </div>
-                    <!-- End Select -->
                   </div>
                   <!-- End Col -->
                 </div>
                 <!-- End Row -->
               </div>
-              <!-- End Col -->
+            </div>
+            <!-- End Media -->
+      <div class="page-header">
+        <div class="row align-items-end mb-3">
+          <div class="col-sm mb-2 mb-sm-0">
+            <nav aria-label="breadcrumb">
+            <span>Upload dos arquivos enviado pelo formador</span>
+            </nav>
 
-              <div class="col-lg-auto">
-                <span class="text-cap small">Alunos Inscritos:</span>
+            <h1 class="page-header-title">Ficheiros do Curso</h1>
+          </div>
+          <!-- End Col -->
 
-                <div class="d-flex">
-                  <!-- Avatar Group -->
-                  <div class="avatar-group avatar-circle me-3">
-                    <% matriculas.reverse().slice(0, 5).map(e=>{ %>  
-                      <a class="avatar" href="/perfilAluno_/<%=e.idAluno %>" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= e.nomeAluno%>">
-                        <img class="avatar-img" src="http://localhost:1200/upload/<%=e.imgAluno%>" alt="Image Description">
-                      </a>
-                    <%}) %> 
-                    <a class="avatar avatar-light avatar-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
-                      <span class="avatar-initials">+<%= matriculas.length %></span>
-                    </a>
-                  </div>
-                  <!-- End Avatar Group -->
+          <div class="col-sm-auto" aria-label="Button group">
+            <!-- Button Group -->
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadFilesModal">
+                <i class="bi-cloud-arrow-up-fill me-1"></i> Upload
+              </button>
 
-                  <a class="btn btn-primary btn-icon rounded-circle" href="javascript:;" data-bs-toggle="modal" data-bs-target="#shareWithPeopleModal">
-                    <i class="bi-share-fill"></i>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" id="uploadGroupDropdown" data-bs-toggle="dropdown" aria-expanded="false"></button>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="uploadGroupDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-folder-plus dropdown-item-icon"></i> Nova Pasta
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-folder-symlink dropdown-item-icon"></i> Nova Partilha de Pasta
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#uploadFilesModal">
+                    <i class="bi-file-earmark-arrow-up dropdown-item-icon"></i> Upload de Arquivo
+                  </a>
+                  <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#uploadFilesModal">
+                    <i class="bi-upload dropdown-item-icon"></i> Upload de Pasta
                   </a>
                 </div>
               </div>
-              <!-- End Col -->
             </div>
-            <!-- End Row -->
+            <!-- End Button Group -->
           </div>
+          <!-- End Col -->
         </div>
-        <!-- End Media -->
+        <!-- End Row -->
 
+        <!-- Nav -->
         <!-- Nav -->
         <!-- Nav -->
         <div class="js-nav-scroller hs-nav-scroller-horizontal">
@@ -122,10 +170,10 @@
 
           <ul class="nav nav-tabs page-header-tabs" id="projectsTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
+              <a class="nav-link  " href="/cursoFormador/<%=curso.idCurso %>">Visão Geral</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
+              <a class="nav-link active" href="/arquivoCursoProf/<%=curso.idCurso %>">Arquivos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/actividadesCurso/<%=curso.idCurso %>">Actividades</a>
@@ -137,7 +185,7 @@
               <a class="nav-link " href="/solicitacoesCurso/<%=curso.idCurso %>">Solicitações</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
+              <a class="nav-link " href="/moduloCurso/<%=curso.idCurso %> ">Modulos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/cursoVideo/<%=curso.idCurso %>">Videos</a>
@@ -145,330 +193,88 @@
             <li class="nav-item">
               <a class="nav-link " href="/definicoesCurso/<%=curso.idCurso %>">Definições</a>
             </li>
-
-
           </ul>
         </div>
         <!-- End Nav -->
-      </div>
-      <!-- End Page Header -->
-      <!-- Page Header -->
-      <div class="page-header d-print-none">
-        <div class="row align-items-center">
-          <div class="col-sm mb-2 mb-sm-0">
-            
-
-            <div class="d-sm-flex align-items-sm-center">
-              <h1 class="page-header-title">Modulos do Curso #<%= modulo.length %></h1>  
-              <span class="badge bg-soft-success text-success ms-sm-3">
-                <span class="legend-indicator bg-success"></span><%= modulo.length %>
-              </span>
-              <span class="badge bg-soft-info text-info ms-2 ms-sm-3">
-                <span class="legend-indicator bg-info"></span>Completo
-              </span>
-              <span class="ms-2 ms-sm-3">
-                <i class="bi-calendar-week"></i> Utima Actualização: <%= curso.ultimaAct %> 
-              </span>
-            </div>
-
-            <div class="mt-2">
-              <div class="d-flex gap-2">
-                <a class="text-body me-3" href="javascript:;" onclick="window.print(); return false;">
-                  <i class="bi-printer me-1"></i> Print Modulo
-                </a>
-
-                <!-- Dropdown -->
-                <div class="dropdown">
-                  <a class="text-body" href="javascript:;" id="moreOptionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Outras Opções <i class="bi-chevron-down"></i>
-                  </a>
-
-                  <div class="dropdown-menu mt-1" aria-labelledby="moreOptionsDropdown">
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-clipboard dropdown-item-icon"></i> Duplicar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-x dropdown-item-icon"></i> Cancelar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-archive dropdown-item-icon"></i> Arquivar
-                    </a>
-                    <a class="dropdown-item" href="#">
-                      <i class="bi-pencil dropdown-item-icon"></i> Editar 
-                    </a>
-                  </div>
-                </div>
-                <!-- End Dropdown -->
-              </div>
-            </div>
-          </div>
-          <!-- End Col -->
-
-          <div class="col-sm-auto">
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable" >
-                <i class="bi-add"></i>Adicionar Modulo
-              </button>
-            </div>
-          </div>
-          <!-- End Col -->
-        </div>
-        <!-- End Row -->
+        <!-- End Nav -->
       </div>
       <!-- End Page Header -->
 
-      <div class="row">
-        <div class="col-lg-8 mb-3 mb-lg-0">
-          <!-- Card -->
-          <div class="card mb-3 mb-lg-5">
-            <!-- Header -->
-            <div class="card-header card-header-content-between">
-              <h4 class="card-header-title">Modulos do Curso <span class="badge bg-soft-dark text-dark rounded-circle ms-1"><%= modulo.length %></span></h4>
-              <a class="link" href="javascript:;">Editar</a>
+      <!-- List Group -->
+      <ul class="list-group">
+        <!-- Item -->
+
+        <!-- <li class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/google-docs-icon.svg" alt="Image Description">
             </div>
-            <!-- End Header -->
 
-            <!-- Body -->
-            <div class="card-body">
-              <!-- Media -->
-
-
-                    <% modulo.map(e=>{ %> 
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                             
-                                <span class="avatar avatar-sm avatar-primary avatar-circle">
-                                  <span class="avatar-initials"><%= e.tituloModulo.split(' ')[1] %></span>
-                                </span>
-                              
-                            </div>
-                            
-                    <div class="flex-grow-1 ms-3">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <a class="h5 d-block" href="/moduloPerfil/<%= curso.idCurso %>/<%= e.idModulo %>"><%= e.tituloModulo %></a>
-        
-                                <div class="fs-6 text-body">
-                                <span>Numero Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.idModulo %> </span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Nome Modulo:</span>
-                                <span class="fw-semi-bold"><%= e.tituloModulo_ %></span>
-                                </div>
-                                <div class="fs-6 text-body">
-                                <span>Descrição:</span>
-                                <span class="fw-semi-bold"><%= e.descricaoModulo %></span>
-                                </div>
-                            </div>
-                                                <!-- End Col -->
-
-                            <div class="col col-md-2 align-self-center">
-                                <span>Videos</span>
-                                <h5>0</h5>
-                            </div>
-                            <!-- End Col -->
-        
-                           
-                            <!-- End Col -->
-        
-                            <div class="col col-md-2 align-self-center text-end">
-                              <span>Reações</span>
-                                <h5>0</h5>
-                            </div>
-
-
-                            <div class="col col-md-2 align-self-center">
-                              <span>Hora</span>
-                                <h5>0h</h5>
-                            </div>
-                            
-                    </div>
-            
-                    </div>
-                    
-              </div>
-              <!-- End Media -->
-
-              <hr>
-                  
-                    <%}) %> 
-
-
-
-              <div class="row justify-content-md-end mb-3">
-                <div class="col-md-8 col-lg-7">
-                  <dl class="row text-sm-end">
-                    <dt class="col-sm-6">Total:</dt>
-                    <dd class="col-sm-6"><%= modulo.length %> </dd>
-                    <dt class="col-sm-6">Videos:</dt>
-                    <dd class="col-sm-6">0</dd>
-                    <dt class="col-sm-6">Horas Assistida:</dt>
-                    <dd class="col-sm-6">0h</dd>
-                    
-                  </dl>
-                  <!-- End Row -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
-            </div>
-            <!-- End Body -->
-          </div>
-          <!-- End Card -->
-
-    
-        </div>
-
-        <div class="col-lg-4">
-          <!-- Card -->
-          <div class="card">
-            <!-- Header -->
-            <div class="card-header">
-              <h4 class="card-header-title">Formador</h4>
-            </div>
-            <!-- End Header -->
-
-            <!-- Body -->
-            <div class="card-body">
-              <!-- List Group -->
-              <ul class="list-group list-group-flush list-group-no-gutters">
-                <li class="list-group-item">
-                  <a class="d-flex align-items-center" href="ecommerce-customer-details.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="http://localhost:1200/upload/<%=curso.imgProf%>" alt="Image Description">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <span class="text-body text-inherit"><%= curso.nomeProf %> </span>
-                    </div>
-                    <div class="flex-grow-1 text-end">
-                      <i class="bi-chevron-right text-body"></i>
-                    </div>
-                  </a>
-                </li>
-
-
-                <li class="list-group-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h5>Contacto</h5>
-                    <a class="link" href="javascript:;">Ver Perfil</a>
-                  </div>
-
-                  <ul class="list-unstyled list-py-2 text-body">
-                    <li><i class="bi-at me-2"></i><%= curso.emailProf %></li>
-                    <li><i class="bi-phone me-2"></i><%= curso.telProf %></li>
-                  </ul>
-                </li>
-
-
-
+            <div class="col">
+              <h5 class="mb-0">
+                <a class="text-dark" href="#">WordPress contract terms</a>
+              </h5>
+              <ul class="list-inline list-separator small text-body">
+                <li class="list-inline-item">Updated 50 min ago</li>
+                <li class="list-inline-item">25kb</li>
               </ul>
-              <!-- End List Group -->
             </div>
-            <!-- End Body -->
+          
+
+            <div class="col-auto">
+              
+              <div class="dropdown">
+                <button type="button" class="btn btn-white btn-sm" id="filesListDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="d-none d-sm-inline-block me-1">More</span>
+                  <i class="bi-chevron-down"></i>
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="filesListDropdown1" style="min-width: 13rem;">
+                  <span class="dropdown-header">Settings</span>
+
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-share dropdown-item-icon"></i> Share file
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-folder-plus dropdown-item-icon"></i> Move to
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-star dropdown-item-icon"></i> Add to stared
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-pencil dropdown-item-icon"></i> Rename
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-download dropdown-item-icon"></i> Download
+                  </a>
+
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="bi-trash dropdown-item-icon"></i> Delete
+                  </a>
+                </div>
+              </div>
+       
+            </div>
           </div>
-          <!-- End Card -->
-        </div>
-      </div>
-      <!-- End Row -->
+          
+        </li> -->
+        
+        <!-- End Item -->
+
+     
+      </ul>
+      <!-- End List Group -->
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
 
     <%- include('../Partes/footer') %> 
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">Adiocionar Modulo <%= modulo.length+1 %> </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-             
-      <div class="row">
-        <div class="col-lg-12">
-           
-                <!-- Media -->
-                <div class="d-flex align-items-center">
-                  <!-- Avatar -->
-                  <label class="avatar avatar-xl avatar-circle" for="avatarUploader">
-                    <img id="avatarImg" class="avatar-img" src="/dashboard/assets/img/160x160/img1.jpg" alt="Image Description">
-                  </label>
-              
-                  <div class="d-flex gap-3 ms-4">
-                    <div class="form-attachment-btn btn btn-sm btn-primary">Adicionar Foto
-                      <input type="file" class="js-file-attach form-attachment-btn-label" id="avatarUploader"
-                             data-hs-file-attach-options='{
-                                "textTarget": "#avatarImg",
-                                "mode": "image",
-                                "targetAttr": "src",
-                                "resetTarget": ".js-file-attach-reset-img",
-                                "resetImg": "../assets/img/160x160/img1.jpg",
-                                "allowTypes": [".png", ".jpeg", ".jpg"]
-                             }'>
-                    </div>
-                    <!-- End Avatar -->
-              
-                    <button type="button" class="js-file-attach-reset-img btn btn-white btn-sm">Deletar</button>
-                  </div>
-                </div><br>
-     
-          <!-- Card -->
-          <div class="card">
-            <!-- Body -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="firstNameLabel" class="form-label">Numero Modulo</label>
-                    <input type="text" readonly value="Modulo <%= modulo.length+1 %>" class="form-control" name="tituloModulo" id="tituloModulo" placeholder="Clarice" aria-label="Clarice">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-
-                <div class="col-sm-6">
-                  <!-- Form -->
-                  <div class="mb-4">
-                    <label for="lastNameLabel" class="form-label">Titulo Modulo</label>
-                    <input type="text" class="form-control" name="tituloModulo_" id="tituloModulo_" placeholder="Titulo Modulo" aria-label="Boone">
-                  </div>
-                  <!-- End Form -->
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
-
-              <!-- Form -->
-              <div class="mb-4">
-                <label for="emailLabel" class="form-label">Descrição Modulo</label>
-                <input type="email" class="form-control" name="descricaoModulo" id="descricaoModulo" placeholder="Descrição Modulo" aria-label="clarice@site.com">
-              </div>
-              <!-- End Form -->
-
-              <!-- Form Check -->
-              <div class="form-check mb-4">
-                <input class="form-check-input"  checked type="checkbox" value="" id="marketingEmailsCheckbox">
-                <label class="form-check-label" for="marketingEmailsCheckbox">Modulo do Curso podem ser validados e alterados pelo coodernador.</label>
-              </div>
-              <!-- End Form Check -->
-
-            </div>
-            <!-- Body -->
-          </div>
-          <!-- End Card -->
-        </div>
-      </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-white" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" onclick="adicionarModulo()" class="btn btn-primary">Adicionar Moduloo</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
     <!-- End Footer -->
   </main>
@@ -650,82 +456,10 @@
       <!-- End Row -->
     </div>
     <!-- End Footer -->
-  </div> 
+  </div>
 
   <!-- End Builder -->
-  <script src="/sweetalert/sweetalert2.all.min.js"></script>
 
-    
-
-<script> 
-    function adicionarModulo() {
-      const idCurso='<%= curso.idCurso%>';
-      const idProf='<%= curso.idProf%>';
-      const descricaoModulo=document.getElementById('descricaoModulo').value;
-      const tituloModulo=document.getElementById('tituloModulo').value;
-      const tituloModulo_=document.getElementById('tituloModulo_').value;
-      const imgModulo=document.getElementById('avatarUploader').files[0]
-      const Dados= new FormData();
-      console.log({idCurso,idProf, descricaoModulo, tituloModulo, tituloModulo_,imgModulo  });
-      Dados.append('descricaoModulo',descricaoModulo)
-      Dados.append('tituloModulo',tituloModulo)
-      Dados.append('tituloModulo_',tituloModulo_)
-      Dados.append('idCurso',idCurso)
-      Dados.append('idProf',idProf)
-      Dados.append('image',imgModulo)
-
-      const options = {
-        method: 'POST',
-        body: Dados,
-      };      
-
-      fetch('http://localhost:1200/adicionarModulo', options).then(data => {
-        return data.json();
-      }).then(data => {
-        if(data.errado){
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-          icon: 'error',
-          title: data.errado
-        })
-
-        }else{
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 6000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-    
-          Toast.fire({
-            icon: 'success',
-            title: data.certo
-          })
-          window.location=`/${data.rota}`
-        }
-      })
-      .catch(e => {
-        console.log(e);
-      });
-
-    }
-</script>
 
 
   <div class="d-none js-build-layouts">
@@ -3424,89 +3158,45 @@
 
   <!-- End Welcome Message Modal -->
 
-  <!-- Export Orders Modal -->
-  <div class="modal fade" id="exportOrdersModal" tabindex="-1" aria-labelledby="exportOrdersModalLabel" aria-hidden="true">
+  <!-- Upload files Modal -->
+  <div class="modal fade" id="uploadFilesModal" tabindex="-1" aria-labelledby="uploadFilesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- Header -->
         <div class="modal-header">
-          <h4 class="modal-title" id="exportOrdersModalLabel">Export orders</h4>
+          <h5 class="modal-title" id="uploadFilesModalLabel">Add files</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- End Header -->
 
         <!-- Body -->
         <div class="modal-body">
-          <div class="d-grid gap-2 mb-4">
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio1" checked>
-              <label class="form-check-label" for="exportProductsRadio1">
-                Current page
-              </label>
-            </div>
-            <!-- End Form Check -->
+          <!-- Dropzone -->
+          <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+            <div class="dz-message">
+              <img class="avatar avatar-xl avatar-4x3 mb-3" src="/dashboard/assets/svg/illustrations/oc-browse.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="avatar avatar-xl avatar-4x3 mb-3" src="/dashboard/assets/svg/illustrations-light/oc-browse.svg" alt="Image Description" data-hs-theme-appearance="dark">
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio2">
-              <label class="form-check-label" for="exportProductsRadio2">
-                All products
-              </label>
-            </div>
-            <!-- End Form Check -->
+              <h5>Drag and drop your file here</h5>
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio3">
-              <label class="form-check-label" for="exportProductsRadio3">
-                Selected: 20 products
-              </label>
-            </div>
-            <!-- End Form Check -->
+              <p class="mb-2">or</p>
 
-            <!-- Form Check -->
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exportProductsRadio" id="exportProductsRadio4">
-              <label class="form-check-label" for="exportProductsRadio4">
-                Order by date
-              </label>
+              <span class="btn btn-white btn-sm">Browse files</span>
             </div>
-            <!-- End Form Check -->
           </div>
-
-          <label class="form-label">Export as</label>
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio1" checked>
-            <label class="form-check-label" for="exportOrdersAsRadio1">
-              CSV for Excel, Numbers, or other spreadsheet programs
-            </label>
-          </div>
-          <!-- End Form Check -->
-
-          <!-- Form Check -->
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exportOrdersAsRadio" id="exportOrdersAsRadio2">
-            <label class="form-check-label" for="exportOrdersAsRadio2">
-              Plain CSV file
-            </label>
-          </div>
-          <!-- End Form Check -->
+          <!-- End Dropzone -->
         </div>
         <!-- End Body -->
 
         <!-- Footer -->
-        <div class="modal-footer gap-3">
+        <div class="modal-footer">
           <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-          <button type="button" class="btn btn-primary">Export orders</button>
+          <button type="button" class="btn btn-primary">Upload</button>
         </div>
         <!-- End Footer -->
       </div>
     </div>
   </div>
-  <!-- End Export Orders Modal -->
+
+  <!-- End Upload files Modal -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Implementing Plugins -->
@@ -3534,6 +3224,16 @@
         // INITIALIZATION OF BOOTSTRAP DROPDOWN
         // =======================================================
         HSBsDropdown.init()
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
+
+
+        // INITIALIZATION OF DROPZONE
+        // =======================================================
+        HSCore.components.HSDropzone.init('.js-dropzone')
       }
     })()
   </script>
@@ -3579,5 +3279,5 @@
   <!-- End Style Switcher JS -->
 </body>
 
-<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/ecommerce-order-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:33 GMT -->
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/project-files.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:42 GMT -->
 </html>
