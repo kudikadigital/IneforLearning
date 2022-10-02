@@ -54,9 +54,10 @@ ProfessorController.get('/definicoesFormador_',instrutorAuth,async (req:Request,
       const prof= await knex('professor').where('idProf', idUser).first();        
       if(prof){
         const cursos= await knex('curso').where('idProf', idUser)
+        const dadosBanco= await knex('dadosBanco').where('idProf', idUser).first();
         const matriculas= await knex('matricula').join('curso', 'curso.idCurso', 'matricula.idCurso').where('curso.idProf', idUser).count('matricula.idCurso', {as:'quantidade'}).orderBy('quantidade','desc').select('*')
         const cursosTotal= await knex('curso').join('categoria', 'curso.idCategoria', 'categoria.idCategoria').where('idProf', idUser)
-        resp.render('professor/definicoesFormador', {matriculas, cursos, prof,professor:prof, cursosTotal});
+        resp.render('professor/definicoesFormador', {matriculas, cursos, prof,professor:prof, cursosTotal, dadosBanco});
       }else{
         resp.render('error/404')
       }       
