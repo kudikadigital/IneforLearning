@@ -29,9 +29,7 @@
           <div class="col-sm mb-2 mb-sm-0">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-no-gutter">
-                <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Plataforma de ensino a distancia do Inefor</a></li>
-                
-             
+                <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Plataforma de ensino a distancia do Inefor</a></li>        
               </ol>
             </nav>
 
@@ -159,7 +157,7 @@
 
               <!-- Avatar -->
               <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="editAvatarUploaderModal">
-                <img id="editAvatarImgModal" class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
+                <img id="editAvatarImgModal" class="avatar-img" src="http://localhost:1200/upload/<%=prof.imgProf%>" alt="Image Description">
 
                 <input type="file" class="js-file-attach avatar-uploader-input" id="editAvatarUploaderModal" data-hs-file-attach-options='{
                             "textTarget": "#editAvatarImgModal",
@@ -209,13 +207,13 @@
               <!-- Body -->
               <div class="card-body">
                 <!-- Form -->
-                <form>
+                <div>
                   <!-- Form -->
                   <div class="row mb-4">
                     <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Nome Completo <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="organization" id="organizationLabel" placeholder="Your organization" aria-label="Your organization" value="Htmlstream">
+                      <input type="text" class="form-control" name="nomeProf" id="nomeProf" placeholder="Nome Completo" aria-label="Your organization" value="<%= professor.nomeProf %>">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -224,7 +222,7 @@
                                       <label for="organizationLabel" class="col-sm-3 col-form-label form-label">Username</label>
                   
                                       <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="organization" id="organizationLabel" placeholder="Your organization" aria-label="Your organization" value="Htmlstream">
+                                        <input type="text" class="form-control" name="userProf" id="userProf" placeholder="Username" aria-label="Your organization" value="<%= professor.userProf %>">
                                       </div>
                                     </div>
                                     <!-- End Form -->
@@ -233,7 +231,7 @@
                                       <label for="organizationLabel" class="col-sm-3 col-form-label form-label">NIF</label>
                   
                                       <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="organization" id="organizationLabel" placeholder="Your organization" aria-label="Your organization" value="Htmlstream">
+                                        <input type="text" class="form-control" name="NIFProf" id="NIFProf" placeholder="NIF" aria-label="Your organization" value="<%= professor.NIFProf %> ">
                                       </div>
                                     </div>
                                     <!-- End Form -->
@@ -244,7 +242,7 @@
                       <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
 
                       <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" id="emailLabel" placeholder="Email" aria-label="Email" value="mark@site.com">
+                        <input type="email" class="form-control" name="emailProf" id="emailProf" placeholder="Email" aria-label="Email" value="<%= professor.emailProf %> ">
                       </div>
                     </div>
                     <!-- End Form -->
@@ -254,8 +252,8 @@
                     <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Telefone <span class="form-label-secondary"></span></label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="js-input-mask form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" value="+1 (609) 972-22-22" data-hs-mask-options='{
-                               "mask": "+0(000)000-00-00"
+                      <input type="text" class="js-input-mask form-control" name="telProf" id="telProf" placeholder="+(xxx)xxx-xxx-xxx" aria-label="+x(xxx)xxx-xx-xx" value="<%= professor.telProf %> " data-hs-mask-options='{
+                               "mask": "+(244)000-000-000"
                              }'>
                     </div>
                   </div>
@@ -269,7 +267,7 @@
                     <label for="departmentLabel" class="col-sm-3 col-form-label form-label">Endereço</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="department" id="departmentLabel" placeholder="Your department" aria-label="Your department">
+                      <input type="text" class="form-control" name="enderecoProf" id="enderecoProf" placeholder="Endereço" aria-label="Your department" value="<%= professor.enderecoProf %> ">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -279,7 +277,7 @@
                     <label for="addressLine1Label" class="col-sm-3 col-form-label form-label">Morada</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="addressLine1" id="addressLine1Label" placeholder="Your address" aria-label="Your address" value="45 Roker Terrace, Latheronwheel">
+                      <input type="text" class="form-control" name="residenciaProf" id="residenciaProf" placeholder="Morada" aria-label="Your address" value="<%= professor.residenciaProf%> ">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -289,15 +287,15 @@
                     <label for="addressLine2Label" class="col-sm-3 col-form-label form-label">Descrição<span class="form-label-secondary">(Optional)</span></label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="addressLine2" id="addressLine2Label" placeholder="Your address" aria-label="Your address">
+                      <input type="text" class="form-control" name="descricaoProf" id="descricaoProf" placeholder="Descrição" aria-label="Your address" value="<%= professor.descricaoProf %> ">
                     </div>
                   </div>
                   <!-- End Form -->
 
                   <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+                    <button class="btn btn-primary" onclick="salvarDados()">Salvar Mudanças</button>
                   </div>
-                </form>
+                </div>
                 <!-- End Form -->
               </div>
               <!-- End Body -->
@@ -312,24 +310,24 @@
 
               <!-- Body -->
               <div class="card-body">
-                <p>O teu presente email é <span class="fw-semi-bold">mark@site.com</span></p>
+                <p>O teu presente email é <span class="fw-semi-bold"><%= professor.emailProf %> </span></p>
 
                 <!-- Form -->
-                <form>
+                <div>
                   <!-- Form -->
                   <div class="row mb-4">
                     <label for="newEmailLabel" class="col-sm-3 col-form-label form-label">Novo endereço email</label>
 
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" name="newEmail" id="newEmailLabel" placeholder="Enter new email address" aria-label="Enter new email address">
+                      <input type="email" class="form-control" name="novoEmail" id="novoEmail" placeholder="Novo email" aria-label="Novo email">
                     </div>
                   </div>
                   <!-- End Form -->
 
                   <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+                    <button type="submit" class="btn btn-primary" onclick="salvarEmail()">Salvar Mudanças</button>
                   </div>
-                </form>
+                </div>
                 <!-- End Form -->
               </div>
               <!-- End Body -->
@@ -348,39 +346,39 @@
               <div class="card-body">
                 <p class="card-text">Seus dados bancarios são privados e só tu podes ver.</p>
 
-                <form>
+                <div>
                   <!-- Form -->
                   <div class="row mb-4">
                     <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Nome Banco</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" name="currentPassword" id="accountPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                      <input type="text" class="form-control" name="nomeBanco" id="nomeBanco" placeholder="Nome banco" aria-label="Enter current password" value="<%= dadosBanco.nomeBanco %>">
                     </div>
                   </div>
                   <!-- End Form -->
                   <!-- Form -->
                   <div class="row mb-4">
-                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Nome Banco</label>
+                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Numero Banco</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" name="currentPassword" id="accountPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                      <input type="text" class="form-control" name="numeroConta" id="numeroConta" placeholder="Numero banco" aria-label="Numero banco" value="<%= dadosBanco.numeroConta %>">
                     </div>
                   </div>
                   <!-- End Form -->
                   <!-- Form -->
                   <div class="row mb-4">
-                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Nome Banco</label>
+                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">IBAN</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" name="currentPassword" id="accountPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                      <input type="text" class="form-control" name="IBAN" id="IBAN" placeholder="Enter current password" aria-label="Enter current password" value="<%= dadosBanco.IBAN %> ">
                     </div>
                   </div>
                   <!-- End Form -->
 
                   <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Alterar Dados</button>
+                    <button onclick="dadosBanco()" class="btn btn-primary">Alterar Dados</button>
                   </div>
-                </form>
+                </div>
               </div>
               <!-- End Body -->
             </div>
@@ -401,7 +399,7 @@
                     <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Palavra-passe Actual</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" name="currentPassword" id="currentPasswordLabel" placeholder="Enter current password" aria-label="Enter current password">
+                      <input type="password" class="form-control" name="senhaProf" id="senhaProf" placeholder="Digite sua senha" aria-label="Enter current password">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -411,7 +409,7 @@
                     <label for="newPassword" class="col-sm-3 col-form-label form-label">Nova Palavra-passe</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="Enter new password" aria-label="Enter new password">
+                      <input type="password" class="form-control" name="senhaProf1" id="senhaProf1" placeholder="Digite sua nova senha" aria-label="Enter new password">
                     </div>
                   </div>
                   <!-- End Form -->
@@ -422,7 +420,7 @@
 
                     <div class="col-sm-9">
                       <div class="mb-3">
-                        <input type="password" class="form-control" name="confirmNewPassword" id="confirmNewPasswordLabel" placeholder="Confirm your new password" aria-label="Confirm your new password">
+                        <input type="password" class="form-control" name="senhaProf2" id="senhaProf2" placeholder="Confirme sua nova senha">
                       </div>
 
                       <h5>Requisitos da Palavra-passe:</h5>
@@ -459,30 +457,13 @@
               <div class="card-body">
                 <!-- Form -->
                 <form>
-                  <!-- Form -->
-                  <div class="row mb-4">
-                    <label for="languageLabel" class="col-sm-3 col-form-label form-label">Linguagem</label>
-
-                    <div class="col-sm-9">
-                      <!-- Select -->
-                      <div class="tom-select-custom">
-                        <select class="js-select form-select" id="languageLabel" data-hs-tom-select-options='{
-                                  "searchInDropdown": false
-                                }'>
-                          <option label="empty"></option>
-                        </select>
-                      </div>
-                      <!-- End Select -->
-                    </div>
-                  </div>
-                  <!-- End Form -->
 
                   <!-- Form -->
                   <div class="row mb-4">
-                    <label for="timeZoneLabel" class="col-sm-3 col-form-label form-label">Fuso horário</label>
+                    <!-- <label for="timeZoneLabel" class="col-sm-3 col-form-label form-label">Fuso horário</label> -->
 
                     <div class="col-sm-9">
-                      <input type="text" disabled class="form-control" name="currentPassword" id="timeZoneLabel" placeholder="Your time zone" aria-label="Your time zone" value="GMT+01:00" readonly>
+                      <!-- <input type="text" disabled class="form-control"  readonly> -->
                     </div>
                   </div>
                   <!-- End Form -->
@@ -3195,203 +3176,7 @@
   <!-- End Keyboard Shortcuts -->
 
   <!-- Activity -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivityStream" aria-labelledby="offcanvasActivityStreamLabel">
-    <div class="offcanvas-header">
-      <h4 id="offcanvasActivityStreamLabel" class="mb-0">Activity stream</h4>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <!-- Step -->
-      <ul class="step step-icon-sm step-avatar-sm">
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <div class="step-avatar">
-              <img class="step-avatar" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
-            </div>
-
-            <div class="step-content">
-              <h5 class="mb-1">Iana Robinson</h5>
-
-              <p class="fs-5 mb-1">Added 2 files to task <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fd-7</a></p>
-
-              <ul class="list-group list-group-sm">
-                <!-- List Item -->
-                <li class="list-group-item list-group-item-light">
-                  <div class="row gx-1">
-                    <div class="col-6">
-                      <!-- Media -->
-                      <div class="d-flex">
-                        <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="/dashboard/assets/svg/brands/excel-icon.svg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 text-truncate ms-2">
-                          <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
-                          <span class="d-block small text-muted">12kb</span>
-                        </div>
-                      </div>
-                      <!-- End Media -->
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-6">
-                      <!-- Media -->
-                      <div class="d-flex">
-                        <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="/dashboard/assets/svg/brands/word-icon.svg" alt="Image Description">
-                        </div>
-                        <div class="flex-grow-1 text-truncate ms-2">
-                          <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
-                          <span class="d-block small text-muted">4kb</span>
-                        </div>
-                      </div>
-                      <!-- End Media -->
-                    </div>
-                    <!-- End Col -->
-                  </div>
-                  <!-- End Row -->
-                </li>
-                <!-- End List Item -->
-              </ul>
-
-              <span class="small text-muted text-uppercase">Now</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-dark">B</span>
-
-            <div class="step-content">
-              <h5 class="mb-1">Bob Dean</h5>
-
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-6</a> as <span class="badge bg-soft-success text-success rounded-pill"><span class="legend-indicator bg-success"></span>"Completed"</span></p>
-
-              <span class="small text-muted text-uppercase">Today</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <div class="step-avatar">
-              <img class="step-avatar-img" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
-            </div>
-
-            <div class="step-content">
-              <h5 class="h5 mb-1">Crane</h5>
-
-              <p class="fs-5 mb-1">Added 5 card to <a href="#">Payments</a></p>
-
-              <ul class="list-group list-group-sm">
-                <li class="list-group-item list-group-item-light">
-                  <div class="row gx-1">
-                    <div class="col">
-                      <img class="img-fluid rounded" src="/dashboard/assets/svg/components/card-1.svg" alt="Image Description">
-                    </div>
-                    <div class="col">
-                      <img class="img-fluid rounded" src="/dashboard/assets/svg/components/card-2.svg" alt="Image Description">
-                    </div>
-                    <div class="col">
-                      <img class="img-fluid rounded" src="/dashboard/assets/svg/components/card-3.svg" alt="Image Description">
-                    </div>
-                    <div class="col-auto align-self-center">
-                      <div class="text-center">
-                        <a href="#">+2</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-
-              <span class="small text-muted text-uppercase">May 12</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-info">D</span>
-
-            <div class="step-content">
-              <h5 class="mb-1">David Lidell</h5>
-
-              <p class="fs-5 mb-1">Added a new member to Front Dashboard</p>
-
-              <span class="small text-muted text-uppercase">May 15</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <div class="step-avatar">
-              <img class="step-avatar-img" src="/dashboard/assets/img/160x160/img7.jpg" alt="Image Description">
-            </div>
-
-            <div class="step-content">
-              <h5 class="mb-1">Rachel King</h5>
-
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-3</a> as <span class="badge bg-soft-success text-success rounded-pill"><span class="legend-indicator bg-success"></span>"Completed"</span></p>
-
-              <span class="small text-muted text-uppercase">Apr 29</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <div class="step-avatar">
-              <img class="step-avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
-            </div>
-
-            <div class="step-content">
-              <h5 class="mb-1">Finch Hoot</h5>
-
-              <p class="fs-5 mb-1">Earned a "Top endorsed" <i class="bi-patch-check-fill text-primary"></i> badge</p>
-
-              <span class="small text-muted text-uppercase">Apr 06</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-
-        <!-- Step Item -->
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">
-              <i class="bi-person-fill"></i>
-            </span>
-
-            <div class="step-content">
-              <h5 class="mb-1">Project status updated</h5>
-
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-3</a> as <span class="badge bg-soft-primary text-primary rounded-pill"><span class="legend-indicator bg-primary"></span>"In progress"</span></p>
-
-              <span class="small text-muted text-uppercase">Feb 10</span>
-            </div>
-          </div>
-        </li>
-        <!-- End Step Item -->
-      </ul>
-      <!-- End Step -->
-
-      <div class="d-grid">
-        <a class="btn btn-white" href="javascript:;">View all <i class="bi-chevron-right"></i></a>
-      </div>
-    </div>
-  </div>
+  <%- include('Partes/actividadesProf') %> 
   <!-- End Activity -->
 
 
@@ -3502,6 +3287,79 @@
     </script>
 
   <!-- End Style Switcher JS -->
+  <%- include('Partes/dependencia') %> 
+  <script>
+    const formData=(e)=> {
+      const nomeProf=document.getElementById('nomeProf').value;
+      const emailProf=document.getElementById('emailProf').value;
+      const NIFProf=document.getElementById('NIFProf').value;
+      const userProf=document.getElementById('userProf').value;
+      const telProf=document.getElementById('telProf').value;
+      const enderecoProf=document.getElementById('enderecoProf').value;
+      const residenciaProf=document.getElementById('residenciaProf').value;
+      const descProf=document.getElementById('descProf').value;
+      const imgProf=document.getElementById('avatarUploader').files[0];
+
+      document.getElementById('nomeProf_').innerHTML=nomeProf; 
+      document.getElementById('emailProf_').innerHTML=emailProf;
+      document.getElementById('NIFProf_').innerHTML=NIFProf;
+      document.getElementById('userProf_').innerHTML=userProf;
+      document.getElementById('telProf_').innerHTML=telProf;
+      document.getElementById('enderecoProf_').innerHTML=enderecoProf;
+      document.getElementById('residenciaProf_').innerHTML=residenciaProf;
+      document.getElementById('descProf_').innerHTML=descProf;
+      // document.getElementById('avatarUploader').files[0];
+      document.getElementById('imgProff').setAttribute('src', document.getElementById('avatarImg').getAttribute('src'));
+      console.log(document.getElementById('avatarImg').getAttribute('src'));
+    }
+
+
+    function EnviarDados() {
+      const nomeProf=document.getElementById('nomeProf').value;
+      const emailProf=document.getElementById('emailProf').value;
+      const userProf=document.getElementById('userProf').value;
+      const telProf=document.getElementById('telProf').value;
+      const enderecoProf=document.getElementById('enderecoProf').value;
+      const residenciaProf=document.getElementById('residenciaProf').value;
+      const descProf=document.getElementById('descProf').value;
+      const imgProf=document.getElementById('avatarUploader').files[0];
+
+      //nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf
+      const Dados= new FormData();
+      Dados.append('nomeProf',nomeProf)
+      Dados.append('emailProf',emailProf)
+      Dados.append('userProf',userProf)
+      Dados.append('telProf',telProf)
+      Dados.append('enderecoProf',enderecoProf)
+      Dados.append('residenciaProf',residenciaProf)
+      Dados.append('descProf',descProf)
+      Dados.append('image',imgProf)
+
+      const options = {
+        method: 'POST',
+        body: Dados,
+      };
+
+      fetch('http://localhost:1200/editarProf', options).then(data => {
+        return data.json();
+      }).then(data => {
+        if(data.error){
+          document.getElementById('result').innerHTML =data.error; 
+          document.getElementById('result').setAttribute('class', 'text-danger')
+        }else{
+          document.getElementById('result').innerHTML =data.certo;
+          document.getElementById('result').setAttribute('class', 'text-success')
+          window.location="/listaFormador"
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+      
+    }
+
+  </script>
 </body>
 
 <!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/account-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:13 GMT -->

@@ -47,6 +47,69 @@ ProfessorController.get('/perfilFormador_',instrutorAuth,async (req:Request, res
     }
   }    
 )
+//Editar Curso
+ProfessorController.post('/editarProf', upload.single('image'), instrutorAuth, async (req: Request, resp: Response) => {
+  try {
+    const { nomeProf, emailProf, NIFProf, userProf, telProf, enderecoProf, residenciaProf, descProf } = req.body;
+    const senhaProf = '12345678';
+    const idUser=req.session?.user.id;
+    const dadosProf = await knex('professor').where('idProf', idUser).first();
+    const imgProf = (req.file) ? req.file.filename : dadosProf.imgProf;
+    if (!(nomeProf === '' || userProf === '' || emailProf === '' || telProf === '' || NIFProf == "")) {
+      let re = /[A-Z]/;
+      const hasUpper = re.test(userProf);
+      const verificaEspaco = /\s/g.test(userProf);
+      const Mailer = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(emailProf);
+      const number = /^[9]{1}[0-9]{8}$/.test(telProf)
+      if (hasUpper === true) {
+        resp.json({ error: 'Username não aceite' })
+      } else if (verificaEspaco === true) {
+        resp.json({ error: 'Username não aceite' })
+      } else
+        if (!Mailer) {
+          resp.json({ error: 'Email não aceite' })
+        } else if (senhaProf.length < 8) {
+            resp.json({ error: 'Senha muito fraca' })
+            // resp.redirect("/cadastrarCliente")
+          } else
+            if (senhaProf != '12345678') {
+              resp.json({ error: 'Senha Diferentes' })
+              // resp.redirect("/cadastrarCliente")
+
+            } else if (number == false) {
+              resp.json({ error: 'Numero de telefone incorreto' })
+              // resp.redirect("/cadastrarCliente")
+
+            } else {
+              
+              
+              const verify = await knex('professor').where('emailProf', emailProf).orWhere('userProf', userProf).orWhere('telProf', telProf)
+              if (verify.length === 0) {
+
+                const descricaoProf = descProf
+                const d = new Date();
+                const estadoProf = 1
+                const ids = await knex('professor').insert({ imgProf, nomeProf, telProf, residenciaProf, userProf, emailProf, estadoProf, senhaProf, enderecoProf, admProf: 0, descricaoProf, NIFProf })
+                resp.json({ certo: 'Formador cadastrado com sucesso' })
+
+              } else {
+                resp.json({ error: 'Formador já cadastrado ou alguns dados já vinculados com outra conta!' })
+                //resp.redirect("/cadastrarCliente")
+
+              }
+
+
+            }
+
+    } else {
+      resp.json({ error: "Ocorreu um problema!" })
+    }
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+)
 //Definição do formador
 ProfessorController.get('/definicoesFormador_',instrutorAuth,async (req:Request, resp: Response)=>{
   try{
