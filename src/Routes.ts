@@ -1,126 +1,214 @@
-import {Router, Request, Response} from 'express';
-const Route= Router ();
-import CursoController from './controller/curso/cursoController';
-import ProfessorContrller from './controller/instrutor/professorController';
-import AlunoController from './controller/aluno/alunoController';
-import alunoCursoController from './controller/aluno_curso/alunoCursoController';
-import { authenticate } from './config/loginService';
-import AdmController from './controller/adm/admController';
-import multerConfig from './config/multer';
-import multer from 'multer';
+import { Router, Request, Response } from "express";
+const Route = Router();
+import CursoController from "./controller/cursoController";
+import ProfessorContrller from "./controller/professorController";
+import AlunoController from "./controller/alunoController";
+import alunoCursoController from "./controller/alunoCursoController";
+import { authenticate } from "./config/loginService";
+import AdmController from "./controller/admController";
+import multerConfig from "./config/multer";
+import multer from "multer";
+import knex from "./database/conection";
 
 const upload = multer(multerConfig);
 
-//Instancia dos Controller
-const ProfessorC = new ProfessorContrller();
-const CursoC = new CursoController();
-const AlunoC = new AlunoController();
-const aluno_curso= new alunoCursoController();
-const admC= new AdmController(); 
-
-
-//Body-parser para adicionar e obter dados a partir das rotas
-import bodyParser from "body-parser";
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
-//Middlewares
-import {alunoAuth} from './middlewre/aluno' //Aluno
-import {admAuth} from './middlewre/adm'
-import {profAuth} from './middlewre/professor'
-
-//Rotas Professor
-Route.post('/criarProfessor', ProfessorC.criarProfessor ) //Cadastrar Professor
-Route.get('/listarProfessor', ProfessorC.listarProfessor) //Listar Professor
-Route.get('/professor', ProfessorC.profView) //Listar Professor
-Route.get('/professor/cursos', ProfessorC.profCursos) //Listar Professor
-Route.get('/professor/notificacao', ProfessorC.profCursosNotificacao) //Listar Professor
-
-
-//Rotas Cursos 
-Route.post('/criarCurso',CursoC.criarCurso) // Criar Cursos
-Route.get('/listarCurso', CursoC.listarCurso ) //Listar Curos
-
-//Rotas adm 
-Route.get('/admin',admAuth, admC.painelAdm)
-Route.get('/admin/alunos', admAuth, AlunoC.listarAluno) //Listar Alluno´
-Route.get('/admin/alunos/new', admAuth, AlunoC.criarAlunoView) //Listar Alluno
-Route.post('/admin/alunos/create', admAuth,upload.single('image'),urlencodedParser, AlunoC.criarAluno)
-
-//Route.get('/admin/aluno/new', adm, admC.aluno)
-Route.get('/admin/cursos', admAuth, CursoC.listarCurso)
-Route.get('/admin/cursos/new', admAuth, CursoC.criarCursoView)
-Route.post('/admin/cursos/create', admAuth,upload.single('imageCurso'),urlencodedParser, CursoC.criarCurso)
-Route.get('/admin/instrutores', admAuth, ProfessorC.listarProfessor)
-Route.get('/admin/instrutores/new', admAuth, ProfessorC.criarProfView)
-Route.post('/admin/instrutores/create', admAuth,upload.single('image'),urlencodedParser, ProfessorC.criarProfessor)
-//Route.post('/admin/instrutores/new', admAuth, ProfessorC.instrutorNew)
-
-//o curso 
-Route.get('/admin/ocurso', admAuth, CursoC.ocurso)
-
-
-//Rotas Aluno
-Route.get('/listarAluno', alunoAuth, AlunoC.listarAluno) //Listar Alluno
-Route.post('/criarAluno',urlencodedParser,AlunoC.criarAluno) // Cadastrar Aluno
-Route.get('/aluno',alunoAuth, AlunoC.alunoPainel) // Painel do Aluno
-//new add
-//Route.get('/aluno/cursos/emandamento',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
-//Route.get('/aluno/cursos/terminados',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
-Route.get('/aluno/cursosemandamento',alunoAuth, AlunoC.alunocursos) // Painel do Aluno
-Route.get('/aluno/cursosterminados',alunoAuth, AlunoC.alunoCursosTerminados) // Painel do Aluno
-
-//Rotas Aluno Cursos
-Route.post('/alunoCurso', aluno_curso.inscrever); // Matricular-se a um curso
-
-
-
 //  Rotas Gerais do Sistema
 //Login principal
-Route.get('/login', (req:Request, resp: Response)=>{
-    resp.render('login')
-})
-// Home page do Sistema
-Route.get('/', (req:Request, resp: Response)=>{
-    resp.render('home')
-})
+Route.get("/login", (req: Request, resp: Response) => {
+  resp.render("site/login", {
+    certo: req.flash("certo"),
+    errado: req.flash("errado"),
+  });
+});
 
+Route.get("/logout", (req: Request, resp: Response) => {
+  if (req.session) {
+    req.session.user = {};
+    resp.redirect("/");
+  }
+});
+// Home page do Sistema
+Route.get("/", (req: Request, resp: Response) => {
+  resp.render("site/home");
+});
 
 //LOGIN GERAL DO SISTEMA
-Route.post('/loginGeral',urlencodedParser, (req:Request, resp: Response)=>{
-    try {
-        const {email, senha}= req.body;
-        authenticate(email, senha).then(r=>{
-            if(r==='-1'){
-                resp.send('Não existe uma conta')
-            }else{
-                const dados=r;
-                if(dados){
-                     if(dados.p==='professor'){ 
-                        const professor= dados
-                        if(req.session){
-                          req.session.professor=professor;
-                          resp.redirect('/instrutor')
-                        }      
-                     }else if(dados.p==='adm'){
-                        const adm= dados
-                        if(req.session){
-                          req.session.adm=adm;
-                          //console.log(adm)
-                          resp.redirect('/admin')
-                        } 
-                     }else if(dados.p==='aluno'){
-                        const aluno= dados
-                        if(req.session){
-                          req.session.aluno=aluno;
-                          resp.redirect('/aluno')
-                        } 
-                    }
-                }
+Route.post("/loginGeral", (req: Request, resp: Response) => {
+  try {
+    const { email, senha } = req.body;
+    authenticate(email, senha).then((r) => {
+      if (r === "-1") {
+        req.flash("errado", "Não exite uma conta vinculada");
+        resp.redirect("/login");
+      } else {
+        const dados = r;
+        if (dados) {
+          if (dados.p === "professor") {
+            const professor = dados;
+            if (req.session) {
+              req.session.user = {
+                id: professor.dados.idProf,
+                role: professor.dados.admProf,
+              };
+              resp.redirect("/instrutor");
             }
-        })   
-    } catch (error) {
-        console.log(error)
+          } else if (dados.p === "adm") {
+            const adm = dados;
+            if (req.session) {
+              req.session.user = {
+                id: adm.dados.idProf,
+                role: adm.dados.admProf,
+              };
+
+              resp.redirect("/admin");
+            }
+          } else if (dados.p === "aluno") {
+            const aluno = dados;
+            if (req.session) {
+              req.session.user = { id: aluno.dados.idAluno, role: 2 };
+              resp.redirect("/aluno");
+            }
+          } else if (dados.p === "coordenador") {
+            const coordenador = dados;
+            if (req.session) {
+              
+              req.session.user = { id: coordenador.dados.idCoordenador, role: 3 };
+              resp.redirect("/coordenadorPainel");
+            }
+          }
+        }
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    resp.render("error/404");
+  }
+});
+
+Route.post("/cadastro", async (req: Request, resp: Response) => {
+  try {
+    const { nome, username, email, tell, senha, senha1, tipo } = req.body;
+    const estadoCliente = 1;
+    const role = 2;
+    if (
+      !(
+        nome === "" ||
+        username === "" ||
+        email === "" ||
+        tell === "" ||
+        senha === "" ||
+        senha1 === "" ||
+        tipo === ""
+      )
+    ) {
+      const imgCliente = req.file ? req.file.filename : "user.png";
+      let re = /[A-Z]/;
+      const hasUpper = re.test(username);
+      const verificaEspaco = /\s/g.test(username);
+      const Mailer = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email);
+      const number = /^[9]{1}[0-9]{8}$/.test(tell);
+      if (hasUpper === true) {
+        req.flash("errado", "Username não Aceite");
+        resp.redirect("/login");
+        // resp.redirect("/cadastrarCliente")
+      } else if (verificaEspaco === true) {
+        req.flash("errado", "Username não Aceite");
+        resp.redirect("/login");
+
+        // resp.redirect("/cadastrarCliente")
+      } else if (!Mailer) {
+        req.flash("errado", "Email Incorreto");
+        resp.redirect("/login");
+        // resp.redirect("/cadastrarCliente")
+      } else if (senha.length < 5) {
+        req.flash("errado", "Senha muito fraca");
+        resp.redirect("/login");
+        // resp.redirect("/cadastrarCliente")
+      } else if (senha != senha1) {
+        req.flash("errado", "Senha Diferentes");
+        resp.redirect("/login");
+        // resp.redirect("/cadastrarCliente")
+      } else if (number == false) {
+        req.flash("errado", "Numero de tellefone incorreto");
+        resp.redirect("/login");
+        // resp.redirect("/cadastrarCliente")
+      } else {
+        if (tipo == "aluno") {
+          console.log(email, username);
+
+          const verify = await knex("aluno")
+            .where("emailAluno", email)
+            .orWhere("userAluno", username)
+            .orWhere("telAluno", tell);
+          if (verify.length === 0) {
+            const enderecoAluno = "Luanda, Luanda";
+            const ids = await knex("aluno").insert({
+              imgAluno: imgCliente,
+              nivelAluno: 20,
+              nomeAluno: nome,
+              telAluno: tell,
+              userAluno: username,
+              emailAluno: email,
+              estadoAluno: 1,
+              senhaAluno: senha,
+              enderecoAluno,
+            });
+            req.flash("certo", "Aluno cadastrado com sucesso!");
+            resp.redirect("/login");
+            // resp.redirect("/loginGeral")
+          } else {
+            req.flash("errado", "Este Aluno já esta cadastrado!");
+            resp.redirect("/login");
+            //resp.redirect("/cadastrarCliente")
+          }
+        } else {
+          const verify = await knex("professor")
+            .where("emailProf", email)
+            .orWhere("userProf", username)
+            .orWhere("telProf", tell);
+          if (verify.length === 0) {
+            const enderecoProf = "Luanda, Luanda";
+            const descricaoProf = "Instrutor da Plataforma";
+            const d = new Date();
+            const NIFProf = "Sem NIF";
+            const ids = await knex("professor")
+              //,nivelProf:20
+              .insert({
+                imgProf: imgCliente,
+                nivelProf: 20,
+                nomeProf: nome,
+                telProf: tell,
+                residenciaProf: "Sem Residencia",
+                userProf: username,
+                emailProf: email,
+                estadoProf: 1,
+                senhaProf: senha,
+                enderecoProf,
+                admProf: 0,
+                descricaoProf,
+                NIFProf,
+              });
+            req.flash("certo", "Formador cadastrado com sucesso!");
+            resp.redirect("/login");
+            // resp.redirect("/loginGeral")
+          } else {
+            req.flash("errado", "Formador já esta cadastrado!");
+            resp.redirect("/login");
+            //resp.redirect("/cadastrarCliente")
+          }
+        }
+      }
+    } else {
+      req.flash("errado", "Ocorreu um problema!");
+      resp.redirect("/login");
+      // resp.redirect("/cadastrarCliente")
     }
-})
+  } catch (error) {
+    console.log(error);
+
+    req.flash("errado", "Ocorreu um problema!");
+    resp.redirect("/login");
+  }
+});
 
 export default Route;

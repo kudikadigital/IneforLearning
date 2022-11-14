@@ -4,6 +4,7 @@ export async function up(knex: Knex) {
         table.increments('idVideo').primary();
         table.string('nomeVideo').notNullable();
         table.string('srcVideo').notNullable();
+        table.string('descVideo').notNullable();
         table.string('idModulo').notNullable().references('idModulo').inTable('modulo');
     })
 }

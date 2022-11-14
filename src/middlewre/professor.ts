@@ -1,16 +1,16 @@
 import { Response, Request, NextFunction } from "express";
 const profAuth= (req:Request, resp:Response, next:NextFunction)=>{
 
-    if(req.session){
-        if(req.session.professor!==undefined){
+    if(req.session?.user){
+        if(req.session.user.role===0){
             next();
         }else{
-            resp.redirect('/')
+            resp.redirect('/login')
         }
     }else{
-        resp.redirect('/')
+        resp.redirect('/login')
     }
 }
 
 
-export {profAuth};
+export default profAuth;

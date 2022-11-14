@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/user-profile-projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:09 GMT -->
+<%-include('../Partes/head.ejs')%>
+
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+
+  <script src="/dashboard/assets/js/hs.theme-appearance.js"></script>
+
+  <script src="/dashboard/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
+
+  <!-- ========== HEADER ========== -->
+  <%-include('../Partes/header.ejs')%>
+
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- Navbar Vertical -->
+  <%-include('../Partes/sideBar.ejs')%>
+
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-10">
+          <!-- Profile Cover -->
+          <div class="profile-cover">
+            <div class="profile-cover-img-wrapper">
+              <img class="profile-cover-img" src="/dashboard/assets/img/1920x400/img1.jpg" alt="Image Description">
+            </div>
+          </div>
+          <!-- End Profile Cover -->
+
+        
+          <!-- Profile Header -->
+
+          <div class="text-center mb-5">
+            <!-- Avatar -->
+            <div class="avatar avatar-xxl avatar-circle profile-cover-avatar">
+              <img class="avatar-img" src="http://localhost:1200/upload/<%=aluno.imgAluno%>" alt="Image Description">
+              <span class="avatar-status avatar-status-success"></span>
+            </div>
+            <!-- End Avatar -->
+
+            <h1 class="page-header-title"><%=aluno.nomeAluno %>  <i class="bi-patch-check-fill fs-2 text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h1>
+
+            <!-- List -->
+            <ul class="list-inline list-px-2">
+              <li class="list-inline-item">
+                <i class="bi-building me-1"></i>
+                <span><%=aluno.emailAluno %> </span>
+              </li>
+
+              <li class="list-inline-item">
+                <i class="bi-geo-alt me-1"></i>
+                <a href="#"><%=aluno.enderecoAluno %> </a>
+               
+              </li>
+
+              <li class="list-inline-item">
+                <i class="bi-calendar-week me-1"></i>
+                <span>Adiocionado aos <%= aluno.dataAluno %> </span>
+              </li>
+            </ul>
+            <!-- End List -->
+          </div>
+          <!-- End Profile Header -->
+
+          <!-- Nav -->
+          <div class="js-nav-scroller hs-nav-scroller-horizontal mb-5">
+            <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-left"></i>
+              </a>
+            </span>
+
+            <span class="hs-nav-scroller-arrow-next" style="display: none;">
+              <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+                <i class="bi-chevron-right"></i>
+              </a>
+            </span>
+
+            <ul class="nav nav-tabs align-items-center">
+              <li class="nav-item">
+                <a class="nav-link " href="/perfilAluno_/<%=aluno.idAluno %>">Perfil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/aprendizadoAluno/<%=aluno.idAluno %>">Meu Aprendizado <span class="badge bg-soft-dark text-dark rounded-circle ms-1">3</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/actividadesAluno/<%=aluno.idAluno %>">Actividades</a>
+              </li>
+
+              <li class="nav-item ms-auto">
+                <div class="d-flex gap-2">
+                  <!-- Form Check -->
+                  
+               
+                    <div class="form-check form-check-switch">
+                    
+                      <% if(aluno.estadoAluno==1){%>
+                        <button class="btn btn-primary">
+                          <i class="bi-check-lg"></i> Conectado
+                        </button>
+                      <% }else{%> 
+                        <button class="btn btn-danger">
+                          <i class="bi-person-plus-fill"></i> Desconectado
+                        </button>
+                      <%} %> 
+                  </div>
+               
+                  <a class="btn btn-white btn-sm" href="/editarAluno/<%= aluno.idAluno %> ">
+                    <i class="bi-person-plus-fill me-1"></i> Editar Perfil
+                  </a>
+                  <!-- End Form Check -->
+
+                  <a class="btn btn-icon btn-sm btn-white" href="#">
+                    <i class="bi-list-ul me-1"></i>
+                  </a>
+
+                  <!-- Dropdown -->
+                  <div class="dropdown nav-scroller-dropdown">
+                    <button type="button" class="btn btn-white btn-icon btn-sm" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi-three-dots-vertical"></i>
+                    </button>
+
+                    <!-- <div class="dropdown-menu dropdown-menu-end mt-1" aria-labelledby="profileDropdown">
+                      <span class="dropdown-header">Settings</span>
+
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-share-fill dropdown-item-icon"></i> Share profile
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-slash-circle dropdown-item-icon"></i> Block page and profile
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-info-circle dropdown-item-icon"></i> Suggest edits
+                      </a>
+
+                      <div class="dropdown-divider"></div>
+
+                      <span class="dropdown-header">Feedback</span>
+
+                      <a class="dropdown-item" href="#">
+                        <i class="bi-flag dropdown-item-icon"></i> Report
+                      </a>
+                    </div> -->
+                  </div>
+                  <!-- End Dropdown -->
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- End Nav -->
+
+            <!-- Filter -->
+            <div class="row align-items-center mb-5">
+              <div class="col">
+                <h3 class="mb-0"><%=cursos.length %>  Cursos</h3>
+              </div>
+              <!-- End Col -->
+  
+              <div class="col-auto">
+                <!-- Nav -->
+                <ul class="nav nav-segment" id="projectsTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="grid-tab" data-bs-toggle="tab" href="#grid" role="tab" aria-controls="grid" aria-selected="true" title="Column view">
+                      <i class="bi-grid"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="list-tab" data-bs-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false" title="List view">
+                      <i class="bi-view-list"></i>
+                    </a>
+                  </li>
+                </ul>
+                <!-- End Nav -->
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Filter -->
+  
+            <!-- Tab Content -->
+            <div class="tab-content" id="projectsTabContent">
+              <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                <div class="row row-cols-1 row-cols-md-2">
+                  <% cursos.map(e=>{ %> 
+                    <div class="col mb-3 mb-lg-5">
+                      <!-- Card -->
+                      <div class="card card-hover-shadow text-center h-100">
+                        <div class="card-progress-wrap">
+                          <!-- Progress -->
+                          <div class="progress card-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <!-- End Progress -->
+                        </div>
+    
+                        <!-- Body -->
+                        <div class="card-body">
+                          <div class="row align-items-center text-start mb-4">
+                            <div class="col">
+                              <span class="badge bg-soft-secondary text-secondary p-2">To do</span>
+                            </div>
+                            <!-- End Col -->
+    
+                            <div class="col-auto">
+                              <!-- Dropdown -->
+                              <div class="dropdown">
+                                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm card-dropdown-btn rounded-circle" id="projectsGridDropdown8" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="bi-three-dots-vertical"></i>
+                                </button>
+    
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="projectsGridDropdown8">
+                                  <a class="dropdown-item" href="#">Rename project </a>
+                                  <a class="dropdown-item" href="#">Add to favorites</a>
+                                  <a class="dropdown-item" href="#">Archive project</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item text-danger" href="#">Delete</a>
+                                </div>
+                              </div>
+                              <!-- End Dropdown -->
+                            </div>
+                            <!-- End Col -->
+                          </div>
+    
+                          <div class="d-flex justify-content-center mb-2">
+                            <!-- Avatar -->
+                            <img class="avatar avatar-lg" src="http://localhost:1200/upload/<%=e.imgCurso%>" alt="Image Description">
+                          </div>
+    
+                          <div class="mb-4">
+                            <h2 class="mb-1"><%= e.nomeCurso %> </h2>
+    
+                            <span class="fs-5">Updated 2 hours ago</span>
+                          </div>
+    
+                          <small class="card-subtitle">Members</small>
+    
+                          <div class="d-flex justify-content-center">
+                            <!-- Avatar Group -->
+                            <div class="avatar-group avatar-group-sm avatar-circle card-avatar-group">
+                              <a class="avatar" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Finch Hoot">
+                                <img class="avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
+                              </a>
+                              <a class="avatar avatar-soft-dark" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Bob Bardly">
+                                <span class="avatar-initials">B</span>
+                              </a>
+                              <a class="avatar" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Clarice Boone">
+                                <img class="avatar-img" src="/dashboard/assets/img/160x160/img7.jpg" alt="Image Description">
+                              </a>
+                              <a class="avatar avatar-soft-dark" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Adam Keep">
+                                <span class="avatar-initials">A</span>
+                              </a>
+                            </div>
+                            <!-- End Avatar Group -->
+                          </div>
+    
+                          <a class="stretched-link" href="#"></a>
+                        </div>
+                        <!-- End Body -->
+    
+                        <!-- Footer -->
+                        <div class="card-footer">
+                          <!-- Stats -->
+                          <div class="row col-divider">
+                            <div class="col">
+                              <span class="h4">19</span>
+                              <span class="d-block fs-5">Tasks</span>
+                            </div>
+                            <!-- End Col -->
+    
+                            <div class="col">
+                              <span class="h4">33</span>
+                              <span class="d-block fs-5">Completed</span>
+                            </div>
+                            <!-- End Col -->
+    
+                            <div class="col">
+                              <span class="h4">10</span>
+                              <span class="d-block fs-5">Days left</span>
+                            </div>
+                            <!-- End Col -->
+                          </div>
+                          <!-- End Stats -->
+                        </div>
+                        <!-- End Footer -->
+                      </div>
+                      <!-- End Card -->
+                    </div>
+                  <% }) %> 
+                </div>
+                <!-- End Row -->
+              </div>
+  
+              <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+                <div class="row row-cols-1">
+                  <% cursos.map(e=>{ %> 
+                    
+                  <div class="col mb-3 mb-lg-5">
+                    <!-- Card -->
+                    <div class="card card-body">
+                      <div class="d-flex">
+                        <!-- Avatar -->
+                        <div class="flex-shrink-0 me-3 me-lg-4">
+                          <img class="avatar" src="http://localhost:1200/upload/<%=e.imgCurso%>" alt="Image Description">
+                        </div>
+  
+                        <div class="flex-grow-1 ms-3">
+                          <div class="row align-items-sm-center">
+                            <div class="col">
+                              <span class="badge bg-soft-primary text-primary p-2 mb-2">In progress</span>
+  
+                              <h3 class="mb-1"><%= e.nomeCurso %>  </h3>
+                            </div>
+                            <!-- End Col -->
+  
+                            <div class="col-md-3 d-none d-md-flex justify-content-md-end ms-n3">
+                              <!-- Avatar Group -->
+                              <div class="avatar-group avatar-group-sm avatar-circle card-avatar-group">
+                                <a class="avatar" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Ella Lauda">
+                                  <img class="avatar-img" src="/dashboard/assets/img/160x160/img9.jpg" alt="Image Description">
+                                </a>
+                                <a class="avatar avatar-soft-info" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Sara Iwens">
+                                  <span class="avatar-initials">S</span>
+                                </a>
+                                <a class="avatar" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Finch Hoot">
+                                  <img class="avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
+                                </a>
+                                <a class="avatar avatar-light avatar-circle" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Sam Kart, Amanda Harvey and 1 more">
+                                  <span class="avatar-initials">+5</span>
+                                </a>
+                              </div>
+                              <!-- End Avatar Group -->
+                            </div>
+  
+                            <div class="col-auto">
+                              <!-- Dropdown -->
+                              <div class="dropdown">
+                                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm card-dropdown-btn rounded-circle" id="projectsListDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="bi-three-dots-vertical"></i>
+                                </button>
+  
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="projectsListDropdown2">
+                                  <a class="dropdown-item" href="#">Rename project </a>
+                                  <a class="dropdown-item" href="#">Add to favorites</a>
+                                  <a class="dropdown-item" href="#">Archive project</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item text-danger" href="#">Delete</a>
+                                </div>
+                              </div>
+                              <!-- End Unfold -->
+                            </div>
+                          </div>
+                          <!-- End Row -->
+  
+                          <!-- Stats -->
+                          <ul class="list-inline">
+                            <li class="list-inline-item">
+                              <span class="fs-5">Updated:</span>
+                              <span class="fw-semi-bold text-dark">1 day ago</span>
+                            </li>
+  
+                            <li class="list-inline-item">
+                              <span class="fs-5">Tasks:</span>
+                              <span class="fw-semi-bold text-dark">4</span>
+                            </li>
+  
+                            <li class="list-inline-item">
+                              <span class="fs-5">Completed:</span>
+                              <span class="fw-semi-bold text-dark">8</span>
+                            </li>
+  
+                            <li class="list-inline-item">
+                              <span class="fs-5">Days left:</span>
+                              <span class="fw-semi-bold text-dark">18</span>
+                            </li>
+                          </ul>
+                          <!-- End Stats -->
+  
+                          <!-- Progress -->
+                          <div class="progress card-progress">
+                            <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <!-- End Progress -->
+  
+                          <a class="stretched-link" href="#"></a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Card -->
+                  </div>
+                  <% }) %> 
+  
+  
+                </div>
+                <!-- End Row -->
+              </div>
+            </div>
+            <!-- End Tab Content -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+
+    <%- include('../Partes/footer') %>
+
+    <!-- End Footer -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ONLY DEV -->
+
+  <!-- Builder -->
+  <%- include('../Partes/dependencia') %> 
+
+  <!-- End Welcome Message Modal -->
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="/dashboard/assets/js/vendor.min.js"></script>
+
+  <!-- JS Front -->
+  <script src="/dashboard/assets/js/theme.min.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      window.onload = function () {
+        
+
+        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+        // =======================================================
+        new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        new HSFormSearch('.js-form-search')
+
+
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
+
+
+        // INITIALIZATION OF STICKY BLOCKS
+        // =======================================================
+        new HSStickyBlock('.js-sticky-block', {
+          targetSelector: document.getElementById('header').classList.contains('navbar-fixed') ? '#header' : null
+        })
+      }
+    })()
+  </script>
+
+  <!-- Style Switcher JS -->
+
+  <script>
+      (function () {
+        // STYLE SWITCHER
+        // =======================================================
+        const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
+        const $variants = document.querySelectorAll(`[aria-labelledby="selectThemeDropdown"] [data-icon]`) // All items of the dropdown
+
+        // Function to set active style in the dorpdown menu and set icon for dropdown trigger
+        const setActiveStyle = function () {
+          $variants.forEach($item => {
+            if ($item.getAttribute('data-value') === HSThemeAppearance.getOriginalAppearance()) {
+              $dropdownBtn.innerHTML = `<i class="${$item.getAttribute('data-icon')}" />`
+              return $item.classList.add('active')
+            }
+
+            $item.classList.remove('active')
+          })
+        }
+
+        // Add a click event to all items of the dropdown to set the style
+        $variants.forEach(function ($item) {
+          $item.addEventListener('click', function () {
+            HSThemeAppearance.setAppearance($item.getAttribute('data-value'))
+          })
+        })
+
+        // Call the setActiveStyle on load page
+        setActiveStyle()
+
+        // Add event listener on change style to call the setActiveStyle function
+        window.addEventListener('on-hs-appearance-change', function () {
+          setActiveStyle()
+        })
+      })()
+    </script>
+
+  <!-- End Style Switcher JS -->
+</body>
+
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/user-profile-projects.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:09 GMT -->
+</html>

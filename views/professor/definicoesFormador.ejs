@@ -1,0 +1,3366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/account-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:12 GMT -->
+<%-include('./Partes/head.ejs')%>
+
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
+
+  <script src="/dashboard/assets/js/hs.theme-appearance.js"></script>
+
+  <script src="/dashboard/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
+
+  <!-- ========== HEADER ========== -->
+
+  <%-include('./Partes/header.ejs')%>
+
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- Navbar Vertical -->
+  <%-include('./Partes/sideBar.ejs')%>
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="row align-items-end">
+          <div class="col-sm mb-2 mb-sm-0">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-no-gutter">
+                <li class="breadcrumb-item"><a class="breadcrumb-link" href="javascript:;">Plataforma de ensino a distancia do Inefor</a></li>        
+              </ol>
+            </nav>
+
+            <h1 class="page-header-title">Editar Formador</h1>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-sm-auto">
+            <a class="btn btn-primary" href="/perfilFormador_">
+              <i class="bi-person-fill me-1"></i> Meu Perfil
+            </a>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Page Header -->
+
+      <div class="row">
+        <div class="col-lg-3">
+          <!-- Navbar -->
+          <div class="navbar-expand-lg navbar-vertical mb-3 mb-lg-5">
+            <!-- Navbar Toggle -->
+            <!-- Navbar Toggle -->
+            <div class="d-grid">
+              <button type="button" class="navbar-toggler btn btn-white mb-3" data-bs-toggle="collapse" data-bs-target="#navbarVerticalNavMenu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarVerticalNavMenu">
+                <span class="d-flex justify-content-between align-items-center">
+                  <span class="text-dark">Menu</span>
+
+                  <span class="navbar-toggler-default">
+                    <i class="bi-list"></i>
+                  </span>
+
+                  <span class="navbar-toggler-toggled">
+                    <i class="bi-x"></i>
+                  </span>
+                </span>
+              </button>
+            </div>
+            <!-- End Navbar Toggle -->
+            <!-- End Navbar Toggle -->
+
+            <!-- Navbar Collapse -->
+            <div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
+              <ul id="navbarSettings" class="js-sticky-block js-scrollspy card card-navbar-nav nav nav-tabs nav-lg nav-vertical" data-hs-sticky-block-options='{
+                     "parentSelector": "#navbarVerticalNavMenu",
+                     "targetSelector": "#header",
+                     "breakpoint": "lg",
+                     "startPoint": "#navbarVerticalNavMenu",
+                     "endPoint": "#stickyBlockEndPoint",
+                     "stickyOffsetTop": 20
+                   }'>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#content">
+                    <i class="bi-person nav-icon"></i> Informações Básicas
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#emailSection">
+                    <i class="bi-at nav-icon"></i> Email
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#twoStepVerificationSection">
+                    <i class="bi-shield-lock nav-icon"></i> Informações Bancarias
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#recentDevicesSection">
+                    <i class="bi-phone nav-icon"></i> Recent devices
+                  </a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="#passwordSection">
+                    <i class="bi-key nav-icon"></i> Palavra-passe
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#preferencesSection">
+                    <i class="bi-gear nav-icon"></i> Preferencias
+                  </a>
+                </li>
+
+                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#deleteAccountSection">
+                    <i class="bi-trash nav-icon"></i> Eliminar Conta
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- End Navbar Collapse -->
+          </div>
+          <!-- End Navbar -->
+        </div>
+
+        <div class="col-lg-9">
+          <div class="d-grid gap-3 gap-lg-5">
+            <!-- Card -->
+            <div class="card">
+              <!-- Profile Cover -->
+              <div class="profile-cover">
+                <div class="profile-cover-img-wrapper">
+                  <img id="profileCoverImg" class="profile-cover-img" src="/dashboard/assets/img/1920x400/img2.jpg" alt="Image Description">
+
+                  <!-- Custom File Cover -->
+                  <div class="profile-cover-content profile-cover-uploader p-3">
+                    <input type="file" class="js-file-attach profile-cover-uploader-input" id="profileCoverUplaoder" data-hs-file-attach-options='{
+                                "textTarget": "#profileCoverImg",
+                                "mode": "image",
+                                "targetAttr": "src",
+                                "allowTypes": [".png", ".jpeg", ".jpg"]
+                             }'>
+                    <label class="profile-cover-uploader-label btn btn-sm btn-white" for="profileCoverUplaoder">
+                      <i class="bi-camera-fill"></i>
+                      <span class="d-none d-sm-inline-block ms-1">Mudar fundo da capa</span>
+                    </label>
+                  </div>
+                  <!-- End Custom File Cover -->
+                </div>
+              </div>
+              <!-- End Profile Cover -->
+
+              <!-- Avatar -->
+              <label class="avatar avatar-xxl avatar-circle avatar-uploader profile-cover-avatar" for="editAvatarUploaderModal">
+                <img id="editAvatarImgModal" class="avatar-img" src="http://localhost:1200/upload/<%=prof.imgProf%>" alt="Image Description">
+
+                <input type="file" class="js-file-attach avatar-uploader-input" id="editAvatarUploaderModal" data-hs-file-attach-options='{
+                            "textTarget": "#editAvatarImgModal",
+                            "mode": "image",
+                            "targetAttr": "src",
+                            "allowTypes": [".png", ".jpeg", ".jpg"]
+                         }'>
+
+                <span class="avatar-uploader-trigger">
+                  <i class="bi-pencil-fill avatar-uploader-icon shadow-sm"></i>
+                </span>
+              </label>
+              <!-- End Avatar -->
+
+              <!-- Body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <span class="d-block fs-5 mb-2">Quem pode ver sua foto de Perfil? <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Não disponivel no momento"></i></span>
+
+                    <!-- Select -->
+                    <div class="tom-select-custom">
+                      <select class="js-select form-select" data-hs-tom-select-options='{
+                                "searchInDropdown": false,
+                                "dropdownWidth": "auto"
+                              }'>
+                        <option value="privacy1" data-option-template='<div class="d-flex align-items-start"><div class="flex-shrink-0"><i class="bi-globe"></i></div><div class="flex-grow-1 ms-2"><span class="d-block fw-semi-bold">Todo Mundo</span><span class="tom-select-custom-hide small">Todo mundo pode ver.</span></div></div>'>Tudo Mundo</option>
+                        <option value="privacy2" data-option-template='<div class="d-flex align-items-start"><div class="flex-shrink-0"><i class="bi-lock"></i></div><div class="flex-grow-1 ms-2"><span class="d-block fw-semi-bold">Apenas eu</span><span class="tom-select-custom-hide small">Apenas você.</span></div></div>'>Apenas você</option>
+                      </select>
+                    </div>
+                    <!-- End Select -->
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title h4">Informações Básicas</h2>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <!-- Form -->
+                <div>
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Nome Completo <i class="bi-question-circle text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Displayed on public forums, such as Front."></i></label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nomeProf" id="nomeProf" placeholder="Nome Completo" aria-label="Your organization" value="<%= professor.nomeProf %>">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+                                    <!-- Form -->
+                                    <div class="row mb-4">
+                                      <label for="organizationLabel" class="col-sm-3 col-form-label form-label">Username</label>
+                  
+                                      <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="userProf" id="userProf" placeholder="Username" aria-label="Your organization" value="<%= professor.userProf %>">
+                                      </div>
+                                    </div>
+                                    <!-- End Form -->
+                                    <!-- Form -->
+                                    <div class="row mb-4">
+                                      <label for="organizationLabel" class="col-sm-3 col-form-label form-label">NIF</label>
+                  
+                                      <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="NIFProf" id="NIFProf" placeholder="NIF" aria-label="Your organization" value="<%= professor.NIFProf %> ">
+                                      </div>
+                                    </div>
+                                    <!-- End Form -->
+                  
+
+                    <!-- Form -->
+                    <div class="row mb-4">
+                      <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
+
+                      <div class="col-sm-9">
+                        <input type="email" class="form-control" name="emailProf" id="emailProf" placeholder="Email" aria-label="Email" value="<%= professor.emailProf %> ">
+                      </div>
+                    </div>
+                    <!-- End Form -->
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Telefone <span class="form-label-secondary"></span></label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="js-input-mask form-control" name="telProf" id="telProf" placeholder="+(xxx)xxx-xxx-xxx" aria-label="+x(xxx)xxx-xx-xx" value="<%= professor.telProf %> " data-hs-mask-options='{
+                               "mask": "+(244)000-000-000"
+                             }'>
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+
+
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="departmentLabel" class="col-sm-3 col-form-label form-label">Endereço</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="enderecoProf" id="enderecoProf" placeholder="Endereço" aria-label="Your department" value="<%= professor.enderecoProf %> ">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="addressLine1Label" class="col-sm-3 col-form-label form-label">Morada</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="residenciaProf" id="residenciaProf" placeholder="Morada" aria-label="Your address" value="<%= professor.residenciaProf%> ">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="addressLine2Label" class="col-sm-3 col-form-label form-label">Descrição<span class="form-label-secondary">(Optional)</span></label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="descricaoProf" id="descricaoProf" placeholder="Descrição" aria-label="Your address" value="<%= professor.descricaoProf %> ">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary" onclick="salvarDados()">Salvar Mudanças</button>
+                  </div>
+                </div>
+                <!-- End Form -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div id="emailSection" class="card">
+              <div class="card-header">
+                <h4 class="card-title">Email</h4>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <p>O teu presente email é <span class="fw-semi-bold"><%= professor.emailProf %> </span></p>
+
+                <!-- Form -->
+                <div>
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="newEmailLabel" class="col-sm-3 col-form-label form-label">Novo endereço email</label>
+
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" name="novoEmail" id="novoEmail" placeholder="Novo email" aria-label="Novo email">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary" onclick="salvarEmail()">Salvar Mudanças</button>
+                  </div>
+                </div>
+                <!-- End Form -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+            <!-- Card -->
+            <div id="twoStepVerificationSection" class="card">
+              <div class="card-header">
+                <div class="d-flex align-items-center">
+                  <h4 class="mb-0">Informações Bancarias</h4>
+                  <!-- <span class="badge bg-soft-danger text-danger ms-2">Disabled</span> -->
+                </div>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <p class="card-text">Seus dados bancarios são privados e só tu podes ver.</p>
+
+                <div>
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Nome Banco</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nomeBanco" id="nomeBanco" placeholder="Nome banco" aria-label="Enter current password" value="<%= dadosBanco.nomeBanco %>">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">Numero Banco</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="numeroConta" id="numeroConta" placeholder="Numero banco" aria-label="Numero banco" value="<%= dadosBanco.numeroConta %>">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="accountPasswordLabel" class="col-sm-3 col-form-label form-label">IBAN</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="IBAN" id="IBAN" placeholder="Enter current password" aria-label="Enter current password" value="<%= dadosBanco.IBAN %> ">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <div class="d-flex justify-content-end">
+                    <button onclick="dadosBanco()" class="btn btn-primary">Alterar Dados</button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div id="passwordSection" class="card">
+              <div class="card-header">
+                <h4 class="card-title">Mudar Palavra-passe</h4>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <!-- Form -->
+                <form id="changePasswordForm">
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="currentPasswordLabel" class="col-sm-3 col-form-label form-label">Palavra-passe Actual</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" name="senhaProf" id="senhaProf" placeholder="Digite sua senha" aria-label="Enter current password">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="newPassword" class="col-sm-3 col-form-label form-label">Nova Palavra-passe</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" name="senhaProf1" id="senhaProf1" placeholder="Digite sua nova senha" aria-label="Enter new password">
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label form-label">Confirmar Palavra-passe</label>
+
+                    <div class="col-sm-9">
+                      <div class="mb-3">
+                        <input type="password" class="form-control" name="senhaProf2" id="senhaProf2" placeholder="Confirme sua nova senha">
+                      </div>
+
+                      <h5>Requisitos da Palavra-passe:</h5>
+
+                      <p class="fs-6 mb-2">Garante os seguintes requisitos:</p>
+
+                      <ul class="fs-6">
+                        <li>Mais de 8 caracteres</li>
+                        <li>Pelo menos uma letra Menuscula</li>
+                        <li>Pelo menos uma letra Maiuscula</li>
+                        <li>Pelo menos um numeros, simbolo, ou caracteres especiaís</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Salvar Mudanças</button>
+                  </div>
+                </form>
+                <!-- End Form -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+
+            <!-- Card -->
+            <div id="preferencesSection" class="card">
+              <div class="card-header">
+                <h4 class="card-title">Preferencias (Não disponivel)</h4>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <!-- Form -->
+                <form>
+
+                  <!-- Form -->
+                  <div class="row mb-4">
+                    <!-- <label for="timeZoneLabel" class="col-sm-3 col-form-label form-label">Fuso horário</label> -->
+
+                    <div class="col-sm-9">
+                      <!-- <input type="text" disabled class="form-control"  readonly> -->
+                    </div>
+                  </div>
+                  <!-- End Form -->
+
+                  <!-- Form Switch -->
+                  <label class="row form-check form-switch mb-4" for="accounrSettingsPreferencesSwitch1">
+                    <span class="col-8 col-sm-9 ms-0">
+                      <span class="d-block text-dark">Pendente</span>
+                      <span class="d-block fs-5">Colocar a conta como pendente</span>
+                    </span>
+                    <span class="col-4 col-sm-3 text-end">
+                      <input type="checkbox" class="form-check-input" id="accounrSettingsPreferencesSwitch1">
+                    </span>
+                  </label>
+                  <!-- End Form Switch -->
+
+                  <!-- Form Switch -->
+                  <label class="row form-check form-switch mb-4" for="accounrSettingsPreferencesSwitch2">
+                    <span class="col-8 col-sm-9 ms-0">
+                      <span class="d-block text-dark mb-1">Desactivar Conta</span>
+                      <span class="d-block fs-5 text-muted"><a class="link" href="#">Conta será desativida</a>.</span>
+                    </span>
+                    <span class="col-4 col-sm-3 text-end">
+                      <input type="checkbox" class="form-check-input" id="accounrSettingsPreferencesSwitch2" checked>
+                    </span>
+                  </label>
+                  <!-- End Form Switch -->
+
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Salvar Mudançass</button>
+                  </div>
+                </form>
+                <!-- End Form -->
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+
+
+
+            <!-- Card -->
+            <div id="deleteAccountSection" class="card">
+              <div class="card-header">
+                <h4 class="card-title">Deletar conta</h4>
+              </div>
+
+              <!-- Body -->
+              <div class="card-body">
+                <p class="card-text">Ao excluir sua conta, você perde o acesso aos serviços de conta do Front e excluímos permanentemente seus dados pessoais. Você não vai poder recuperar-la de volta.</p>
+
+                <div class="mb-4">
+                  <!-- Form Check -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="deleteAccountCheckbox">
+                    <label class="form-check-label" for="deleteAccountCheckbox">
+                      Confirmar que deseja deletar.
+                    </label>
+                  </div>
+                  <!-- End Form Check -->
+                </div>
+
+                <div class="d-flex justify-content-end gap-3">
+                  <a class="btn btn-white" href="#">Saber Mais</a>
+                  <button type="submit" class="btn btn-danger">Deletar</button>
+                </div>
+              </div>
+              <!-- End Body -->
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <!-- Sticky Block End Point -->
+          <div id="stickyBlockEndPoint"></div>
+        </div>
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+
+    <%- include('./Partes/footer.ejs') %> 
+    <!-- End Footer -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- ONLY DEV -->
+
+  <!-- Builder -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBuilder" aria-labelledby="offcanvasBuilderLabel">
+    <div class="offcanvas-header align-items-start">
+      <div>
+        <h3 id="offcanvasBuilderLabel">Front Builder</h3>
+        <p class="mb-0">Customize the overview page layout.</p>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <h4 class="mb-1">Theme Appearance Mode</h4>
+      <p>Check out all <a href="documentation/layout.html">Layout Options here</a></p>
+
+      <div class="row gx-3">
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layoutSkinsRadio" id="layoutSkinsRadio1" checked value="default">
+            <label class="form-check-label mb-2" for="layoutSkinsRadio1">
+              <img class="form-check-img" src="/dashboard/assets/img/415x310/img1.jpg" alt="Image Description">
+            </label>
+            <span class="form-check-text">Default</span>
+          </div>
+        </div>
+        <!-- End Check -->
+
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layoutSkinsRadio" id="layoutSkinsRadio2" value="dark">
+            <label class="form-check-label mb-2" for="layoutSkinsRadio2">
+              <img class="form-check-img" src="/dashboard/assets/img/415x310/img2.jpg" alt="Image Description">
+            </label>
+            <span class="form-check-text">Dark Mode</span>
+          </div>
+        </div>
+        <!-- End Check -->
+      </div>
+      <!-- End Row -->
+
+      <hr>
+
+      <div class="row gx-3">
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layout" id="navbarLayoutSkinsRadio1" checked value="default">
+            <label class="form-check-label mb-2" for="navbarLayoutSkinsRadio1">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/sidebar-default.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/sidebar-default.svg" alt="Image Description" data-hs-theme-appearance="default">
+            </label>
+            <span class="form-check-text">Default</span>
+          </div>
+        </div>
+        <!-- End Check -->
+
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layout" id="navbarLayoutSkinsRadio2" value="navbar-dark">
+            <label class="form-check-label mb-2" for="navbarLayoutSkinsRadio2">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/sidebar-dark.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/sidebar-dark.svg" alt="Image Description" data-hs-theme-appearance="default">
+            </label>
+            <span class="form-check-text">Dark</span>
+          </div>
+        </div>
+        <!-- End Check -->
+      </div>
+      <!-- End Row -->
+
+      <hr>
+
+      <h4 class="mb-1">Sidebar Nav</h4>
+      <p>Check out all <a href="documentation/layout.html">Layout Options here</a></p>
+
+      <div class="row gx-3">
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="sidebarNavOptions" id="sidebarNavOptions1" value="pills" checked>
+            <label class="form-check-label mb-2" for="sidebarNavOptions1">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/demo-layouts-default-classic.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/demo-layouts-default-classic.svg" alt="Image Description" data-hs-theme-appearance="default">
+            </label>
+            <span class="form-check-text">Pills</span>
+          </div>
+        </div>
+        <!-- End Check -->
+
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="sidebarNavOptions" id="sidebarNavOptions2" value="tabs">
+            <label class="form-check-label mb-2" for="sidebarNavOptions2">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/demo-layouts-nav-tabs.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/demo-layouts-nav-tabs.svg" alt="Image Description" data-hs-theme-appearance="default">
+            </label>
+            <span class="form-check-text">Tabs</span>
+          </div>
+        </div>
+        <!-- End Check -->
+      </div>
+      <!-- End Row -->
+
+      <hr>
+
+      <!-- Form Switch -->
+      <label class="row form-check form-switch mb-3" for="builderFluidSwitch">
+        <span class="col-10 ms-0">
+          <span class="d-block h4 mb-1">Header Layout Options</span>
+          <span class="d-block fs-5">Toggle to container-fluid layout</span>
+        </span>
+        <span class="col-2 text-end">
+          <input type="checkbox" class="form-check-input" id="builderFluidSwitch">
+        </span>
+      </label>
+      <!-- End Form Switch -->
+
+      <div class="row gx-3">
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layout" id="headerLayoutOptions1" value="single-header">
+            <label class="form-check-label mb-2" for="headerLayoutOptions1">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/header-default-container.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/header-default-container.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </label>
+            <span class="form-check-text">Default</span>
+          </div>
+        </div>
+        <!-- End Check -->
+
+        <!-- Check -->
+        <div class="col-6">
+          <div class="form-check form-check-label-highlighter text-center">
+            <input type="radio" class="form-check-input" name="layout" id="headerLayoutOptions2" value="double-header">
+            <label class="form-check-label mb-2" for="headerLayoutOptions2">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts/header-double-line-container.svg" alt="Image Description" data-hs-theme-appearance="default">
+              <img class="form-check-img" src="/dashboard/assets/svg/layouts-light/header-double-line-container.svg" alt="Image Description" data-hs-theme-appearance="dark">
+            </label>
+            <span class="form-check-text">Double line</span>
+          </div>
+        </div>
+        <!-- End Check -->
+      </div>
+      <!-- End Row -->
+    </div>
+
+    <!-- Footer -->
+    <div class="offcanvas-footer">
+      <div class="row gx-3">
+        <div class="col">
+          <div class="d-grid">
+            <button type="button" id="js-builder-reset" class="btn btn-white btn-lg">
+              <i class="bi-arrow-counterclockwise"></i> Reset
+            </button>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col">
+          <div class="d-grid">
+            <button type="button" id="js-builder-preview" class="btn btn-primary btn-lg">
+              <i class="eye-visible"></i> Preview
+            </button>
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Footer -->
+  </div>
+
+  <!-- End Builder -->
+
+  <!-- Builder Toggle -->
+
+  <!-- End Builder Toggle -->
+
+  <div class="d-none js-build-layouts">
+    <div class="js-build-layout-header-default">
+      <!-- Single Header -->
+      <header id="header" class="navbar navbar-expand-lg navbar-bordered bg-white  ">
+        <div class="container">
+          <nav class="js-mega-menu navbar-nav-wrap">
+            <!-- Logo -->
+
+            <a class="navbar-brand" href="index.html" aria-label="Front">
+              <img class="navbar-brand-logo" src="/dashboard/assets/svg/logos/logo.svg" alt="Logo" data-hs-theme-appearance="default">
+              <img class="navbar-brand-logo" src="/dashboard/assets/svg/logos-light/logo.svg" alt="Logo" data-hs-theme-appearance="dark">
+            </a>
+
+            <!-- End Logo -->
+
+            <!-- Secondary Content -->
+            <div class="navbar-nav-wrap-secondary-content">
+              <!-- Navbar -->
+              <ul class="navbar-nav">
+                <li class="nav-item d-none d-md-inline-block">
+                  <!-- Notification -->
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                      <i class="bi-bell"></i>
+                      <span class="btn-status btn-sm-status btn-status-danger"></span>
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem;">
+                      <!-- Header -->
+                      <div class="card-header card-header-content-between">
+                        <h4 class="card-title mb-0">Notifications</h4>
+
+                        <!-- Unfold -->
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" id="navbarNotificationsDropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-three-dots-vertical"></i>
+                          </button>
+
+                          <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdownSettings">
+                            <span class="dropdown-header">Settings</span>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-archive dropdown-item-icon"></i> Archive all
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-check2-all dropdown-item-icon"></i> Mark all as read
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-toggle-off dropdown-item-icon"></i> Disable notifications
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-gift dropdown-item-icon"></i> What's new?
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-header">Feedback</span>
+                            <a class="dropdown-item" href="#">
+                              <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Unfold -->
+                      </div>
+                      <!-- End Header -->
+
+                      <!-- Nav -->
+                      <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#notificationNavOne" id="notificationNavOne-tab" data-bs-toggle="tab" data-bs-target="#notificationNavOne" role="tab" aria-controls="notificationNavOne" aria-selected="true">Messages (3)</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#notificationNavTwo" id="notificationNavTwo-tab" data-bs-toggle="tab" data-bs-target="#notificationNavTwo" role="tab" aria-controls="notificationNavTwo" aria-selected="false">Archived</a>
+                        </li>
+                      </ul>
+                      <!-- End Nav -->
+
+                      <!-- Body -->
+                      <div class="card-body-height">
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="notificationTabContent">
+                          <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush navbar-card-list-group">
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck1" checked>
+                                        <label class="form-check-label" for="notificationCheck1"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <img class="avatar avatar-sm avatar-circle" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Brian Warner</h5>
+                                    <p class="text-body fs-5">changed an issue from "In Progress" to <span class="badge bg-success">Review</span></p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">2hr</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck2" checked>
+                                        <label class="form-check-label" for="notificationCheck2"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                        <span class="avatar-initials">K</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Klara Hampton</h5>
+                                    <p class="text-body fs-5">mentioned you in a comment</p>
+                                    <blockquote class="blockquote blockquote-sm">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">10hr</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck3" checked>
+                                        <label class="form-check-label" for="notificationCheck3"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img10.jpg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Ruby Walter</h5>
+                                    <p class="text-body fs-5">joined the Slack group HS Team</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">3dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck4">
+                                        <label class="form-check-label" for="notificationCheck4"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="/dashboard/assets/svg/brands/google-icon.svg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">from Google</h5>
+                                    <p class="text-body fs-5">Start using forms to capture the information of prospects visiting your Google website</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">17dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck5">
+                                        <label class="form-check-label" for="notificationCheck5"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img7.jpg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Sara Villar</h5>
+                                    <p class="text-body fs-5">completed <i class="bi-journal-bookmark-fill text-primary"></i> FD-7 task</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">2mn</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+                            </ul>
+                            <!-- End List Group -->
+                          </div>
+
+                          <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
+                            <!-- List Group -->
+                            <ul class="list-group list-group-flush navbar-card-list-group">
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck6">
+                                        <label class="form-check-label" for="notificationCheck6"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                        <span class="avatar-initials">A</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Anne Richard</h5>
+                                    <p class="text-body fs-5">accepted your invitation to join Notion</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">1dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck7">
+                                        <label class="form-check-label" for="notificationCheck7"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Finch Hoot</h5>
+                                    <p class="text-body fs-5">left Slack group HS projects</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">1dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck8">
+                                        <label class="form-check-label" for="notificationCheck8"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-dark avatar-circle">
+                                        <span class="avatar-initials">HS</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Htmlstream</h5>
+                                    <p class="text-body fs-5">you earned a "Top endorsed" <i class="bi-patch-check-fill text-primary"></i> badge</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">6dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck9">
+                                        <label class="form-check-label" for="notificationCheck9"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-circle">
+                                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img8.jpg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Linda Bates</h5>
+                                    <p class="text-body fs-5">Accepted your connection</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">17dy</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+
+                              <!-- Item -->
+                              <li class="list-group-item form-check-select">
+                                <div class="row">
+                                  <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="notificationCheck10">
+                                        <label class="form-check-label" for="notificationCheck10"></label>
+                                        <span class="form-check-stretched-bg"></span>
+                                      </div>
+                                      <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                        <span class="avatar-initials">L</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <div class="col ms-n2">
+                                    <h5 class="mb-1">Lewis Clarke</h5>
+                                    <p class="text-body fs-5">completed <i class="bi-journal-bookmark-fill text-primary"></i> FD-134 task</p>
+                                  </div>
+                                  <!-- End Col -->
+
+                                  <small class="col-auto text-muted text-cap">2mts</small>
+                                  <!-- End Col -->
+                                </div>
+                                <!-- End Row -->
+
+                                <a class="stretched-link" href="#"></a>
+                              </li>
+                              <!-- End Item -->
+                            </ul>
+                            <!-- End List Group -->
+                          </div>
+                        </div>
+                        <!-- End Tab Content -->
+                      </div>
+                      <!-- End Body -->
+
+                      <!-- Card Footer -->
+                      <a class="card-footer text-center" href="#">
+                        View all notifications <i class="bi-chevron-right"></i>
+                      </a>
+                      <!-- End Card Footer -->
+                    </div>
+                  </div>
+                  <!-- End Notification -->
+                </li>
+
+                <li class="nav-item d-none d-sm-inline-block">
+                  <!-- Apps -->
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-icon btn-ghost-secondary rounded-circle" id="navbarAppsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                      <i class="bi-app-indicator"></i>
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarAppsDropdown" style="width: 25rem;">
+                      <!-- Header -->
+                      <div class="card-header">
+                        <h4 class="card-title">Web apps &amp; services</h4>
+                      </div>
+                      <!-- End Header -->
+
+                      <!-- Body -->
+                      <div class="card-body card-body-height">
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/atlassian-icon.svg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">Atlassian</h5>
+                              <p class="card-text text-body">Security and control across Cloud</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/slack-icon.svg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
+                              <p class="card-text text-body">Email collaboration software</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">Google webdev</h5>
+                              <p class="card-text text-body">Work involved in developing a website</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/frontapp-icon.svg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">Frontapp</h5>
+                              <p class="card-text text-body">The inbox for teams</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/illustrations/review-rating-shield.svg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">HS Support</h5>
+                              <p class="card-text text-body">Customer service and support</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <div class="avatar avatar-sm avatar-soft-dark">
+                                <span class="avatar-initials"><i class="bi-grid"></i></span>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-3">
+                              <h5 class="mb-0">More Front products</h5>
+                              <p class="card-text text-body">Check out more HS products</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- End Body -->
+
+                      <!-- Footer -->
+                      <a class="card-footer text-center" href="#">
+                        View all apps <i class="bi-chevron-right"></i>
+                      </a>
+                      <!-- End Footer -->
+                    </div>
+                  </div>
+                  <!-- End Apps -->
+                </li>
+
+                <li class="nav-item d-none d-sm-inline-block">
+                  <!-- Activity -->
+                  <button class="btn btn-ghost-secondary btn-icon rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasActivityStream" aria-controls="offcanvasActivityStream">
+                    <i class="bi-x-diamond"></i>
+                  </button>
+                  <!-- Activity -->
+                </li>
+
+                <li class="nav-item">
+                  <!-- Style Switcher -->
+                  <div class="dropdown ">
+                    <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                      <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                        <i class="bi-moon-stars me-2"></i>
+                        <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                      </a>
+                      <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                        <i class="bi-brightness-high me-2"></i>
+                        <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                      </a>
+                      <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                        <i class="bi-moon me-2"></i>
+                        <span class="text-truncate" title="Dark">Dark</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- End Style Switcher -->
+                </li>
+
+                <li class="nav-item">
+                  <!-- Account -->
+                  <div class="dropdown">
+                    <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                      <div class="avatar avatar-sm avatar-circle">
+                        <img class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
+                        <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                      </div>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                      <div class="dropdown-item-text">
+                        <div class="d-flex align-items-center">
+                          <div class="avatar avatar-sm avatar-circle">
+                            <img class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
+                          </div>
+                          <div class="flex-grow-1 ms-3">
+                            <h5 class="mb-0">Mark Williams</h5>
+                            <p class="card-text text-body">mark@site.com</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="dropdown-divider"></div>
+
+                      <!-- Dropdown -->
+                      <div class="dropdown">
+                        <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown1" data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
+
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown1">
+                          <a class="dropdown-item" href="#">
+                            <span class="legend-indicator bg-success me-1"></span> Available
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <span class="legend-indicator bg-danger me-1"></span> Busy
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <span class="legend-indicator bg-warning me-1"></span> Away
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#"> Reset status
+                          </a>
+                        </div>
+                      </div>
+                      <!-- End Dropdown -->
+
+                      <a class="dropdown-item" href="#">Profile &amp; account</a>
+                      <a class="dropdown-item" href="#">Settings</a>
+
+                      <div class="dropdown-divider"></div>
+
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex align-items-center">
+                          <div class="flex-shrink-0">
+                            <div class="avatar avatar-sm avatar-dark avatar-circle">
+                              <span class="avatar-initials">HS</span>
+                            </div>
+                          </div>
+                          <div class="flex-grow-1 ms-2">
+                            <h5 class="mb-0">Htmlstream <span class="badge bg-primary rounded-pill text-uppercase ms-1">PRO</span></h5>
+                            <span class="card-text">hs.example.com</span>
+                          </div>
+                        </div>
+                      </a>
+
+                      <div class="dropdown-divider"></div>
+
+                      <!-- Dropdown -->
+                      <div class="dropdown">
+                        <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Customization</a>
+
+                        <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown2">
+                          <a class="dropdown-item" href="#">
+                            Invite people
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            Analytics
+                            <i class="bi-box-arrow-in-up-right"></i>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            Customize Front
+                            <i class="bi-box-arrow-in-up-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <!-- End Dropdown -->
+
+                      <a class="dropdown-item" href="#">Manage team</a>
+
+                      <div class="dropdown-divider"></div>
+
+                      <a class="dropdown-item" href="#">Sign out</a>
+                    </div>
+                  </div>
+                  <!-- End Account -->
+                </li>
+              </ul>
+              <!-- End Navbar -->
+            </div>
+            <!-- End Secondary Content -->
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContainerNavDropdown" aria-controls="navbarContainerNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-default">
+                <i class="bi-list"></i>
+              </span>
+              <span class="navbar-toggler-toggled">
+                <i class="bi-x"></i>
+              </span>
+            </button>
+            <!-- End Toggler -->
+
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarContainerNavDropdown">
+              <ul class="navbar-nav">
+                <!-- Dashboards -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="dashboardsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle active" href="#" role="button"><i class="bi-house-door dropdown-item-icon"></i> Dashboards</a>
+
+                  <!-- Mega Menu -->
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="dashboardsMegaMenu" style="min-width: 14rem;">
+                    <a class="dropdown-item active" href="index.html">Default</a>
+                    <a class="dropdown-item " href="dashboard-alternative.html">Alternative</a>
+                  </div>
+                  <!-- End Mega Menu -->
+                </li>
+                <!-- End Dashboards -->
+
+                <!-- Pages -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button"><i class="bi-files-alt dropdown-item-icon"></i> Pages</a>
+
+                  <!-- Mega Menu -->
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="pagesMegaMenu" style="min-width: 14rem;">
+                    <!-- Users -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="usersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Users</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="usersMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="users.html">Overview</a>
+                        <a class="dropdown-item " href="users-leaderboard.html">Leaderboard</a>
+                        <a class="dropdown-item " href="users-add-user.html">Add User <span class="badge bg-info rounded-pill ms-1">Hot</span></a>
+                      </div>
+                    </div>
+                    <!-- End Users -->
+
+                    <!-- User Profile -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="userProfileMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">User Profile <span class="badge bg-primary rounded-pill ms-1">5</span></a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="userProfileMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="user-profile.html">Profile</a>
+                        <a class="dropdown-item " href="user-profile-teams.html">Teams</a>
+                        <a class="dropdown-item " href="user-profile-projects.html">Projects</a>
+                        <a class="dropdown-item " href="user-profile-connections.html">Connections</a>
+                        <a class="dropdown-item " href="user-profile-my-profile.html">My Profile</a>
+                      </div>
+                    </div>
+                    <!-- End User Profile -->
+
+                    <!-- Account -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="accountMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Account</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="accountMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="account-settings.html">Settings</a>
+                        <a class="dropdown-item " href="account-billing.html">Billing</a>
+                        <a class="dropdown-item " href="account-invoice.html">Invoice</a>
+                      </div>
+                    </div>
+                    <!-- End Account -->
+
+                    <!-- E-commerce -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="ecommerceMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">E-commerce</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="ecommerceMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="ecommerce.html">Overview</a>
+
+                        <!-- Products -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="productsMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Products</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="productsMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-products.html">Products</a>
+                            <a class="dropdown-item " href="ecommerce-product-details.html">Product Details</a>
+                            <a class="dropdown-item " href="ecommerce-add-product.html">Add Product</a>
+                          </div>
+                        </div>
+                        <!-- End Products -->
+
+                        <!-- Products -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="ordersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Orders</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="ordersMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-orders.html">Orders</a>
+                            <a class="dropdown-item " href="ecommerce-order-details.html">Order Details</a>
+                          </div>
+                        </div>
+                        <!-- End Products -->
+
+                        <!-- Customers -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="customersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Customers</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="customersMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-customers.html">Customers</a>
+                            <a class="dropdown-item " href="ecommerce-customer-details.html">Customer Details</a>
+                            <a class="dropdown-item " href="ecommerce-add-customers.html">Add Customers</a>
+                          </div>
+                        </div>
+                        <!-- End Customers -->
+
+                        <a class="dropdown-item " href="ecommerce-referrals.html">Referrals</a>
+                        <a class="dropdown-item " href="ecommerce-manage-reviews.html">Manage Reviews</a>
+                        <a class="dropdown-item " href="ecommerce-checkout.html">Checkout</a>
+                      </div>
+                    </div>
+                    <!-- End E-commerce -->
+
+                    <!-- Projects -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="projectsMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Projects</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="projectsMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="projects.html">Overview</a>
+                        <a class="dropdown-item " href="projects-timeline.html">Timeline</a>
+                      </div>
+                    </div>
+                    <!-- End Projects -->
+
+                    <!-- Project -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="projectMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Project</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="projectMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="project.html">Overview</a>
+                        <a class="dropdown-item " href="project-files.html">Files</a>
+                        <a class="dropdown-item " href="project-activity.html">Activity</a>
+                        <a class="dropdown-item " href="project-teams.html">Teams</a>
+                        <a class="dropdown-item " href="project-settings.html">Settings</a>
+                      </div>
+                    </div>
+                    <!-- End Project -->
+
+                    <!-- Authentication -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="authenticationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Authentication</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="authenticationMegaMenu" style="min-width: 14rem;">
+                        <!-- Log In -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="loginMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Log In</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="loginMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-login-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-login-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Log In -->
+
+                        <!-- Sign Up -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="signupMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Sign Up</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="signupMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-signup-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-signup-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Sign Up -->
+
+                        <!-- Reset Password -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="resetPasswordMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Reset Password</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="resetPasswordMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-reset-password-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-reset-password-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Reset Password -->
+
+                        <!-- Email Verification -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="emailVerificationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Email Verification</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="emailVerificationMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-email-verification-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-email-verification-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Email Verification -->
+
+                        <!-- 2-step Verification -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="2stepVerificationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">2-step Verification</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="2stepVerificationMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-2-step-verification-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-2-step-verification-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End 2-step Verification -->
+
+                        <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#welcomeMessageModal">Welcome Message</a>
+                        <a class="dropdown-item " href="error-404.html">Error 404</a>
+                        <a class="dropdown-item " href="error-500.html">Error 500</a>
+                      </div>
+                    </div>
+                    <!-- End Authentication -->
+
+                    <a class="dropdown-item " href="api-keys.html" data-placement="left">API Keys</a>
+                    <a class="dropdown-item " href="welcome-page.html" data-placement="left">Welcome Page</a>
+                    <a class="dropdown-item " href="landing.html" data-placement="left">Landing Page <span class="badge bg-info rounded-pill ms-1">New</span></a>
+                  </div>
+                  <!-- End Mega Menu -->
+                </li>
+                <!-- End Pages -->
+
+                <!-- Apps -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="appsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button"><i class="bi-app-indicator dropdown-item-icon"></i> Apps</a>
+
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="appsMegaMenu" style="min-width: 14rem;">
+                    <a class="dropdown-item " href="apps-kanban.html">Kanban</a>
+                    <a class="dropdown-item " href="apps-calendar.html">Calendar</a>
+                    <a class="dropdown-item " href="apps-invoice-generator.html">Invoice Generator</a>
+                    <a class="dropdown-item " href="apps-file-manager.html">File Manager</a>
+                  </div>
+                </li>
+                <!-- End Apps -->
+
+                <li class="nav-item">
+                  <a class="nav-link " href="layouts/index.html">
+                    <i class="bi-grid-1x2 dropdown-item-icon"></i> Layouts
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link " href="documentation/index.html" data-placement="left">
+                    <i class="bi-book dropdown-item-icon"></i> Docs
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+            <!-- End Collapse -->
+          </nav>
+        </div>
+      </header>
+
+      <!-- End Single Header -->
+    </div>
+    <div class="js-build-layout-header-double">
+      <!-- Double Header -->
+      <header id="header" class="navbar navbar-expand-lg navbar-bordered navbar-spacer-y-0 flex-lg-column">
+        <div class="navbar-dark w-100 bg-dark py-2">
+          <div class="container">
+            <div class="navbar-nav-wrap">
+              <!-- Logo -->
+              <a class="navbar-brand" href="index.html" aria-label="Front">
+                <img class="navbar-brand-logo" src="/dashboard/assets/svg/logos/logo-white.svg" alt="Logo">
+              </a>
+              <!-- End Logo -->
+
+              <!-- Content Start -->
+              <div class="navbar-nav-wrap-content-start">
+                <!-- Search Form -->
+                <div class="d-none d-lg-block">
+                  <div class="dropdown ms-2">
+                    <!-- Input Group -->
+                    <div class="d-none d-lg-block">
+                      <div class="input-group input-group-merge input-group-borderless input-group-hover-light navbar-input-group">
+                        <div class="input-group-prepend input-group-text">
+                          <i class="bi-search"></i>
+                        </div>
+
+                        <input type="search" class="js-form-search form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options='{
+                               "clearIcon": "#clearSearchResultsIcon",
+                               "dropMenuElement": "#searchDropdownMenu",
+                               "dropMenuOffset": 20,
+                               "toggleIconOnFocus": true,
+                               "activeClass": "focus"
+                             }'>
+                        <a class="input-group-append input-group-text" href="javascript:;">
+                          <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
+                        </a>
+                      </div>
+                    </div>
+
+                    <button class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none" type="button" data-hs-form-search-options='{
+                               "clearIcon": "#clearSearchResultsIcon",
+                               "dropMenuElement": "#searchDropdownMenu",
+                               "dropMenuOffset": 20,
+                               "toggleIconOnFocus": true,
+                               "activeClass": "focus"
+                             }'>
+                      <i class="bi-search"></i>
+                    </button>
+                    <!-- End Input Group -->
+
+                    <!-- Card Search Content -->
+                    <div id="searchDropdownMenu" class="hs-form-search-menu-content dropdown-menu dropdown-menu-form-search navbar-dropdown-menu-borderless">
+                      <!-- Body -->
+                      <div class="card-body-height">
+                        <div class="d-lg-none">
+                          <div class="input-group input-group-merge navbar-input-group mb-5">
+                            <div class="input-group-prepend input-group-text">
+                              <i class="bi-search"></i>
+                            </div>
+
+                            <input type="search" class="form-control" placeholder="Search in front" aria-label="Search in front">
+                            <a class="input-group-append input-group-text" href="javascript:;">
+                              <i class="bi-x-lg"></i>
+                            </a>
+                          </div>
+                        </div>
+
+                        <span class="dropdown-header">Recent searches</span>
+
+                        <div class="dropdown-item bg-transparent text-wrap">
+                          <a class="btn btn-soft-dark btn-xs rounded-pill" href="index.html">
+                            Gulp <i class="bi-search ms-1"></i>
+                          </a>
+                          <a class="btn btn-soft-dark btn-xs rounded-pill" href="index.html">
+                            Notification panel <i class="bi-search ms-1"></i>
+                          </a>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <span class="dropdown-header">Tutorials</span>
+
+                        <a class="dropdown-item" href="index.html">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <span class="icon icon-soft-dark icon-xs icon-circle">
+                                <i class="bi-sliders"></i>
+                              </span>
+                            </div>
+
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span>How to set up Gulp?</span>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="index.html">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <span class="icon icon-soft-dark icon-xs icon-circle">
+                                <i class="bi-paint-bucket"></i>
+                              </span>
+                            </div>
+
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span>How to change theme color?</span>
+                            </div>
+                          </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <span class="dropdown-header">Members</span>
+
+                        <a class="dropdown-item" href="index.html">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-circle" src="/dashboard/assets/img/160x160/img10.jpg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span>Amanda Harvey <i class="tio-verified text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></span>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="index.html">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <img class="avatar avatar-xs avatar-circle" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span>David Harrison</span>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a class="dropdown-item" href="index.html">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <div class="avatar avatar-xs avatar-soft-info avatar-circle">
+                                <span class="avatar-initials">A</span>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1 text-truncate ms-2">
+                              <span>Anne Richard</span>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <!-- End Body -->
+
+                      <!-- Footer -->
+                      <a class="card-footer text-center" href="index.html">
+                        See all results <i class="bi-chevron-right small"></i>
+                      </a>
+                      <!-- End Footer -->
+                    </div>
+                    <!-- End Card Search Content -->
+
+                  </div>
+
+                </div>
+                <!-- End Search Form -->
+              </div>
+              <!-- End Content Start -->
+
+              <!-- Content End -->
+              <div class="navbar-nav-wrap-content-end">
+                <!-- Navbar -->
+                <ul class="navbar-nav">
+                  <li class="nav-item d-none d-md-inline-block">
+                    <!-- Notification -->
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-ghost-light btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                        <i class="bi-bell"></i>
+                        <span class="btn-status btn-sm-status btn-status-danger"></span>
+                      </button>
+
+                      <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem;">
+                        <!-- Header -->
+                        <div class="card-header card-header-content-between">
+                          <h4 class="card-title mb-0">Notifications</h4>
+
+                          <!-- Unfold -->
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" id="navbarNotificationsDropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="bi-three-dots-vertical"></i>
+                            </button>
+
+                            <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdownSettings">
+                              <span class="dropdown-header">Settings</span>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-archive dropdown-item-icon"></i> Archive all
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-check2-all dropdown-item-icon"></i> Mark all as read
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-toggle-off dropdown-item-icon"></i> Disable notifications
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-gift dropdown-item-icon"></i> What's new?
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <span class="dropdown-header">Feedback</span>
+                              <a class="dropdown-item" href="#">
+                                <i class="bi-chat-left-dots dropdown-item-icon"></i> Report
+                              </a>
+                            </div>
+                          </div>
+                          <!-- End Unfold -->
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Nav -->
+                        <ul class="nav nav-tabs nav-justified" id="notificationTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" href="#notificationNavOne" id="notificationNavOne-tab" data-bs-toggle="tab" data-bs-target="#notificationNavOne" role="tab" aria-controls="notificationNavOne" aria-selected="true">Messages (3)</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#notificationNavTwo" id="notificationNavTwo-tab" data-bs-toggle="tab" data-bs-target="#notificationNavTwo" role="tab" aria-controls="notificationNavTwo" aria-selected="false">Archived</a>
+                          </li>
+                        </ul>
+                        <!-- End Nav -->
+
+                        <!-- Body -->
+                        <div class="card-body-height">
+                          <!-- Tab Content -->
+                          <div class="tab-content" id="notificationTabContent">
+                            <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
+                              <!-- List Group -->
+                              <ul class="list-group list-group-flush navbar-card-list-group">
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck1" checked>
+                                          <label class="form-check-label" for="notificationCheck1"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <img class="avatar avatar-sm avatar-circle" src="/dashboard/assets/img/160x160/img3.jpg" alt="Image Description">
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Brian Warner</h5>
+                                      <p class="text-body fs-5">changed an issue from "In Progress" to <span class="badge bg-success">Review</span></p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">2hr</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck2" checked>
+                                          <label class="form-check-label" for="notificationCheck2"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                          <span class="avatar-initials">K</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Klara Hampton</h5>
+                                      <p class="text-body fs-5">mentioned you in a comment</p>
+                                      <blockquote class="blockquote blockquote-sm">
+                                        Nice work, love! You really nailed it. Keep it up!
+                                      </blockquote>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">10hr</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck3" checked>
+                                          <label class="form-check-label" for="notificationCheck3"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-circle">
+                                          <img class="avatar-img" src="/dashboard/assets/img/160x160/img10.jpg" alt="Image Description">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Ruby Walter</h5>
+                                      <p class="text-body fs-5">joined the Slack group HS Team</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">3dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck4">
+                                          <label class="form-check-label" for="notificationCheck4"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-circle">
+                                          <img class="avatar-img" src="/dashboard/assets/svg/brands/google-icon.svg" alt="Image Description">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">from Google</h5>
+                                      <p class="text-body fs-5">Start using forms to capture the information of prospects visiting your Google website</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">17dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck5">
+                                          <label class="form-check-label" for="notificationCheck5"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-circle">
+                                          <img class="avatar-img" src="/dashboard/assets/img/160x160/img7.jpg" alt="Image Description">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Sara Villar</h5>
+                                      <p class="text-body fs-5">completed <i class="bi-journal-bookmark-fill text-primary"></i> FD-7 task</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">2mn</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+                              </ul>
+                              <!-- End List Group -->
+                            </div>
+
+                            <div class="tab-pane fade" id="notificationNavTwo" role="tabpanel" aria-labelledby="notificationNavTwo-tab">
+                              <!-- List Group -->
+                              <ul class="list-group list-group-flush navbar-card-list-group">
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck6">
+                                          <label class="form-check-label" for="notificationCheck6"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                          <span class="avatar-initials">A</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Anne Richard</h5>
+                                      <p class="text-body fs-5">accepted your invitation to join Notion</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">1dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck7">
+                                          <label class="form-check-label" for="notificationCheck7"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-circle">
+                                          <img class="avatar-img" src="/dashboard/assets/img/160x160/img5.jpg" alt="Image Description">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Finch Hoot</h5>
+                                      <p class="text-body fs-5">left Slack group HS projects</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">1dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck8">
+                                          <label class="form-check-label" for="notificationCheck8"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-dark avatar-circle">
+                                          <span class="avatar-initials">HS</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Htmlstream</h5>
+                                      <p class="text-body fs-5">you earned a "Top endorsed" <i class="bi-patch-check-fill text-primary"></i> badge</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">6dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck9">
+                                          <label class="form-check-label" for="notificationCheck9"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-circle">
+                                          <img class="avatar-img" src="/dashboard/assets/img/160x160/img8.jpg" alt="Image Description">
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Linda Bates</h5>
+                                      <p class="text-body fs-5">Accepted your connection</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">17dy</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+
+                                <!-- Item -->
+                                <li class="list-group-item form-check-select">
+                                  <div class="row">
+                                    <div class="col-auto">
+                                      <div class="d-flex align-items-center">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="notificationCheck10">
+                                          <label class="form-check-label" for="notificationCheck10"></label>
+                                          <span class="form-check-stretched-bg"></span>
+                                        </div>
+                                        <div class="avatar avatar-sm avatar-soft-dark avatar-circle">
+                                          <span class="avatar-initials">L</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <div class="col ms-n2">
+                                      <h5 class="mb-1">Lewis Clarke</h5>
+                                      <p class="text-body fs-5">completed <i class="bi-journal-bookmark-fill text-primary"></i> FD-134 task</p>
+                                    </div>
+                                    <!-- End Col -->
+
+                                    <small class="col-auto text-muted text-cap">2mts</small>
+                                    <!-- End Col -->
+                                  </div>
+                                  <!-- End Row -->
+
+                                  <a class="stretched-link" href="#"></a>
+                                </li>
+                                <!-- End Item -->
+                              </ul>
+                              <!-- End List Group -->
+                            </div>
+                          </div>
+                          <!-- End Tab Content -->
+                        </div>
+                        <!-- End Body -->
+
+                        <!-- Card Footer -->
+                        <a class="card-footer text-center" href="#">
+                          View all notifications <i class="bi-chevron-right"></i>
+                        </a>
+                        <!-- End Card Footer -->
+                      </div>
+                    </div>
+                    <!-- End Notification -->
+                  </li>
+
+                  <li class="nav-item d-none d-sm-inline-block">
+                    <!-- Apps -->
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-icon btn-ghost-light rounded-circle" id="navbarAppsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                        <i class="bi-app-indicator"></i>
+                      </button>
+
+                      <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarAppsDropdown" style="width: 25rem;">
+                        <!-- Header -->
+                        <div class="card-header">
+                          <h4 class="card-title">Web apps &amp; services</h4>
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Body -->
+                        <div class="card-body card-body-height">
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/atlassian-icon.svg" alt="Image Description">
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">Atlassian</h5>
+                                <p class="card-text text-body">Security and control across Cloud</p>
+                              </div>
+                            </div>
+                          </a>
+
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/slack-icon.svg" alt="Image Description">
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">Slack <span class="badge bg-primary rounded-pill text-uppercase ms-1">Try</span></h5>
+                                <p class="card-text text-body">Email collaboration software</p>
+                              </div>
+                            </div>
+                          </a>
+
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">Google webdev</h5>
+                                <p class="card-text text-body">Work involved in developing a website</p>
+                              </div>
+                            </div>
+                          </a>
+
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/brands/frontapp-icon.svg" alt="Image Description">
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">Frontapp</h5>
+                                <p class="card-text text-body">The inbox for teams</p>
+                              </div>
+                            </div>
+                          </a>
+
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <img class="avatar avatar-xs avatar-4x3" src="/dashboard/assets/svg/illustrations/review-rating-shield.svg" alt="Image Description">
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">HS Support</h5>
+                                <p class="card-text text-body">Customer service and support</p>
+                              </div>
+                            </div>
+                          </a>
+
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+                              <div class="flex-shrink-0">
+                                <div class="avatar avatar-sm avatar-soft-dark">
+                                  <span class="avatar-initials"><i class="bi-grid"></i></span>
+                                </div>
+                              </div>
+                              <div class="flex-grow-1 text-truncate ms-3">
+                                <h5 class="mb-0">More Front products</h5>
+                                <p class="card-text text-body">Check out more HS products</p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <!-- End Body -->
+
+                        <!-- Footer -->
+                        <a class="card-footer text-center" href="#">
+                          View all apps <i class="bi-chevron-right"></i>
+                        </a>
+                        <!-- End Footer -->
+                      </div>
+                    </div>
+                    <!-- End Apps -->
+                  </li>
+
+                  <li class="nav-item d-none d-sm-inline-block">
+                    <!-- Activity -->
+                    <button class="btn btn-ghost-light btn-icon rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasActivityStream" aria-controls="offcanvasActivityStream">
+                      <i class="bi-x-diamond"></i>
+                    </button>
+                    <!-- Activity -->
+                  </li>
+
+                  <li class="nav-item">
+                    <!-- Style Switcher -->
+                    <div class="dropdown ">
+                      <button type="button" class="btn btn-ghost-light btn-icon rounded-circle" id="selectThemeDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+
+                      </button>
+
+                      <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="selectThemeDropdown">
+                        <a class="dropdown-item" href="#" data-icon="bi-moon-stars" data-value="auto">
+                          <i class="bi-moon-stars me-2"></i>
+                          <span class="text-truncate" title="Auto (system default)">Auto (system default)</span>
+                        </a>
+                        <a class="dropdown-item" href="#" data-icon="bi-brightness-high" data-value="default">
+                          <i class="bi-brightness-high me-2"></i>
+                          <span class="text-truncate" title="Default (light mode)">Default (light mode)</span>
+                        </a>
+                        <a class="dropdown-item active" href="#" data-icon="bi-moon" data-value="dark">
+                          <i class="bi-moon me-2"></i>
+                          <span class="text-truncate" title="Dark">Dark</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- End Style Switcher -->
+                  </li>
+
+                  <li class="nav-item">
+                    <!-- Account -->
+                    <div class="dropdown">
+                      <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+                        <div class="avatar avatar-sm avatar-circle">
+                          <img class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
+                          <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                        </div>
+                      </a>
+
+                      <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                        <div class="dropdown-item-text">
+                          <div class="d-flex align-items-center">
+                            <div class="avatar avatar-sm avatar-circle">
+                              <img class="avatar-img" src="/dashboard/assets/img/160x160/img6.jpg" alt="Image Description">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                              <h5 class="mb-0">Mark Williams</h5>
+                              <p class="card-text text-body">mark@site.com</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown1" data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
+
+                          <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown1">
+                            <a class="dropdown-item" href="#">
+                              <span class="legend-indicator bg-success me-1"></span> Available
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <span class="legend-indicator bg-danger me-1"></span> Busy
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              <span class="legend-indicator bg-warning me-1"></span> Away
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#"> Reset status
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Dropdown -->
+
+                        <a class="dropdown-item" href="#">Profile &amp; account</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="#">
+                          <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                              <div class="avatar avatar-sm avatar-dark avatar-circle">
+                                <span class="avatar-initials">HS</span>
+                              </div>
+                            </div>
+                            <div class="flex-grow-1 ms-2">
+                              <h5 class="mb-0">Htmlstream <span class="badge bg-primary rounded-pill text-uppercase ms-1">PRO</span></h5>
+                              <span class="card-text">hs.example.com</span>
+                            </div>
+                          </div>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;" id="navSubmenuPagesAccountDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Customization</a>
+
+                          <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-sub-menu" aria-labelledby="navSubmenuPagesAccountDropdown2">
+                            <a class="dropdown-item" href="#">
+                              Invite people
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              Analytics
+                              <i class="bi-box-arrow-in-up-right"></i>
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              Customize Front
+                              <i class="bi-box-arrow-in-up-right"></i>
+                            </a>
+                          </div>
+                        </div>
+                        <!-- End Dropdown -->
+
+                        <a class="dropdown-item" href="#">Manage team</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="#">Sign out</a>
+                      </div>
+                    </div>
+                    <!-- End Account -->
+                  </li>
+
+                  <li class="nav-item">
+                    <!-- Toggler -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDoubleLineContainerNavDropdown" aria-controls="navbarDoubleLineContainerNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-default">
+                        <i class="bi-list"></i>
+                      </span>
+                      <span class="navbar-toggler-toggled">
+                        <i class="bi-x"></i>
+                      </span>
+                    </button>
+                    <!-- End Toggler -->
+                  </li>
+                </ul>
+                <!-- End Navbar -->
+              </div>
+              <!-- End Content End -->
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <nav class="js-mega-menu flex-grow-1">
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarDoubleLineContainerNavDropdown">
+              <ul class="navbar-nav">
+                <!-- Dashboards -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="dashboardsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle active" href="#" role="button"><i class="bi-house-door dropdown-item-icon"></i> Dashboards</a>
+
+                  <!-- Mega Menu -->
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="dashboardsMegaMenu" style="min-width: 14rem;">
+                    <a class="dropdown-item active" href="index.html">Default</a>
+                    <a class="dropdown-item " href="dashboard-alternative.html">Alternative</a>
+                  </div>
+                  <!-- End Mega Menu -->
+                </li>
+                <!-- End Dashboards -->
+
+                <!-- Pages -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button"><i class="bi-files-alt dropdown-item-icon"></i> Pages</a>
+
+                  <!-- Mega Menu -->
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="pagesMegaMenu" style="min-width: 14rem;">
+                    <!-- Users -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="usersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Users</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="usersMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="users.html">Overview</a>
+                        <a class="dropdown-item " href="users-leaderboard.html">Leaderboard</a>
+                        <a class="dropdown-item " href="users-add-user.html">Add User <span class="badge bg-info rounded-pill ms-1">Hot</span></a>
+                      </div>
+                    </div>
+                    <!-- End Users -->
+
+                    <!-- User Profile -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="userProfileMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">User Profile <span class="badge bg-primary rounded-pill ms-1">5</span></a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="userProfileMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="user-profile.html">Profile</a>
+                        <a class="dropdown-item " href="user-profile-teams.html">Teams</a>
+                        <a class="dropdown-item " href="user-profile-projects.html">Projects</a>
+                        <a class="dropdown-item " href="user-profile-connections.html">Connections</a>
+                        <a class="dropdown-item " href="user-profile-my-profile.html">My Profile</a>
+                      </div>
+                    </div>
+                    <!-- End User Profile -->
+
+                    <!-- Account -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="accountMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Account</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="accountMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="account-settings.html">Settings</a>
+                        <a class="dropdown-item " href="account-billing.html">Billing</a>
+                        <a class="dropdown-item " href="account-invoice.html">Invoice</a>
+                      </div>
+                    </div>
+                    <!-- End Account -->
+
+                    <!-- E-commerce -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="ecommerceMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">E-commerce</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="ecommerceMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="ecommerce.html">Overview</a>
+
+                        <!-- Products -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="productsMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Products</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="productsMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-products.html">Products</a>
+                            <a class="dropdown-item " href="ecommerce-product-details.html">Product Details</a>
+                            <a class="dropdown-item " href="ecommerce-add-product.html">Add Product</a>
+                          </div>
+                        </div>
+                        <!-- End Products -->
+
+                        <!-- Products -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="ordersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Orders</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="ordersMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-orders.html">Orders</a>
+                            <a class="dropdown-item " href="ecommerce-order-details.html">Order Details</a>
+                          </div>
+                        </div>
+                        <!-- End Products -->
+
+                        <!-- Customers -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="customersMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Customers</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="customersMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="ecommerce-customers.html">Customers</a>
+                            <a class="dropdown-item " href="ecommerce-customer-details.html">Customer Details</a>
+                            <a class="dropdown-item " href="ecommerce-add-customers.html">Add Customers</a>
+                          </div>
+                        </div>
+                        <!-- End Customers -->
+
+                        <a class="dropdown-item " href="ecommerce-referrals.html">Referrals</a>
+                        <a class="dropdown-item " href="ecommerce-manage-reviews.html">Manage Reviews</a>
+                        <a class="dropdown-item " href="ecommerce-checkout.html">Checkout</a>
+                      </div>
+                    </div>
+                    <!-- End E-commerce -->
+
+                    <!-- Projects -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="projectsMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Projects</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="projectsMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="projects.html">Overview</a>
+                        <a class="dropdown-item " href="projects-timeline.html">Timeline</a>
+                      </div>
+                    </div>
+                    <!-- End Projects -->
+
+                    <!-- Project -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="projectMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Project</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="projectMegaMenu" style="min-width: 14rem;">
+                        <a class="dropdown-item " href="project.html">Overview</a>
+                        <a class="dropdown-item " href="project-files.html">Files</a>
+                        <a class="dropdown-item " href="project-activity.html">Activity</a>
+                        <a class="dropdown-item " href="project-teams.html">Teams</a>
+                        <a class="dropdown-item " href="project-settings.html">Settings</a>
+                      </div>
+                    </div>
+                    <!-- End Project -->
+
+                    <!-- Authentication -->
+                    <div class="hs-has-sub-menu nav-item">
+                      <a id="authenticationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Authentication</a>
+
+                      <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="authenticationMegaMenu" style="min-width: 14rem;">
+                        <!-- Log In -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="loginMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Log In</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="loginMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-login-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-login-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Log In -->
+
+                        <!-- Sign Up -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="signupMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Sign Up</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="signupMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-signup-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-signup-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Sign Up -->
+
+                        <!-- Reset Password -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="resetPasswordMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Reset Password</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="resetPasswordMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-reset-password-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-reset-password-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Reset Password -->
+
+                        <!-- Email Verification -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="emailVerificationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">Email Verification</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="emailVerificationMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-email-verification-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-email-verification-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End Email Verification -->
+
+                        <!-- 2-step Verification -->
+                        <div class="hs-has-sub-menu nav-item">
+                          <a id="2stepVerificationMegaMenu" class="hs-mega-menu-invoker dropdown-item dropdown-toggle " href="#" role="button">2-step Verification</a>
+
+                          <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="2stepVerificationMegaMenu" style="min-width: 14rem;">
+                            <a class="dropdown-item " href="authentication-2-step-verification-basic.html">Basic</a>
+                            <a class="dropdown-item " href="authentication-2-step-verification-cover.html">Cover</a>
+                          </div>
+                        </div>
+                        <!-- End 2-step Verification -->
+
+                        <a class="dropdown-item" href="javascript:;" data-bs-toggle="modal" data-bs-target="#welcomeMessageModal">Welcome Message</a>
+                        <a class="dropdown-item " href="error-404.html">Error 404</a>
+                        <a class="dropdown-item " href="error-500.html">Error 500</a>
+                      </div>
+                    </div>
+                    <!-- End Authentication -->
+
+                    <a class="dropdown-item " href="api-keys.html" data-placement="left">API Keys</a>
+                    <a class="dropdown-item " href="welcome-page.html" data-placement="left">Welcome Page</a>
+                    <a class="dropdown-item " href="landing.html" data-placement="left">Landing Page <span class="badge bg-info rounded-pill ms-1">New</span></a>
+                  </div>
+                  <!-- End Mega Menu -->
+                </li>
+                <!-- End Pages -->
+
+                <!-- Apps -->
+                <li class="hs-has-sub-menu nav-item">
+                  <a id="appsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button"><i class="bi-app-indicator dropdown-item-icon"></i> Apps</a>
+
+                  <div class="hs-sub-menu dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="appsMegaMenu" style="min-width: 14rem;">
+                    <a class="dropdown-item " href="apps-kanban.html">Kanban</a>
+                    <a class="dropdown-item " href="apps-calendar.html">Calendar</a>
+                    <a class="dropdown-item " href="apps-invoice-generator.html">Invoice Generator</a>
+                    <a class="dropdown-item " href="apps-file-manager.html">File Manager</a>
+                  </div>
+                </li>
+                <!-- End Apps -->
+
+                <li class="nav-item">
+                  <a class="nav-link " href="layouts/index.html">
+                    <i class="bi-grid-1x2 dropdown-item-icon"></i> Layouts
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link " href="documentation/index.html" data-placement="left">
+                    <i class="bi-book dropdown-item-icon"></i> Docs
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+            <!-- End Collapse -->
+          </nav>
+        </div>
+      </header>
+      <!-- End Double Header -->
+    </div>
+  </div>
+
+  <script src="/dashboard/assets/js/demo.js"></script>
+
+  <!-- END ONLY DEV -->
+
+  <!-- ========== SECONDARY CONTENTS ========== -->
+  <!-- Keyboard Shortcuts -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasKeyboardShortcuts" aria-labelledby="offcanvasKeyboardShortcutsLabel">
+    <div class="offcanvas-header">
+      <h4 id="offcanvasKeyboardShortcutsLabel" class="mb-0">Keyboard shortcuts</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+        <div class="list-group-item">
+          <h5 class="mb-1">Formatting</h5>
+        </div>
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span class="fw-semi-bold">Bold</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">b</kbd>
+            </div>
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <em>italic</em>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">i</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <u>Underline</u>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">u</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <s>Strikethrough</s>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+              <!-- End Col -->
+            </div>
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span class="small">Small text</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <mark>Highlight</mark>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">e</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+      </div>
+
+      <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+        <div class="list-group-item">
+          <h5 class="mb-1">Insert</h5>
+        </div>
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Mention person <a href="#">(@Brian)</a></span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">@</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Link to doc <a href="#">(+Meeting notes)</a></span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">+</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <a href="#">#hashtag</a>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">#hashtag</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Date</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">/date</kbd>
+              <kbd class="d-inline-block mb-1">Space</kbd>
+              <kbd class="d-inline-block mb-1">/datetime</kbd>
+              <kbd class="d-inline-block mb-1">/datetime</kbd>
+              <kbd class="d-inline-block mb-1">Space</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Time</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">/time</kbd>
+              <kbd class="d-inline-block mb-1">Space</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Note box</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">/note</kbd>
+              <kbd class="d-inline-block mb-1">Enter</kbd>
+              <kbd class="d-inline-block mb-1">/note red</kbd>
+              <kbd class="d-inline-block mb-1">/note red</kbd>
+              <kbd class="d-inline-block mb-1">Enter</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+      </div>
+
+      <div class="list-group list-group-sm list-group-flush list-group-no-gutters mb-5">
+        <div class="list-group-item">
+          <h5 class="mb-1">Editing</h5>
+        </div>
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Find and replace</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">r</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Find next</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">n</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Find previous</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">p</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Indent</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Tab</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Un-indent</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Tab</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Move line up</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1"><i class="bi-arrow-up-short"></i></kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Move line down</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1"><i class="bi-arrow-down-short fs-5"></i></kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Add a comment</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">m</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Undo</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">z</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Redo</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">y</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+      </div>
+
+      <div class="list-group list-group-sm list-group-flush list-group-no-gutters">
+        <div class="list-group-item">
+          <h5 class="mb-1">Application</h5>
+        </div>
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Create new doc</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">n</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Present</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">p</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Share</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Search docs</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">o</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+        <div class="list-group-item">
+          <div class="row align-items-center">
+            <div class="col-5">
+              <span>Keyboard shortcuts</span>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-7 text-end">
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">/</kbd>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Row -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Keyboard Shortcuts -->
+
+  <!-- Activity -->
+  <%- include('Partes/actividadesProf') %> 
+  <!-- End Activity -->
+
+
+
+  <!-- End Welcome Message Modal -->
+  <!-- ========== END SECONDARY CONTENTS ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="/dashboard/assets/js/vendor.min.js"></script>
+
+  <!-- JS Front -->
+  <script src="/dashboard/assets/js/theme.min.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      window.onload = function () {
+        
+
+        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+        // =======================================================
+        new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        new HSFormSearch('.js-form-search')
+
+
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
+
+
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
+
+
+        // INITIALIZATION OF INPUT MASK
+        // =======================================================
+        HSCore.components.HSMask.init('.js-input-mask')
+
+
+        // INITIALIZATION OF FILE ATTACHMENT
+        // =======================================================
+        new HSFileAttach('.js-file-attach')
+
+
+        // INITIALIZATION OF STICKY BLOCKS
+        // =======================================================
+        new HSStickyBlock('.js-sticky-block', {
+          targetSelector: document.getElementById('header').classList.contains('navbar-fixed') ? '#header' : null
+        })
+
+
+        // SCROLLSPY
+        // =======================================================
+        new bootstrap.ScrollSpy(document.body, {
+          target: '#navbarSettings',
+          offset: 100
+        })
+
+        new HSScrollspy('#navbarVerticalNavMenu', {
+          breakpoint: 'lg',
+          scrollOffset: -20
+        })
+      }
+    })()
+  </script>
+
+  <!-- Style Switcher JS -->
+
+  <script>
+      (function () {
+        // STYLE SWITCHER
+        // =======================================================
+        const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
+        const $variants = document.querySelectorAll(`[aria-labelledby="selectThemeDropdown"] [data-icon]`) // All items of the dropdown
+
+        // Function to set active style in the dorpdown menu and set icon for dropdown trigger
+        const setActiveStyle = function () {
+          $variants.forEach($item => {
+            if ($item.getAttribute('data-value') === HSThemeAppearance.getOriginalAppearance()) {
+              $dropdownBtn.innerHTML = `<i class="${$item.getAttribute('data-icon')}" />`
+              return $item.classList.add('active')
+            }
+
+            $item.classList.remove('active')
+          })
+        }
+
+        // Add a click event to all items of the dropdown to set the style
+        $variants.forEach(function ($item) {
+          $item.addEventListener('click', function () {
+            HSThemeAppearance.setAppearance($item.getAttribute('data-value'))
+          })
+        })
+
+        // Call the setActiveStyle on load page
+        setActiveStyle()
+
+        // Add event listener on change style to call the setActiveStyle function
+        window.addEventListener('on-hs-appearance-change', function () {
+          setActiveStyle()
+        })
+      })()
+    </script>
+
+  <!-- End Style Switcher JS -->
+  <%- include('Partes/dependencia') %> 
+  <script>
+    const formData=(e)=> {
+      const nomeProf=document.getElementById('nomeProf').value;
+      const emailProf=document.getElementById('emailProf').value;
+      const NIFProf=document.getElementById('NIFProf').value;
+      const userProf=document.getElementById('userProf').value;
+      const telProf=document.getElementById('telProf').value;
+      const enderecoProf=document.getElementById('enderecoProf').value;
+      const residenciaProf=document.getElementById('residenciaProf').value;
+      const descProf=document.getElementById('descProf').value;
+      const imgProf=document.getElementById('avatarUploader').files[0];
+
+      document.getElementById('nomeProf_').innerHTML=nomeProf; 
+      document.getElementById('emailProf_').innerHTML=emailProf;
+      document.getElementById('NIFProf_').innerHTML=NIFProf;
+      document.getElementById('userProf_').innerHTML=userProf;
+      document.getElementById('telProf_').innerHTML=telProf;
+      document.getElementById('enderecoProf_').innerHTML=enderecoProf;
+      document.getElementById('residenciaProf_').innerHTML=residenciaProf;
+      document.getElementById('descProf_').innerHTML=descProf;
+      // document.getElementById('avatarUploader').files[0];
+      document.getElementById('imgProff').setAttribute('src', document.getElementById('avatarImg').getAttribute('src'));
+      console.log(document.getElementById('avatarImg').getAttribute('src'));
+    }
+
+
+    function EnviarDados() {
+      const nomeProf=document.getElementById('nomeProf').value;
+      const emailProf=document.getElementById('emailProf').value;
+      const userProf=document.getElementById('userProf').value;
+      const telProf=document.getElementById('telProf').value;
+      const enderecoProf=document.getElementById('enderecoProf').value;
+      const residenciaProf=document.getElementById('residenciaProf').value;
+      const descProf=document.getElementById('descProf').value;
+      const imgProf=document.getElementById('avatarUploader').files[0];
+
+      //nomeProf, emailProf, userProf, telProf, enderecoProf, residenciaProf, descProf, imgProf
+      const Dados= new FormData();
+      Dados.append('nomeProf',nomeProf)
+      Dados.append('emailProf',emailProf)
+      Dados.append('userProf',userProf)
+      Dados.append('telProf',telProf)
+      Dados.append('enderecoProf',enderecoProf)
+      Dados.append('residenciaProf',residenciaProf)
+      Dados.append('descProf',descProf)
+      Dados.append('image',imgProf)
+
+      const options = {
+        method: 'POST',
+        body: Dados,
+      };
+
+      fetch('http://localhost:1200/editarProf', options).then(data => {
+        return data.json();
+      }).then(data => {
+        if(data.error){
+          document.getElementById('result').innerHTML =data.error; 
+          document.getElementById('result').setAttribute('class', 'text-danger')
+        }else{
+          document.getElementById('result').innerHTML =data.certo;
+          document.getElementById('result').setAttribute('class', 'text-success')
+          window.location="/listaFormador"
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
+
+      
+    }
+
+  </script>
+</body>
+
+<!-- Mirrored from htmlstream.com/preview/front-dashboard-v2.0/account-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jul 2022 06:37:13 GMT -->
+</html>

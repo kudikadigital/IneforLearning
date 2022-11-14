@@ -6,10 +6,13 @@ export async function up(knex: Knex) {
         table.string('imgAluno').notNullable();
         table.string('nomeAluno').notNullable();
         table.string('emailAluno').notNullable();
+        table.string('userAluno').notNullable();
         table.string('telAluno').notNullable();
         table.string('enderecoAluno').notNullable(); 
         table.string('senhaAluno').notNullable();
+        table.integer('nivelAluno').notNullable();
         table.string('estadoAluno').notNullable();
+        table.timestamp('dataAluno').defaultTo( knex.fn.now());
     })
 }
 
